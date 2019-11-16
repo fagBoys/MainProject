@@ -12,6 +12,7 @@ namespace CrestCouriers_Career.Controllers
     {
         public IActionResult Index()
         {
+            ViewData["Message"] = "Your application description page.";
             return View();
         }
 
