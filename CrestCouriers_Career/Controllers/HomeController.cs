@@ -47,8 +47,8 @@ namespace CrestCouriers_Career.Controllers
         public IActionResult Career(RegCareer career)
         {
 
-
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-N7V04NE;Initial Catalog=Crest;Integrated Security=True;");
+            connetionBD connection1 = new connetionBD ();
+            SqlConnection con = new SqlConnection(connection1.conn());
             SqlCommand cmd = new SqlCommand("sp_Crest_Add", con);
             con.Open();
 

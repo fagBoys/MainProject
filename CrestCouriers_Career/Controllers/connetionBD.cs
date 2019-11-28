@@ -9,7 +9,12 @@ namespace CrestCouriers_Career.Controllers
 {
     public class connetionBD
     {
-        SqlConnection connectionDB = new SqlConnection(@"Data Source=DESKTOP-N7V04NE;Initial Catalog=Crest;Integrated Security=True;");
 
+
+        public string conn() { 
+        string con = @"Data Source=DESKTOP-N7V04NE;Initial Catalog=Crest;Integrated Security=True;";
+
+            return con;
+        }
     }
 }
