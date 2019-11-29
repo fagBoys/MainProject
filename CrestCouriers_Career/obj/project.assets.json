@@ -12532,23 +12532,39 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\mjn110\\.nuget\\packages\\": {},
+=======
+    "C:\\Users\\suzan\\.nuget\\packages\\": {},
+>>>>>>> 81aa0038a162f602af82c6c9ee65a815d266347b
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\mjn110\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
       "projectName": "CrestCouriers_Career",
       "projectPath": "C:\\Users\\mjn110\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
       "packagesPath": "C:\\Users\\mjn110\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\mjn110\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\suzan\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
+      "projectName": "CrestCouriers_Career",
+      "projectPath": "C:\\Users\\suzan\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
+      "packagesPath": "C:\\Users\\suzan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\suzan\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\obj\\",
+>>>>>>> 81aa0038a162f602af82c6c9ee65a815d266347b
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\mjn110\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+        "C:\\Users\\suzan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 81aa0038a162f602af82c6c9ee65a815d266347b
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

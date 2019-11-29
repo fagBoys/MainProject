@@ -46,9 +46,8 @@ namespace CrestCouriers_Career.Controllers
         [HttpPost]
         public IActionResult Career(RegCareer career)
         {
-
-
-            SqlConnection con = new SqlConnection(@"Data Source=daymond;Initial Catalog=Crest;Integrated Security=True;");
+            connetionBD connection1 = new connetionBD ();
+            SqlConnection con = new SqlConnection(connection1.conn());
             SqlCommand cmd = new SqlCommand("sp_Crest_Add", con);
             con.Open();
 
@@ -61,8 +60,8 @@ namespace CrestCouriers_Career.Controllers
             cmd.Parameters.AddWithValue("@HouseNumber", career.HouseNumber);
             cmd.Parameters.AddWithValue("@RoadName", career.RoadName);
             cmd.Parameters.AddWithValue("@City", career.City);
-            cmd.Parameters.AddWithValue("@PostCode", career.Married);
-            cmd.Parameters.AddWithValue("@DriverLicence", career.PostCode);
+            cmd.Parameters.AddWithValue("@PostCode", career.PostCode);
+            cmd.Parameters.AddWithValue("@DriverLicence", career.DriverLicence);
             cmd.Parameters.AddWithValue("@Accident", career.Accident);
             cmd.Parameters.AddWithValue("@DBS", career.DBS);
             cmd.Parameters.AddWithValue("@PhoneNumber", career.PhoneNumber);
