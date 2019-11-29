@@ -48,9 +48,10 @@ namespace CrestCouriers_Career.Controllers
         {
 
 
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-9V538JM;Initial Catalog=Crest;Integrated Security=True;");
+            connectionDB connection1 = new connectionDB();
+            SqlConnection con = new SqlConnection(connection1.conn());
             SqlCommand cmd = new SqlCommand("sp_Crest_Add", con);
-            con.Open();
+            con.Open(); 
 
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@FirstName", career.FirstName);
