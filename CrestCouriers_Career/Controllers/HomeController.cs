@@ -48,11 +48,13 @@ namespace CrestCouriers_Career.Controllers
         {
 
 
-            connectionDB connection1 = new connectionDB();
-            SqlConnection con = new SqlConnection(connection1.conn());
-            SqlCommand cmd = new SqlCommand("sp_Crest_Add", con);
-            con.Open(); 
+            //connectionDB connection1 = new connectionDB();
+            //SqlConnection con = new SqlConnection(connection1.connect());
+            //SqlCommand cmd = new SqlCommand("sp_Crest_Add", con);
+            //con.Open(); 
 
+            Dal con = new Dal();
+            SqlCommand cmd = new SqlCommand("sp_Crest_Add", con.connect(con));
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@FirstName", career.FirstName);
             cmd.Parameters.AddWithValue("@LastName", career.LastName);
@@ -71,7 +73,7 @@ namespace CrestCouriers_Career.Controllers
             cmd.Parameters.AddWithValue("@UploadCV", career.UploadCV);
 
             cmd.ExecuteNonQuery();
-            con.Close();
+            con.disconnect;
 
 
 
