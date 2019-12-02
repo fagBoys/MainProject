@@ -11,13 +11,16 @@ namespace CrestCouriers_Career.Controllers
     public class Dal
     {
         SqlConnection con = new SqlConnection();
-        public void connect()
+        public SqlConnection connect()
         {
             //string con = @"Data Source=DESKTOP-N7V04NE;Initial Catalog=Crest;Integrated Security=True;";
-            con.ConnectionString= @"Data Source=DESKTOP-N7V04NE;Initial Catalog=Crest;Integrated Security=True;";
+            con.ConnectionString= @"Data Source=daymond;Initial Catalog=Crest;Integrated Security=True;";
             con.Open();
 
+            return con;
         }
+
+
 
         public void disconnect() 
         {

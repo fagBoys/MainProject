@@ -54,7 +54,7 @@ namespace CrestCouriers_Career.Controllers
             //con.Open(); 
 
             Dal con = new Dal();
-            SqlCommand cmd = new SqlCommand("sp_Crest_Add", con.connect(con));
+            SqlCommand cmd = new SqlCommand("sp_Crest_Add", con.connect());
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@FirstName", career.FirstName);
             cmd.Parameters.AddWithValue("@LastName", career.LastName);
@@ -73,7 +73,7 @@ namespace CrestCouriers_Career.Controllers
             cmd.Parameters.AddWithValue("@UploadCV", career.UploadCV);
 
             cmd.ExecuteNonQuery();
-            con.disconnect;
+            con.disconnect();
 
 
 
