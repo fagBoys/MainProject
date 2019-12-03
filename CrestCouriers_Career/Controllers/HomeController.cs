@@ -7,11 +7,22 @@ using Microsoft.AspNetCore.Mvc;
 using CrestCouriers_Career.Models;
 using System.Data.SqlClient;
 using System.Data;
+using System.IO;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
 
 namespace CrestCouriers_Career.Controllers
 {
     public class HomeController : Controller
     {
+
+        private IHostingEnvironment _environment;
+        public HomeController(IHostingEnvironment environment)
+        {
+            _environment = environment;
+        }
+
+
         public IActionResult Index()
         {
             ViewData["Message"] = "Your application description page.";
@@ -44,7 +55,8 @@ namespace CrestCouriers_Career.Controllers
 
         }
         [HttpPost]
-        public IActionResult Career(RegCareer career)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Career(RegCareer career, IFormFile UploadCV)
         {
 
 
@@ -70,14 +82,35 @@ namespace CrestCouriers_Career.Controllers
             cmd.Parameters.AddWithValue("@DBS", career.DBS);
             cmd.Parameters.AddWithValue("@PhoneNumber", career.PhoneNumber);
             cmd.Parameters.AddWithValue("@Email", career.Email);
-            cmd.Parameters.AddWithValue("@UploadCV", career.UploadCV);
+            cmd.Parameters.AddWithValue("@UploadCV", UploadCV.FileName);
 
             cmd.ExecuteNonQuery();
             con.disconnect();
 
 
+            var uploadsRootFolder = Path.Combine(_environment.WebRootPath, "uploads");
+            if (!Directory.Exists(uploadsRootFolder))
+            {
+                Directory.CreateDirectory(uploadsRootFolder);
+            }
+
+
+                if (UploadCV == null || UploadCV.Length == 0)
+                {
+                    Response.WriteAsync("Error");
+                }
+
+                var filePath = Path.Combine(uploadsRootFolder, UploadCV.FileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await UploadCV.CopyToAsync(fileStream).ConfigureAwait(false);
+                }
+            
 
             return View();
+
+
+
 
         }
 
