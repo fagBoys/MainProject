@@ -7,85 +7,115 @@
 
 <h2>Career</h2>
 
-<h4>Register for career</h4>
+<h4>Register for careers</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Career" asp-controller="Home" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
+                @*<label asp-for="FirstName" class="control-label"></label>*@
+                <input asp-for="FirstName" class="form-control2" placeholder="First name"/>
                 <span asp-validation-for="FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
+                @*<label asp-for="LastName" class="control-label"></label>*@
+                <input asp-for="LastName" class="form-control2" placeholder="Last name"/>
                 <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Gender" class="control-label"></label>
-                <input asp-for="Gender" class="form-control" />
+                @*<label asp-for="Gender" class="control-label"></label>*@
+                @*<input asp-for="Gender" class="form-control2" placeholder="Gender" />*@
+                <select asp-for="Gender" class="form-control2">
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
                 <span asp-validation-for="Gender" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Age" class="control-label"></label>
-                <input asp-for="Age" class="form-control" />
+                @*<label asp-for="Age" class="control-label"></label>*@
+                <input asp-for="Age" class="form-control2" placeholder="Age"/>
                 <span asp-validation-for="Age" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Married" class="control-label"></label>
-                <input asp-for="Married" class="form-control" />
+                @*<label asp-for="Married" class="control-label"></label>*@
+                @*<input asp-for="Married" class="form-control2" placeholder="Married"/>*@
+
+                <select asp-for="Married" class="form-control2">
+                    <option>Married</option>
+                    <option>Single</option>
+                </select>
+
                 <span asp-validation-for="Married" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HouseNumber" class="control-label"></label>
-                <input asp-for="HouseNumber" class="form-control" />
+                @*<label asp-for="HouseNumber" class="control-label"></label>*@
+                <input asp-for="HouseNumber" class="form-control2" placeholder="House number"/>
                 <span asp-validation-for="HouseNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RoadName" class="control-label"></label>
-                <input asp-for="RoadName" class="form-control" />
+                @*<label asp-for="RoadName" class="control-label"></label>*@
+                <input asp-for="RoadName" class="form-control2" placeholder="Road name"/>
                 <span asp-validation-for="RoadName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
+                @*<label asp-for="City" class="control-label"></label>*@
+                <input asp-for="City" class="form-control2" placeholder="City"/>
                 <span asp-validation-for="City" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PostCode" class="control-label"></label>
-                <input asp-for="PostCode" class="form-control" />
+                @*<label asp-for="PostCode" class="control-label"></label>*@
+                <input asp-for="PostCode" class="form-control2" placeholder="Post code"/>
                 <span asp-validation-for="PostCode" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DriverLicence" class="control-label"></label>
-                <input asp-for="DriverLicence" class="form-control" />
+                @*<label asp-for="DriverLicence" class="control-label"></label>*@
+                @*<input asp-for="DriverLicence" class="form-control2" placeholder="Driver licence"/>*@
+
+                <select asp-for="DriverLicence" class="form-control2">
+                    <option>Driver licence</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+
                 <span asp-validation-for="DriverLicence" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Accident" class="control-label"></label>
-                <input asp-for="Accident" class="form-control" />
+                @*<label asp-for="Accident" class="control-label"></label>*@
+                @*<input asp-for="Accident" class="form-control2" placeholder="Accident" />*@
+
+                <select asp-for="Accident" class="form-control2">
+                    <option>Accident</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+
                 <span asp-validation-for="Accident" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DBS" class="control-label"></label>
-                <input asp-for="DBS" class="form-control" />
-                <span asp-validation-for="DBS" class="text-danger"></span>        
+                @*<label asp-for="DBS" class="control-label"></label>*@
+                @*<input asp-for="DBS" class="form-control2" placeholder="DBS" />*@
+
+                <select asp-for="DBS" class="form-control2">
+                    <option>DBS</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+                <span asp-validation-for="DBS" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label"></label>
-                <input asp-for="PhoneNumber" class="form-control" />
+                @*<label asp-for="PhoneNumber" class="control-label"></label>*@
+                <input asp-for="PhoneNumber" class="form-control2" placeholder="Phone number" />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+                @*<label asp-for="Email" class="control-label"></label>*@
+                <input asp-for="Email" class="form-control2" placeholder="Email" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="UploadCV" class="control-label"></label>
-                <input type="file" name="UploadCV" multiple asp-for="UploadCV" class="custom-file-label" />
+                <input type="file" name="UploadCV" multiple asp-for="UploadCV" class="form-control2" />
                 
                 <span asp-validation-for="UploadCV" class="text-danger"></span>
             </div>
