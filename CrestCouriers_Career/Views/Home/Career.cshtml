@@ -14,13 +14,13 @@
         <form asp-action="Career" asp-controller="Home" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                @*<label asp-for="FirstName" class="control-label"></label>*@
-                <input asp-for="FirstName" class="form-control2" placeholder="First name"/>
+                <label asp-for="FirstName" class="control-label">Personal informations</label>
+                <input asp-for="FirstName" class="form-control2" placeholder="First name" />
                 <span asp-validation-for="FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 @*<label asp-for="LastName" class="control-label"></label>*@
-                <input asp-for="LastName" class="form-control2" placeholder="Last name"/>
+                <input asp-for="LastName" class="form-control2" placeholder="Last name" />
                 <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -34,7 +34,7 @@
             </div>
             <div class="form-group">
                 @*<label asp-for="Age" class="control-label"></label>*@
-                <input asp-for="Age" class="form-control2" placeholder="Age"/>
+                <input asp-for="Age" class="form-control2" placeholder="Age" />
                 <span asp-validation-for="Age" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -49,27 +49,27 @@
                 <span asp-validation-for="Married" class="text-danger"></span>
             </div>
             <div class="form-group">
-                @*<label asp-for="HouseNumber" class="control-label"></label>*@
-                <input asp-for="HouseNumber" class="form-control2" placeholder="House number"/>
+                <label asp-for="HouseNumber" class="control-label">Address</label>
+                <input asp-for="HouseNumber" class="form-control2" placeholder="House number" />
                 <span asp-validation-for="HouseNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 @*<label asp-for="RoadName" class="control-label"></label>*@
-                <input asp-for="RoadName" class="form-control2" placeholder="Road name"/>
+                <input asp-for="RoadName" class="form-control2" placeholder="Road name" />
                 <span asp-validation-for="RoadName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 @*<label asp-for="City" class="control-label"></label>*@
-                <input asp-for="City" class="form-control2" placeholder="City"/>
+                <input asp-for="City" class="form-control2" placeholder="City" />
                 <span asp-validation-for="City" class="text-danger"></span>
             </div>
             <div class="form-group">
                 @*<label asp-for="PostCode" class="control-label"></label>*@
-                <input asp-for="PostCode" class="form-control2" placeholder="Post code"/>
+                <input asp-for="PostCode" class="form-control2" placeholder="Post code" />
                 <span asp-validation-for="PostCode" class="text-danger"></span>
             </div>
             <div class="form-group">
-                @*<label asp-for="DriverLicence" class="control-label"></label>*@
+                <label asp-for="DriverLicence" class="control-label">Driving</label>
                 @*<input asp-for="DriverLicence" class="form-control2" placeholder="Driver licence"/>*@
 
                 <select asp-for="DriverLicence" class="form-control2">
@@ -104,7 +104,7 @@
                 <span asp-validation-for="DBS" class="text-danger"></span>
             </div>
             <div class="form-group">
-                @*<label asp-for="PhoneNumber" class="control-label"></label>*@
+                <label asp-for="PhoneNumber" class="control-label">Contact informations</label>
                 <input asp-for="PhoneNumber" class="form-control2" placeholder="Phone number" />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
@@ -113,10 +113,14 @@
                 <input asp-for="Email" class="form-control2" placeholder="Email" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
+
+            <label>UploadCV</label><br />
+
             <div class="form-group">
-                <label asp-for="UploadCV" class="control-label"></label>
-                <input type="file" name="UploadCV" multiple asp-for="UploadCV" class="form-control2" />
-                
+
+                <label asp-for="UploadCV" class="btn btn-default">Browse</label>
+                <input type="file" name="UploadCV" multiple asp-for="UploadCV" class="" style="opacity:0" accept=".pdf,.docx" />
+
                 <span asp-validation-for="UploadCV" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -132,4 +136,6 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
 }
+
