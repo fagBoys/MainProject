@@ -10,6 +10,9 @@ using System.Data;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
+using MailKit.Net.Smtp;
+using MimeKit;
+
 
 namespace CrestCouriers_Career.Controllers
 {
@@ -40,11 +43,40 @@ namespace CrestCouriers_Career.Controllers
         {
             ViewData["Message"] = "Your contact page.";
 
+            MimeMessage message = new MimeMessage();
+
+            MailboxAddress from = new MailboxAddress("amir", "j666.amir@gmail.com");
+            message.From.Add(from);
+
+            MailboxAddress to = new MailboxAddress("mjn", "mjn220@gmail.com");
+            message.To.Add(to);
+
+            message.Subject = "Register for career";
+
+            BodyBuilder bodyBuilder = new BodyBuilder();
+            bodyBuilder.HtmlBody = "<h1>Hello World!</h1>";
+            //bodyBuilder.TextBody = "Hello World!";
+
+
+            message.Body = bodyBuilder.ToMessageBody();
+
+
+            SmtpClient client = new SmtpClient();
+            client.Connect("smtp.gmail.com", 465, true);
+            client.Authenticate("j666.amir@gmail.com", "09379977212Am");
+
+
+            client.Send(message);
+            client.Disconnect(true);
+            client.Dispose();
+
             return View();
         }
 
         public IActionResult Privacy()
         {
+
+
             return View();
         }
 
@@ -86,6 +118,42 @@ namespace CrestCouriers_Career.Controllers
 
             cmd.ExecuteNonQuery();
             con.disconnect();
+            ////    Send Email     ///////
+            MimeMessage message = new MimeMessage();
+
+            MailboxAddress from = new MailboxAddress("amir", "j666.amir@gmail.com");
+            message.From.Add(from);
+
+            MailboxAddress to = new MailboxAddress("mjn","mjn220@gmail.com");
+            message.To.Add(to);
+
+            message.Subject = "Register for career";
+
+            BodyBuilder bodyBuilder = new BodyBuilder();
+            bodyBuilder.HtmlBody = $"<h2>FirstName</h2><br/><h3>{ career.FirstName}</h3><br/>" +$"<h2>LastName</h2><br/><h3>{ career.LastName}</h3><br/>" + $"<h2>Gender</h2><br/><h3>{ career.Gender}</h3><br/>"
+                + $"<h2>Age</h2><br/><h3>{ career.Age}</h3><br/>" + $"<h2>Married</h2><br/><h3>{ career.Married}</h3><br/>" + $"<h2>HouseNumber</h2><br/><h3>{ career.HouseNumber}</h3><br/>"
+                + $"<h2>RoadName</h2><br/><h1>{ career.RoadName}</h1><br/>" + $"<h2>City</h2><br/><h1>{career.City}</h1><br/>" + $"<h2>PostCode</h2><br/><h3>{ career.PostCode}</h3><br/>"
+                + $"<h2>DriverLicence</h2><br/><h3>{ career.DriverLicence}</h3><br/>" + $"<h2>Accident</h2><br/><h3>{ career.Accident}</h3><br/>" + $"<h3>DBS</h3><br/><h1>{ career.DBS}</h1><br/>"
+                + $"<h2>PhoneNumber</h2><br/><h3>{ career.PhoneNumber}</h3><br/>" + $"<h2>Email</h2><br/><h3>{ career.Email}</h3><br/>" + $"<h3>UploadCV</h3><br/><h1>{ career.UploadCV}</h1><br/>";
+
+            //bodyBuilder.TextBody = "Hello World!";
+
+
+            message.Body = bodyBuilder.ToMessageBody();
+
+
+            SmtpClient client = new SmtpClient();
+            client.Connect("smtp.gmail.com", 465, true);
+            client.Authenticate("j666.amir@gmail.com", "09379977212Am");
+
+
+            client.Send(message);
+            client.Disconnect(true);
+            client.Dispose();
+            //Response.WriteAsync("your Email  Has been send");
+            //Response.Redirect(https://localhost:44325/Home/Career);
+            ///////   End Send Email    //////////
+
 
 
             var uploadsRootFolder = Path.Combine(_environment.WebRootPath, "uploads");
