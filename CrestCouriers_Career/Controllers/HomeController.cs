@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using MailKit.Net.Smtp;
 using MimeKit;
-
+using reCAPTCHA.AspNetCore;
 
 namespace CrestCouriers_Career.Controllers
 {
@@ -20,9 +20,13 @@ namespace CrestCouriers_Career.Controllers
     {
 
         private IHostingEnvironment _environment;
-        public HomeController(IHostingEnvironment environment)
+
+        private IRecaptchaService _recaptcha;
+        public HomeController(IHostingEnvironment environment, IRecaptchaService recaptcha)
         {
             _environment = environment;
+
+            _recaptcha = recaptcha;
         }
 
 
@@ -90,6 +94,12 @@ namespace CrestCouriers_Career.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Career(RegCareer career, IFormFile UploadCV)
         {
+            //Recaptcha code begins here
+            var recaptcha = await _recaptcha.Validate(Request);
+            if (!recaptcha.success)
+                ModelState.AddModelError("Recaptcha", "There was an error validating recatpcha. Please try again!");
+            //Recaptcha code ends here
+
 
 
             //connectionDB connection1 = new connectionDB();
@@ -134,7 +144,7 @@ namespace CrestCouriers_Career.Controllers
                 + $"<h2>Age</h2><br/><h3>{ career.Age}</h3><br/>" + $"<h2>Married</h2><br/><h3>{ career.Married}</h3><br/>" + $"<h2>HouseNumber</h2><br/><h3>{ career.HouseNumber}</h3><br/>"
                 + $"<h2>RoadName</h2><br/><h1>{ career.RoadName}</h1><br/>" + $"<h2>City</h2><br/><h1>{career.City}</h1><br/>" + $"<h2>PostCode</h2><br/><h3>{ career.PostCode}</h3><br/>"
                 + $"<h2>DriverLicence</h2><br/><h3>{ career.DriverLicence}</h3><br/>" + $"<h2>Accident</h2><br/><h3>{ career.Accident}</h3><br/>" + $"<h3>DBS</h3><br/><h1>{ career.DBS}</h1><br/>"
-                + $"<h2>PhoneNumber</h2><br/><h3>{ career.PhoneNumber}</h3><br/>" + $"<h2>Email</h2><br/><h3>{ career.Email}</h3><br/>" + $"<h3>UploadCV</h3><br/><h1>{ career.UploadCV}</h1><br/>";
+                + $"<h2>PhoneNumber</h2><br/><h3>{ career.PhoneNumber}</h3><br/>" + $"<h2>Email</h2><br/><h3>{ career.Email}</h3><br/>" + $"<h3>UploadCV</h3><br/><h1>{ UploadCV.FileName}</h1><br/>";
 
             //bodyBuilder.TextBody = "Hello World!";
 
@@ -173,9 +183,9 @@ namespace CrestCouriers_Career.Controllers
                 {
                     await UploadCV.CopyToAsync(fileStream).ConfigureAwait(false);
                 }
-            
 
-            return View();
+
+            return View(!ModelState.IsValid ? career : new RegCareer());
 
 
 

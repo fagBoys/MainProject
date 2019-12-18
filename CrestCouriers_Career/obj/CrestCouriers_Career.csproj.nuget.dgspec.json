@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\suzan\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\CrestCouriers_Career.csproj": {}
+    "C:\\Users\\mjn110\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\CrestCouriers_Career.csproj": {}
   },
   "projects": {
-    "C:\\Users\\suzan\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\CrestCouriers_Career.csproj": {
+    "C:\\Users\\mjn110\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\CrestCouriers_Career.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\suzan\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
+        "projectUniqueName": "C:\\Users\\mjn110\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
         "projectName": "CrestCouriers_Career",
-        "projectPath": "C:\\Users\\suzan\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
-        "packagesPath": "C:\\Users\\suzan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\suzan\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\obj\\",
+        "projectPath": "C:\\Users\\mjn110\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
+        "packagesPath": "C:\\Users\\mjn110\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mjn110\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\suzan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mjn110\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,6 +68,10 @@
             "MimeKit": {
               "target": "Package",
               "version": "[2.4.1, )"
+            },
+            "reCAPTCHA.AspNetCore": {
+              "target": "Package",
+              "version": "[2.1.3, )"
             }
           },
           "imports": [

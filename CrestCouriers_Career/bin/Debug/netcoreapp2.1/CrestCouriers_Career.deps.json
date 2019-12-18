@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "b61047d43db6a867dc519bc0fdbfeaec2a6c4085"
+    "signature": "c8bb5dfa214739d5b59e59be5fe49d1897da7951"
   },
   "compilationOptions": {
     "defines": [
@@ -29,7 +29,8 @@
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
           "Microsoft.NETCore.App": "2.1.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.10",
-          "MimeKit": "2.4.1"
+          "MimeKit": "2.4.1",
+          "reCAPTCHA.AspNetCore": "2.1.3"
         },
         "runtime": {
           "CrestCouriers_Career.dll": {}
@@ -430,6 +431,21 @@
         },
         "compile": {
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
+        }
+      },
+      "reCAPTCHA.AspNetCore/2.1.3": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.1.1",
+          "Microsoft.NETCore.App": "2.1.0"
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/reCAPTCHA.AspNetCore.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp2.0/reCAPTCHA.AspNetCore.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
@@ -3823,6 +3839,13 @@
       "sha512": "sha512-EaCgmntbH1sOzemRTqyXSqYjB6pLH7VCYHhhDYZ59guHSD5qPwhIYa7kfy0QUlmTRt9IXhaXdFhNuBUArp70Ng==",
       "path": "portable.bouncycastle/1.8.5",
       "hashPath": "portable.bouncycastle.1.8.5.nupkg.sha512"
+    },
+    "reCAPTCHA.AspNetCore/2.1.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CUoCJslzHpbYnu3nY0QTpDz6QNpha9qolvfFb31WTIvLzwGAw7DtCRKjr+PPkmXwRuuNP7SD1/KCEpeF1khseQ==",
+      "path": "recaptcha.aspnetcore/2.1.3",
+      "hashPath": "recaptcha.aspnetcore.2.1.3.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
       "type": "package",
