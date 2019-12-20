@@ -68,6 +68,10 @@
             "MimeKit": {
               "target": "Package",
               "version": "[2.4.1, )"
+            },
+            "reCAPTCHA.AspNetCore": {
+              "target": "Package",
+              "version": "[2.1.3, )"
             }
           },
           "imports": [
