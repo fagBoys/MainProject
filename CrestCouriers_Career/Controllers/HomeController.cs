@@ -140,11 +140,74 @@ namespace CrestCouriers_Career.Controllers
             message.Subject = "Register for career";
 
             BodyBuilder bodyBuilder = new BodyBuilder();
-            bodyBuilder.HtmlBody = $"<h2>FirstName</h2><br/><h3>{ career.FirstName}</h3><br/>" +$"<h2>LastName</h2><br/><h3>{ career.LastName}</h3><br/>" + $"<h2>Gender</h2><br/><h3>{ career.Gender}</h3><br/>"
-                + $"<h2>Age</h2><br/><h3>{ career.Age}</h3><br/>" + $"<h2>Married</h2><br/><h3>{ career.Married}</h3><br/>" + $"<h2>HouseNumber</h2><br/><h3>{ career.HouseNumber}</h3><br/>"
-                + $"<h2>RoadName</h2><br/><h1>{ career.RoadName}</h1><br/>" + $"<h2>City</h2><br/><h1>{career.City}</h1><br/>" + $"<h2>PostCode</h2><br/><h3>{ career.PostCode}</h3><br/>"
-                + $"<h2>DriverLicence</h2><br/><h3>{ career.DriverLicence}</h3><br/>" + $"<h2>Accident</h2><br/><h3>{ career.Accident}</h3><br/>" + $"<h3>DBS</h3><br/><h1>{ career.DBS}</h1><br/>"
-                + $"<h2>PhoneNumber</h2><br/><h3>{ career.PhoneNumber}</h3><br/>" + $"<h2>Email</h2><br/><h3>{ career.Email}</h3><br/>" + $"<h3>UploadCV</h3><br/><h1>{ UploadCV.FileName}</h1><br/>";
+            bodyBuilder.HtmlBody = $"<div class='container'>" +
+  $"< table class='table table-bordered'>" +
+    $"<thead>" +
+      $"<tr>" +
+        $"<td>Firstname :</td>" +
+        $"<td>{career.FirstName}</td>" +
+      $"</tr>" +
+    $"</thead>" +
+    $"<tbody>" +
+      $"<tr>" +
+        $"<td>Lastname :</td>" +
+        $"<td>{career.LastName}</td>" +
+      $"</tr>" +
+      $"<tr>" +
+        $"<td>Gender :</td>" +
+        $"<td>{career.Gender}</td>" +
+      $"</tr>" +
+      $"<tr>" +
+        $"<td>Age :</td>" +
+        $"<td>{career.Age}</td>" +
+      $"</tr>" +
+      $"<tr>" +
+        $"<td>Married :</td>" +
+        $"<td>{career.Married}</td>" +
+      $"</tr>" +
+      $"<tr>" +
+        $"<td>HouseNumber :</td>" +
+        $"<td>{career.HouseNumber}</td>" +
+      $"</tr>" +
+      $"<tr>" +
+        $"<td>RoadName :</td>" +
+        $"<td>{career.RoadName}</td>" +
+      $"</tr>" +
+      $"<tr>" +
+        $"<td>City :</td>" +
+        $"<td>{career.City}</td>" +
+      $"</tr>" +
+      $"<tr>" +
+        $"<td>PostCode :</td>" +
+        $"<td>{career.PostCode}</td>" +
+      $"</tr>" +
+      $"<tr>" +
+        $"<td>DriverLicence :</td>" +
+        $"<td>{career.DriverLicence}</td>" +
+      $"</tr>" +
+      $"<tr>" +
+        $"<td>Accident :</td>" +
+        $"<td>{career.Accident}</td>" +
+      $"</tr>" +
+      $"<tr>" +
+        $"<td>DBS :</td>" +
+        $"<td>{career.DBS}</td>" +
+      $"</tr>" +
+      $"<tr>" +
+        $"<td>PhoneNumber :</td>" +
+        $"<td>{career.PhoneNumber}</td>" +
+      $"</tr>" +
+      $"<tr>" +
+        $"<td>Email :</td>" +
+        $"<td>{career.Email}</td>" +
+      $"</tr>" +
+      $"<tr>" +
+        $"<td>UploadCV :</td>" +
+        $"<td>{career.UploadCV}</td>" +
+      $"</tr>" +
+    $"</tbody>" +
+  $"</table>" +
+$"</div>"; 
 
             //bodyBuilder.TextBody = "Hello World!";
 
