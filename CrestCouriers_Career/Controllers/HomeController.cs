@@ -36,7 +36,7 @@ namespace CrestCouriers_Career.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Career_delivery()
         {
             ViewData["Message"] = "Your application description page.";
 
@@ -92,7 +92,7 @@ namespace CrestCouriers_Career.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Career(RegCareer career, IFormFile UploadCV)
+        public async Task<IActionResult> Career(RegCareer career, IFormFile UploadCV , EmailRequest emailRequest)
         {
             //Recaptcha code begins here
             var recaptcha = await _recaptcha.Validate(Request);
@@ -207,9 +207,14 @@ namespace CrestCouriers_Career.Controllers
       $"</tr>" +
     $"</tbody>" +
   $"</table>" +
-$"</div>"; 
+$"</div>";
 
             //bodyBuilder.TextBody = "Hello World!";
+
+
+            //Attachment started
+
+            //ended
 
 
             message.Body = bodyBuilder.ToMessageBody();
@@ -248,10 +253,11 @@ $"</div>";
                 }
 
 
+            
             return View(!ModelState.IsValid ? career : new RegCareer());
 
 
-
+                 Response.Redirect("Career_delivery");
 
         }
 
