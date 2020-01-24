@@ -9,9 +9,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <div style="margin-top:3%;">
-        <p style="font-weight:900; font-size:30px;">Career</p>
-    </div>
+<h2>Career</h2>
+
 <h4>Register for careers</h4>
 <hr />
 <div class="row">
@@ -131,14 +130,14 @@
                 @Html.Recaptcha(RecaptchaSettings.Value)
             </div>
             <div class="form-group">
-                <input type="submit" value="Submit" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to Home</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
