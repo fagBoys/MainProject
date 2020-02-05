@@ -14,7 +14,7 @@ namespace CrestCouriers_Career.Controllers
         public SqlConnection connect()
         {
             //string con = @"Data Source=DESKTOP-N7V04NE;Initial Catalog=Crest;Integrated Security=True;";
-            con.ConnectionString= @"Data Source=DESKTOP-9V538JM;Initial Catalog=Crest;Integrated Security=True;";
+            con.ConnectionString= @"Data Source=127.0.0.1;Initial Catalog=fagboys;userid=fagboys;password=y@SDJENjVnt;Integrated Security=True;";
             con.Open();
 
             return con;
