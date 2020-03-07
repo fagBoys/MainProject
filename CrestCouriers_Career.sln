@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrestCouriers_Career", "CrestCouriers_Career\CrestCouriers_Career.csproj", "{3C193D30-8FD4-4F8F-863B-9B516B218FD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiSample.DataAccess", "WebApiSample.DataAccess\WebApiSample.DataAccess.csproj", "{32CB2FAC-C9BA-4C34-83BB-47FC84D69037}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiSample.DataAccess", "WebApiSample.DataAccess\WebApiSample.DataAccess.csproj", "{32CB2FAC-C9BA-4C34-83BB-47FC84D69037}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4FF19BD5-F1DA-4CF3-BD56-30198A047189}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

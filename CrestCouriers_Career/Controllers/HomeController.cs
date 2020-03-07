@@ -93,7 +93,7 @@ namespace CrestCouriers_Career.Controllers
             MailboxAddress from = new MailboxAddress("amir", "mjn220@gmail.com");
             message.From.Add(from);
 
-            MailboxAddress to = new MailboxAddress("mjn", "info@fagboys.ir");
+            MailboxAddress to = new MailboxAddress("mjn", "j666.amir@gmail.com");
             message.To.Add(to);
 
             message.Subject = "Register for career";
@@ -176,23 +176,9 @@ $"</div>";
 
             //Attachment started
 
-            //ended
 
-
-            message.Body = bodyBuilder.ToMessageBody();
-
-
-            SmtpClient client = new SmtpClient();
-            client.Connect("smtp.gmail.com", 465, true);
-            client.Authenticate("mjn220@gmail.com", "mjngoogleid220");
-
-
-            client.Send(message);
-            client.Disconnect(true);
-            client.Dispose();
-
-            ///////   End Send Email    //////////
-
+            /////////   UploadFile start    //////////
+            ///
 
 
             var uploadsRootFolder = Path.Combine(_environment.WebRootPath, "uploads");
@@ -204,7 +190,7 @@ $"</div>";
 
             if (UploadCV == null || UploadCV.Length == 0)
             {
-                Response.WriteAsync("Error");
+                await Response.WriteAsync("Error");
             }
 
             var filePath = Path.Combine(uploadsRootFolder, UploadCV.FileName);
@@ -212,6 +198,50 @@ $"</div>";
             {
                 await UploadCV.CopyToAsync(fileStream).ConfigureAwait(false);
             }
+
+
+
+
+
+
+            /////////   UploadFile end    //////////
+
+            var body = new BodyBuilder
+            {
+
+                HtmlBody = message.TextBody
+
+            };
+
+
+            using (var ms = new MemoryStream())
+            {
+                await UploadCV.CopyToAsync(ms);
+                var filebyte = ms.ToArray();
+                //string s = Convert.ToBase64String(filebyte);
+                bodyBuilder.Attachments.Add(UploadCV.FileName,filebyte);
+                
+            }
+
+
+
+
+            //Attachment ended
+
+            message.Body = bodyBuilder.ToMessageBody();
+            
+
+            SmtpClient client = new SmtpClient();
+            client.Connect("smtp.gmail.com", 465, true);
+            client.Authenticate("mjn220@gmail.com", "mjngoogleid220");
+
+            client.Send(message);
+            client.Disconnect(true);
+            client.Dispose();
+
+            ///////   End Send Email    //////////
+
+
 
 
 
@@ -442,7 +472,7 @@ $"</div>";
 
                 if (UploadCV == null || UploadCV.Length == 0)
                 {
-                    Response.WriteAsync("Error");
+                await Response.WriteAsync("Error");
                 }
 
                 var filePath = Path.Combine(uploadsRootFolder, UploadCV.FileName);
