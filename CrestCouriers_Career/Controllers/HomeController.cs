@@ -99,75 +99,77 @@ namespace CrestCouriers_Career.Controllers
             message.Subject = "Register for career";
 
             BodyBuilder bodyBuilder = new BodyBuilder();
-            bodyBuilder.HtmlBody = $"<div class='container'>" +
-  $"<table class='table table-bordered'>" +
-    $"<thead>" +
-      $"<tr>" +
-        $"<td>Firstname :</td>" +
-        $"<td>{career.FirstName}</td>" +
+            bodyBuilder.HtmlBody = "Hellooooooooo";
+            
+            //$"<div class='container'>" +
+//  $"<table class='table table-bordered'>" +
+//    $"<thead>" +
+//      $"<tr>" +
+//        $"<td>Firstname :</td>" +
+//        $"<td>{career.FirstName}</td>" +
 
-      $"</tr>" +
-    $"</thead>" +
-    $"<tbody>" +
-      $"<tr>" +
-        $"<td>Lastname :</td>" +
-        $"<td>{career.LastName}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>Gender :</td>" +
-        $"<td>{career.Gender}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>Age :</td>" +
-        $"<td>{career.Age}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>Married :</td>" +
-        $"<td>{career.Married}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>HouseNumber :</td>" +
-        $"<td>{career.HouseNumber}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>RoadName :</td>" +
-        $"<td>{career.RoadName}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>City :</td>" +
-        $"<td>{career.City}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>PostCode :</td>" +
-        $"<td>{career.PostCode}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>DriverLicence :</td>" +
-        $"<td>{career.DriverLicence}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>Accident :</td>" +
-        $"<td>{career.Accident}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>DBS :</td>" +
-        $"<td>{career.DBS}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>PhoneNumber :</td>" +
-        $"<td>{career.PhoneNumber}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>Email :</td>" +
-        $"<td>{career.Email}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>UploadCV :</td>" +
-        $"<td>Myfile</td>" +
-      $"</tr>" +
-    $"</tbody>" +
-  $"</table>" +
-$"</div>";
+//      $"</tr>" +
+//    $"</thead>" +
+//    $"<tbody>" +
+//      $"<tr>" +
+//        $"<td>Lastname :</td>" +
+//        $"<td>{career.LastName}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>Gender :</td>" +
+//        $"<td>{career.Gender}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>Age :</td>" +
+//        $"<td>{career.Age}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>Married :</td>" +
+//        $"<td>{career.Married}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>HouseNumber :</td>" +
+//        $"<td>{career.HouseNumber}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>RoadName :</td>" +
+//        $"<td>{career.RoadName}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>City :</td>" +
+//        $"<td>{career.City}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>PostCode :</td>" +
+//        $"<td>{career.PostCode}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>DriverLicence :</td>" +
+//        $"<td>{career.DriverLicence}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>Accident :</td>" +
+//        $"<td>{career.Accident}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>DBS :</td>" +
+//        $"<td>{career.DBS}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>PhoneNumber :</td>" +
+//        $"<td>{career.PhoneNumber}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>Email :</td>" +
+//        $"<td>{career.Email}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>UploadCV :</td>" +
+//        $"<td>Myfile</td>" +
+//      $"</tr>" +
+//    $"</tbody>" +
+//  $"</table>" +
+//$"</div>";
 
 
 
@@ -206,30 +208,35 @@ $"</div>";
 
             /////////   UploadFile end    //////////
 
-            var body = new BodyBuilder
-            {
+            var body = new BodyBuilder();
 
-                HtmlBody = message.TextBody
+            body.TextBody = @"HEY";
 
-            };
+            body.Attachments.Add(@"C:\Users\mjn110\Downloads\27-Bahman.pdf");
+            //using (var fs = new FileStream(filePath, FileMode.Create))
+            //{
+            //    await UploadCV.CopyToAsync(fs).ConfigureAwait(false);
+            //    //var filebyte = fs.
+            //    //string s = Convert.ToBase64String(filebyte);
+            //    body.Attachments.Add(@"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\wwwroot\img\404.png");
 
-
-            using (var ms = new MemoryStream())
-            {
-                await UploadCV.CopyToAsync(ms);
-                var filebyte = ms.ToArray();
-                //string s = Convert.ToBase64String(filebyte);
-                bodyBuilder.Attachments.Add(UploadCV.FileName,filebyte);
-                
-            }
+            //}
 
 
+            // create an image attachment for the file located at path
+            //var attachment = new MimePart("image", "jpg")
+            //{
+            //    Content = new MimeContent(File.OpenRead(@"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\wwwroot\img\404.png")),
+            //    ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
+            //    ContentTransferEncoding = ContentEncoding.Base64,
+            //    FileName = Path.GetFileName(@"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\wwwroot\img\404.png")
+            //};
 
 
             //Attachment ended
 
-            message.Body = bodyBuilder.ToMessageBody();
-            
+            message.Body = body.ToMessageBody();
+
 
             SmtpClient client = new SmtpClient();
             client.Connect("smtp.gmail.com", 465, true);
@@ -361,7 +368,7 @@ $"</div>";
             MailboxAddress from = new MailboxAddress("amir", "mjn220@gmail.com");
             message.From.Add(from);
 
-            MailboxAddress to = new MailboxAddress("mjn", "info@fagboys.ir");
+            MailboxAddress to = new MailboxAddress("mjn", "mjn220@gmail.com");
             message.To.Add(to);
 
             message.Subject = "Register for career";
@@ -438,14 +445,44 @@ $"</div>";
   $"</table>" +
 $"</div>";
 
-                
+
 
             //bodyBuilder.TextBody = "Hello World!";
 
 
+
+            var uploadsRootFolder = Path.Combine(_environment.WebRootPath, "uploads");
+            if (!Directory.Exists(uploadsRootFolder))
+            {
+                Directory.CreateDirectory(uploadsRootFolder);
+            }
+
+
+            if (UploadCV == null || UploadCV.Length == 0)
+            {
+                await Response.WriteAsync("Error");
+            }
+
+            var filePath = Path.Combine(uploadsRootFolder, UploadCV.FileName);
+
+            var fileStream = new FileStream(filePath, FileMode.Create);
+            await UploadCV.CopyToAsync(fileStream).ConfigureAwait(false);
+
+
+
             //Attachment started
 
-            //ended
+
+
+            MemoryStream ms = new MemoryStream();
+            await UploadCV.CopyToAsync(ms).ConfigureAwait(false);
+
+            bodyBuilder.Attachments.Add(UploadCV.FileName,ms.ToArray()); //ToArray method = memorystream to byte
+
+
+
+            //bodyBuilder.Attachments.Add(@"C:\Users\mjn110\Downloads\27-Bahman.pdf");
+            //Attachment ended
 
 
             message.Body = bodyBuilder.ToMessageBody();
@@ -462,29 +499,9 @@ $"</div>";
             ///////   End Send Email    //////////
 
 
+            //return View(!ModelState.IsValid ? career : new RegCareer());
+            return new RedirectResult("/Home/Career_delivery");
 
-            var uploadsRootFolder = Path.Combine(_environment.WebRootPath, "uploads");
-            if (!Directory.Exists(uploadsRootFolder))
-            {
-                Directory.CreateDirectory(uploadsRootFolder);
-            }
-
-
-                if (UploadCV == null || UploadCV.Length == 0)
-                {
-                await Response.WriteAsync("Error");
-                }
-
-                var filePath = Path.Combine(uploadsRootFolder, UploadCV.FileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    await UploadCV.CopyToAsync(fileStream).ConfigureAwait(false);
-                }
-
-
-            
-                //return View(!ModelState.IsValid ? career : new RegCareer());
-                return new RedirectResult("/Home/Career_delivery");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
