@@ -60,7 +60,7 @@ using CrestCouriers_Career.Models;
             WriteLiteral("    <div style=\"background-color:white; width:50%; margin:20% auto; text-align:center;\">\r\n\r\n\r\n        <div style=\"margin:10%\">\r\n            ");
             EndContext();
             BeginContext(191, 23, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "739d6c7658cc4238ae617a4e81f708f7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "04ebbcc10f0048d9876338364668fe8c", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

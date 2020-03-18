@@ -1,0 +1,8 @@
+C:\Users\mjn110\Documents\GitHub\MainProject\WebApiSample.DataAccess\bin\Debug\netstandard2.0\WebApiSample.DataAccess.deps.json
+C:\Users\mjn110\Documents\GitHub\MainProject\WebApiSample.DataAccess\bin\Debug\netstandard2.0\WebApiSample.DataAccess.dll
+C:\Users\mjn110\Documents\GitHub\MainProject\WebApiSample.DataAccess\bin\Debug\netstandard2.0\WebApiSample.DataAccess.pdb
+C:\Users\mjn110\Documents\GitHub\MainProject\WebApiSample.DataAccess\obj\Debug\netstandard2.0\WebApiSample.DataAccess.csprojAssemblyReference.cache
+C:\Users\mjn110\Documents\GitHub\MainProject\WebApiSample.DataAccess\obj\Debug\netstandard2.0\WebApiSample.DataAccess.AssemblyInfoInputs.cache
+C:\Users\mjn110\Documents\GitHub\MainProject\WebApiSample.DataAccess\obj\Debug\netstandard2.0\WebApiSample.DataAccess.AssemblyInfo.cs
+C:\Users\mjn110\Documents\GitHub\MainProject\WebApiSample.DataAccess\obj\Debug\netstandard2.0\WebApiSample.DataAccess.dll
+C:\Users\mjn110\Documents\GitHub\MainProject\WebApiSample.DataAccess\obj\Debug\netstandard2.0\WebApiSample.DataAccess.pdb

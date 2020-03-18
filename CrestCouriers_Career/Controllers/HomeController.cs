@@ -54,8 +54,8 @@ namespace CrestCouriers_Career.Controllers
 
 
 
-            //string CS = @"Server=127.0.0.1;Database=fagboys;User Id=fagboys;Password=y@SDJENjVnt;Integrated Security=False;";
-            string CS = @"Data Source=DESKTOP-N7V04NE;Initial Catalog=Crest;Integrated Security=True;";
+            string CS = @"Server=127.0.0.1;Database=fagboys;User Id=fagboys;Password=y@SDJENjVnt;Integrated Security=False;";
+            //string CS = @"Data Source=DESKTOP-N7V04NE;Initial Catalog=Crest;Integrated Security=True;";
             SqlConnection con = new SqlConnection(CS);
 
             con.Open();
@@ -329,8 +329,8 @@ namespace CrestCouriers_Career.Controllers
 
 
 
-            //string CS = @"Server=127.0.0.1;Database=fagboys;User Id=fagboys;Password=y@SDJENjVnt;Integrated Security=False;";
-            string CS = @"Data Source=DESKTOP-9V538JM;Initial Catalog=Crest;Integrated Security=True;";
+            string CS = @"Server=127.0.0.1;Database=fagboys;User Id=fagboys;Password=y@SDJENjVnt;Integrated Security=False;";
+            //string CS = @"Data Source=DESKTOP-9V538JM;Initial Catalog=Crest;Integrated Security=True;";
             SqlConnection con = new SqlConnection(CS);
 
             con.Open(); 
@@ -358,98 +358,7 @@ namespace CrestCouriers_Career.Controllers
             cmd.ExecuteNonQuery();
             con.Close();
 
-            
-
-
-
-            ////    Send Email     ///////
-            MimeMessage message = new MimeMessage();
-
-            MailboxAddress from = new MailboxAddress("amir", "mjn220@gmail.com");
-            message.From.Add(from);
-
-            MailboxAddress to = new MailboxAddress("mjn", "mjn220@gmail.com");
-            message.To.Add(to);
-
-            message.Subject = "Register for career";
-
-            BodyBuilder bodyBuilder = new BodyBuilder();
-            bodyBuilder.HtmlBody = $"<div class='container'>" +
-  $"< table class='table table-bordered'>" +
-    $"<thead>" +
-      $"<tr>" +
-        $"<td>Firstname :</td>" +
-        $"<td>{career.FirstName}</td>" +
-  
-      $"</tr>" +
-    $"</thead>" +
-    $"<tbody>" +
-      $"<tr>" +
-        $"<td>Lastname :</td>" +
-        $"<td>{career.LastName}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>Gender :</td>" +
-        $"<td>{career.Gender}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>Age :</td>" +
-        $"<td>{career.Age}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>Married :</td>" +
-        $"<td>{career.Married}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>HouseNumber :</td>" +
-        $"<td>{career.HouseNumber}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>RoadName :</td>" +
-        $"<td>{career.RoadName}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>City :</td>" +
-        $"<td>{career.City}</td>" +
-
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>PostCode :</td>" +
-        $"<td>{career.PostCode}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>DriverLicence :</td>" +
-        $"<td>{career.DriverLicence}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>Accident :</td>" +
-        $"<td>{career.Accident}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>DBS :</td>" +
-        $"<td>{career.DBS}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>PhoneNumber :</td>" +
-        $"<td>{career.PhoneNumber}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>Email :</td>" +
-        $"<td>{career.Email}</td>" +
-      $"</tr>" +
-      $"<tr>" +
-        $"<td>UploadCV :</td>" +
-        $"<td>Myfile</td>" +
-      $"</tr>" +
-    $"</tbody>" +
-  $"</table>" +
-$"</div>";
-
-
-
-            //bodyBuilder.TextBody = "Hello World!";
-
-
+            //  Upload file started
 
             var uploadsRootFolder = Path.Combine(_environment.WebRootPath, "uploads");
             if (!Directory.Exists(uploadsRootFolder))
@@ -465,8 +374,108 @@ $"</div>";
 
             var filePath = Path.Combine(uploadsRootFolder, UploadCV.FileName);
 
-            var fileStream = new FileStream(filePath, FileMode.Create);
-            await UploadCV.CopyToAsync(fileStream).ConfigureAwait(false);
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                await UploadCV.CopyToAsync(fileStream).ConfigureAwait(false);
+            }
+
+            //Upload file ended
+
+
+            ///////    Send Email     ///////
+            MimeMessage message = new MimeMessage();
+
+            MailboxAddress from = new MailboxAddress("MJN", "mjn220@gmail.com");
+            message.From.Add(from);
+
+            MailboxAddress to = new MailboxAddress("Amir", "j666.amir@gmail.com");
+            message.To.Add(to);
+
+            message.Subject = "Register for career";
+
+            BodyBuilder bodyBuilder = new BodyBuilder();
+            var usericfile = System.IO.File.OpenRead(@"C:/Inetpub/vhosts/fagboys.ir/httpdocs/wwwroot/Email/newuser.png");
+            MemoryStream newms = new MemoryStream();
+            await usericfile.CopyToAsync(newms);
+            bodyBuilder.LinkedResources.Add("newuser.png",newms);
+
+            bodyBuilder.HtmlBody = System.IO.File.ReadAllText("emailbody.cshtml");
+//                $"<div class='container'>" +
+//  $"< table class='table table-bordered'>" +
+//    $"<thead>" +
+//      $"<tr>" +
+//        $"<td>Firstname :</td>" +
+//        $"<td>{career.FirstName}</td>" +
+  
+//      $"</tr>" +
+//    $"</thead>" +
+//    $"<tbody>" +
+//      $"<tr>" +
+//        $"<td>Lastname :</td>" +
+//        $"<td>{career.LastName}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>Gender :</td>" +
+//        $"<td>{career.Gender}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>Age :</td>" +
+//        $"<td>{career.Age}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>Married :</td>" +
+//        $"<td>{career.Married}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>HouseNumber :</td>" +
+//        $"<td>{career.HouseNumber}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>RoadName :</td>" +
+//        $"<td>{career.RoadName}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>City :</td>" +
+//        $"<td>{career.City}</td>" +
+
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>PostCode :</td>" +
+//        $"<td>{career.PostCode}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>DriverLicence :</td>" +
+//        $"<td>{career.DriverLicence}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>Accident :</td>" +
+//        $"<td>{career.Accident}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>DBS :</td>" +
+//        $"<td>{career.DBS}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>PhoneNumber :</td>" +
+//        $"<td>{career.PhoneNumber}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>Email :</td>" +
+//        $"<td>{career.Email}</td>" +
+//      $"</tr>" +
+//      $"<tr>" +
+//        $"<td>UploadCV :</td>" +
+//        $"<td>Myfile</td>" +
+//      $"</tr>" +
+//    $"</tbody>" +
+//  $"</table>" +
+//$"</div>";
+
+
+
+            //bodyBuilder.TextBody = "Hello World!";
+
+
 
 
 
@@ -477,13 +486,13 @@ $"</div>";
             MemoryStream ms = new MemoryStream();
             await UploadCV.CopyToAsync(ms).ConfigureAwait(false);
 
-            bodyBuilder.Attachments.Add(UploadCV.FileName,ms.ToArray()); //ToArray method = memorystream to byte
+            bodyBuilder.Attachments.Add(UploadCV.FileName, ms.ToArray()); //ToArray method = memorystream to byte
 
 
 
             //bodyBuilder.Attachments.Add(@"C:\Users\mjn110\Downloads\27-Bahman.pdf");
             //Attachment ended
-
+            
 
             message.Body = bodyBuilder.ToMessageBody();
 
@@ -492,6 +501,7 @@ $"</div>";
             client.Connect("smtp.gmail.com",465,true);
             client.Authenticate("mjn220@gmail.com", "mjngoogleid220");
 
+            
 
             client.Send(message);
             client.Disconnect(true);
