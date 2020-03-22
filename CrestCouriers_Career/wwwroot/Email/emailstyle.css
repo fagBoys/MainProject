@@ -1,55 +1,74 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 
-#email-title
-{
-  padding: 30px;
-  font-family: 'Raleway',sans-serif;
-  color: white;
-}
-p
-{
-  font-family: sans-serif;
-}
-#fields-row
-{
-  width: 290px;
-  float: left;
-  margin: 30px;
-  padding: 0px;
-}
-#top-info
-{
-  height: 250px;
-}
-#user-icon
-{
-  margin-top: 40px;
-  margin-left: 40px;
-  width: 200px;
-  height: 200px;
-  float: left;
+
+        #email-title {
+            padding: 30px;
+            font-family: 'Raleway',sans-serif;
+            color: white;
+        }
+
+        p {
+            font-family: sans-serif;
+        }
+
+        #fields-row {
+            width: 290px;
+            float: left;
+            margin: 30px;
+            padding: 0px;
+        }
+
+        #top-info {
+            height: 250px;
+        }
+
+        #user-icon {
+            margin-top: 40px;
+            margin-left: 40px;
+            width: 200px;
+            height: 200px;
+            float: left;
+            position: relative;
+        }
+
+        #toptext {
+            padding-top: 80px;
+            padding-left: 50px;
+            width: 400px;
+            margin: 0 auto;
+            float: left;
+        }
+
+        p {
+            font-family: 'Raleway', sans-serif;
+            font-size: 18px;
+        }
+
+        #li-style {
+            list-style-type: none;
+            height: 25px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 14px;
+        }
+#half-circle {
+
+  width:170px;
+  height: 100px;
+  background-color: #ff6363;
+  border-top-right-radius: 100px;
+  border-top-left-radius: 100px;
+  margin-top: 80px;
+  margin-left: 15px;
+  position: absolute;
 
 }
-#toptext
-{
-  padding-top: 80px;
-  padding-left: 50px;
-  width: 400px;
-  margin:0 auto;
-  float:left;
+#circle {
 
-}
-p
-{
-
-font-family:  'Raleway', sans-serif;
-font-size: 18px;
-
-}
-#li-style
-{
-  list-style-type: none;
-  height: 25px;
-  font-family:  'Raleway', sans-serif;
-  font-size: 14px;
+  width:100px;
+  height: 100px;
+  background-color: #e8e8e8;
+  border-radius: 100%;
+  margin-left: 50px;
+  position: absolute;
+  z-index: 10;
 }

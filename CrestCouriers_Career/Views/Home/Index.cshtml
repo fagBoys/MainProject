@@ -8,7 +8,7 @@
     ViewData["Title"] = "View";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <div style="margin-top:3%;">
     <p style="font-weight:900; font-size:30px;">Career</p>
 </div>
@@ -137,17 +137,24 @@
             </div>
         </form>
     </div>
-    <div>
+
+    <div class="right-row-career">
         <div class="img-car">
-            <img src="~/img/slider-img/slider-img-2.jpg">
+            <img src="~/img/banner.jpg">
         </div>
-    </div>
-    <div>
         <div class="img-car-txt">
-            <p> asdasdkjlkasjdlkjaslkdjlkasjdljas dljasldjlaskjdlkasjdasldjdasjlkajsdlkjaslkdjal sjdaksdjlasjdlkjasdljaslkdjlashdsaasdkahskjdhkj ashdkjahsdkjhjkashdhaskdja asdbasbdjbasjkdbjkasbdjkasjkdhkjashdkashdkjhaskdjhaskjdhkjashdjkahsdkjhaskjdh hdjkahsjkdhaskjhdashdkhasjkdhjkashdjkhaskjdh</p>
+            <p id="career-text-area">
+
+                You can be hired as a driver in Crest Couriers.
+                Fill this form and ask for a career, we will check your information and might contact you through your email address or phone number.<br>
+                You should consider that it is neccessary to upload a pdf file as your CV file.
+            </p>
         </div>
     </div>
+
 </div>
+
+
 
 <div>
     <a asp-action="Index">Back to Home</a>
@@ -159,23 +166,15 @@
 }
 
 <script>
-
     function fileselect() {
         document.getElementById("tick").setAttribute("style", "visibility:visible;");
     }
-    
-
-
 
 </script>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $(":file").click(function () {
-
-            $("#space").animate({width: '200px'});
-
-
+            $("#space").animate({ width: '200px' });
         });
-    }); 
+    });
 </script>
-

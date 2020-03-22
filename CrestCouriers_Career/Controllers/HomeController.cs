@@ -15,6 +15,7 @@ using MimeKit;
 using reCAPTCHA.AspNetCore;
 using Microsoft.IdentityModel.Protocols;
 using System.Configuration;
+using MimeKit.Utils;
 
 namespace CrestCouriers_Career.Controllers
 {
@@ -330,7 +331,7 @@ namespace CrestCouriers_Career.Controllers
 
 
             //string CS = @"Server=127.0.0.1;Database=fagboys;User Id=fagboys;Password=y@SDJENjVnt;Integrated Security=False;";
-            string CS = @"Data Source=DESKTOP-N7V04NE;Initial Catalog=Crest;Integrated Security=True;";
+            string CS = @"Data Source=DESKTOP-9V538JM;Initial Catalog=Crest;Integrated Security=True;";
             SqlConnection con = new SqlConnection(CS);
 
             con.Open(); 
@@ -394,90 +395,40 @@ namespace CrestCouriers_Career.Controllers
             message.Subject = "Register for career";
 
             BodyBuilder bodyBuilder = new BodyBuilder();
-            var usericfile = System.IO.File.OpenRead(@"C:/Inetpub/vhosts/fagboys.ir/httpdocs/wwwroot/Email/newuser.png");
+            //ViewData["filepath"] = @"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\wwwroot\Email\newuser.png";
+            var usericfile = System.IO.File.OpenRead(@"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\wwwroot\Email\newuser.png");
             MemoryStream newms = new MemoryStream();
             await usericfile.CopyToAsync(newms);
-            bodyBuilder.LinkedResources.Add("newuser.png",newms);
-
-            bodyBuilder.HtmlBody = System.IO.File.ReadAllText("emailbody.cshtml");
-//                $"<div class='container'>" +
-//  $"< table class='table table-bordered'>" +
-//    $"<thead>" +
-//      $"<tr>" +
-//        $"<td>Firstname :</td>" +
-//        $"<td>{career.FirstName}</td>" +
-  
-//      $"</tr>" +
-//    $"</thead>" +
-//    $"<tbody>" +
-//      $"<tr>" +
-//        $"<td>Lastname :</td>" +
-//        $"<td>{career.LastName}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>Gender :</td>" +
-//        $"<td>{career.Gender}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>Age :</td>" +
-//        $"<td>{career.Age}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>Married :</td>" +
-//        $"<td>{career.Married}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>HouseNumber :</td>" +
-//        $"<td>{career.HouseNumber}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>RoadName :</td>" +
-//        $"<td>{career.RoadName}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>City :</td>" +
-//        $"<td>{career.City}</td>" +
-
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>PostCode :</td>" +
-//        $"<td>{career.PostCode}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>DriverLicence :</td>" +
-//        $"<td>{career.DriverLicence}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>Accident :</td>" +
-//        $"<td>{career.Accident}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>DBS :</td>" +
-//        $"<td>{career.DBS}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>PhoneNumber :</td>" +
-//        $"<td>{career.PhoneNumber}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>Email :</td>" +
-//        $"<td>{career.Email}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>UploadCV :</td>" +
-//        $"<td>Myfile</td>" +
-//      $"</tr>" +
-//    $"</tbody>" +
-//  $"</table>" +
-//$"</div>";
 
 
 
-            //bodyBuilder.TextBody = "Hello World!";
+            var mybody = @System.IO.File.ReadAllText(@"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\Views\View.cshtml");
+            
+            mybody = mybody.Replace("Value00", career.FirstName + " " + career.LastName);
+            mybody = mybody.Replace("Value01",career.FirstName);
+            mybody = mybody.Replace("Value02", career.LastName);
+            mybody = mybody.Replace("Value03", career.Gender);
+            mybody = mybody.Replace("Value04", career.Age);
+            mybody = mybody.Replace("Value05", career.Married);
+            mybody = mybody.Replace("Value06", career.HouseNumber);
+            mybody = mybody.Replace("Value07", career.RoadName);
+            mybody = mybody.Replace("Value08", career.City);
+            mybody = mybody.Replace("Value09", career.PostCode);
+            mybody = mybody.Replace("Value10", career.DriverLicence);
+            mybody = mybody.Replace("Value11", career.Accident);
+            mybody = mybody.Replace("Value12", career.DBS);
+            mybody = mybody.Replace("Value13", career.PhoneNumber);
+            mybody = mybody.Replace("Value14", career.Email);
 
+            bodyBuilder.HtmlBody = mybody;
 
+            
+            
 
+            //, image.ContentId);
 
+            //System.IO.File.ReadAllText(@"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\Views\View.cshtml");
+            //string.Format(@<center><img src="cid:{0}"></center>
 
             //Attachment started
 
@@ -487,7 +438,7 @@ namespace CrestCouriers_Career.Controllers
             await UploadCV.CopyToAsync(ms).ConfigureAwait(false);
 
             bodyBuilder.Attachments.Add(UploadCV.FileName, ms.ToArray()); //ToArray method = memorystream to byte
-
+            
 
 
             //bodyBuilder.Attachments.Add(@"C:\Users\mjn110\Downloads\27-Bahman.pdf");
@@ -500,6 +451,8 @@ namespace CrestCouriers_Career.Controllers
             SmtpClient client = new SmtpClient();
             client.Connect("smtp.gmail.com",465,true);
             client.Authenticate("mjn220@gmail.com", "mjngoogleid220");
+
+            
 
             
 
