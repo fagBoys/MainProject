@@ -8,10 +8,10 @@
     ViewData["Title"] = "View";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-    <div style="margin-top:3%;">
-        <p style="font-weight:900; font-size:30px;">Career</p>
-    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<div style="margin-top:3%;">
+    <p style="font-weight:900; font-size:30px;">Career</p>
+</div>
 <h4>Register for careers</h4>
 <hr />
 <div class="row">
@@ -123,8 +123,10 @@
 
             <div class="form-group">
 
-                <label asp-for="UploadCV" class="btn btn-default">Browse</label>
-                <input type="file" name="UploadCV" multiple asp-for="UploadCV" class="" style="opacity:0" accept=".pdf,.docx" />
+                <label asp-for="UploadCV" class="btn btn-default" style="float:left;">Browse</label>
+                <div id="space" style="width:0px; float:left;"></div>
+                <div id="tick-cont" style="width:40px; height:40px; float:left; margin-left:10px;"><img src="~/img/input-tick.png" style="visibility:hidden;" id="tick" /></div>
+                <input type="file" name="UploadCV" multiple asp-for="UploadCV" onchange="fileselect()" class="" style="opacity:0; height:0;" accept=".pdf,.docx" />
 
                 <span asp-validation-for="UploadCV" class="text-danger"></span>
 
@@ -135,7 +137,24 @@
             </div>
         </form>
     </div>
+
+    <div class="right-row-career">
+        <div class="img-car">
+            <img src="~/img/banner.jpg">
+        </div>
+        <div class="img-car-txt">
+            <p id="career-text-area">
+
+                You can be hired as a driver in Crest Couriers.
+                Fill this form and ask for a career, we will check your information and might contact you through your email address or phone number.<br>
+                You should consider that it is neccessary to upload a pdf file as your CV file.
+            </p>
+        </div>
+    </div>
+
 </div>
+
+
 
 <div>
     <a asp-action="Index">Back to Home</a>
@@ -146,3 +165,16 @@
 
 }
 
+<script>
+    function fileselect() {
+        document.getElementById("tick").setAttribute("style", "visibility:visible;");
+    }
+
+</script>
+<script>
+    $(document).ready(function () {
+        $(":file").click(function () {
+            $("#space").animate({ width: '200px' });
+        });
+    });
+</script>

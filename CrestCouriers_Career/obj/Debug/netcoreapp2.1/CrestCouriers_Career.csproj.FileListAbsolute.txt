@@ -218,3 +218,5 @@ C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netc
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\View.cshtml.g.cs
+C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.cshtml.g.cs
+C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Home\Services.cshtml.g.cs

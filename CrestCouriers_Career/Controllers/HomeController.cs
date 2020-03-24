@@ -36,225 +36,14 @@ namespace CrestCouriers_Career.Controllers
         {
             return View();
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Index(RegCareer career, IFormFile UploadCV, EmailRequest emailRequest)
+
+        public IActionResult About()
         {
 
+            ViewData["Message"] = "Your application description page.";
 
+            return View();
 
-            //Recaptcha code begins here
-
-
-            var recaptcha = await _recaptcha.Validate(Request);
-            if (!recaptcha.success)
-                ModelState.AddModelError("Recaptcha", "There was an error validating recatpcha. Please try again!");
-
-
-            //Recaptcha code ends here
-
-
-
-            string CS = @"Server=127.0.0.1;Database=fagboys;User Id=fagboys;Password=y@SDJENjVnt;Integrated Security=False;";
-            //string CS = @"Data Source=DESKTOP-N7V04NE;Initial Catalog=Crest;Integrated Security=True;";
-            SqlConnection con = new SqlConnection(CS);
-
-            con.Open();
-
-
-            //Dal con = new Dal();
-            SqlCommand cmd = new SqlCommand("sp_Crest_Add", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@FirstName", career.FirstName);
-            cmd.Parameters.AddWithValue("@LastName", career.LastName);
-            cmd.Parameters.AddWithValue("@Gender", career.Gender);
-            cmd.Parameters.AddWithValue("@Age", career.Age);
-            cmd.Parameters.AddWithValue("@Married", career.Married);
-            cmd.Parameters.AddWithValue("@HouseNumber", career.HouseNumber);
-            cmd.Parameters.AddWithValue("@RoadName", career.RoadName);
-            cmd.Parameters.AddWithValue("@City", career.City);
-            cmd.Parameters.AddWithValue("@PostCode", career.PostCode);
-            cmd.Parameters.AddWithValue("@DriverLicence", career.DriverLicence);
-            cmd.Parameters.AddWithValue("@Accident", career.Accident);
-            cmd.Parameters.AddWithValue("@DBS", career.DBS);
-            cmd.Parameters.AddWithValue("@PhoneNumber", career.PhoneNumber);
-            cmd.Parameters.AddWithValue("@Email", career.Email);
-            cmd.Parameters.AddWithValue("@UploadCV", UploadCV.FileName);
-
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-
-
-
-
-            ////    Send Email     ///////
-            MimeMessage message = new MimeMessage();
-
-            MailboxAddress from = new MailboxAddress("amir", "mjn220@gmail.com");
-            message.From.Add(from);
-
-            MailboxAddress to = new MailboxAddress("mjn", "j666.amir@gmail.com");
-            message.To.Add(to);
-
-            message.Subject = "Register for career";
-
-            BodyBuilder bodyBuilder = new BodyBuilder();
-            bodyBuilder.HtmlBody = "Hellooooooooo";
-            
-            //$"<div class='container'>" +
-//  $"<table class='table table-bordered'>" +
-//    $"<thead>" +
-//      $"<tr>" +
-//        $"<td>Firstname :</td>" +
-//        $"<td>{career.FirstName}</td>" +
-
-//      $"</tr>" +
-//    $"</thead>" +
-//    $"<tbody>" +
-//      $"<tr>" +
-//        $"<td>Lastname :</td>" +
-//        $"<td>{career.LastName}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>Gender :</td>" +
-//        $"<td>{career.Gender}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>Age :</td>" +
-//        $"<td>{career.Age}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>Married :</td>" +
-//        $"<td>{career.Married}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>HouseNumber :</td>" +
-//        $"<td>{career.HouseNumber}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>RoadName :</td>" +
-//        $"<td>{career.RoadName}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>City :</td>" +
-//        $"<td>{career.City}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>PostCode :</td>" +
-//        $"<td>{career.PostCode}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>DriverLicence :</td>" +
-//        $"<td>{career.DriverLicence}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>Accident :</td>" +
-//        $"<td>{career.Accident}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>DBS :</td>" +
-//        $"<td>{career.DBS}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>PhoneNumber :</td>" +
-//        $"<td>{career.PhoneNumber}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>Email :</td>" +
-//        $"<td>{career.Email}</td>" +
-//      $"</tr>" +
-//      $"<tr>" +
-//        $"<td>UploadCV :</td>" +
-//        $"<td>Myfile</td>" +
-//      $"</tr>" +
-//    $"</tbody>" +
-//  $"</table>" +
-//$"</div>";
-
-
-
-            //bodyBuilder.TextBody = "Hello World!";
-
-
-            //Attachment started
-
-
-            /////////   UploadFile start    //////////
-            ///
-
-
-            var uploadsRootFolder = Path.Combine(_environment.WebRootPath, "uploads");
-            if (!Directory.Exists(uploadsRootFolder))
-            {
-                Directory.CreateDirectory(uploadsRootFolder);
-            }
-
-
-            if (UploadCV == null || UploadCV.Length == 0)
-            {
-                await Response.WriteAsync("Error");
-            }
-
-            var filePath = Path.Combine(uploadsRootFolder, UploadCV.FileName);
-            using (var fileStream = new FileStream(filePath, FileMode.Create))
-            {
-                await UploadCV.CopyToAsync(fileStream).ConfigureAwait(false);
-            }
-
-
-
-
-
-
-            /////////   UploadFile end    //////////
-
-            var body = new BodyBuilder();
-
-            body.TextBody = @"HEY";
-
-            body.Attachments.Add(@"C:\Users\mjn110\Downloads\27-Bahman.pdf");
-            //using (var fs = new FileStream(filePath, FileMode.Create))
-            //{
-            //    await UploadCV.CopyToAsync(fs).ConfigureAwait(false);
-            //    //var filebyte = fs.
-            //    //string s = Convert.ToBase64String(filebyte);
-            //    body.Attachments.Add(@"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\wwwroot\img\404.png");
-
-            //}
-
-
-            // create an image attachment for the file located at path
-            //var attachment = new MimePart("image", "jpg")
-            //{
-            //    Content = new MimeContent(File.OpenRead(@"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\wwwroot\img\404.png")),
-            //    ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
-            //    ContentTransferEncoding = ContentEncoding.Base64,
-            //    FileName = Path.GetFileName(@"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\wwwroot\img\404.png")
-            //};
-
-
-            //Attachment ended
-
-            message.Body = body.ToMessageBody();
-
-
-            SmtpClient client = new SmtpClient();
-            client.Connect("smtp.gmail.com", 465, true);
-            client.Authenticate("mjn220@gmail.com", "mjngoogleid220");
-
-            client.Send(message);
-            client.Disconnect(true);
-            client.Dispose();
-
-            ///////   End Send Email    //////////
-
-
-
-
-
-            //return View(!ModelState.IsValid ? career : new RegCareer());
-            return new RedirectResult("/Home/Career_delivery");
         }
 
         public IActionResult Career_delivery()
@@ -266,36 +55,9 @@ namespace CrestCouriers_Career.Controllers
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
-
-            MimeMessage message = new MimeMessage();
-
-            MailboxAddress from = new MailboxAddress("amir", "j666.amir@gmail.com");
-            message.From.Add(from);
-
-            MailboxAddress to = new MailboxAddress("mjn", "mjn220@gmail.com");
-            message.To.Add(to);
-
-            message.Subject = "Register for career";
-
-            BodyBuilder bodyBuilder = new BodyBuilder();
-            bodyBuilder.HtmlBody = "<h1>Hello World!</h1>";
-            //bodyBuilder.TextBody = "Hello World!";
-
-
-            message.Body = bodyBuilder.ToMessageBody();
-
-
-            SmtpClient client = new SmtpClient();
-            client.Connect("smtp.gmail.com", 465, true);
-            client.Authenticate("j666.amir@gmail.com", "09379977212Am");
-
-
-            client.Send(message);
-            client.Disconnect(true);
-            client.Dispose();
 
             return View();
+
         }
 
         public IActionResult Privacy()
@@ -303,6 +65,13 @@ namespace CrestCouriers_Career.Controllers
 
 
             return View();
+        }
+
+        public IActionResult Services()
+        {
+
+            return View();
+
         }
 
         public IActionResult Career()
@@ -423,27 +192,11 @@ namespace CrestCouriers_Career.Controllers
             bodyBuilder.HtmlBody = mybody;
 
             
-            
-
-            //, image.ContentId);
-
-            //System.IO.File.ReadAllText(@"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\Views\View.cshtml");
-            //string.Format(@<center><img src="cid:{0}"></center>
-
-            //Attachment started
-
-
-
             MemoryStream ms = new MemoryStream();
             await UploadCV.CopyToAsync(ms).ConfigureAwait(false);
 
             bodyBuilder.Attachments.Add(UploadCV.FileName, ms.ToArray()); //ToArray method = memorystream to byte
-            
 
-
-            //bodyBuilder.Attachments.Add(@"C:\Users\mjn110\Downloads\27-Bahman.pdf");
-            //Attachment ended
-            
 
             message.Body = bodyBuilder.ToMessageBody();
 
@@ -457,9 +210,58 @@ namespace CrestCouriers_Career.Controllers
             
 
             client.Send(message);
-            client.Disconnect(true);
-            client.Dispose();
+            //First email
+
+
+            MimeMessage message2 = new MimeMessage();
+
+            MailboxAddress from2 = new MailboxAddress("MJN", "mjn220@gmail.com");
+            message2.From.Add(from2);
+
+            MailboxAddress to2 = new MailboxAddress(career.FirstName + " " + career.LastName, career.Email);
+            message2.To.Add(to2);
+
+            message2.Subject = "CrestCouriers";
+
+
+            BodyBuilder bobu = new BodyBuilder();
+            bobu.HtmlBody = @System.IO.File.ReadAllText(@"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\Views\emailbody.cshtml");
+            
+            
+
+
+            var logo = System.IO.File.OpenRead(@"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\wwwroot\img\logo.png");
+            MemoryStream myms = new MemoryStream();
+            await usericfile.CopyToAsync(myms);
+
+            var embedlogo = bobu.LinkedResources.Add(@"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\wwwroot\img\logo.png");
+            embedlogo.ContentId = MimeUtils.GenerateMessageId();
+
+            bobu.HtmlBody = bobu.HtmlBody.Replace("{", "{{");
+            bobu.HtmlBody = bobu.HtmlBody.Replace("}", "}}");
+            bobu.HtmlBody = bobu.HtmlBody.Replace("{{0}}", "{0}");
+
+            bobu.HtmlBody = string.Format(bobu.HtmlBody, embedlogo.ContentId);
+
+
+            message2.Body = bobu.ToMessageBody();
+
+            SmtpClient client2 = new SmtpClient();
+            client2.Connect("smtp.gmail.com", 465, true);
+            client2.Authenticate("mjn220@gmail.com", "mjngoogleid220");
+
+
+            client2.Send(message2);
+            client2.Disconnect(true);
+            client2.Dispose();
             ///////   End Send Email    //////////
+
+
+
+
+
+
+
 
 
             //return View(!ModelState.IsValid ? career : new RegCareer());

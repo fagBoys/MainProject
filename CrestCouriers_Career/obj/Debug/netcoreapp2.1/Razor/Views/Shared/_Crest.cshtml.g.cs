@@ -54,7 +54,7 @@ using CrestCouriers_Career.Models;
             WriteLiteral("<!DOCTYPE html>\r\n\r\n<html>\r\n");
             EndContext();
             BeginContext(27, 109, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c13c6df849254459846b9596512eddf9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "068295b5e1394e5681ba29b287728fcb", async() => {
                 BeginContext(33, 72, true);
                 WriteLiteral("\r\n    <meta name=\"viewport\" content=\"width=device-width\" />\r\n    <title>");
                 EndContext();
@@ -84,7 +84,7 @@ using CrestCouriers_Career.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(138, 61, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e1f238645a7b4e388daa3129ff4e3639", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "79618a394df94c35bdec392ac031fe97", async() => {
                 BeginContext(144, 21, true);
                 WriteLiteral("\r\n    <div>\r\n        ");
                 EndContext();

@@ -55,7 +55,7 @@ using CrestCouriers_Career.Models;
             WriteLiteral("<!DOCTYPE html>\r\n<html>\r\n");
             EndContext();
             BeginContext(25, 1965, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9586af2c4aa1421996327fc7b90d9405", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "379fdb2a7b44450fa61d0362a118c4cd", async() => {
                 BeginContext(31, 1952, true);
                 WriteLiteral(@"
     <meta name=""viewport"" content=""width=device-width"" />
@@ -161,7 +161,7 @@ using CrestCouriers_Career.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(1992, 2724, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2776b05b9cde46a09c5fb211ad4b8244", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "69709d75acd2407980c6197363b14480", async() => {
                 BeginContext(2046, 2663, true);
                 WriteLiteral(@"
 
