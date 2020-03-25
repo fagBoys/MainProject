@@ -645,10 +645,10 @@ pre {
     height: 20%;
     width: 54%;
     padding-top: 2.5%;
+    float:right;
 }
 
 .img-car-txt {
-
     float: right;
     height: 20%;
     width: 54%;
@@ -656,6 +656,20 @@ pre {
     text-align: center;
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
+    float: right;
+}
+
+.right-row-career
+{
+
+    margin-right:15px;
+
+}
+
+#career-text-area {
+    font-size: 20px;
+    text-align: justify;
+    text-justify:inter-word;
 }
 
 .no-gutters {
