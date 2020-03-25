@@ -9,172 +9,175 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<div style="margin-top:3%;">
-    <p style="font-weight:900; font-size:30px;">Career</p>
-</div>
-<h4>Register for careers</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Career" asp-controller="Home" method="post" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="FirstName" class="control-label">Personal informations</label>
-                <input asp-for="FirstName" class="form-control2" placeholder="First name" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                @*<label asp-for="LastName" class="control-label"></label>*@
-                <input asp-for="LastName" class="form-control2" placeholder="Last name" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                @*<label asp-for="Gender" class="control-label"></label>*@
-                @*<input asp-for="Gender" class="form-control2" placeholder="Gender" />*@
-                <select asp-for="Gender" class="form-control2">
-                    <option>Male</option>
-                    <option>Female</option>
-                </select>
-                <span asp-validation-for="Gender" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                @*<label asp-for="Age" class="control-label"></label>*@
-                <input asp-for="Age" class="form-control2" placeholder="Age" />
-                <span asp-validation-for="Age" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                @*<label asp-for="Married" class="control-label"></label>*@
-                @*<input asp-for="Married" class="form-control2" placeholder="Married"/>*@
 
-                <select asp-for="Married" class="form-control2">
-                    <option>Married</option>
-                    <option>Single</option>
-                </select>
+<div class="container body-content">
 
-                <span asp-validation-for="Married" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="HouseNumber" class="control-label">Address</label>
-                <input asp-for="HouseNumber" class="form-control2" placeholder="House number" />
-                <span asp-validation-for="HouseNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                @*<label asp-for="RoadName" class="control-label"></label>*@
-                <input asp-for="RoadName" class="form-control2" placeholder="Road name" />
-                <span asp-validation-for="RoadName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                @*<label asp-for="City" class="control-label"></label>*@
-                <input asp-for="City" class="form-control2" placeholder="City" />
-                <span asp-validation-for="City" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                @*<label asp-for="PostCode" class="control-label"></label>*@
-                <input asp-for="PostCode" class="form-control2" placeholder="Post code" />
-                <span asp-validation-for="PostCode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DriverLicence" class="control-label">Driving</label>
-                @*<input asp-for="DriverLicence" class="form-control2" placeholder="Driver licence"/>*@
+    <div style="margin-top:3%;">
+        <p style="font-weight:900; font-size:30px;">Career</p>
+    </div>
+    <h4>Register for careers</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Career" asp-controller="Home" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label">Personal informations</label>
+                    <input asp-for="FirstName" class="form-control2" placeholder="First name" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @*<label asp-for="LastName" class="control-label"></label>*@
+                    <input asp-for="LastName" class="form-control2" placeholder="Last name" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @*<label asp-for="Gender" class="control-label"></label>*@
+                    @*<input asp-for="Gender" class="form-control2" placeholder="Gender" />*@
+                    <select asp-for="Gender" class="form-control2">
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @*<label asp-for="Age" class="control-label"></label>*@
+                    <input asp-for="Age" class="form-control2" placeholder="Age" />
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @*<label asp-for="Married" class="control-label"></label>*@
+                    @*<input asp-for="Married" class="form-control2" placeholder="Married"/>*@
 
-                <select asp-for="DriverLicence" class="form-control2">
-                    <option>Driver licence</option>
-                    <option>Yes</option>
-                    <option>No</option>
-                </select>
+                    <select asp-for="Married" class="form-control2">
+                        <option>Married</option>
+                        <option>Single</option>
+                    </select>
 
-                <span asp-validation-for="DriverLicence" class="text-danger"></span>
+                    <span asp-validation-for="Married" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="HouseNumber" class="control-label">Address</label>
+                    <input asp-for="HouseNumber" class="form-control2" placeholder="House number" />
+                    <span asp-validation-for="HouseNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @*<label asp-for="RoadName" class="control-label"></label>*@
+                    <input asp-for="RoadName" class="form-control2" placeholder="Road name" />
+                    <span asp-validation-for="RoadName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @*<label asp-for="City" class="control-label"></label>*@
+                    <input asp-for="City" class="form-control2" placeholder="City" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @*<label asp-for="PostCode" class="control-label"></label>*@
+                    <input asp-for="PostCode" class="form-control2" placeholder="Post code" />
+                    <span asp-validation-for="PostCode" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DriverLicence" class="control-label">Driving</label>
+                    @*<input asp-for="DriverLicence" class="form-control2" placeholder="Driver licence"/>*@
+
+                    <select asp-for="DriverLicence" class="form-control2">
+                        <option>Driver licence</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+
+                    <span asp-validation-for="DriverLicence" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @*<label asp-for="Accident" class="control-label"></label>*@
+                    @*<input asp-for="Accident" class="form-control2" placeholder="Accident" />*@
+
+                    <select asp-for="Accident" class="form-control2">
+                        <option>Accident</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+
+                    <span asp-validation-for="Accident" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @*<label asp-for="DBS" class="control-label"></label>*@
+                    @*<input asp-for="DBS" class="form-control2" placeholder="DBS" />*@
+
+                    <select asp-for="DBS" class="form-control2">
+                        <option>DBS</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                    <span asp-validation-for="DBS" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label">Contact informations</label>
+                    <input asp-for="PhoneNumber" class="form-control2" placeholder="Phone number" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @*<label asp-for="Email" class="control-label"></label>*@
+                    <input asp-for="Email" class="form-control2" placeholder="Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <label>UploadCV</label><br />
+
+                <div class="form-group">
+
+                    <label asp-for="UploadCV" class="btn btn-default" style="float:left;">Browse</label>
+                    <div id="space" style="width:0px; float:left;"></div>
+                    <div id="tick-cont" style="width:40px; height:40px; float:left; margin-left:10px;"><img src="~/img/input-tick.png" style="visibility:hidden;" id="tick" /></div>
+                    <input type="file" name="UploadCV" multiple asp-for="UploadCV" onchange="fileselect()" class="" style="opacity:0; height:0;" accept=".pdf,.docx" />
+
+                    <span asp-validation-for="UploadCV" class="text-danger"></span>
+
+                    @Html.Recaptcha(RecaptchaSettings.Value)
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+
+        <div class="right-row-career">
+            <div class="img-car">
+                <img src="~/img/banner.jpg">
             </div>
-            <div class="form-group">
-                @*<label asp-for="Accident" class="control-label"></label>*@
-                @*<input asp-for="Accident" class="form-control2" placeholder="Accident" />*@
+            <div class="img-car-txt">
+                <p id="career-text-area">
 
-                <select asp-for="Accident" class="form-control2">
-                    <option>Accident</option>
-                    <option>Yes</option>
-                    <option>No</option>
-                </select>
-
-                <span asp-validation-for="Accident" class="text-danger"></span>
+                    You can be hired as a driver in Crest Couriers.
+                    Fill this form and ask for a career, we will check your information and might contact you through your email address or phone number.<br>
+                    You should consider that it is neccessary to upload a pdf file as your CV file.
+                </p>
             </div>
-            <div class="form-group">
-                @*<label asp-for="DBS" class="control-label"></label>*@
-                @*<input asp-for="DBS" class="form-control2" placeholder="DBS" />*@
+        </div>
 
-                <select asp-for="DBS" class="form-control2">
-                    <option>DBS</option>
-                    <option>Yes</option>
-                    <option>No</option>
-                </select>
-                <span asp-validation-for="DBS" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label">Contact informations</label>
-                <input asp-for="PhoneNumber" class="form-control2" placeholder="Phone number" />
-                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                @*<label asp-for="Email" class="control-label"></label>*@
-                <input asp-for="Email" class="form-control2" placeholder="Email" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-
-            <label>UploadCV</label><br />
-
-            <div class="form-group">
-
-                <label asp-for="UploadCV" class="btn btn-default" style="float:left;">Browse</label>
-                <div id="space" style="width:0px; float:left;"></div>
-                <div id="tick-cont" style="width:40px; height:40px; float:left; margin-left:10px;"><img src="~/img/input-tick.png" style="visibility:hidden;" id="tick" /></div>
-                <input type="file" name="UploadCV" multiple asp-for="UploadCV" onchange="fileselect()" class="" style="opacity:0; height:0;" accept=".pdf,.docx" />
-
-                <span asp-validation-for="UploadCV" class="text-danger"></span>
-
-                @Html.Recaptcha(RecaptchaSettings.Value)
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Submit" class="btn btn-default" />
-            </div>
-        </form>
     </div>
 
-    <div class="right-row-career">
-        <div class="img-car">
-            <img src="~/img/banner.jpg">
-        </div>
-        <div class="img-car-txt">
-            <p id="career-text-area">
 
-                You can be hired as a driver in Crest Couriers.
-                Fill this form and ask for a career, we will check your information and might contact you through your email address or phone number.<br>
-                You should consider that it is neccessary to upload a pdf file as your CV file.
-            </p>
-        </div>
+
+    <div>
+        <a asp-action="Index">Back to Home</a>
     </div>
-
 </div>
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
-
-
-<div>
-    <a asp-action="Index">Back to Home</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-
-}
-
-<script>
-    function fileselect() {
-        document.getElementById("tick").setAttribute("style", "visibility:visible;");
     }
 
-</script>
-<script>
-    $(document).ready(function () {
-        $(":file").click(function () {
-            $("#space").animate({ width: '200px' });
+    <script>
+        function fileselect() {
+            document.getElementById("tick").setAttribute("style", "visibility:visible;");
+        }
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(":file").click(function () {
+                $("#space").animate({ width: '200px' });
+            });
         });
-    });
-</script>
+    </script>
