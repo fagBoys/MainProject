@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@ViewData["Title"] - CrestCouriers_Career</title>
 
     <environment include="Development">
@@ -18,17 +19,14 @@
 
 
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--=== Favicon ===-->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
-    <title>Crest Couriers - About Us</title>
+    <title>Crest Couriers</title>
 
     <!--=== Bootstrap CSS ===-->
     @*<link href="~/css/bootstrap.min.css" rel="stylesheet">*@
-    <!--=== Bootstrap2 CSS ===-->
+    === Bootstrap2 CSS ===
     <link href="~/css/bootstrap2.min.css" rel="stylesheet">
     <!--=== Slicknav CSS ===-->
     <link href="~/css/plugins/slicknav.min.css" rel="stylesheet">
@@ -112,7 +110,7 @@
 
                                 </li>
                                 <li><a asp-controller="Home" asp-action="About">About</a></li>
-                                <li><a href="#">services</a></li>
+                                <li><a asp-controller="Home" asp-action="Services">Services</a></li>
 
                                 <li><a asp-controller="Home" asp-action="Career">Careers</a></li>
 
@@ -171,11 +169,11 @@
 
     <partial name="_CookieConsentPartial" />
 
-    <div class="container body-content">
+    
         @RenderBody()
-        <hr />
+        
 
-    </div>
+ 
     <section id="footer-area">
         <!-- Footer Widget Start -->
         <div class="footer-widget-area">
