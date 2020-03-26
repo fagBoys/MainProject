@@ -58,6 +58,15 @@
 
 </head>
 <body style="padding-top:0px;">
+    <!--== Preloader Area Start ==-->
+    <div class="preloader">
+        <div class="preloader-spinner">
+            <div class="loader-content">
+                <img src="~/img/preloader.gif" alt="">
+            </div>
+        </div>
+    </div>
+    <!--== Preloader Area End ==-->
     <!--== Header Area Start ==-->
     <header id="header-area" class="fixed-top">
         <!--== Header Top Start ==-->
@@ -112,7 +121,7 @@
 
                                 </li>
                                 <li><a asp-controller="Home" asp-action="About">About</a></li>
-                                <li><a href="#">services</a></li>
+                                <li><a asp-controller="Home" asp-action="Services">services</a></li>
 
                                 <li><a asp-controller="Home" asp-action="Career">Careers</a></li>
 
@@ -171,10 +180,10 @@
 
     <partial name="_CookieConsentPartial" />
 
- 
-        @RenderBody()
 
-    
+    @RenderBody()
+
+
     <section id="footer-area">
         <!-- Footer Widget Start -->
         <div class="footer-widget-area">
