@@ -1,7 +1,24 @@
 ﻿@{
     ViewData["Title"] = "About";
 }
+@section Menu{
+    <div class="col-lg-8 d-none d-xl-block" style="-ms-flex: 0 0 66.666667%; flex: 0 0 66.666667%; max-width: 66.666667%">
+        <nav class="mainmenu alignright">
+            <ul>
+                <li>
+                    <a asp-controller="Home" asp-action="Index">Home</a>
 
+                </li>
+                <li class="active"><a asp-controller="Home" asp-action="About">About</a></li>
+                <li><a asp-controller="Home" asp-action="Services">services</a></li>
+
+                <li><a asp-controller="Home" asp-action="Career">Careers</a></li>
+
+                <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+}
 <!--== About Page Content Start ==-->
 <section id="about-area" class="section-padding">
     <div class="container">
@@ -30,7 +47,6 @@
                 </div>
             </div>
             <!-- About Content End -->
-
             <!-- About Video Start -->
             <div class="col-lg-6">
                 <div class="about-image">
@@ -52,7 +68,6 @@
                     </div>
                 </div>
                 <!-- Single Fretutes End -->
-
                 <!-- Single Fretutes Start -->
                 <div class="col-lg-4">
                     <div class="about-feature-item">
@@ -62,7 +77,6 @@
                     </div>
                 </div>
                 <!-- Single Fretutes End -->
-
                 <!-- Single Fretutes Start -->
                 <div class="col-lg-4">
                     <div class="about-feature-item">
@@ -78,7 +92,6 @@
     </div>
 </section>
 <!--== About Page Content End ==-->
-
 <!--== Our Facility Content Start ==-->
 <section id="our-facility" class="section-padding overlay">
     <div class="container">
@@ -97,7 +110,6 @@
                 </div>
             </div>
             <!-- Single Facility Start -->
-
             <!-- Single Facility Start -->
             <div class="col-lg-3 col-md-6">
                 <div class="single-our-facility">
@@ -112,7 +124,6 @@
                 </div>
             </div>
             <!-- Single Facility Start -->
-
             <!-- Single Facility Start -->
             <div class="col-lg-3 col-md-6">
                 <div class="single-our-facility">
@@ -127,7 +138,6 @@
                 </div>
             </div>
             <!-- Single Facility Start -->
-
             <!-- Single Facility Start -->
             <div class="col-lg-3 col-md-6">
                 <div class="single-our-facility">
@@ -146,7 +156,6 @@
     </div>
 </section>
 <!--== Our Facility Content End ==-->
-
 <!--== Partner Area Start ==-->
 <div id="partner-area">
     <div class="container-fluid">
@@ -162,7 +171,6 @@
                         </div>
                     </div>
                     <!-- Single Partner End -->
-
                     <!-- Single Partner Start -->
                     <div class="single-partner">
                         <div class="display-table">
@@ -172,7 +180,6 @@
                         </div>
                     </div>
                     <!-- Single Partner End -->
-
                     <!-- Single Partner Start -->
                     <div class="single-partner">
                         <div class="display-table">
@@ -182,7 +189,6 @@
                         </div>
                     </div>
                     <!-- Single Partner End -->
-
                     <!-- Single Partner Start -->
                     <div class="single-partner">
                         <div class="display-table">
@@ -192,7 +198,6 @@
                         </div>
                     </div>
                     <!-- Single Partner End -->
-
                     <!-- Single Partner Start -->
                     <div class="single-partner">
                         <div class="display-table">
@@ -202,7 +207,6 @@
                         </div>
                     </div>
                     <!-- Single Partner End -->
-
                     <!-- Single Partner Start -->
                     <div class="single-partner">
                         <div class="display-table">
@@ -212,7 +216,6 @@
                         </div>
                     </div>
                     <!-- Single Partner End -->
-
                     <!-- Single Partner Start -->
                     <div class="single-partner">
                         <div class="display-table">
@@ -228,7 +231,6 @@
     </div>
 </div>
 <!--== Partner Area End ==-->
-
 <!--== Testimonials Area Start ==-->
 <section id="testimonial-area" class="section-padding">
     <div class="container">
@@ -256,7 +258,6 @@
                         </div>
                     </div>
                     <!--== Single Testimoial End ==-->
-
                     <!--== Single Testimoial Start ==-->
                     <div class="single-testimonial">
                         <p>I would like to personally thank Crest Couriers for going above and beyond a service of excellence in such hazardous conditions and delivering the goods in time.</p>
@@ -266,7 +267,6 @@
                         </div>
                     </div>
                     <!--== Single Testimoial End ==-->
-
                     <!--== Single Testimoial Start ==-->
                     <div class="single-testimonial">
                         <p>On a personal note, I’d just like to say that myself and everyone here at AAR are extremely impressed with the way Crest Couriers act as a freight company.</p>

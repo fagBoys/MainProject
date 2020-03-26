@@ -113,7 +113,7 @@
                     </div>
                     <!--== Logo End ==-->
                     <!--== Main Menu Start ==-->
-                    <div class="col-lg-8 d-none d-xl-block" style="-ms-flex: 0 0 66.666667%; flex: 0 0 66.666667%; max-width: 66.666667%">
+                    @*<div class="col-lg-8 d-none d-xl-block" style="-ms-flex: 0 0 66.666667%; flex: 0 0 66.666667%; max-width: 66.666667%">
                         <nav class="mainmenu alignright">
                             <ul>
                                 <li class="active">
@@ -128,7 +128,8 @@
                                 <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
                             </ul>
                         </nav>
-                    </div>
+                    </div>*@
+                    @RenderSection("Menu")
                     <!--== Main Menu End ==-->
                 </div>
             </div>
