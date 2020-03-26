@@ -261,9 +261,6 @@ namespace CrestCouriers_Career.Controllers
 
 
 
-
-
-
             //return View(!ModelState.IsValid ? career : new RegCareer());
             return new RedirectResult("/Home/Career_delivery");
 
