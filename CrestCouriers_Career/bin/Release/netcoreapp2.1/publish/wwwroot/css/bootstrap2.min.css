@@ -633,11 +633,43 @@ pre {
 
 .row {
     display: -ms-flexbox;
-    display: flex;
+    /*display: flex;*/
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px
+}
+
+.img-car {
+    float: right;
+    height: 20%;
+    width: 54%;
+    padding-top: 2.5%;
+    float:right;
+}
+
+.img-car-txt {
+    float: right;
+    height: 20%;
+    width: 54%;
+    padding-top: 2.5%;
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    float: right;
+}
+
+.right-row-career
+{
+
+    margin-right:15px;
+
+}
+
+#career-text-area {
+    font-size: 20px;
+    text-align: justify;
+    text-justify:inter-word;
 }
 
 .no-gutters {
@@ -1331,7 +1363,7 @@ pre {
     .col-lg-10 {
         -ms-flex: 0 0 83.333333%;
         flex: 0 0 83.333333%;
-        max-width: 83.333333%
+        max-width: 100%
     }
 
     .col-lg-11 {

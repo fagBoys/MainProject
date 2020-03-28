@@ -8,7 +8,6 @@ C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\bin\Release\ne
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\CrestCouriers_Career.csprojAssemblyReference.cache
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\CrestCouriers_Career.RazorAssemblyInfo.cache
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\CrestCouriers_Career.RazorAssemblyInfo.cs
-C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\CrestCouriers_Career.AssemblyInfoInputs.cache
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\CrestCouriers_Career.AssemblyInfo.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\CrestCouriers_Career.TagHelpers.input.cache
@@ -74,5 +73,6 @@ C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\ne
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\_ViewStart.cshtml.g.cs
-C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\View.cshtml.g.cs
-C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\emailbody.cshtml.g.cs
+C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Home\About.cshtml.g.cs
+C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Home\Services.cshtml.g.cs
+C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\UserSecretsAssemblyInfo.cs

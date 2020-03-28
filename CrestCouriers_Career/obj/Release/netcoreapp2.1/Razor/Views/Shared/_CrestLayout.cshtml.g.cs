@@ -24,7 +24,7 @@ using CrestCouriers_Career.Models;
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"48f67f6d94c6940340ef92b0c0c1cd9de1c25a12", @"/Views/Shared/_CrestLayout.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"239b58ab97d61d684c6dc860a7f192aa130cc0d5", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9f0e0bc3062d43907324b8a6cb008b8ff3cd964a", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__CrestLayout : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #line hidden
@@ -54,7 +54,7 @@ using CrestCouriers_Career.Models;
             WriteLiteral("<!DOCTYPE html>\r\n<html class=\"no-js\" lang=\"zxx\">\r\n");
             EndContext();
             BeginContext(50, 205, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ccd02d74fe0341289e624bdeba469693", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "01fe74fee42b4b4e98c979e9d94f1f46", async() => {
                 BeginContext(56, 121, true);
                 WriteLiteral("\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n    <title>");
                 EndContext();
@@ -84,7 +84,7 @@ using CrestCouriers_Career.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(257, 100, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a29641fa9b11438bab1ff96a59b2f701", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3fa9aea96f3c420b85b0f0579d4eec4f", async() => {
                 BeginContext(264, 14, true);
                 WriteLiteral("\r\n\r\n\r\n        ");
                 EndContext();

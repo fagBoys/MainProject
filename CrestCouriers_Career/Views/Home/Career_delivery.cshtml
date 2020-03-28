@@ -1,16 +1,34 @@
 ﻿@{
     ViewData["Title"] = "Delivery report";
 }
-    <div style="background-color:white; width:50%; margin:20% auto; text-align:center;">
+@section Menu{
+    <div class="col-lg-8 d-none d-xl-block" style="-ms-flex: 0 0 66.666667%; flex: 0 0 66.666667%; max-width: 66.666667%">
+        <nav class="mainmenu alignright">
+            <ul>
+                <li>
+                    <a asp-controller="Home" asp-action="Index">Home</a>
 
+                </li>
+                <li><a asp-controller="Home" asp-action="About">About</a></li>
+                <li><a asp-controller="Home" asp-action="Services">services</a></li>
 
-        <div style="margin:10%">
-            <img src="~/tick.png"/>
-        </div>
-        <div>
-            <h1>@ViewData["Title"]</h1>
+                <li class="active"><a asp-controller="Home" asp-action="Career">Careers</a></li>
 
-            <p>Your message has been sent correctly</p>
-        </div>
+                <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+            </ul>
+        </nav>
     </div>
-    <a href="Index"><p>Back to home</p></a>
+}
+<div style="background-color:white; width:50%; margin:20% auto; text-align:center;">
+
+
+    <div style="margin:10%">
+        <img src="~/tick.png" />
+    </div>
+    <div>
+        <h1>@ViewData["Title"]</h1>
+
+        <p>Your message has been sent correctly</p>
+    </div>
+</div>
+<a href="Index"><p>Back to home</p></a>

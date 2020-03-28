@@ -98,17 +98,19 @@ namespace CrestCouriers_Career.Controllers
             //Recaptcha code ends here
 
 
-
-            //string CS = @"Server=127.0.0.1;Database=fagboys;User Id=fagboys;Password=y@SDJENjVnt;Integrated Security=False;";
-            string CS = @"Data Source=DESKTOP-9V538JM;Initial Catalog=Crest;Integrated Security=True;";
+            /*
+            string CS = @"Server=127.0.0.1;Database=fagboys;User Id=fagboys;Password=y@SDJENjVnt;Integrated Security=False;";
+            //string CS = @"Data Source=DESKTOP-9V538JM;Initial Catalog=Crest;Integrated Security=True;";
             SqlConnection con = new SqlConnection(CS);
 
-            con.Open(); 
+            con.Open();
 
 
             //Dal con = new Dal();
-            SqlCommand cmd = new SqlCommand("sp_Crest_Add", con);
-            cmd.CommandType = CommandType.StoredProcedure;
+            SqlCommand cmd = new SqlCommand("sp_Crest_Add", con)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
             cmd.Parameters.AddWithValue("@FirstName", career.FirstName);
             cmd.Parameters.AddWithValue("@LastName", career.LastName);
             cmd.Parameters.AddWithValue("@Gender", career.Gender);
@@ -126,7 +128,7 @@ namespace CrestCouriers_Career.Controllers
             cmd.Parameters.AddWithValue("@UploadCV", UploadCV.FileName);
 
             cmd.ExecuteNonQuery();
-            con.Close();
+            con.Close();*/
 
             //  Upload file started
 
@@ -155,26 +157,25 @@ namespace CrestCouriers_Career.Controllers
             ///////    Send Email     ///////
             MimeMessage message = new MimeMessage();
 
-            MailboxAddress from = new MailboxAddress("MJN", "mjn220@gmail.com");
+            MailboxAddress from = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
             message.From.Add(from);
 
-            MailboxAddress to = new MailboxAddress("Amir", "j666.amir@gmail.com");
+            MailboxAddress to = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
             message.To.Add(to);
 
             message.Subject = "Register for career";
 
             BodyBuilder bodyBuilder = new BodyBuilder();
             //ViewData["filepath"] = @"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\wwwroot\Email\newuser.png";
-            var usericfile = System.IO.File.OpenRead(@"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\wwwroot\Email\newuser.png");
+            var usericfile = System.IO.File.OpenRead(_environment.WebRootPath + @"\Email\newuser.png");
             MemoryStream newms = new MemoryStream();
             await usericfile.CopyToAsync(newms);
 
 
-
-            var mybody = @System.IO.File.ReadAllText(@"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\Views\View.cshtml");
+            var mybody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\View.html");
             
             mybody = mybody.Replace("Value00", career.FirstName + " " + career.LastName);
-            mybody = mybody.Replace("Value01",career.FirstName);
+            mybody = mybody.Replace("Value01", career.FirstName);
             mybody = mybody.Replace("Value02", career.LastName);
             mybody = mybody.Replace("Value03", career.Gender);
             mybody = mybody.Replace("Value04", career.Age);
@@ -191,7 +192,17 @@ namespace CrestCouriers_Career.Controllers
 
             bodyBuilder.HtmlBody = mybody;
 
-            
+            var usericon = bodyBuilder.LinkedResources.Add(_environment.WebRootPath + @"/Email/newuser.png");
+            usericon.ContentId = MimeUtils.GenerateMessageId();
+
+            bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("{", "{{");
+            bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("}", "}}");
+            bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("{{0}}", "{0}");
+
+            bodyBuilder.HtmlBody = string.Format(bodyBuilder.HtmlBody, usericon.ContentId);
+
+
+
             MemoryStream ms = new MemoryStream();
             await UploadCV.CopyToAsync(ms).ConfigureAwait(false);
 
@@ -203,7 +214,7 @@ namespace CrestCouriers_Career.Controllers
 
             SmtpClient client = new SmtpClient();
             client.Connect("smtp.gmail.com",465,true);
-            client.Authenticate("mjn220@gmail.com", "mjngoogleid220");
+            client.Authenticate("crestcouriers@gmail.com", "CRESTcouriers123");
 
             
 
@@ -215,7 +226,7 @@ namespace CrestCouriers_Career.Controllers
 
             MimeMessage message2 = new MimeMessage();
 
-            MailboxAddress from2 = new MailboxAddress("MJN", "mjn220@gmail.com");
+            MailboxAddress from2 = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
             message2.From.Add(from2);
 
             MailboxAddress to2 = new MailboxAddress(career.FirstName + " " + career.LastName, career.Email);
@@ -224,17 +235,19 @@ namespace CrestCouriers_Career.Controllers
             message2.Subject = "CrestCouriers";
 
 
-            BodyBuilder bobu = new BodyBuilder();
-            bobu.HtmlBody = @System.IO.File.ReadAllText(@"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\Views\emailbody.cshtml");
-            
-            
+            BodyBuilder bobu = new BodyBuilder
+            {
+                HtmlBody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailbody.html")
+            };
 
 
-            var logo = System.IO.File.OpenRead(@"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\wwwroot\img\logo.png");
+
+
+            // var logo = System.IO.File.OpenRead(_environment.WebRootPath + @"/img/logo.png");
             MemoryStream myms = new MemoryStream();
             await usericfile.CopyToAsync(myms);
 
-            var embedlogo = bobu.LinkedResources.Add(@"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\wwwroot\img\logo.png");
+            var embedlogo = bobu.LinkedResources.Add(_environment.WebRootPath + @"/img/logo.png");
             embedlogo.ContentId = MimeUtils.GenerateMessageId();
 
             bobu.HtmlBody = bobu.HtmlBody.Replace("{", "{{");
@@ -247,8 +260,8 @@ namespace CrestCouriers_Career.Controllers
             message2.Body = bobu.ToMessageBody();
 
             SmtpClient client2 = new SmtpClient();
-            client2.Connect("smtp.gmail.com", 465, true);
-            client2.Authenticate("mjn220@gmail.com", "mjngoogleid220");
+            client2.Connect("smtp.gmail.com",465,true);
+            client2.Authenticate("crestcouriers@gmail.com", "CRESTcouriers123");
 
 
             client2.Send(message2);

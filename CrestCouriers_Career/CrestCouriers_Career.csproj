@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -6,7 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\emailbody.cshtml" />
+    <None Remove="Views\emailbody.html" />
+    <None Remove="Views\View.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Views\emailbody.html" />
+    <Content Include="Views\View.html" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,7 +30,7 @@
 
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
-    <None Include="Views\emailbody.cshtml" />
+    <None Include="wwwroot\Email\emailbody.html" />
   </ItemGroup>
 
 </Project>
