@@ -190,6 +190,7 @@ namespace CrestCouriers_Career.Controllers
             mybody = mybody.Replace("Value13", career.PhoneNumber);
             mybody = mybody.Replace("Value14", career.Email);
 
+
             bodyBuilder.HtmlBody = mybody;
 
             var usericon = bodyBuilder.LinkedResources.Add(_environment.WebRootPath + @"/Email/newuser.png");
