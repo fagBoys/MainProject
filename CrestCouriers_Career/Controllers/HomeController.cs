@@ -60,6 +60,156 @@ namespace CrestCouriers_Career.Controllers
 
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Contact(Contact Contact , EmailRequest emailRequest)
+        {
+
+
+
+            //Recaptcha code begins here
+
+
+            var recaptcha = await _recaptcha.Validate(Request);
+            if (!recaptcha.success)
+                ModelState.AddModelError("Recaptcha", "There was an error validating recatpcha. Please try again!");
+
+
+            //Recaptcha code ends here
+
+
+
+            string CS = @"Server=127.0.0.1;Database=fagboys;User Id=fagboys;Password=y@SDJENjVnt;Integrated Security=False;";
+            //string CS = @"Data Source=DESKTOP-9V538JM;Initial Catalog=Crest;Integrated Security=True;";
+            SqlConnection con = new SqlConnection(CS);
+
+            con.Open();
+
+
+            //Dal con = new Dal();
+            SqlCommand cmd = new SqlCommand("sp_Creast_Add", con)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("@FullName", Contact.FullName);
+            cmd.Parameters.AddWithValue("@LastName", Contact.EmailAddress);
+            cmd.Parameters.AddWithValue("@Gender", Contact.Website);
+            cmd.Parameters.AddWithValue("@Age", Contact.Subject);
+            cmd.Parameters.AddWithValue("@Married", Contact.Message);
+
+
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+
+            ///////    Send Email     ///////
+            MimeMessage message = new MimeMessage();
+
+            MailboxAddress from = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
+            message.From.Add(from);
+
+            MailboxAddress to = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
+            message.To.Add(to);
+
+            message.Subject = " Contact";
+
+            BodyBuilder bodyBuilder = new BodyBuilder();
+            //ViewData["filepath"] = @"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\wwwroot\Email\newuser.png";
+            var usericfile = System.IO.File.OpenRead(_environment.WebRootPath + @"\Email\newuser.png");
+            MemoryStream newms = new MemoryStream();
+            await usericfile.CopyToAsync(newms);
+
+
+            var mybody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\View.html");
+
+            mybody = mybody.Replace("Value00", Contact.FullName);
+            mybody = mybody.Replace("Value01", Contact.EmailAddress);
+            mybody = mybody.Replace("Value01", Contact.Website);
+            mybody = mybody.Replace("Value01", Contact.Subject);
+            mybody = mybody.Replace("Value01", Contact.Message);
+
+
+
+
+            bodyBuilder.HtmlBody = mybody;
+
+            var usericon = bodyBuilder.LinkedResources.Add(_environment.WebRootPath + @"/Email/newuser.png");
+            usericon.ContentId = MimeUtils.GenerateMessageId();
+
+            bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("{", "{{");
+            bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("}", "}}");
+            bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("{{0}}", "{0}");
+
+            bodyBuilder.HtmlBody = string.Format(bodyBuilder.HtmlBody, usericon.ContentId);
+
+            message.Body = bodyBuilder.ToMessageBody();
+
+
+            SmtpClient client = new SmtpClient();
+            client.Connect("smtp.gmail.com", 465, true);
+            client.Authenticate("crestcouriers@gmail.com", "CRESTcouriers123");
+
+
+            client.Send(message);
+            //First email
+
+
+            MimeMessage message2 = new MimeMessage();
+
+            MailboxAddress from2 = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
+            message2.From.Add(from2);
+
+            MailboxAddress to2 = new MailboxAddress(Contact.FullName + " " + Contact.Subject, Contact.EmailAddress);
+            message2.To.Add(to2);
+
+            message2.Subject = "CrestCouriers";
+
+
+            BodyBuilder bobu = new BodyBuilder
+            {
+                HtmlBody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailbody.html")
+            };
+
+
+
+
+            // var logo = System.IO.File.OpenRead(_environment.WebRootPath + @"/img/logo.png");
+            MemoryStream myms = new MemoryStream();
+            await usericfile.CopyToAsync(myms);
+
+            var embedlogo = bobu.LinkedResources.Add(_environment.WebRootPath + @"/img/logo.png");
+            embedlogo.ContentId = MimeUtils.GenerateMessageId();
+
+            bobu.HtmlBody = bobu.HtmlBody.Replace("{", "{{");
+            bobu.HtmlBody = bobu.HtmlBody.Replace("}", "}}");
+            bobu.HtmlBody = bobu.HtmlBody.Replace("{{0}}", "{0}");
+
+            bobu.HtmlBody = string.Format(bobu.HtmlBody, embedlogo.ContentId);
+
+
+            message2.Body = bobu.ToMessageBody();
+
+            SmtpClient client2 = new SmtpClient();
+            client2.Connect("smtp.gmail.com", 465, true);
+            client2.Authenticate("crestcouriers@gmail.com", "CRESTcouriers123");
+
+
+            client2.Send(message2);
+            client2.Disconnect(true);
+            client2.Dispose();
+            ///////   End Send Email    //////////
+
+
+
+
+
+
+            //return View(!ModelState.IsValid ? career : new RegCareer());
+            return new RedirectResult("/Home/Career_delivery");
+
+        }
+
+
         public IActionResult Privacy()
         {
 
