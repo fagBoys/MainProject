@@ -79,23 +79,23 @@ namespace CrestCouriers_Career.Controllers
 
 
 
-            string CS = @"Server=127.0.0.1;Database=fagboys;User Id=fagboys;Password=y@SDJENjVnt;Integrated Security=False;";
-            //string CS = @"Data Source=DESKTOP-9V538JM;Initial Catalog=Crest;Integrated Security=True;";
+            //string CS = @"Server=127.0.0.1;Database=fagboys;User Id=fagboys;Password=y@SDJENjVnt;Integrated Security=False;";
+            string CS = @"Data Source=DESKTOP-9V538JM;Initial Catalog=Crest;Integrated Security=True;";
             SqlConnection con = new SqlConnection(CS);
 
             con.Open();
 
 
             //Dal con = new Dal();
-            SqlCommand cmd = new SqlCommand("sp_Creast_Add", con)
+            SqlCommand cmd = new SqlCommand("sp_Crest_contact", con)
             {
                 CommandType = CommandType.StoredProcedure
             };
             cmd.Parameters.AddWithValue("@FullName", Contact.FullName);
-            cmd.Parameters.AddWithValue("@LastName", Contact.EmailAddress);
-            cmd.Parameters.AddWithValue("@Gender", Contact.Website);
-            cmd.Parameters.AddWithValue("@Age", Contact.Subject);
-            cmd.Parameters.AddWithValue("@Married", Contact.Message);
+            cmd.Parameters.AddWithValue("@EmailAddress", Contact.EmailAddress);
+            cmd.Parameters.AddWithValue("@PhoneNumber", Contact.PhoneNumber);
+            cmd.Parameters.AddWithValue("@Subject", Contact.Subject);
+            cmd.Parameters.AddWithValue("@Message", Contact.Message);
 
 
             cmd.ExecuteNonQuery();
@@ -105,7 +105,7 @@ namespace CrestCouriers_Career.Controllers
             ///////    Send Email     ///////
             MimeMessage message = new MimeMessage();
 
-            MailboxAddress from = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
+            MailboxAddress from = new MailboxAddress("CrestCouriers", "crestcouriers@gmail.com");
             message.From.Add(from);
 
             MailboxAddress to = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
@@ -120,14 +120,14 @@ namespace CrestCouriers_Career.Controllers
             await usericfile.CopyToAsync(newms);
 
 
-            var mybody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\View.html");
+            var mybody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailbody-contact.html");
 
             mybody = mybody.Replace("Value00", Contact.FullName);
-            mybody = mybody.Replace("Value01", Contact.EmailAddress);
-            mybody = mybody.Replace("Value01", Contact.Website);
-            mybody = mybody.Replace("Value01", Contact.Subject);
-            mybody = mybody.Replace("Value01", Contact.Message);
-
+            mybody = mybody.Replace("Value01", Contact.FullName);
+            mybody = mybody.Replace("Value02", Contact.EmailAddress);
+            mybody = mybody.Replace("Value03", Contact.PhoneNumber);
+            mybody = mybody.Replace("Value04", Contact.Subject);
+            mybody = mybody.Replace("Value05", Contact.Message);
 
 
 
@@ -156,7 +156,7 @@ namespace CrestCouriers_Career.Controllers
 
             MimeMessage message2 = new MimeMessage();
 
-            MailboxAddress from2 = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
+            MailboxAddress from2 = new MailboxAddress("CrestCouriers", "crestcouriers@gmail.com");
             message2.From.Add(from2);
 
             MailboxAddress to2 = new MailboxAddress(Contact.FullName + " " + Contact.Subject, Contact.EmailAddress);
@@ -167,7 +167,7 @@ namespace CrestCouriers_Career.Controllers
 
             BodyBuilder bobu = new BodyBuilder
             {
-                HtmlBody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailbody.html")
+                HtmlBody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailreply-contact.html")
             };
 
 
@@ -204,7 +204,7 @@ namespace CrestCouriers_Career.Controllers
 
 
 
-            //return View(!ModelState.IsValid ? career : new RegCareer());
+            return View(!ModelState.IsValid ? Contact : new Contact());
             return new RedirectResult("/Home/Career_delivery");
 
         }
@@ -322,7 +322,7 @@ namespace CrestCouriers_Career.Controllers
             await usericfile.CopyToAsync(newms);
 
 
-            var mybody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\View.html");
+            var mybody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailbody-career.html");
             
             mybody = mybody.Replace("Value00", career.FirstName + " " + career.LastName);
             mybody = mybody.Replace("Value01", career.FirstName);
@@ -388,7 +388,7 @@ namespace CrestCouriers_Career.Controllers
 
             BodyBuilder bobu = new BodyBuilder
             {
-                HtmlBody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailbody.html")
+                HtmlBody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailreply-career.html")
             };
 
 

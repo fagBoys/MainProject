@@ -2,6 +2,8 @@
 @using Microsoft.Extensions.Options
 @using reCAPTCHA.AspNetCore
 
+@inject IOptions<RecaptchaSettings> RecaptchaSettings
+
 @section Menu{
     <div class="col-lg-8 d-none d-xl-block" style="-ms-flex: 0 0 66.666667%; flex: 0 0 66.666667%; max-width: 66.666667%">
         <nav class="mainmenu alignright">
@@ -47,8 +49,8 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
                                 <div class="website-input">
-                                    <input asp-for="Website" type="url" placeholder="Website">
-                                    <span asp-validation-for="Website" class="text-danger"></span>
+                                    <input asp-for="PhoneNumber" type="text" placeholder="Phone Number">
+                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                                 </div>
                             </div>
 
@@ -61,8 +63,9 @@
                         </div>
 
                         <div class="message-input">
-                            <textarea asp-for="Message" name="review" cols="30" rows="10" placeholder="Message"></textarea>
+                            <textarea asp-for="Message" type="text" cols="30" rows="10" placeholder="Message">Message</textarea>
                             <span asp-validation-for="Message" class="text-danger"></span>
+                            @Html.Recaptcha(RecaptchaSettings.Value)
                         </div>
 
                         <div class="input-submit">
@@ -80,3 +83,8 @@
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2426.7472508077753!2d-1.8429471071436858!3d52.53800700528087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xdebad07d7bec8e8c!2sCrest+Couriers!5e0!3m2!1sfr!2suk!4v1545772849336" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
 </div>
 <!--== Map Area End ==-->
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}
