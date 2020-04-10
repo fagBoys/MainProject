@@ -42,6 +42,8 @@ namespace CrestCouriers_Career.Models
         public string Email { get; set; }
         
         public string UploadCV { get; set; }
+        
+        public string CityRequest { get; set; }
 
     }
 }

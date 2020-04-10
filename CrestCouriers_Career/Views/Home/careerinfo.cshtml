@@ -1,0 +1,153 @@
+﻿@using reCAPTCHA.AspNetCore
+@using Microsoft.Extensions.Options
+@{
+    ViewData["Title"] = "careerinfo";
+    Layout = "~/Views/Shared/_Crest.cshtml";
+}
+
+@inject IOptions<RecaptchaSettings> RecaptchaSettings
+<div class="career-infocategory">
+
+    <div class="career-info-title">
+        <h1 class="career-info-row-text">
+            COURIER DRIVER - @ViewData["City"].ToString().ToUpper()
+        </h1>
+    </div>
+
+    <div class="career-info-row">
+
+
+        <h4 class="career-info-paragraph-title">
+            About the role
+        </h4>
+        <p class="career-info-paragraph">
+            There’s more to being an Crest driver than simply sitting behind the wheel. As one of our delivery drivers you’ll be the face of our business for the dozens of diverse Crest Couriers customers you meet each day.
+        </p>
+        <p class="career-info-paragraph">
+            You’ll work on a shift pattern that covers both mornings (could be as early as 08:00), evening shifts (could be finished as late as 22:00) and weekends.
+        </p>
+
+        <h4 class="career-info-paragraph-title">
+            Ideal candidate
+        </h4>
+        <p class="career-info-paragraph">
+            While experience is a bonus for our delivery drivers, we’re more interested in your enthusiasm, friendly personality, and willingness to go the extra mile for our customers.
+        </p>
+
+        <h4 class="career-info-paragraph-title">
+            Requirements
+        </h4>
+        <p class="career-info-paragraph">
+            To work as a delivery driver at Crest Couriers, we ask that you have the right to work in the UK and also be able to provide these documents at interview. You must be confident behind the wheel of our manual Peugeot Partner vans, and have not any points on your driving license and not been disqualified from driving within the last 10 years. Crest Couriers will also carry-out a DBS (Criminal Records) and driving licence check to appointed candidates.
+        </p>
+        <p class="career-info-paragraph">
+            If you feel you have what it takes to be a great delivery driver at Crest Couriers, then apply today!
+        </p>
+        <p class="career-info-paragraph">
+            For all successful applications, the Crest Couriers recruitment team will arrange a phone call to discuss your application in further detail and provide your next steps.
+        </p>
+
+    </div>
+
+
+
+    <div class="career-info-row">
+
+        <div class="career-info-details">
+            <div class="career-info-details-title">
+                <h4 class="career-info-details-title-text">
+                    Details
+                </h4>
+            </div>
+            <div class="career-info-details-content">
+
+                <div class="career-info-details-item">
+                    <h4 class="career-info-details-item-text">
+                        Location
+                    </h4>
+                    <p class="career-info-details-item-text">
+                        @ViewData["City"]
+                    </p>
+                </div>
+                <hr class="career-info-line-style">
+
+                <div class="career-info-details-item">
+                    <h4 class="career-info-details-item-text">
+                        Type
+                    </h4>
+                    <p class="career-info-details-item-text">
+                        Courier Service
+                    </p>
+                </div>
+                <hr class="career-info-line-style" style="opacity:40%;">
+
+                <div class="career-info-details-item">
+                    <h4 class="career-info-details-item-text">
+                        Contact Type
+                    </h4>
+                    <p class="career-info-details-item-text">
+                        Full Time
+                    </p>
+                </div>
+                <hr class="career-info-line-style">
+
+                <div class="career-info-details-item">
+                    <h4 class="career-info-details-item-text">
+                        Contracted Hours
+                    </h4>
+                    <p class="career-info-details-item-text">
+                        40 Hours
+                    </p>
+                </div>
+                <hr class="career-info-line-style">
+
+                <div class="career-info-details-item">
+                    <h4 class="career-info-details-item-text">
+                        Salary
+                    </h4>
+                    <p class="career-info-details-item-text">
+                        $9.00 Per Hours
+                    </p>
+                </div>
+                <hr class="career-info-line-style" style="opacity:40%;">
+
+                <div class="career-info-details-button">
+                        
+
+                    <a asp-controller="Home" asp-action="Career" asp-route-id="@ViewData["City"]"><button class="career-info-button-style">Apply</button></a>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="career-info-map">
+
+                <div class="career-info-details-title">
+                    <h4 class="career-info-details-title-text">
+                        Map
+                    </h4>
+                </div>
+
+                <div class="career-info-map-area">
+
+
+
+                    <iframe src="@ViewData["CityMap"]" width="90%" height="90%" class="map-style" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+</div>
+

@@ -4,6 +4,8 @@
 
 @inject IOptions<RecaptchaSettings> RecaptchaSettings
 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 @section Menu{
     <div class="col-lg-8 d-none d-xl-block" style="-ms-flex: 0 0 66.666667%; flex: 0 0 66.666667%; max-width: 66.666667%">
         <nav class="mainmenu alignright">
@@ -65,8 +67,10 @@
                         <div class="message-input">
                             <textarea asp-for="Message" type="text" cols="30" rows="10" placeholder="Message">Message</textarea>
                             <span asp-validation-for="Message" class="text-danger"></span>
-                            @Html.Recaptcha(RecaptchaSettings.Value)
+                            @*@Html.Recaptcha(RecaptchaSettings.Value)*@
                         </div>
+
+                        <div class="g-recaptcha" data-sitekey="6LceIegUAAAAAOUVzigTDmXMJQIJBM_Jb7no6KB8"></div>
 
                         <div class="input-submit">
                             <button type="submit">Submit Message</button>
