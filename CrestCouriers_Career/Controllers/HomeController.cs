@@ -56,9 +56,9 @@ namespace CrestCouriers_Career.Controllers
 
         public IActionResult Contact()
         {
-
+            ViewData["Title"] = "contact";
             return View();
-
+            
         }
 
         [HttpPost]
@@ -237,19 +237,19 @@ namespace CrestCouriers_Career.Controllers
                 ViewData["City"] = id;
                 if (id == "Birmingham")
                 {
-                    ViewData["CityMap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d77762.85290007963!2d-1.793592192436581!3d52.47752147712665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870942d1b417173%3A0xca81fef0aeee7998!2z2KjbjNix2YXZhtqv2KfZhdiMIEJpcm1pbmdoYW0sINio2LHbjNiq2KfZhtuM2Kc!5e0!3m2!1sfa!2sus!4v1586178487514!5m2!1sfa!2sus";
+                    ViewData["CityMap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d155526.29467269467!2d-2.003714890183722!3d52.47735487694842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870942d1b417173%3A0xca81fef0aeee7998!2sBirmingham!5e0!3m2!1sen!2suk!4v1586544000369!5m2!1sen!2suk";
                 }
                 else if (id == "Coventry")
                 {
-                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d77875.4644659586!2d-1.4448787406184547!3d52.41377556630113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870b151656e22b7%3A0x4f660f5564f0689!2z2qnYp9mI2YbYqtix24zYjCBDb3ZlbnRyeSwg2KjYsduM2KrYp9mG24zYpw!5e0!3m2!1sfa!2s!4v1586355479057!5m2!1sfa!2s";
+                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d77875.64936090495!2d-1.584957836701814!3d52.41367085814577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870b151656e22b7%3A0x4f660f5564f0689!2sCoventry!5e0!3m2!1sen!2suk!4v1586544031949!5m2!1sen!2suk";
                 }
                 else if (id == "Leeds")
                 {
-                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d75394.15842161658!2d-1.465693030733832!3d53.806083470554505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48793e4ada64bd99%3A0x51adbafd0213dca9!2z2YTbjNiv2LLYjCDYqNix24zYqtin2YbbjNin!5e0!3m2!1sfa!2s!4v1586355778619!5m2!1sfa!2s";
+                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d150788.90157917945!2d-1.6758143576752904!3d53.80592089177427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48793e4ada64bd99%3A0x51adbafd0213dca9!2sLeeds!5e0!3m2!1sen!2suk!4v1586543961493!5m2!1sen!2suk";
                 }
                 else if (id == "Oldham")
                 {
-                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37939.33770833741!2d-2.058658168230209!3d53.53618939581578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bb0aa67777af1%3A0x18b3b8d9a96b3258!2z2KfZiNmE2K_Zh9in2YXYjCDYqNix24zYqtin2YbbjNin!5e0!3m2!1sfa!2s!4v1586355924571!5m2!1sfa!2s";
+                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d75878.79433501452!2d-2.1637169125702176!3d53.536123038778264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bb0aa67777af1%3A0x18b3b8d9a96b3258!2sOldham!5e0!3m2!1sen!2suk!4v1586543894888!5m2!1sen!2suk";
                 }
                 return View();
 

@@ -58,7 +58,7 @@ namespace CrestCouriers_Career
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCookiePolicy();
+            //app.UseCookiePolicy();    //Cookie has been disabled
             app.UseSession();
 
             
