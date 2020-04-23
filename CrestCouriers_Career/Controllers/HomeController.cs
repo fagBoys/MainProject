@@ -66,7 +66,7 @@ namespace CrestCouriers_Career.Controllers
         public async Task<IActionResult> Contact(Contact Contact, EmailRequest emailRequest)
         {
 
-
+            ViewData["Title"] = "contact";
 
             //Recaptcha code begins here
 
@@ -79,16 +79,10 @@ namespace CrestCouriers_Career.Controllers
             //Recaptcha code ends here
 
 
-
-            //string CS = @"Server=127.0.0.1;Database=fagboys;User Id=fagboys;Password=y@SDJENjVnt;Integrated Security=False;";
-            string CS = @"Data Source=DESKTOP-9V538JM;Initial Catalog=Crest;Integrated Security=True;";
-            SqlConnection con = new SqlConnection(CS);
-
-            con.Open();
-
-
-            //Dal con = new Dal();
-            SqlCommand cmd = new SqlCommand("sp_Crest_contact", con)
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            
+            SqlCommand cmd = new SqlCommand("sp_Crest_contact", connection.connect())
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -100,7 +94,8 @@ namespace CrestCouriers_Career.Controllers
 
 
             cmd.ExecuteNonQuery();
-            con.Close();
+
+            connection.disconnect();
 
 
             ///////    Send Email     ///////
@@ -292,17 +287,13 @@ namespace CrestCouriers_Career.Controllers
 
             //Recaptcha code ends here
 
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
 
-            /*
-            string CS = @"Server=127.0.0.1;Database=fagboys;User Id=fagboys;Password=y@SDJENjVnt;Integrated Security=False;";
-            //string CS = @"Data Source=DESKTOP-9V538JM;Initial Catalog=Crest;Integrated Security=True;";
-            SqlConnection con = new SqlConnection(CS);
-
-            con.Open();
 
 
             //Dal con = new Dal();
-            SqlCommand cmd = new SqlCommand("sp_Crest_Add", con)
+            SqlCommand cmd = new SqlCommand("sp_Crest_career", connection.connect())
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -323,7 +314,7 @@ namespace CrestCouriers_Career.Controllers
             cmd.Parameters.AddWithValue("@UploadCV", UploadCV.FileName);
 
             cmd.ExecuteNonQuery();
-            con.Close();*/
+            connection.disconnect();
 
             //  Upload file started
 
