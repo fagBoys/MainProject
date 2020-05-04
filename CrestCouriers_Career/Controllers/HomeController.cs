@@ -58,7 +58,7 @@ namespace CrestCouriers_Career.Controllers
         {
             ViewData["Title"] = "contact";
             return View();
-            
+
         }
 
         [HttpPost]
@@ -81,7 +81,7 @@ namespace CrestCouriers_Career.Controllers
 
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
-            
+
             SqlCommand cmd = new SqlCommand("sp_Crest_contact", connection.connect())
             {
                 CommandType = CommandType.StoredProcedure
@@ -218,6 +218,11 @@ namespace CrestCouriers_Career.Controllers
 
             return View();
 
+        }
+
+        public IActionResult branches()
+        {
+            return View();
         }
 
         public IActionResult careerinfo(string id)
