@@ -16,6 +16,7 @@ using reCAPTCHA.AspNetCore;
 using Microsoft.IdentityModel.Protocols;
 using System.Configuration;
 using MimeKit.Utils;
+using Newtonsoft.Json;
 
 namespace CrestCouriers_Career.Controllers
 {
@@ -49,23 +50,23 @@ namespace CrestCouriers_Career.Controllers
         public IActionResult Career_delivery()
         {
             ViewData["Message"] = "Your application description page.";
-            
+
             return View();
         }
 
         public IActionResult Contact()
         {
-
+            ViewData["Title"] = "contact";
             return View();
 
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Contact(Contact Contact , EmailRequest emailRequest)
+        public async Task<IActionResult> Contact(Contact Contact, EmailRequest emailRequest)
         {
 
-
+            ViewData["Title"] = "contact";
 
             //Recaptcha code begins here
 
@@ -78,28 +79,23 @@ namespace CrestCouriers_Career.Controllers
             //Recaptcha code ends here
 
 
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
 
-            string CS = @"Server=127.0.0.1;Database=fagboys;User Id=fagboys;Password=y@SDJENjVnt;Integrated Security=False;";
-            //string CS = @"Data Source=DESKTOP-9V538JM;Initial Catalog=Crest;Integrated Security=True;";
-            SqlConnection con = new SqlConnection(CS);
-
-            con.Open();
-
-
-            //Dal con = new Dal();
-            SqlCommand cmd = new SqlCommand("sp_Creast_Add", con)
+            SqlCommand cmd = new SqlCommand("sp_Crest_contact", connection.connect())
             {
                 CommandType = CommandType.StoredProcedure
             };
             cmd.Parameters.AddWithValue("@FullName", Contact.FullName);
-            cmd.Parameters.AddWithValue("@LastName", Contact.EmailAddress);
-            cmd.Parameters.AddWithValue("@Gender", Contact.Website);
-            cmd.Parameters.AddWithValue("@Age", Contact.Subject);
-            cmd.Parameters.AddWithValue("@Married", Contact.Message);
+            cmd.Parameters.AddWithValue("@EmailAddress", Contact.EmailAddress);
+            cmd.Parameters.AddWithValue("@PhoneNumber", Contact.PhoneNumber);
+            cmd.Parameters.AddWithValue("@Subject", Contact.Subject);
+            cmd.Parameters.AddWithValue("@Message", Contact.Message);
 
 
             cmd.ExecuteNonQuery();
-            con.Close();
+
+            connection.disconnect();
 
 
             ///////    Send Email     ///////
@@ -120,14 +116,14 @@ namespace CrestCouriers_Career.Controllers
             await usericfile.CopyToAsync(newms);
 
 
-            var mybody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\View.html");
+            var mybody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailbody-contact.html");
 
             mybody = mybody.Replace("Value00", Contact.FullName);
-            mybody = mybody.Replace("Value01", Contact.EmailAddress);
-            mybody = mybody.Replace("Value01", Contact.Website);
-            mybody = mybody.Replace("Value01", Contact.Subject);
-            mybody = mybody.Replace("Value01", Contact.Message);
-
+            mybody = mybody.Replace("Value01", Contact.FullName);
+            mybody = mybody.Replace("Value02", Contact.EmailAddress);
+            mybody = mybody.Replace("Value03", Contact.PhoneNumber);
+            mybody = mybody.Replace("Value04", Contact.Subject);
+            mybody = mybody.Replace("Value05", Contact.Message);
 
 
 
@@ -167,7 +163,7 @@ namespace CrestCouriers_Career.Controllers
 
             BodyBuilder bobu = new BodyBuilder
             {
-                HtmlBody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailbody.html")
+                HtmlBody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailreply-contact.html")
             };
 
 
@@ -204,7 +200,7 @@ namespace CrestCouriers_Career.Controllers
 
 
 
-            //return View(!ModelState.IsValid ? career : new RegCareer());
+            return View(!ModelState.IsValid ? Contact : new Contact());
             return new RedirectResult("/Home/Career_delivery");
 
         }
@@ -224,11 +220,60 @@ namespace CrestCouriers_Career.Controllers
 
         }
 
-        public IActionResult Career()
+        public IActionResult branches()
+        {
+            return View();
+        }
+
+        public IActionResult careerinfo(string id)
+        {
+            if (id == null)
+            {
+                return new RedirectResult("/Home/careertype");
+            }
+            else
+            {
+
+                ViewData["City"] = id;
+                if (id == "Birmingham")
+                {
+                    ViewData["CityMap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d155526.29467269467!2d-2.003714890183722!3d52.47735487694842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870942d1b417173%3A0xca81fef0aeee7998!2sBirmingham!5e0!3m2!1sen!2suk!4v1586544000369!5m2!1sen!2suk";
+                }
+                else if (id == "Coventry")
+                {
+                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d77875.64936090495!2d-1.584957836701814!3d52.41367085814577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870b151656e22b7%3A0x4f660f5564f0689!2sCoventry!5e0!3m2!1sen!2suk!4v1586544031949!5m2!1sen!2suk";
+                }
+                else if (id == "Leeds")
+                {
+                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d150788.90157917945!2d-1.6758143576752904!3d53.80592089177427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48793e4ada64bd99%3A0x51adbafd0213dca9!2sLeeds!5e0!3m2!1sen!2suk!4v1586543961493!5m2!1sen!2suk";
+                }
+                else if (id == "Oldham")
+                {
+                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d75878.79433501452!2d-2.1637169125702176!3d53.536123038778264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bb0aa67777af1%3A0x18b3b8d9a96b3258!2sOldham!5e0!3m2!1sen!2suk!4v1586543894888!5m2!1sen!2suk";
+                }
+                return View();
+
+            }
+        }
+
+        public IActionResult careertype()
         {
 
             return View();
 
+        }
+        public IActionResult Career(string id)
+        {
+            if (id == null)
+            {
+                return new RedirectResult("/Home/careertype");
+            }
+            else
+            {
+                ViewData["City"] = id;
+                HttpContext.Session.SetString("careertype", JsonConvert.SerializeObject(id));
+            }
+            return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -247,17 +292,13 @@ namespace CrestCouriers_Career.Controllers
 
             //Recaptcha code ends here
 
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
 
-            /*
-            string CS = @"Server=127.0.0.1;Database=fagboys;User Id=fagboys;Password=y@SDJENjVnt;Integrated Security=False;";
-            //string CS = @"Data Source=DESKTOP-9V538JM;Initial Catalog=Crest;Integrated Security=True;";
-            SqlConnection con = new SqlConnection(CS);
-
-            con.Open();
 
 
             //Dal con = new Dal();
-            SqlCommand cmd = new SqlCommand("sp_Crest_Add", con)
+            SqlCommand cmd = new SqlCommand("sp_Crest_career", connection.connect())
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -278,7 +319,7 @@ namespace CrestCouriers_Career.Controllers
             cmd.Parameters.AddWithValue("@UploadCV", UploadCV.FileName);
 
             cmd.ExecuteNonQuery();
-            con.Close();*/
+            connection.disconnect();
 
             //  Upload file started
 
@@ -321,8 +362,9 @@ namespace CrestCouriers_Career.Controllers
             MemoryStream newms = new MemoryStream();
             await usericfile.CopyToAsync(newms);
 
+            var careercity = JsonConvert.DeserializeObject<string>(HttpContext.Session.GetString("careertype"));
 
-            var mybody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\View.html");
+            var mybody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailbody-career.html");
             
             mybody = mybody.Replace("Value00", career.FirstName + " " + career.LastName);
             mybody = mybody.Replace("Value01", career.FirstName);
@@ -339,6 +381,7 @@ namespace CrestCouriers_Career.Controllers
             mybody = mybody.Replace("Value12", career.DBS);
             mybody = mybody.Replace("Value13", career.PhoneNumber);
             mybody = mybody.Replace("Value14", career.Email);
+            mybody = mybody.Replace("Value15", careercity);
 
 
             bodyBuilder.HtmlBody = mybody;
@@ -388,7 +431,7 @@ namespace CrestCouriers_Career.Controllers
 
             BodyBuilder bobu = new BodyBuilder
             {
-                HtmlBody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailbody.html")
+                HtmlBody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailreply-career.html")
             };
 
 

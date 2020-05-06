@@ -1,0 +1,177 @@
+﻿@using reCAPTCHA.AspNetCore
+@using Microsoft.Extensions.Options
+@{
+    ViewData["Title"] = "careerinfo";
+    Layout = "~/Views/Shared/_Crest.cshtml";
+}
+
+@inject IOptions<RecaptchaSettings> RecaptchaSettings
+<br>
+<br>
+<div class="container" style="margin-top:50px; margin-bottom:50px;">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="career-info-row-text">
+                COURIER DRIVER - @ViewData["City"].ToString().ToUpper()
+            </h1>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col-sm-6">
+
+            <h4 class="career-info-paragraph-title">
+                About the role
+            </h4>
+            <p class="career-info-paragraph">
+                There’s more to being an Crest driver than simply sitting behind the wheel. As one of our delivery drivers you’ll be the face of our business for the dozens of diverse Crest Couriers customers you meet each day.
+            </p>
+            <p class="career-info-paragraph">
+                You’ll work on a shift pattern that covers both mornings (could be as early as 08:00), evening shifts (could be finished as late as 22:00).
+            </p>
+            <br>
+            <h4 class="career-info-paragraph-title">
+                Ideal candidate
+            </h4>
+            <p class="career-info-paragraph">
+                While experience is a bonus for our delivery drivers, we’re more interested in your enthusiasm, friendly personality, and willingness to go the extra mile for our customers.
+            </p>
+            <br>
+            <h4 class="career-info-paragraph-title">
+                Requirements
+            </h4>
+            <p class="career-info-paragraph">
+                To work as a delivery driver at Crest Couriers, we ask that you have the right to work in the UK and also be able to provide these documents at interview. You must be confident behind the wheel of our manual Peugeot Partner vans, and have not any points on your driving license and not been disqualified from driving within the last 10 years. Crest Couriers will also carry-out a DBS (Criminal Records) and driving licence check to appointed candidates.
+            </p>
+            <p class="career-info-paragraph">
+                If you feel you have what it takes to be a great delivery driver at Crest Couriers, then apply today!
+            </p>
+            <p class="career-info-paragraph">
+                For all successful applications, the Crest Couriers recruitment team will arrange a phone call to discuss your application in further detail and provide your next steps.
+            </p>
+
+        </div>
+
+
+
+
+        <div class="col-sm-6">
+
+            <div class="career-info-details">
+                <div class="career-info-details-title">
+                    <h4 class="career-info-details-title-text">
+                        Details
+                    </h4>
+                </div>
+
+                <div class="table-responsive">
+
+                    <div class="career-info-details-content">
+
+                        <table class="table career-info-details-table" style="margin:0 auto !important;">
+
+
+                            <tr>
+                                <td>
+                                    Location
+                                </td>
+                                <td>
+                                    @ViewData["City"]
+                                </td>
+
+
+                            </tr>
+
+
+
+                            <tr style="table-row-height">
+                                <td>
+                                    Type
+                                </td>
+                                <td>
+                                    Courier Service
+                                </td>
+                            </tr>
+
+
+                            <tr style="table-row-height">
+                                <td>
+                                    Contract Type
+                                </td>
+                                <td>
+                                    Full Time
+                                </td>
+                            </tr>
+
+
+                            <tr style="table-row-height">
+                                <td>
+                                    Contract Hours
+                                </td>
+                                <td>
+                                    40 Hours
+                                </td>
+                            </tr>
+
+
+                            <tr style="table-row-height">
+                                <td>
+                                    Salary
+                                </td>
+                                <td>
+                                    £9.00 Per Hours
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    <div class="career-info-details-button">
+
+
+                                        <a asp-controller="Home" asp-action="Career" asp-route-id="@ViewData["City"]"><button class="book-now-btn">Apply</button></a>
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <br><br>
+
+            <div class="career-info-map">
+
+                <div class="career-info-details-title">
+                    <h4 class="career-info-details-title-text">
+                        Map
+                    </h4>
+                </div>
+
+                <div class="career-info-map-area">
+
+
+
+                    <iframe src="@ViewData["CityMap"]" width="90%" height="87%" class="map-style" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<br>
+<br>
+
