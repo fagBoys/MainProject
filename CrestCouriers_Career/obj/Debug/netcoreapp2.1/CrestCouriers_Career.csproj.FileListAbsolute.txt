@@ -222,6 +222,10 @@ C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netc
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Home\Career_delivery.g.cshtml.cs
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Home\Services.g.cshtml.cs
+<<<<<<< HEAD
+=======
+C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\View.g.cshtml.cs
+>>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c
 C:\Users\Amir\Documents\GitHub\MainProject\CrestCouriers_Career\bin\Debug\netcoreapp2.1\CrestCouriers_Career.deps.json
 C:\Users\Amir\Documents\GitHub\MainProject\CrestCouriers_Career\bin\Debug\netcoreapp2.1\CrestCouriers_Career.runtimeconfig.json
 C:\Users\Amir\Documents\GitHub\MainProject\CrestCouriers_Career\bin\Debug\netcoreapp2.1\CrestCouriers_Career.runtimeconfig.dev.json
@@ -312,6 +316,7 @@ C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netc
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\User\neworder.cshtml.g.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\User\orderlist.cshtml.g.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\User\userinformation.cshtml.g.cs
+<<<<<<< HEAD
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Home\branches.g.cshtml.cs
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Home\careerinfo.g.cshtml.cs
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Home\careertype.g.cshtml.cs
@@ -321,3 +326,5 @@ C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netco
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\User\orderlist.g.cshtml.cs
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\User\register.g.cshtml.cs
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\User\userinformation.g.cshtml.cs
+=======
+>>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c

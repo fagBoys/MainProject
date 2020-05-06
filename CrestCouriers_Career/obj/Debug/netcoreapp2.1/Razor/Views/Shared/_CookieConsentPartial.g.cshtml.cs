@@ -96,9 +96,15 @@ using Microsoft.AspNetCore.Http.Features;
                 <div class=""navbar-right"">
                     ");
             EndContext();
+<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_CookieConsentPartial.g.cshtml.cs
             BeginContext(1208, 92, false);
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d0546b351b0f4cd595cf42a53b82402f", async() => {
                 BeginContext(1286, 10, true);
+=======
+            BeginContext(1234, 92, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea8eb19db63a4fdc9f55fe11753240c0", async() => {
+                BeginContext(1312, 10, true);
+>>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_CookieConsentPartial.cshtml.g.cs
                 WriteLiteral("Learn More");
                 EndContext();
             }

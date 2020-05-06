@@ -53,10 +53,17 @@ using CrestCouriers_Career.Models;
             BeginContext(0, 48, true);
             WriteLiteral("<!DOCTYPE html>\n<html class=\"no-js\" lang=\"zxx\">\n");
             EndContext();
+<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_CrestLayout.g.cshtml.cs
             BeginContext(48, 191, false);
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b3f038a2ae0347919317929aa70cedc3", async() => {
                 BeginContext(54, 118, true);
                 WriteLiteral("\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>");
+=======
+            BeginContext(50, 205, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "06aea458db9e4a41b33893d890d50592", async() => {
+                BeginContext(56, 121, true);
+                WriteLiteral("\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n    <title>");
+>>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_CrestLayout.cshtml.g.cs
                 EndContext();
                 BeginContext(173, 17, false);
 #line 6 "C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\Views\Shared\_CrestLayout.cshtml"
@@ -83,10 +90,17 @@ using CrestCouriers_Career.Models;
             BeginContext(239, 1, true);
             WriteLiteral("\n");
             EndContext();
+<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_CrestLayout.g.cshtml.cs
             BeginContext(240, 91, false);
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5e43ced3705b4e33a133b56a6eafe277", async() => {
                 BeginContext(247, 11, true);
                 WriteLiteral("\n\n\n        ");
+=======
+            BeginContext(257, 100, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c3cec5555a7442ae9ac33f36cce21a7f", async() => {
+                BeginContext(264, 14, true);
+                WriteLiteral("\r\n\r\n\r\n        ");
+>>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_CrestLayout.cshtml.g.cs
                 EndContext();
                 BeginContext(259, 12, false);
 #line 21 "C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\Views\Shared\_CrestLayout.cshtml"
