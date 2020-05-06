@@ -18,17 +18,15 @@ using Microsoft.IdentityModel.Protocols;
 using System.Configuration;
 using MimeKit.Utils;
 using Newtonsoft.Json;
-=======
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
->>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c
 
 namespace CrestCouriers_Career.Controllers
 {
     public class UserController : Controller
     {
-<<<<<<< HEAD
+
         private IHostingEnvironment _environment;
 
         private IRecaptchaService _recaptcha;
@@ -39,8 +37,7 @@ namespace CrestCouriers_Career.Controllers
             _recaptcha = recaptcha;
         }
 
-=======
->>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c
+
         public IActionResult Index()
         {
             return View();
@@ -51,7 +48,7 @@ namespace CrestCouriers_Career.Controllers
             return View();
         }
 
-<<<<<<< HEAD
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> register(User register, EmailRequest emailRequest)
@@ -193,13 +190,12 @@ namespace CrestCouriers_Career.Controllers
 
 
 
-            return View(!ModelState.IsValid ? register : new register());
+            return View(!ModelState.IsValid ? register : new User());
             return new RedirectResult("/Home/Career_delivery");
 
         }
 
-=======
->>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c
+
         public IActionResult login()
         {
             return View();
