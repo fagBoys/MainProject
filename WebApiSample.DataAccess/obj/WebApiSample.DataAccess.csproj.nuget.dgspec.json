@@ -1,0 +1,60 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\fagboys.ir\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\fagboys.ir\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\fagboys.ir\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
+        "projectName": "WebApiSample.DataAccess",
+        "projectPath": "C:\\Users\\fagboys.ir\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\fagboys.ir\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fagboys.ir\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\fagboys.ir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
