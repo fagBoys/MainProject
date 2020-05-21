@@ -78,3 +78,10 @@ C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\ne
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Home\careerinfo.cshtml.g.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Home\careertype.cshtml.g.cs
+C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Home\branches.cshtml.g.cs
+C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\User\dashboard.cshtml.g.cs
+C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\User\login.cshtml.g.cs
+C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\User\neworder.cshtml.g.cs
+C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\User\orderlist.cshtml.g.cs
+C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\User\register.cshtml.g.cs
+C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\User\userinformation.cshtml.g.cs
