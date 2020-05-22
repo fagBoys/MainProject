@@ -24,10 +24,11 @@
 
 .career-type-head {
     font-family: sans-serif;
+    font-weight: bold;
     margin-top: 20px;
     margin-left: 20px;
     margin-bottom: 0;
-    font-size: 17px;
+    font-size: 16px;
     color: #333333
 }
 

@@ -26,6 +26,7 @@ namespace CrestCouriers_Career
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession(o => { o.IdleTimeout = TimeSpan.FromSeconds(1800); });
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.

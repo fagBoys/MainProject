@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-<<<<<<< HEAD
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,17 +17,12 @@ using Microsoft.IdentityModel.Protocols;
 using System.Configuration;
 using MimeKit.Utils;
 using Newtonsoft.Json;
-=======
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
->>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c
 
 namespace CrestCouriers_Career.Controllers
 {
     public class UserController : Controller
     {
-<<<<<<< HEAD
+
         private IHostingEnvironment _environment;
 
         private IRecaptchaService _recaptcha;
@@ -39,8 +33,7 @@ namespace CrestCouriers_Career.Controllers
             _recaptcha = recaptcha;
         }
 
-=======
->>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c
+
         public IActionResult Index()
         {
             return View();
@@ -51,7 +44,7 @@ namespace CrestCouriers_Career.Controllers
             return View();
         }
 
-<<<<<<< HEAD
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> register(User register, EmailRequest emailRequest)
@@ -193,19 +186,45 @@ namespace CrestCouriers_Career.Controllers
 
 
 
-            return View(!ModelState.IsValid ? register : new register());
+            return View(!ModelState.IsValid ? register : new User());
             return new RedirectResult("/Home/Career_delivery");
 
         }
 
-=======
->>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c
+
         public IActionResult login()
         {
             return View();
         }
 
-        public IActionResult dashboard()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> login(User userlogin)
+        {
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("sp_Crest_Login", connection.connect());
+            cmd.Parameters.AddWithValue("@UserName", userlogin.UserName);
+            cmd.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+            if (dt.Rows[0][0].ToString() == userlogin.UserName && dt.Rows[0][1].ToString() == userlogin.Password && System.Convert.ToInt32(dt.Rows[0][2].ToString()) == 1)
+            {
+                HttpContext.Session.SetString("SessionName",JsonConvert.SerializeObject(userlogin.UserName));
+                return new RedirectResult("/user/dashbord");
+
+            }
+            else
+            {
+                return View();
+            }
+
+        }
+
+
+            public IActionResult dashboard()
         {
             return View();
         }

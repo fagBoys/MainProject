@@ -64,23 +64,13 @@ using CrestCouriers_Career.Models;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
-<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_ValidationScriptsPartial.g.cshtml.cs
             BeginContext(0, 221, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "216195029a6d4b2a9c936e2e3f89a8c2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0282193da1cb4aac9560e1666c7bdc6c", async() => {
                 BeginContext(35, 5, true);
                 WriteLiteral("\n    ");
                 EndContext();
                 BeginContext(40, 71, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d6b811c3cac242359ecf5b3e2ae3de61", async() => {
-=======
-            BeginContext(0, 224, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "70ae719f3b544d45825034228817c3ae", async() => {
-                BeginContext(35, 6, true);
-                WriteLiteral("\r\n    ");
-                EndContext();
-                BeginContext(41, 71, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d52962f926b14225879ec045bb840ca4", async() => {
->>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b90b1e09c8904230a71b5b9a237096ca", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -97,13 +87,8 @@ using CrestCouriers_Career.Models;
                 BeginContext(111, 5, true);
                 WriteLiteral("\n    ");
                 EndContext();
-<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_ValidationScriptsPartial.g.cshtml.cs
                 BeginContext(116, 90, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fb1c31b80dfd45aebfa1560018034cbf", async() => {
-=======
-                BeginContext(118, 90, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3af07d4ac2524d099a50d5e6a968909d", async() => {
->>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf0fce94e5404418819e2a288b68f283", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -137,27 +122,15 @@ using CrestCouriers_Career.Models;
             BeginContext(221, 1, true);
             WriteLiteral("\n");
             EndContext();
-<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_ValidationScriptsPartial.g.cshtml.cs
             BeginContext(222, 931, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5d82bf619693467dab27e4ae2609d7a9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bab7b29b69f240cab55ab29ddea718dc", async() => {
                 BeginContext(257, 5, true);
                 WriteLiteral("\n    ");
                 EndContext();
                 BeginContext(262, 394, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9c8baf7959f648c9a34e247b8a372724", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b11d32e8b2a6494bb37a754b596e94cd", async() => {
                     BeginContext(642, 5, true);
                     WriteLiteral("\n    ");
-=======
-            BeginContext(226, 944, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb3a9daa4672480896fa50775fd983f4", async() => {
-                BeginContext(261, 6, true);
-                WriteLiteral("\r\n    ");
-                EndContext();
-                BeginContext(267, 399, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0ce9f02ea8d14ee18924a48db00074f8", async() => {
-                    BeginContext(651, 6, true);
-                    WriteLiteral("\r\n    ");
->>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
                     EndContext();
                 }
                 );
@@ -182,17 +155,10 @@ using CrestCouriers_Career.Models;
                 BeginContext(656, 5, true);
                 WriteLiteral("\n    ");
                 EndContext();
-<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_ValidationScriptsPartial.g.cshtml.cs
                 BeginContext(661, 477, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4998c43f8a8743a9aa923e5de9862e4a", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "694723528272456f9b71e0a9219033a3", async() => {
                     BeginContext(1124, 5, true);
                     WriteLiteral("\n    ");
-=======
-                BeginContext(672, 482, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0b181f380779483185f7d2e5fad16a89", async() => {
-                    BeginContext(1139, 6, true);
-                    WriteLiteral("\r\n    ");
->>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
                     EndContext();
                 }
                 );

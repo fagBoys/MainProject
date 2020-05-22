@@ -67,15 +67,9 @@ using CrestCouriers_Career.Models;
                 BeginContext(62, 224, true);
                 WriteLiteral("\n    <div class=\"col-lg-8 d-none d-xl-block\" style=\"-ms-flex: 0 0 66.666667%; flex: 0 0 66.666667%; max-width: 66.666667%\">\n        <nav class=\"mainmenu alignright\">\n            <ul>\n                <li>\n                    ");
                 EndContext();
-<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Home/Career_delivery.g.cshtml.cs
                 BeginContext(286, 52, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "128e2ef24afb493fafeb9c313ef214c9", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9828636f67a245d594536df5678ee1d0", async() => {
                     BeginContext(330, 4, true);
-=======
-                BeginContext(294, 52, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "049e86e3f0304d6eb62dbf35393fb233", async() => {
-                    BeginContext(338, 4, true);
->>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Home/Career_delivery.cshtml.g.cs
                     WriteLiteral("Home");
                     EndContext();
                 }
@@ -97,15 +91,9 @@ using CrestCouriers_Career.Models;
                 BeginContext(338, 44, true);
                 WriteLiteral("\n\n                </li>\n                <li>");
                 EndContext();
-<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Home/Career_delivery.g.cshtml.cs
                 BeginContext(382, 53, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3b3443e1270c4e2493905f107afbca16", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27b1fd42bb3442a2ac40ed53d0bd7099", async() => {
                     BeginContext(426, 5, true);
-=======
-                BeginContext(393, 53, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8b26f4095e95474c9528d5ccaced74a7", async() => {
-                    BeginContext(437, 5, true);
->>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Home/Career_delivery.cshtml.g.cs
                     WriteLiteral("About");
                     EndContext();
                 }
@@ -127,15 +115,9 @@ using CrestCouriers_Career.Models;
                 BeginContext(435, 26, true);
                 WriteLiteral("</li>\n                <li>");
                 EndContext();
-<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Home/Career_delivery.g.cshtml.cs
                 BeginContext(461, 59, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3939ad4ce6f54fb69da9b27175287d31", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8a4b6c49b6fd4d6d8e49fc7f796949b9", async() => {
                     BeginContext(508, 8, true);
-=======
-                BeginContext(473, 59, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4ef5951711b9459eb85c88451a00336c", async() => {
-                    BeginContext(520, 8, true);
->>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Home/Career_delivery.cshtml.g.cs
                     WriteLiteral("services");
                     EndContext();
                 }
@@ -157,15 +139,9 @@ using CrestCouriers_Career.Models;
                 BeginContext(520, 42, true);
                 WriteLiteral("</li>\n\n                <li class=\"active\">");
                 EndContext();
-<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Home/Career_delivery.g.cshtml.cs
                 BeginContext(562, 56, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "130ba6d8aa6747138728b754c2ff77d3", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fbcf3f32dc164890b19fd9a00acd7d7e", async() => {
                     BeginContext(607, 7, true);
-=======
-                BeginContext(576, 56, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea0dda23f7864dc29b1f4452ff07ca26", async() => {
-                    BeginContext(621, 7, true);
->>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Home/Career_delivery.cshtml.g.cs
                     WriteLiteral("Careers");
                     EndContext();
                 }
@@ -187,15 +163,9 @@ using CrestCouriers_Career.Models;
                 BeginContext(618, 27, true);
                 WriteLiteral("</li>\n\n                <li>");
                 EndContext();
-<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Home/Career_delivery.g.cshtml.cs
                 BeginContext(645, 57, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "95a553c3236942e88d8ae8b509d714ba", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fdc0e7973ea74fc18202f1d2d4569985", async() => {
                     BeginContext(691, 7, true);
-=======
-                BeginContext(661, 57, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cd7edae63d434139bd97c42b97c2936a", async() => {
-                    BeginContext(707, 7, true);
->>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Home/Career_delivery.cshtml.g.cs
                     WriteLiteral("Contact");
                     EndContext();
                 }
@@ -222,13 +192,8 @@ using CrestCouriers_Career.Models;
             BeginContext(754, 124, true);
             WriteLiteral("<div style=\"background-color:white; width:50%; margin:20% auto; text-align:center;\">\n\n\n    <div style=\"margin:10%\">\n        ");
             EndContext();
-<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Home/Career_delivery.g.cshtml.cs
             BeginContext(878, 24, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3d6be3a1857b4d32abdfed5b4b4f384b", async() => {
-=======
-            BeginContext(903, 24, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "70440d1231ad4c8d9996fb81b76849ba", async() => {
->>>>>>> 982ebe580280ee4e585d7e8a4b2f682458ee992c:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/Home/Career_delivery.cshtml.g.cs
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "97c874c3c1314693a612fa91776492f3", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

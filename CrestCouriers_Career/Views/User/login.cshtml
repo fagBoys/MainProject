@@ -32,15 +32,15 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <div class="input">
-                        <input asp-for="UserName" type="text" name="" value="Username">
+                        <input asp-for="UserName" type="text" placeholder="Username">
                         <span asp-validation-for="UserName" class="text-danger"></span>
                     </div>
                     <div class="input">
-                        <input asp-for="Password" type="text" name="" value="Password">
+                        <input asp-for="Password" type="text" placeholder="Password">
                         <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
                     <div class="input">
-                        <button type="button" name="button">Login</button>
+                        <button type="submit">Login</button>
                     </div>
 
                 </form>
