@@ -187,3 +187,47 @@
     padding-left: 30px;
     padding-right: 18px;
 }
+
+.branches-left-box
+{
+  width: 100%;
+  height: 475px;
+
+}
+
+.branches-right-box
+{
+  width: 100%;
+  height: 740px;
+
+}
+
+.branches-cities
+{
+  height: 50px;
+  margin-top: 25px;
+  background-color: #cccccc
+}
+
+.branches-cityname-style
+{
+  font-family: sans-serif;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+.branches-right-head
+{
+  background-color: #cccccc;
+  height: 50px;
+  margin-top: 25px;
+}
+
+.branches-right-mapbody
+{
+
+  border: solid 1px #cccccc;
+  height: 690px;
+  padding: 25px;
+
+}

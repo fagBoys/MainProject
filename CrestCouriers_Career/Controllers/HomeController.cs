@@ -220,7 +220,7 @@ namespace CrestCouriers_Career.Controllers
 
         }
 
-        public IActionResult branches()
+        public IActionResult Branches()
         {
             return View();
         }

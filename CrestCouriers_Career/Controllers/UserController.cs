@@ -17,12 +17,9 @@ using Microsoft.IdentityModel.Protocols;
 using System.Configuration;
 using MimeKit.Utils;
 using Newtonsoft.Json;
-<<<<<<< HEAD
-=======
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
 
 namespace CrestCouriers_Career.Controllers
 {
@@ -211,7 +208,7 @@ namespace CrestCouriers_Career.Controllers
             Dal connection = new Dal(myurl);
             SqlDataAdapter da = new SqlDataAdapter();
             DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("sp_Crest_Login", connection.connect());
+            SqlCommand cmd = new SqlCommand("sp_Crest__Login", connection.connect());
             cmd.Parameters.AddWithValue("@UserName", userlogin.UserName);
             cmd.CommandType = CommandType.StoredProcedure;
             da.SelectCommand = cmd;
