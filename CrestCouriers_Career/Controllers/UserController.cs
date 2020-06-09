@@ -227,7 +227,7 @@ namespace CrestCouriers_Career.Controllers
         }
 
 
-            public IActionResult dashboard()
+        public IActionResult dashboard()
         {
             return View();
         }
