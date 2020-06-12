@@ -113,13 +113,15 @@
                     <div class="col-lg-8 d-none d-xl-block">
                         <nav class="mainmenu alignright">
                             <ul>
-                                <li class="active"><a href="index.html">Home</a>
+                                <li class="active">
+                                    <a href="index.html">Home</a>
 
                                 </li>
                                 <li><a asp-controller="Home" asp-action="About">About</a></li>
-                                <li><a href="#">services</a></li>
+                                <li><a asp-controller="Home" asp-action="Services">services</a></li>
                                 <li><a asp-controller="Home" asp-action="careertype">Careers</a></li>
                                 <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+                                <li><a asp-controller="Home" asp-action="Branches">Branches</a></li>
                             </ul>
                         </nav>
                     </div>

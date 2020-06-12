@@ -74,28 +74,10 @@ using CrestCouriers_Career.Models;
             BeginContext(71, 29, true);
             WriteLiteral("\r\n<!DOCTYPE html>\r\n\r\n<html>\r\n");
             EndContext();
-<<<<<<< HEAD
             BeginContext(100, 103, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a69f4a8be6c742c0a8e2111ace9a4641", async() => {
-========
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f433b6bb7d548be9a55abcd42dc19b4", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "160ef5df7baf4a7085155558b276becb", async() => {
                 BeginContext(106, 90, true);
                 WriteLiteral("\r\n    <meta name=\"viewport\" content=\"width=device-width\" />\r\n    <title>neworder</title>\r\n");
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-            BeginContext(91, 100, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "14de88b7f0a4474a9b372661990d5e85", async() => {
-                BeginContext(97, 87, true);
-                WriteLiteral("\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>neworder</title>\n");
-========
-            BeginContext(100, 103, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a69f4a8be6c742c0a8e2111ace9a4641", async() => {
-                BeginContext(106, 90, true);
-                WriteLiteral("\r\n    <meta name=\"viewport\" content=\"width=device-width\" />\r\n    <title>neworder</title>\r\n");
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
                 EndContext();
             }
             );
@@ -112,58 +94,18 @@ using CrestCouriers_Career.Models;
             BeginContext(203, 2, true);
             WriteLiteral("\r\n");
             EndContext();
-<<<<<<< HEAD
             BeginContext(205, 2964, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "989811cc6f3045458b2d046d96a28174", async() => {
-========
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "301a52f1e1264920bd82195331af71e1", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-            BeginContext(192, 2900, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "036a0dc6797a4e7c91e73dd41bb3cd95", async() => {
-                BeginContext(198, 77, true);
-                WriteLiteral("\n\n<h4>Order</h4>\n<hr />\n<div class=\"row\">\n    <div class=\"col-md-4\">\n        ");
-                EndContext();
-                BeginContext(275, 2733, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "826513d7c3ad4f66844ef1de9ed82776", async() => {
-                    BeginContext(303, 13, true);
-                    WriteLiteral("\n            ");
-                    EndContext();
-                    BeginContext(316, 66, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fdca2a95fda0496b84cd6f108dae2a9d", async() => {
-========
-            BeginContext(205, 2964, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "989811cc6f3045458b2d046d96a28174", async() => {
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "15f5dedbdd2a438e82a2ac9b4570d9b0", async() => {
                 BeginContext(211, 83, true);
                 WriteLiteral("\r\n\r\n<h4>Order</h4>\r\n<hr />\r\n<div class=\"row\">\r\n    <div class=\"col-md-4\">\r\n        ");
                 EndContext();
                 BeginContext(294, 2783, false);
-<<<<<<< HEAD
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "07abc639dffa4346923ac4a69efc93cf", async() => {
-========
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "84e0ed9f4b854c67ba1b93e6c6e3047f", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "07abc639dffa4346923ac4a69efc93cf", async() => {
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2c4a12017e44454c98535b561acab40a", async() => {
                     BeginContext(322, 14, true);
                     WriteLiteral("\r\n            ");
                     EndContext();
                     BeginContext(336, 66, false);
-<<<<<<< HEAD
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "50bbb31c175f42c2aa005cdf3fb73843", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1412756d3e384b97bdc336fa27f61eaa", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "50bbb31c175f42c2aa005cdf3fb73843", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b9470fd7085d4993adc336cd982ead6f", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationSummaryTagHelper>();
@@ -186,22 +128,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
                     BeginContext(402, 56, true);
                     WriteLiteral("\r\n            <div class=\"form-group\">\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(458, 57, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd4130f23ccd410ea949dd874e107557", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "113872ea0d6f42d68114abb41af385ba", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(436, 57, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0f8a0ad5cd3f4afa988697a040620243", async() => {
-========
-                    BeginContext(458, 57, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd4130f23ccd410ea949dd874e107557", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff875a748c6f4b43aa29e8cbe2426cc5", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
@@ -224,22 +152,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                     BeginContext(515, 18, true);
                     WriteLiteral("\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(533, 50, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "7763afc95ef04f03b7e46a37e476d6ee", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "558a794bc53c4fbca9c4408300852d5d", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(510, 50, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "dcc29b89fd44474bac1eda4cd9e7fcca", async() => {
-========
-                    BeginContext(533, 50, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "7763afc95ef04f03b7e46a37e476d6ee", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e999a7974e604d4c91e898f9bdcd066a", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -262,22 +176,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                     BeginContext(583, 18, true);
                     WriteLiteral("\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(601, 64, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6c26d57f7c2d4b83bbe635c81bb6186c", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c881a6d8a8db4ca68d0e891f331a0252", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(577, 64, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ec81a34ac0f741a7b9c2850a79a1549d", async() => {
-========
-                    BeginContext(601, 64, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6c26d57f7c2d4b83bbe635c81bb6186c", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "312d6a6832af4801b05c96c8355e5976", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper>();
@@ -300,22 +200,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper.For = ModelExpr
                     BeginContext(665, 76, true);
                     WriteLiteral("\r\n            </div>\r\n            <div class=\"form-group\">\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(741, 54, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "686f120b3bf641e086e5c3ed640836e3", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "02ea487248444127a7c8bf7ac06eff7a", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(714, 54, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19ee357a0d474bd796f108ed14747d3e", async() => {
-========
-                    BeginContext(741, 54, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "686f120b3bf641e086e5c3ed640836e3", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b538f026044541a6bbb91d90e4f24ef8", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
@@ -338,22 +224,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                     BeginContext(795, 18, true);
                     WriteLiteral("\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(813, 47, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f8c34217073c486ea66908171cdea190", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "7370829624a047f09188eb524ab8d0be", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(785, 47, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b1bcf392f0f8447783946101971d9f93", async() => {
-========
-                    BeginContext(813, 47, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f8c34217073c486ea66908171cdea190", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "66cb75b12e8e4869b71bef68aeb7182b", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -376,22 +248,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                     BeginContext(860, 18, true);
                     WriteLiteral("\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(878, 61, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f0037c92205644a09ab003e3785af9db", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "add5424b87d34dc59b2d36c4223e4ff5", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(849, 61, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a73546c1df4b41ae84546adb8eb2fb77", async() => {
-========
-                    BeginContext(878, 61, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f0037c92205644a09ab003e3785af9db", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "21f42435d62440808000145af1e43766", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper>();
@@ -414,22 +272,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper.For = ModelExpr
                     BeginContext(939, 76, true);
                     WriteLiteral("\r\n            </div>\r\n            <div class=\"form-group\">\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(1015, 59, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9ea538859234b7187d4f21c322f35a6", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "24f093e6f5f84f44bd36acfa4d61cb2f", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(983, 59, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "658ffb87e39e4e13843a3f0a8bf1f413", async() => {
-========
-                    BeginContext(1015, 59, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9ea538859234b7187d4f21c322f35a6", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6eacf5f30a1f49f88ea7ba8aececc7fc", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
@@ -452,22 +296,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                     BeginContext(1074, 18, true);
                     WriteLiteral("\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(1092, 52, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "7e63c0e7a63a422ca9563e6b8d873c5d", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f46f8c3b23f2411a88e9c3c2e6809e04", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(1059, 52, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "7bae89bb6f1540c79a80a04039f7a4d9", async() => {
-========
-                    BeginContext(1092, 52, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "7e63c0e7a63a422ca9563e6b8d873c5d", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9a0c30abe90244559a1f0149b9c2c24f", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -490,22 +320,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                     BeginContext(1144, 18, true);
                     WriteLiteral("\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(1162, 66, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1a96023bf7234e8788462e5ff3c21064", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "589ddb710afb46c6829d99108030d6c3", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(1128, 66, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2f28201607d24624bdabf6631ec6e5fb", async() => {
-========
-                    BeginContext(1162, 66, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1a96023bf7234e8788462e5ff3c21064", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "53c7e0f990b44aeba20276821a1e3213", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper>();
@@ -528,22 +344,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper.For = ModelExpr
                     BeginContext(1228, 76, true);
                     WriteLiteral("\r\n            </div>\r\n            <div class=\"form-group\">\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(1304, 59, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e3a418c85eb47568cebe0112b6b734c", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d0d30056d67c443590bf1e8a4edc2a46", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(1267, 59, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55bdfdbc7e3f486791074e098ef5fbea", async() => {
-========
-                    BeginContext(1304, 59, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e3a418c85eb47568cebe0112b6b734c", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1a183042fdc3439da3723dfb8c450074", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
@@ -566,22 +368,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                     BeginContext(1363, 18, true);
                     WriteLiteral("\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(1381, 52, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "01d52fc85ca94765b9e9498adaf1a825", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9a2d1aa12c2d4dd1a6a1da6be6a45912", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(1343, 52, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "61ca23b6e9e44f268b519e466c56816c", async() => {
-========
-                    BeginContext(1381, 52, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "01d52fc85ca94765b9e9498adaf1a825", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "6d8fe42ef20e4521b53390f5f24a817c", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -604,22 +392,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                     BeginContext(1433, 18, true);
                     WriteLiteral("\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(1451, 66, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea88f4cfb55d4fcf9daa9a3c98642f88", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "645fcb930a114ba9aea700f042461264", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(1412, 66, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "de6749eb01f14a56a8201715e1cc600c", async() => {
-========
-                    BeginContext(1451, 66, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea88f4cfb55d4fcf9daa9a3c98642f88", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "29269c940ddb436ba69ba27955b079ac", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper>();
@@ -642,22 +416,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper.For = ModelExpr
                     BeginContext(1517, 76, true);
                     WriteLiteral("\r\n            </div>\r\n            <div class=\"form-group\">\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(1593, 60, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "edb8b1a428a548bb81a195f133cb9296", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0849eda7bed64316b3e0f6b04ed57674", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(1551, 60, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f909ca4103474619b63e5d2e94343c79", async() => {
-========
-                    BeginContext(1593, 60, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "edb8b1a428a548bb81a195f133cb9296", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "db206182605545efa5852d7057169c7b", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
@@ -680,22 +440,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                     BeginContext(1653, 18, true);
                     WriteLiteral("\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(1671, 53, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "6feaf1e4c1d84f318f90b0ad02f735e4", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "76a542432f734489aa89dce982c81276", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(1628, 53, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "1306b2b2485f4f6d8b97c712e806b7d5", async() => {
-========
-                    BeginContext(1671, 53, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "6feaf1e4c1d84f318f90b0ad02f735e4", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "1baf5ab6007848b59218d46b2e000b04", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -718,22 +464,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                     BeginContext(1724, 18, true);
                     WriteLiteral("\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(1742, 67, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "966f9f03bf87415ea0fbef40611bcd6d", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0145cc65160342499f4c102c8aa04dba", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(1698, 67, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7d8b745fd359462a92a1d8ef064b3b27", async() => {
-========
-                    BeginContext(1742, 67, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "966f9f03bf87415ea0fbef40611bcd6d", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4b5c33c6154dc0b802e7d243891be2", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper>();
@@ -756,22 +488,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper.For = ModelExpr
                     BeginContext(1809, 76, true);
                     WriteLiteral("\r\n            </div>\r\n            <div class=\"form-group\">\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(1885, 55, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a6780a3de09a43bdbaca7f77c9add11a", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c570912f015845feb13ad01aa878516e", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(1838, 55, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2894bd2ea107447f88ff8890b8517069", async() => {
-========
-                    BeginContext(1885, 55, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a6780a3de09a43bdbaca7f77c9add11a", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ed92989f044841d9857ebdddb2ab5284", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
@@ -794,22 +512,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                     BeginContext(1940, 18, true);
                     WriteLiteral("\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(1958, 48, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "eb67edbb412540da81b1b7227c3e5dbb", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "58ea8597123442b1b9a0139b8e66238f", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(1910, 48, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "04f62d08776941d48b9f0ce1305c20af", async() => {
-========
-                    BeginContext(1958, 48, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "eb67edbb412540da81b1b7227c3e5dbb", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "4bf13b05301046cea43498e5825090e7", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -832,22 +536,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                     BeginContext(2006, 18, true);
                     WriteLiteral("\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(2024, 62, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b85bb471dad746a6bdf4330749045f27", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e11fc4e538e543c8b4210509e5fc9aba", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(1975, 62, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e17aef851f574c819337857899cf4128", async() => {
-========
-                    BeginContext(2024, 62, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b85bb471dad746a6bdf4330749045f27", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "897a7bc149774229b4dd528d7ca75e62", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper>();
@@ -870,22 +560,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper.For = ModelExpr
                     BeginContext(2086, 76, true);
                     WriteLiteral("\r\n            </div>\r\n            <div class=\"form-group\">\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(2162, 54, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "82216eb4727f468e915f20e4cb85ce39", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "180166f096414d84bb9d0d6b5b63abfd", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(2110, 54, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cdacbc70bab3478bb7d2b6efe61c4cf7", async() => {
-========
-                    BeginContext(2162, 54, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "82216eb4727f468e915f20e4cb85ce39", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "273143723aab4003a973d882c0987a06", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
@@ -908,22 +584,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                     BeginContext(2216, 18, true);
                     WriteLiteral("\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(2234, 47, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "aaacfc4ff994491fb134f314afd9da12", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "83400cf574bb46d9a480f3e9fe7f62d3", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(2181, 47, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "dba3d99a18e74206a21bb44fc3dd2d49", async() => {
-========
-                    BeginContext(2234, 47, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "aaacfc4ff994491fb134f314afd9da12", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9efbc76fea5649a6935006b30286d93c", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -946,22 +608,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                     BeginContext(2281, 18, true);
                     WriteLiteral("\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(2299, 61, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e682b714f0c34a099e5d7e35ef1481dc", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1069afb27fef42c9906da3468a157306", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(2245, 61, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc6adf7a19ab4c7e83e080124dc4a279", async() => {
-========
-                    BeginContext(2299, 61, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e682b714f0c34a099e5d7e35ef1481dc", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ee59680ba00543908470a2a482ed7024", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper>();
@@ -984,22 +632,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper.For = ModelExpr
                     BeginContext(2360, 76, true);
                     WriteLiteral("\r\n            </div>\r\n            <div class=\"form-group\">\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(2436, 53, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1852826f561a4461a1183c7eec7440d8", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a707f0203b8345f29f365c3eda653efa", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(2379, 53, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a00f68f26684998b09292208c4a3d11", async() => {
-========
-                    BeginContext(2436, 53, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1852826f561a4461a1183c7eec7440d8", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "02dab9273faa40168555ac04ecda694b", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
@@ -1022,22 +656,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                     BeginContext(2489, 18, true);
                     WriteLiteral("\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(2507, 46, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2fdcf394722d454c9265a7e8c28eef8b", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c6273ad3838641878c09c5c78871ab37", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(2449, 46, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "1542cd5439e647b2885e9c8c5815db73", async() => {
-========
-                    BeginContext(2507, 46, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2fdcf394722d454c9265a7e8c28eef8b", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b2f8726f03374fac8d97ed324697f1c6", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -1060,22 +680,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                     BeginContext(2553, 18, true);
                     WriteLiteral("\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(2571, 60, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "08852765f982419ea7efbf5d65e0ab73", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9fd647203bc6438fa5181fe81c10df12", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(2512, 60, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d21ddc65bd124604aad037399090f512", async() => {
-========
-                    BeginContext(2571, 60, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "08852765f982419ea7efbf5d65e0ab73", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4403dda9e5374c298d16900f13c44745", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper>();
@@ -1098,22 +704,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper.For = ModelExpr
                     BeginContext(2631, 76, true);
                     WriteLiteral("\r\n            </div>\r\n            <div class=\"form-group\">\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(2707, 53, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c0e9a6bd628c4a509095f28de945eadb", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d8ee108e33a84effb92d14f11b1791f8", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(2645, 53, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3327c2db2baa4ab19d515a42351b1b06", async() => {
-========
-                    BeginContext(2707, 53, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c0e9a6bd628c4a509095f28de945eadb", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0cacf8e0055e4226be3466e97179f80c", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
@@ -1136,22 +728,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                     BeginContext(2760, 18, true);
                     WriteLiteral("\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(2778, 46, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d530280720f447e0bb674641df0d426a", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2ea7bb4dbda04a1b9f11952ad4ff6d7e", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(2715, 46, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e176a8e3372c44e48cbf0362147a69b0", async() => {
-========
-                    BeginContext(2778, 46, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d530280720f447e0bb674641df0d426a", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "1e61fd60af834a94a9b971e0ad96b0ee", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -1174,22 +752,8 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                     BeginContext(2824, 18, true);
                     WriteLiteral("\r\n                ");
                     EndContext();
-<<<<<<< HEAD
                     BeginContext(2842, 60, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0b6abbcfddaa4f3fbf557498e1496f0e", async() => {
-========
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "98f68e6814cb4ee08241887416184626", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                    BeginContext(2778, 60, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d60797075b946b6b51b5ad68361c72d", async() => {
-========
-                    BeginContext(2842, 60, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0b6abbcfddaa4f3fbf557498e1496f0e", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "77240292e84f4efbb6457cd29d704d78", async() => {
                     }
                     );
                     __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper>();
@@ -1231,25 +795,9 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper.For = ModelExpr
                 BeginContext(3077, 35, true);
                 WriteLiteral("\r\n    </div>\r\n</div>\r\n\r\n<div>\r\n    ");
                 EndContext();
-<<<<<<< HEAD
                 BeginContext(3112, 38, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8a9e497ce19d46ab8614010ee594cb37", async() => {
-========
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47647424668447a1a4d99c02be66543c", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "499e343b87074c4dbee93570e168b5b5", async() => {
                     BeginContext(3134, 12, true);
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/neworder.g.cshtml.cs
-                BeginContext(3038, 38, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3f7aa07aa4bd4e64a7ae32f10e1d55a7", async() => {
-                    BeginContext(3060, 12, true);
-========
-                BeginContext(3112, 38, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8a9e497ce19d46ab8614010ee594cb37", async() => {
-                    BeginContext(3134, 12, true);
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/neworder.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
                     WriteLiteral("Back to List");
                     EndContext();
                 }

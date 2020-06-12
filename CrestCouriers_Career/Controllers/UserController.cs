@@ -17,12 +17,9 @@ using Microsoft.IdentityModel.Protocols;
 using System.Configuration;
 using MimeKit.Utils;
 using Newtonsoft.Json;
-<<<<<<< HEAD
-=======
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
 
 namespace CrestCouriers_Career.Controllers
 {
@@ -211,7 +208,7 @@ namespace CrestCouriers_Career.Controllers
             Dal connection = new Dal(myurl);
             SqlDataAdapter da = new SqlDataAdapter();
             DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("sp_Crest_Login", connection.connect());
+            SqlCommand cmd = new SqlCommand("sp_Crest__Login", connection.connect());
             cmd.Parameters.AddWithValue("@UserName", userlogin.UserName);
             cmd.CommandType = CommandType.StoredProcedure;
             da.SelectCommand = cmd;
@@ -229,11 +226,44 @@ namespace CrestCouriers_Career.Controllers
 
         }
 
-
-            public IActionResult dashboard()
+        public IEnumerable<Order> MyOrders(DataTable dataTable)
         {
-            return View();
+
+
+            foreach (DataRow item in dataTable.Rows)
+            {
+                yield return new Order
+                {
+                    OrderDate = item["OrderDate"].ToString(),
+                    Origin = item["origin"].ToString(),
+                    Destination = item["Destination"].ToString(),
+                    ReceiveDate = item["ReceiveDate"].ToString(),
+                    DeliveryDate = item["DeliveryDate"].ToString(),
+                    CarType = item["CarType"].ToString(),
+                    UserId = item["UserId"].ToString(),
+                    Price = item["Price"].ToString(),
+                    State = item["State"].ToString(),
+                };
+            }                                                               
+
+
         }
+        public IActionResult dashboard()
+        {
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("sp_Crest__Login", connection.connect());
+            cmd.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+            
+                return View(MyOrders(dt));
+            
+
+        }
+
 
         public IActionResult neworder()
         {

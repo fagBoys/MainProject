@@ -101,10 +101,10 @@ namespace CrestCouriers_Career.Controllers
             ///////    Send Email     ///////
             MimeMessage message = new MimeMessage();
 
-            MailboxAddress from = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
+            MailboxAddress from = new MailboxAddress("CrestCouriers", "careers@crestcouriers.com");
             message.From.Add(from);
 
-            MailboxAddress to = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
+            MailboxAddress to = new MailboxAddress("CrestCouriers", "careers@crestcouriers.com");
             message.To.Add(to);
 
             message.Subject = " Contact";
@@ -152,7 +152,7 @@ namespace CrestCouriers_Career.Controllers
 
             MimeMessage message2 = new MimeMessage();
 
-            MailboxAddress from2 = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
+            MailboxAddress from2 = new MailboxAddress("CrestCouriers", "careers@crestcouriers.com");
             message2.From.Add(from2);
 
             MailboxAddress to2 = new MailboxAddress(Contact.FullName + " " + Contact.Subject, Contact.EmailAddress);
@@ -200,7 +200,7 @@ namespace CrestCouriers_Career.Controllers
 
 
 
-            return View(!ModelState.IsValid ? Contact : new Contact());
+            //return View(!ModelState.IsValid ? Contact : new Contact());
             return new RedirectResult("/Home/Career_delivery");
 
         }
@@ -220,7 +220,7 @@ namespace CrestCouriers_Career.Controllers
 
         }
 
-        public IActionResult branches()
+        public IActionResult Branches()
         {
             return View();
         }
@@ -348,10 +348,10 @@ namespace CrestCouriers_Career.Controllers
             ///////    Send Email     ///////
             MimeMessage message = new MimeMessage();
 
-            MailboxAddress from = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
+            MailboxAddress from = new MailboxAddress("CrestCouriers", "careers@crestcouriers.com");
             message.From.Add(from);
 
-            MailboxAddress to = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
+            MailboxAddress to = new MailboxAddress("CrestCouriers", "careers@crestcouriers.com");
             message.To.Add(to);
 
             message.Subject = "Register for career";
@@ -420,7 +420,7 @@ namespace CrestCouriers_Career.Controllers
 
             MimeMessage message2 = new MimeMessage();
 
-            MailboxAddress from2 = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
+            MailboxAddress from2 = new MailboxAddress("CrestCouriers", "careers@crestcouriers.com");
             message2.From.Add(from2);
 
             MailboxAddress to2 = new MailboxAddress(career.FirstName + " " + career.LastName, career.Email);

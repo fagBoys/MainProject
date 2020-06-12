@@ -64,28 +64,10 @@ using CrestCouriers_Career.Models;
             BeginContext(83, 29, true);
             WriteLiteral("\r\n<!DOCTYPE html>\r\n\r\n<html>\r\n");
             EndContext();
-<<<<<<< HEAD
             BeginContext(112, 110, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/userinformation.cshtml.g.cs
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "646fe471de7346bb8750b49c59ed7fad", async() => {
-========
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4a36103531924170a4e05aa200b08bd8", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/userinformation.cshtml.g.cs
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "101f76fd24f94cf2aabf488125a975df", async() => {
                 BeginContext(118, 97, true);
                 WriteLiteral("\r\n    <meta name=\"viewport\" content=\"width=device-width\" />\r\n    <title>userinformation</title>\r\n");
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/userinformation.g.cshtml.cs
-            BeginContext(103, 107, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "58b09936c7ea4f98b788683dc3310750", async() => {
-                BeginContext(109, 94, true);
-                WriteLiteral("\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>userinformation</title>\n");
-========
-            BeginContext(112, 110, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "646fe471de7346bb8750b49c59ed7fad", async() => {
-                BeginContext(118, 97, true);
-                WriteLiteral("\r\n    <meta name=\"viewport\" content=\"width=device-width\" />\r\n    <title>userinformation</title>\r\n");
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/userinformation.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
                 EndContext();
             }
             );
@@ -102,43 +84,14 @@ using CrestCouriers_Career.Models;
             BeginContext(222, 2, true);
             WriteLiteral("\r\n");
             EndContext();
-<<<<<<< HEAD
             BeginContext(224, 1785, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/userinformation.cshtml.g.cs
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3fc9122d7c1f4f23ab5b7605c2f84d1c", async() => {
-========
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0d32631cc03c492eb630462c72edd46e", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/userinformation.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/userinformation.g.cshtml.cs
-            BeginContext(211, 1727, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "da3b731d401b40fdabf45821941fe37f", async() => {
-                BeginContext(217, 9, true);
-                WriteLiteral("\n<p>\n    ");
-                EndContext();
-                BeginContext(226, 37, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "954ccfe7ba7443bb80ef83da38ab02a1", async() => {
-                    BeginContext(249, 10, true);
-========
-            BeginContext(224, 1785, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3fc9122d7c1f4f23ab5b7605c2f84d1c", async() => {
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90c0e052265348b3b3980ab7743bbdac", async() => {
                 BeginContext(230, 11, true);
                 WriteLiteral("\r\n<p>\r\n    ");
                 EndContext();
                 BeginContext(241, 37, false);
-<<<<<<< HEAD
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/userinformation.cshtml.g.cs
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b3cf927ffcbd43768c47a08924c8e089", async() => {
-========
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b3634231f8de4859959b02b0c2d9c379", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/userinformation.cshtml.g.cs
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bfce9613c5c14a5ba22a65a23e64e28d", async() => {
                     BeginContext(264, 10, true);
-=======
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b3cf927ffcbd43768c47a08924c8e089", async() => {
-                    BeginContext(264, 10, true);
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/userinformation.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
                     WriteLiteral("Create New");
                     EndContext();
                 }

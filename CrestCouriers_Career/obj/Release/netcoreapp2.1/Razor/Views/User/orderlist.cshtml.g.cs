@@ -61,28 +61,10 @@ using CrestCouriers_Career.Models;
             BeginContext(82, 29, true);
             WriteLiteral("\r\n<!DOCTYPE html>\r\n\r\n<html>\r\n");
             EndContext();
-<<<<<<< HEAD
             BeginContext(111, 104, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/orderlist.cshtml.g.cs
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "74daaf29237e491182db98c49c5ead8b", async() => {
-========
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bd4bc9278a8c4cc6bc498b3279850fe0", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/orderlist.cshtml.g.cs
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "35717ad7d2c04cac99f9479104f97214", async() => {
                 BeginContext(117, 91, true);
                 WriteLiteral("\r\n    <meta name=\"viewport\" content=\"width=device-width\" />\r\n    <title>orderlist</title>\r\n");
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/orderlist.g.cshtml.cs
-            BeginContext(103, 101, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd793fa8e48349dd8422a1f397e460c8", async() => {
-                BeginContext(109, 88, true);
-                WriteLiteral("\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>orderlist</title>\n");
-========
-            BeginContext(111, 104, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "74daaf29237e491182db98c49c5ead8b", async() => {
-                BeginContext(117, 91, true);
-                WriteLiteral("\r\n    <meta name=\"viewport\" content=\"width=device-width\" />\r\n    <title>orderlist</title>\r\n");
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/orderlist.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
                 EndContext();
             }
             );
@@ -99,43 +81,14 @@ using CrestCouriers_Career.Models;
             BeginContext(215, 2, true);
             WriteLiteral("\r\n");
             EndContext();
-<<<<<<< HEAD
             BeginContext(217, 2831, false);
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/orderlist.cshtml.g.cs
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9710b5983c7d4de3834f42e04da4445d", async() => {
-========
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "95ee329ebded4e968f99eff83b9bd1ee", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/orderlist.cshtml.g.cs
-=======
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/orderlist.g.cshtml.cs
-            BeginContext(205, 2754, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "42d81cd0be1545f7addc6b84ae352c25", async() => {
-                BeginContext(211, 17, true);
-                WriteLiteral("\n    <p>\n        ");
-                EndContext();
-                BeginContext(228, 37, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f0e545abf8684ff987c18ed255b7a388", async() => {
-                    BeginContext(251, 10, true);
-========
-            BeginContext(217, 2831, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9710b5983c7d4de3834f42e04da4445d", async() => {
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d29db1f68637464fa8f22db97a1c227a", async() => {
                 BeginContext(223, 19, true);
                 WriteLiteral("\r\n    <p>\r\n        ");
                 EndContext();
                 BeginContext(242, 37, false);
-<<<<<<< HEAD
-<<<<<<<< HEAD:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/orderlist.cshtml.g.cs
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e32c2966441b4084bc2712414737c431", async() => {
-========
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "889b90dcb21941348925181889724ffb", async() => {
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Debug/netcoreapp2.1/Razor/Views/User/orderlist.cshtml.g.cs
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dcfe953cd1d5495794ab6c13f82b3fbe", async() => {
                     BeginContext(265, 10, true);
-=======
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e32c2966441b4084bc2712414737c431", async() => {
-                    BeginContext(265, 10, true);
->>>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78:CrestCouriers_Career/obj/Release/netcoreapp2.1/Razor/Views/User/orderlist.cshtml.g.cs
->>>>>>> 87120db989995d4e573cba6263cf6fb9bb332b78
                     WriteLiteral("Create New");
                     EndContext();
                 }
