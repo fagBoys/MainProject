@@ -109,7 +109,7 @@
                 <div class="row">
                     <!--== Logo Start ==-->
                     <div class="col-lg-4">
-                        <a href="index.html" class="logo">
+                        <a asp-controller="Home" asp-action="Index" class="logo">
                             <img src="~/img/logo.png" alt="JSOFT">
                         </a>
                     </div>
@@ -120,15 +120,13 @@
                             <ul>
                                 <li>
                                     <a asp-controller="Home" asp-action="Index">Home</a>
-
                                 </li>
                                 <li><a asp-controller="Home" asp-action="About">About</a></li>
                                 <li><a asp-controller="Home" asp-action="Services">services</a></li>
-
-                                <li class="active"><a asp-controller="Home" asp-action="Career">Careers</a></li>
-
-                                <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
                                 <li><a asp-controller="Home" asp-action="Branches">Branches</a></li>
+                                <li class="active"><a asp-controller="Home" asp-action="Careertype">Careers</a></li>
+                                <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+
                             </ul>
                         </nav>
                     </div>

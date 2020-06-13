@@ -225,7 +225,7 @@ namespace CrestCouriers_Career.Controllers
             return View();
         }
 
-        public IActionResult careerinfo(string id)
+        public IActionResult Careerinfo(string id)
         {
             if (id == null)
             {
@@ -256,7 +256,8 @@ namespace CrestCouriers_Career.Controllers
             }
         }
 
-        public IActionResult careertype()
+
+        public IActionResult Careertype()
         {
 
             return View();
