@@ -22,18 +22,21 @@ namespace CrestCouriers_Career.Models
         [Required]
         public string HouseNumber { get; set; }
         [Required]
-        [MaxLength(10)]
+        [MaxLength(30)]
         public string RoadName { get; set; }
         [Required]
-        [MaxLength(20)]
+        [MaxLength(30)]
         public string City { get; set; }
         [Required]
         public string PostCode { get; set; }
         [Required]
+        [RegularExpression("Yes", ErrorMessage = "You have no competence for this job")]
         public string DriverLicence { get; set; }
         [Required]
+        [RegularExpression("No", ErrorMessage = "You have no competence for this job")]
         public string Accident { get; set; }
         [Required]
+        [RegularExpression("Yes", ErrorMessage = "You have no competence for this job")]
         public string DBS { get; set; }
         [Required]
         public string PhoneNumber { get; set; }
