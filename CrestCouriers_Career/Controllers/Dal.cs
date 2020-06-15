@@ -39,6 +39,10 @@ namespace CrestCouriers_Career.Controllers
             {
                 con.ConnectionString = crestdb;
             }
+            else
+            {
+                con.ConnectionString = crestdb;
+            }
             con.Open();
 
             return con;

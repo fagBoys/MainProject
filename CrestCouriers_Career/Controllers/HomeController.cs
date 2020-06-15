@@ -56,10 +56,13 @@ namespace CrestCouriers_Career.Controllers
 
         public IActionResult Contact()
         {
+
+            ViewData["content"] = "No";
             ViewData["Title"] = "contact";
             return View();
 
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -67,14 +70,17 @@ namespace CrestCouriers_Career.Controllers
         {
 
             ViewData["Title"] = "contact";
+            
 
             //Recaptcha code begins here
 
 
             var recaptcha = await _recaptcha.Validate(Request);
             if (!recaptcha.success)
+            { 
                 ModelState.AddModelError("Recaptcha", "There was an error validating recatpcha. Please try again!");
-
+            }
+          
 
             //Recaptcha code ends here
 
@@ -199,9 +205,10 @@ namespace CrestCouriers_Career.Controllers
 
 
 
+            ViewData["content"] = "confirmbox";
 
             //return View(!ModelState.IsValid ? Contact : new Contact());
-            return new RedirectResult("/Home/Career_delivery");
+            return View();
 
         }
 
@@ -265,6 +272,8 @@ namespace CrestCouriers_Career.Controllers
         }
         public IActionResult Career(string id)
         {
+            ViewData["message"] = "No";
+
             if (id == null)
             {
                 return new RedirectResult("/Home/careertype");
@@ -278,7 +287,7 @@ namespace CrestCouriers_Career.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Career(RegCareer career, IFormFile UploadCV , EmailRequest emailRequest)
+        public async Task<IActionResult> Career(RegCareer career, IFormFile UploadCV , EmailRequest emailRequest, string id)
         {
 
             
@@ -465,12 +474,11 @@ namespace CrestCouriers_Career.Controllers
             ///////   End Send Email    //////////
 
 
+            ViewData["City"] = id;
 
-
-
-
+            ViewData["message"] = "confirmbox";
             //return View(!ModelState.IsValid ? career : new RegCareer());
-            return new RedirectResult("/Home/Career_delivery");
+            return View();
 
         }
 

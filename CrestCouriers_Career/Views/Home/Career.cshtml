@@ -11,6 +11,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <div class="contact-page-wrao section-padding">
     <div class="container">
         <div>
@@ -174,13 +175,21 @@
 
                         <br>
                         <div class="input-submit">
-                            <button class="book-now-btn" type="submit"><h4 style="color:white;">Submit</h4></button>
-                        </div>
+                            <a asp-controller="Home" asp-action="Career" asp-route-id="@ViewData["City"]"><button class="book-now-btn" type="submit" id="submit-btn"><h4 style="color:white;">Submit</h4></button></a>
+</div>
                     </form>
+
+                    <div id="confirmDialog" title="Save Student" hidden>
+                        <p>Do you want to save changes </p>
+                    </div>
 
 
                 </div>
             </div>
+
+
+
+
 
             @*<div class="right-row-career">
                     <div class="img-car">
@@ -205,6 +214,61 @@
     </div>
 
 </div>
+
+
+<div id="confirmbox" class="modal fade confirmbox">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:600px; padding:0px;">
+
+
+            <div class="modal-body">
+
+                <div class="col-lg-12 popup-message-box">
+                    <div class="popup-toptext">
+                        <div class="row">
+
+                            <h1 class="popup-toptext-style">Application recieved</h1>
+
+                        </div>
+
+
+
+                    </div>
+                    <div class="row">
+                        <p style="margin-left:15px; margin-top:20px;">We have sent a confirmation to your email</p>
+                    </div>
+                    <div class="row" style="padding-top:20px;">
+                        <h4 style="margin-left:15px;">What happens next</h4>
+                    </div>
+                    <div class="row">
+                        <p style="margin-left:15px; margin-top:10px; height:100px;">Your application will be reviewed and we will contact within 7 days, if you haven’t heard from us in 7 days, assume that your application has been declined. Please do NOT call for updates.</p>
+                    </div>
+                    <div class="row">
+                        <form>
+                            <a asp-action="Index"><button type="button" class="popup-back-btn" name="button">Back to home</button></a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var value = "@ViewData["message"]";
+    $(document).ready(function() {
+
+        if (value == "confirmbox") {
+            $(".confirmbox").modal('show');
+        }
+
+    });
+
+</script>
+
 
 @section Scripts {
 

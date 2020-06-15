@@ -231,3 +231,39 @@
   padding: 25px;
 
 }
+
+.popup-message-box
+{
+  background-color: #ffffff;
+  margin: auto;
+  height: 460px;
+  margin-top:20px;
+
+}
+
+.popup-toptext
+{
+  background-color: #3d9595;
+  height: 200px;
+  margin: auto;
+  padding-top: 45px;
+
+}
+
+.popup-toptext-style
+{
+  margin: auto;
+  text-align:center;
+  margin-top:35px;
+  color: white;
+}
+
+.popup-back-btn
+{
+  width: 150px;
+  height: 50px;
+  margin-left: 15px;
+  border: none;
+  background-color: green;
+  color: white;
+}
