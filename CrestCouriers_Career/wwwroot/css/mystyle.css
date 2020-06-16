@@ -191,7 +191,8 @@
 .branches-left-box
 {
   width: 100%;
-  height: 475px;
+  height: 100%;
+
 
 }
 
@@ -212,8 +213,8 @@
 .branches-cityname-style
 {
   font-family: sans-serif;
-  padding-left: 15px;
-  padding-top: 15px;
+  padding-left: 20px;
+  padding-top: 18px;
 }
 
 .branches-right-head
@@ -266,4 +267,15 @@
   border: none;
   background-color: green;
   color: white;
+}
+
+.square
+{
+    width:15px;
+    height:15px;
+    background-color: red;
+    float:left;
+    margin-top: 17px;
+    margin-left:20px;
+    margin-right:10px;
 }
