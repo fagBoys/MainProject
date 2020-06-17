@@ -8,7 +8,8 @@ namespace CrestCouriers_Career.Models
 {
     public class Order
     {
-
+        [Key]
+        public string Orderid { get; set; }
 
         [Required]
         [MaxLength(50)]
