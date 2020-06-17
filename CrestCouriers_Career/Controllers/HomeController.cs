@@ -107,10 +107,10 @@ namespace CrestCouriers_Career.Controllers
             ///////    Send Email     ///////
             MimeMessage message = new MimeMessage();
 
-            MailboxAddress from = new MailboxAddress("CrestCouriers", "careers@crestcouriers.com");
+            MailboxAddress from = new MailboxAddress("Crest Couriers", "careers@crestcouriers.com");
             message.From.Add(from);
 
-            MailboxAddress to = new MailboxAddress("CrestCouriers", "careers@crestcouriers.com");
+            MailboxAddress to = new MailboxAddress("Crest Couriers", "careers@crestcouriers.com");
             message.To.Add(to);
 
             message.Subject = " Contact";
@@ -158,13 +158,13 @@ namespace CrestCouriers_Career.Controllers
 
             MimeMessage message2 = new MimeMessage();
 
-            MailboxAddress from2 = new MailboxAddress("CrestCouriers", "careers@crestcouriers.com");
+            MailboxAddress from2 = new MailboxAddress("Crest Couriers", "careers@crestcouriers.com");
             message2.From.Add(from2);
 
             MailboxAddress to2 = new MailboxAddress(Contact.FullName + " " + Contact.Subject, Contact.EmailAddress);
             message2.To.Add(to2);
 
-            message2.Subject = "CrestCouriers";
+            message2.Subject = "Message received";
 
 
             BodyBuilder bobu = new BodyBuilder
@@ -358,10 +358,10 @@ namespace CrestCouriers_Career.Controllers
             ///////    Send Email     ///////
             MimeMessage message = new MimeMessage();
 
-            MailboxAddress from = new MailboxAddress("CrestCouriers", "careers@crestcouriers.com");
+            MailboxAddress from = new MailboxAddress("Crest Couriers", "careers@crestcouriers.com");
             message.From.Add(from);
 
-            MailboxAddress to = new MailboxAddress("CrestCouriers", "careers@crestcouriers.com");
+            MailboxAddress to = new MailboxAddress("Crest Couriers", "careers@crestcouriers.com");
             message.To.Add(to);
 
             message.Subject = "Register for career";
@@ -430,13 +430,13 @@ namespace CrestCouriers_Career.Controllers
 
             MimeMessage message2 = new MimeMessage();
 
-            MailboxAddress from2 = new MailboxAddress("CrestCouriers", "careers@crestcouriers.com");
+            MailboxAddress from2 = new MailboxAddress("Crest Couriers", "careers@crestcouriers.com");
             message2.From.Add(from2);
 
             MailboxAddress to2 = new MailboxAddress(career.FirstName + " " + career.LastName, career.Email);
             message2.To.Add(to2);
 
-            message2.Subject = "CrestCouriers";
+            message2.Subject = "Application received";
 
 
             BodyBuilder bobu = new BodyBuilder
