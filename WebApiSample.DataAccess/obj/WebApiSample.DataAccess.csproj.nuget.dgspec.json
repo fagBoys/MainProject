@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mjn110\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj": {}
+    "C:\\Users\\haime\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mjn110\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj": {
+    "C:\\Users\\haime\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mjn110\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\haime\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
         "projectName": "WebApiSample.DataAccess",
-        "projectPath": "C:\\Users\\mjn110\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
-        "packagesPath": "C:\\Users\\mjn110\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mjn110\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\obj\\",
+        "projectPath": "C:\\Users\\haime\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\haime\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\haime\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\mjn110\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\haime\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,7 +55,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
