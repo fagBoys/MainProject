@@ -269,13 +269,12 @@
   color: white;
 }
 
-.square
-{
-    width:15px;
-    height:15px;
-    background-color: red;
-    float:left;
-    margin-top: 17px;
-    margin-left:20px;
-    margin-right:10px;
+.square {
+    width: 10px;
+    height: 10px;
+    background-color: #ff002a;
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
 }
