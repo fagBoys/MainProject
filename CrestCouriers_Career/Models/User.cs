@@ -9,6 +9,9 @@ namespace CrestCouriers_Career.Models
     public class User
     {
 
+        [Key]
+        public int Userid { get; set; }
+
         [Required]
         [MaxLength(50)]
         public string UserName { get; set; }

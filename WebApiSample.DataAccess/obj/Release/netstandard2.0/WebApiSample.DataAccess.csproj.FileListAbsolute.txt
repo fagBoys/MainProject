@@ -1,0 +1,9 @@
+C:\Users\Niloofar\Documents\GitHub\MainProject\WebApiSample.DataAccess\bin\Release\netstandard2.0\WebApiSample.DataAccess.deps.json
+C:\Users\Niloofar\Documents\GitHub\MainProject\WebApiSample.DataAccess\bin\Release\netstandard2.0\WebApiSample.DataAccess.dll
+C:\Users\Niloofar\Documents\GitHub\MainProject\WebApiSample.DataAccess\bin\Release\netstandard2.0\WebApiSample.DataAccess.pdb
+C:\Users\Niloofar\Documents\GitHub\MainProject\WebApiSample.DataAccess\obj\Release\netstandard2.0\WebApiSample.DataAccess.csprojAssemblyReference.cache
+C:\Users\Niloofar\Documents\GitHub\MainProject\WebApiSample.DataAccess\obj\Release\netstandard2.0\WebApiSample.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Niloofar\Documents\GitHub\MainProject\WebApiSample.DataAccess\obj\Release\netstandard2.0\WebApiSample.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Niloofar\Documents\GitHub\MainProject\WebApiSample.DataAccess\obj\Release\netstandard2.0\WebApiSample.DataAccess.AssemblyInfo.cs
+C:\Users\Niloofar\Documents\GitHub\MainProject\WebApiSample.DataAccess\obj\Release\netstandard2.0\WebApiSample.DataAccess.dll
+C:\Users\Niloofar\Documents\GitHub\MainProject\WebApiSample.DataAccess\obj\Release\netstandard2.0\WebApiSample.DataAccess.pdb

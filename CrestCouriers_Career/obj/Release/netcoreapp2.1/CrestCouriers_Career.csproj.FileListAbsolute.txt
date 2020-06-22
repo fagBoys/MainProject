@@ -93,3 +93,4 @@ C:\Users\Niloofar\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\
 C:\Users\Niloofar\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\CrestCouriers_Career.dll
 C:\Users\Niloofar\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\CrestCouriers_Career.pdb
 C:\Users\Niloofar\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\CrestCouriers_Career.csproj.CopyComplete
+C:\Users\Niloofar\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\UserSecretsAssemblyInfo.cs

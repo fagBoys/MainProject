@@ -8,6 +8,8 @@ namespace CrestCouriers_Career.Models
 {
     public class Admin
     {
+        [Key]
+        public int Adminid { get; set; }
 
         [Required]
         [MaxLength(50)]

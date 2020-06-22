@@ -9,6 +9,9 @@ namespace CrestCouriers_Career.Models
 {
     public class Contact
     {
+        [Key]
+        public int Contactid { get; set; }
+
         [Required]
         [MaxLength(50)]
         public string FullName { get; set; }

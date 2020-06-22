@@ -7,6 +7,8 @@ namespace CrestCouriers_Career.Models
 {
     public class RegCareer
     {
+        [Key]
+        public int RegId { get; set; }
         [Required]
         [MaxLength(50)]
         public string FirstName { get; set; }
