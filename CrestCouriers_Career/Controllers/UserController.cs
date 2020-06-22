@@ -231,6 +231,7 @@ namespace CrestCouriers_Career.Controllers
             {
                 yield return new Order
                 {
+                    Orderid= Convert.ToInt32( item["Orderid"].ToString()),
                     OrderDate = item["OrderDate"].ToString(),
                     Origin = item["origin"].ToString(),
                     Destination = item["Destination"].ToString(),
@@ -261,6 +262,21 @@ namespace CrestCouriers_Career.Controllers
 
         }
 
+        public ActionResult Delete(int id)
+        {
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            SqlCommand cmd = new SqlCommand("DeleteOrder", connection.connect());
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter parametrid = new SqlParameter();
+            parametrid.ParameterName = "@Orderid";
+            parametrid.Value = id;
+            cmd.Parameters.Add(parametrid);
+            cmd.ExecuteNonQuery();
+
+
+            return RedirectToAction("dashboard");
+        }
 
         public IActionResult neworder()
         {
