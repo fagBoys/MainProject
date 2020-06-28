@@ -12,5 +12,27 @@ namespace CrestCouriers_Career.Controllers
         {
             return View();
         }
+
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
+
+        public IActionResult Order()
+        {
+            return View();
+        }
+        public IActionResult AdminSetting()
+        {
+            return View();
+        }
+        public IActionResult AdminAccounts()
+        {
+            return View();
+        }
+        public IActionResult UserAccounts()
+        {
+            return View();
+        }
     }
 }

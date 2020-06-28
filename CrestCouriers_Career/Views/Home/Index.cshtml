@@ -20,6 +20,7 @@
 
     <title>Crest Couriers</title>
 
+    <link href="~/css/mystyle.css" rel="stylesheet">
     <!--=== Bootstrap CSS ===-->
     <link href="~/css/bootstrap.min.css" rel="stylesheet">
     <!--=== Slicknav CSS ===-->
@@ -108,7 +109,7 @@
                 <div class="row">
                     <!--== Logo Start ==-->
                     <div class="col-lg-4">
-                        <a href="index.html" class="logo">
+                        <a  asp-controller="Home" asp-action="Index" class="logo">
                             <img src="~/img/logo.png" alt="JSOFT">
                         </a>
                     </div>
@@ -146,7 +147,7 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="book-a-car">
-                            <form action="index.html">
+                            <form>
                                 <!--== Pick Up Location ==-->
                                 <div class="pickup-location book-item">
                                     <h4>PICK-UP LOCATION:</h4>
@@ -338,10 +339,17 @@
                                     <p>The UK’s Leading Nationwide Bespoke Sameday Courier <br> Call Us Free 24/365 on 01213821133</p>
 
                                     <br>
+                                    <a href="https://uk.trustpilot.com/review/crestcouriers.co.uk" target="_blank" class="trustpilot-style">
+                                       Excelent
+                                       <img src="~/img/trustpilot-5star.png" style="margin-bottom:3px; margin-left:2px;" width="100px" />
+                                       <img src="~/img/trustpilot.png" style="margin-bottom:5px; margin-left:5px;" width="25px" />
+                                       Trustpilot
+                                    </a>
+
                                     <!-- TrustBox widget - Micro Review Count -->
-                                    <div align="right" class="trustpilot-widget" data-locale="en-GB" data-template-id="5419b6a8b0d04a076446a9ad" data-businessunit-id="5eea86fde9d76f000177eb8b" data-style-height="35px" data-style-width="35.2%" data-theme="dark">
+                                    @*<div align="right" data-locale="en-GB" data-template-id="5419b6a8b0d04a076446a9ad" data-businessunit-id="5eea86fde9d76f000177eb8b" data-style-height="35px" data-style-width="35.2%" data-theme="dark">
                                         <a href="https://uk.trustpilot.com/review/crestcouriers.co.uk" target="_blank" rel="noopener">Trustpilot</a>
-                                    </div>
+                                    </div>*@
                                     <!-- End TrustBox widget -->
 
                                 </div>

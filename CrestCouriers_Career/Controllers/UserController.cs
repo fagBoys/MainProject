@@ -246,7 +246,7 @@ namespace CrestCouriers_Career.Controllers
 
 
         }
-        public IActionResult dashboard()
+        public IActionResult Dashboard()
         {
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
@@ -266,8 +266,10 @@ namespace CrestCouriers_Career.Controllers
         {
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
-            SqlCommand cmd = new SqlCommand("DeleteOrder", connection.connect());
-            cmd.CommandType = CommandType.StoredProcedure;
+            SqlCommand cmd = new SqlCommand("sp_Crest_DeleteOrder", connection.connect())
+            {
+                CommandType = CommandType.StoredProcedure
+            };
             SqlParameter parametrid = new SqlParameter();
             parametrid.ParameterName = "@Orderid";
             parametrid.Value = id;
@@ -278,7 +280,7 @@ namespace CrestCouriers_Career.Controllers
             return RedirectToAction("dashboard");
         }
 
-        public IActionResult neworder()
+        public IActionResult Order()
         {
             return View();
         }
@@ -288,7 +290,7 @@ namespace CrestCouriers_Career.Controllers
             return View();
         }
 
-        public IActionResult userinformation()
+        public IActionResult User()
         {
             return View();
         }

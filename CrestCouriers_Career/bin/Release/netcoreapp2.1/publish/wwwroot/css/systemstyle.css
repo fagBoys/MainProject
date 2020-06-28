@@ -1,14 +1,62 @@
-.input
+.login-logo-location
 {
-  text-align:center;
-  margin:20px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.input-div-location
+{
+  margin:0 auto;
+  width: 300px;
 }
 
-.system-form
+.button-div-location
 {
-  height:700px;
-  background-color:gray;
+  text-align: center;
+}
+
+.additional-text
+{
+  margin-top: 50px;
+  text-align: center;
+}
+
+.login-single-text
+{
+  text-align: center;
+  margin: 0 auto;
+  color: red;
+}
+
+.login-row-style
+{
+  margin-top:150px;
+}
+
+.login-image
+{
+  height:600px;
+  background-color: #cc4545;
+  padding:0;
+  position:relative;
+  overflow:hidden;
+}
+
+.login-image-style
+{
+  max-height:100%;
+  position:absolute;top:-9999px;
+  left:-9999px;
+  right:-9999px;
+  bottom:-9999px;
+  margin:auto;
+}
+
+.login-form-area
+{
+  height:600px;
   padding-top:100px;
+  border: solid 1px #e0e0e0;
+  border-left: none;
 }
 
 .panel-option
@@ -17,7 +65,21 @@
   height: 50px;
   width: 100%;
   padding-left: 15px;
-  padding-top: 14px;
+  padding-top: 12px;
+  color: white;
+
+}
+
+.panel-option-active
+{
+
+  height: 50px;
+  width: 100%;
+  padding-left: 15px;
+  padding-top: 12px;
+  background-color: white;
+  color: red;
+  font-weight: bold;
 
 }
 
@@ -37,33 +99,82 @@
 
   width: 90%;
   margin: auto;
-  margin-top: 80px;
-  background-color: #3c6236;
-  height: 400px;
 
+  height: 50px;
+
+}
+
+.list-title
+{
+
+  width: 90%;
+  margin: auto;
+  margin-top: 80px;
+  height: 50px;
+
+}
+
+.list-title-item
+{
+
+  width: 10%;
+  height: 100%;
+  float: left;
+  padding-top: 6px;
+
+}
+
+.admin-list-title-item
+{
+
+  width: 20%;
+  height: 100%;
+  float: left;
+  padding-top: 6px;
+
+}
+
+.list-title-item-text
+{
+  font-weight: bold;
+}
+
+.list-record-button
+{
+  width: 5%;
+  height: 100%;
+  float: left;
+  padding-top: 8px;
+}
+
+.username-box
+{
+  width: 150px;
+  height: 30px;
+  margin-top: 4px;
+  background-color: white;
+  border-radius: 25px;
+  float: right;
+  margin-right: 30px;
 }
 
 .username-style
 {
-
-  margin:0 auto;
-  float:right;
+  float: left;
   margin-top: 10px;
-  margin-right: 20px;
-  color: white;
-
+  margin-left: 20px;
+  width: 50px;
 }
 
 .circle
 {
-  width: 50px;
-  height: 50px;
+
   border-radius: 25px;
-  background-color: green;
+  background-color: black;
   margin: 0 auto;
   float: left;
-  margin-left: 70px;
-  margin-right: 70px;
+  margin-top: 5px;
+  margin-left: 5px;
 
 }
 
@@ -80,5 +191,80 @@ margin-top: 50px;
 {
 
   text-align: left;
+
+}
+
+.order-form-input
+{
+  width:400px;
+  height:60px;
+  margin-right: 50px;
+  float: left;
+}
+
+.popup-message-box
+{
+  background-color: #ffffff;
+  margin: auto;
+  height: 550px;
+  padding:50px;
+}
+
+.popup-order-update
+{
+  background-color: #ffffff;
+  margin: auto;
+  height: 500px;
+  padding:50px;
+  padding-top: 10px;
+}
+
+.popup-admin-update
+{
+  background-color: #ffffff;
+  margin: auto;
+  height: 430px;
+  padding:50px;
+  padding-top: 10px;
+}
+
+.popup-admin-deactive
+{
+  background-color: #ffffff;
+  margin: auto;
+  height: 200px;
+  padding:50px;
+  padding-top: 10px;
+}
+
+.popup-admin-delete
+{
+  background-color: #ffffff;
+  margin: auto;
+  height: 200px;
+  padding:50px;
+  padding-top: 10px;
+}
+
+.popup-toptext
+{
+  background-color: #3d9595;
+  height: 200px;
+  margin: auto;
+  padding-top: 45px;
+
+}
+
+.popup-toptext-style
+{
+  margin: auto;
+  text-align:center;
+  margin-top:35px;
+  color: white;
+}
+
+.update-box-header
+{
+  margin-left: 20px;
 
 }

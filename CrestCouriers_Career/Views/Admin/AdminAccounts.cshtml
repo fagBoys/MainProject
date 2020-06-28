@@ -1,0 +1,373 @@
+﻿@model IEnumerable<CrestCouriers_Career.Models.Admin>
+
+@{
+    ViewData["Title"] = "AdminAccounts";
+    Layout = "~/Views/Shared/_SystemAdmin.cshtml";
+}
+
+<div class="NewAdmin-form" style="margin:100px;">
+
+    <div class="row">
+
+        <div class="col-sm-6">
+            <input type="text" class="" name="" placeholder="Username">
+            <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+        </div>
+
+        <div class="col-sm-6">
+            <input type="text" name="" placeholder="Password">
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-6">
+            <div class="order-input">
+                <input type="text" name="" placeholder="Firstname">
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="order-input">
+                <input type="text" name="" placeholder="Lastname">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div class="input-submit">
+                <button type="button" class="book-now-btn" style="color:white; padding-top:14px;" name="button" data-toggle="modal" data-target=".confirmbox-new-order"><h5>submit new admin</h5></button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="list-title">
+    <div class="admin-list-title-item">
+        <h5 class="list-title-item-text">
+            Username
+        </h5>
+    </div>
+
+    <div class="admin-list-title-item">
+        <h5 class="list-title-item-text">
+            Firstname
+        </h5>
+    </div>
+
+    <div class="admin-list-title-item">
+        <h5 class="list-title-item-text">
+            Lastname
+        </h5>
+    </div>
+
+    <div class="admin-list-title-item">
+        <h5 class="list-title-item-text">
+            Level
+        </h5>
+    </div>
+
+</div>
+
+<hr style="width:90%; border-color:red;">
+
+<div class="list-order">
+
+    <div class="admin-list-title-item">
+        <p>
+            mjn110
+        </p>
+    </div>
+
+    <div class="admin-list-title-item">
+        <p>
+            Mohammad Javad
+        </p>
+    </div>
+
+    <div class="admin-list-title-item">
+        <p>
+            Najafi
+        </p>
+    </div>
+
+    <div class="admin-list-title-item">
+        <p>
+            Admin
+        </p>
+    </div>
+
+    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
+        <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
+    </div>
+
+    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
+        <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
+    </div>
+
+    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
+        <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
+    </div>
+
+
+</div>
+
+
+
+<div id="confirmbox-delete" class="modal fade confirmbox-delete">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:600px; padding:0px;">
+
+            <div class="modal-header" style="border-bottom-color:red;">
+                <h2 class="update-box-header">Delete admin</h2>
+            </div>
+
+            <div class="modal-body">
+
+
+
+
+                <div class="popup-admin-deactive">
+
+                    <div class="NewOrder-form">
+
+                        <div class="row">
+
+                            <div class="col-sm-12">
+                                <div class="order-input">
+                                    <p>Are you sure? You realy want to delete this account?</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-sm-6">
+                                <div class="input-submit">
+                                    <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:right;" name="button"><h5>Delete</h5></button>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="input-submit">
+                                    <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:left;" name="button"><h5>Cancel</h5></button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div id="confirmbox" class="modal fade confirmbox">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:600px; padding:0px;">
+
+            <div class="modal-header" style="border-bottom-color:red;">
+                <h2 class="update-box-header">Change admin information</h2>
+            </div>
+
+            <div class="modal-body">
+
+
+
+
+                <div class="popup-admin-update">
+
+                    <div class="NewOrder-form">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="order-input">
+                                    <input type="text" class="" name="" placeholder="Username">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="order-input">
+                                    <input type="text" class="" name="" placeholder="Firstname">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="order-input">
+                                    <input type="text" class="" name="" placeholder="Lastname">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="order-input">
+                                    <input type="text" class="" name="" placeholder="Level">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-sm-12">
+                                <div class="input-submit">
+                                    <button type="button" class="book-now-btn" style="color:white; padding-top:14px;" name="button"><h5>Update</h5></button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div id="confirmbox-deactive" class="modal fade confirmbox-deactive">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:600px; padding:0px;">
+
+            <div class="modal-header" style="border-bottom-color:red;">
+                <h2 class="update-box-header">Deactive admin</h2>
+            </div>
+
+            <div class="modal-body">
+
+
+
+
+                <div class="popup-admin-deactive">
+
+                    <div class="NewOrder-form">
+
+                        <div class="row">
+
+                            <div class="col-sm-12">
+                                <div class="order-input">
+                                    <p>Are you sure? You realy want to deactive this account?</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-sm-6">
+                                <div class="input-submit">
+                                    <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:right;" name="button"><h5>Deactive</h5></button>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="input-submit">
+                                    <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:left;" name="button"><h5>Cancel</h5></button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Adminid)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Password)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lastname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Level)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmailAddress)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adminid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Level)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailAddress)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@

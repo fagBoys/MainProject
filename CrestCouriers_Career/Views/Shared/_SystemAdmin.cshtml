@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8"
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="lvUpk8IUvEaYY4Z8ZGPZTxYMSjaoATJN-WqbsYR8d4w" />
+    <title>@ViewData["Title"] - CrestCouriers_Career</title>
+
+    @*<environment include="Development">
+            <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+            <link rel="stylesheet" href="~/css/site.css" />
+        </environment>
+        <environment exclude="Development">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+            <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        </environment>*@
+
+
+
+
+    <!--=== Favicon ===-->
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
+
+    <title>Crest Couriers - About Us</title>
+
+    @*<link href="~/css/mystyle.css" rel="stylesheet">*@
+
+    <link href="~/css/systemstyle.css" rel="stylesheet">
+    <!--=== Bootstrap CSS ===-->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <!--=== Bootstrap2 CSS ===-->
+    <link href="~/css/bootstrap2.min.css" rel="stylesheet">
+    <!--=== Slicknav CSS ===-->
+    @*<link href="~/css/plugins/slicknav.min.css" rel="stylesheet">*@
+    <!--=== Magnific Popup CSS ===-->
+    @*<link href="~/css/plugins/magnific-popup.css" rel="stylesheet">*@
+    <!--=== Owl Carousel CSS ===-->
+    @*<link href="~/css/plugins/owl.carousel.min.css" rel="stylesheet">*@
+    <!--=== Gijgo CSS ===-->
+    @*<link href="~/css/plugins/gijgo.css" rel="stylesheet">*@
+    <!--=== FontAwesome CSS ===-->
+    @*<link href="~/css/font-awesome.css" rel="stylesheet">*@
+    <!--=== Theme Reset CSS ===-->
+    @*<link href="~/css/reset.css" rel="stylesheet">*@
+    <!--=== Main Style CSS ===-->
+    <link href="~/css/style.css" rel="stylesheet">
+    <!--=== Responsive CSS ===-->
+    @*<link href="~/css/responsive.css" rel="stylesheet">*@
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+    <div class="container-fluid" style="height:100vh;">
+
+        <div class="row" style="height: 7%;">
+            <div class="col-sm-6" style="background-color:black; height:100%; padding-top:10px;">
+                <img src="~/img/System/logo.png" alt="">
+            </div>
+            <div class="col-sm-6" style="background-color:black; height:100%; padding-top:14px;">
+                <div class="username-box">
+                    <div class="circle" style="width:20px; height:20px;">
+                        <img src="~/img/System/down-arrow.png" width="10px" height="10px" style="margin-left:5px; margin-bottom:6px;" alt="">
+                    </div>
+                    <h5 class="username-style">Username</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="height:93%">
+            <div class="col-sm-2" style="background-color:#282828; height:100%; padding:0;">
+                <div class="panel-option-active">
+                    <h5>Dashboard</h5>
+                </div>
+                <div class="panel-option">
+                    <h5>Order</h5>
+                </div>
+                <div class="panel-option">
+                    <h5>Admin setting</h5>
+                </div>
+                <div class="panel-option">
+                    <h5>Admin accounts</h5>
+                </div>
+                <div class="panel-option">
+                    <h5>User accounts</h5>
+                </div>
+            </div>
+
+            <div class="col-sm-10" style="text-align:center; margin:0 auto; padding:0;">
+                @RenderBody()
+            </div>
+        </div>
+
+
+</body>
+</html>

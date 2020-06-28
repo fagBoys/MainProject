@@ -4,7 +4,7 @@
 *[Master Stylesheet]
 *
 * Project: Cardoor - Car Rental HTML Template
-* Version: 
+* Version:
 * Created : 13.02.2018
 * Author Name: alen dui
 * Author URI: http://alendkidjt.com
@@ -2602,6 +2602,8 @@ body,
 	position: inherit;
 }
 
+.NewAdmin-form input,
+.NewOrder-form input,
 .contact-form input,
 .review-area input,
 .contact-form textarea,
@@ -2614,16 +2616,24 @@ body,
 	width: 100%;
 }
 
+.input:focus
+{
+	border-color: red;
+}
+
+.NewAdmin-form input:focus,
+.NewOrder-form input:focus,
 .contact-form input:focus,
 .review-area input:focus,
 .contact-form textarea:focus,
 .review-area textarea:focus {
-	border-color: #f80d1b;
+	border-color: #f80d1b !important;
 }
 
 .message-input,
 .website-input,
-.subject-input {
+.subject-input,
+.order-input{
 	margin-top: 30px;
 }
 

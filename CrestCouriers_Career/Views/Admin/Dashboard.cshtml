@@ -1,0 +1,350 @@
+﻿@model IEnumerable<CrestCouriers_Career.Models.Order>
+
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_SystemAdmin.cshtml";
+}
+
+<div class="list-title">
+    <div class="list-title-item">
+        <h5 class="list-title-item-text">
+            Order date
+        </h5>
+    </div>
+
+    <div class="list-title-item">
+        <h5 class="list-title-item-text">
+            Origin
+        </h5>
+    </div>
+
+    <div class="list-title-item">
+        <h5 class="list-title-item-text">
+            Destination
+        </h5>
+    </div>
+
+    <div class="list-title-item">
+        <h5 class="list-title-item-text">
+            ReceiveDate
+        </h5>
+    </div>
+
+    <div class="list-title-item">
+        <h5 class="list-title-item-text">
+            DeliveryDate
+        </h5>
+    </div>
+
+    <div class="list-title-item">
+        <h5 class="list-title-item-text">
+            CarType
+        </h5>
+    </div>
+
+    <div class="list-title-item">
+        <h5 class="list-title-item-text">
+            Userid
+        </h5>
+    </div>
+
+    <div class="list-title-item">
+        <h5 class="list-title-item-text">
+            Price
+        </h5>
+    </div>
+
+    <div class="list-title-item">
+        <h5 class="list-title-item-text">
+            State
+        </h5>
+    </div>
+</div>
+
+<hr style="width:90%; border-color:red;">
+
+<div class="list-order">
+
+    <div class="list-title-item">
+        <p>
+            2020-08-06
+        </p>
+    </div>
+
+    <div class="list-title-item">
+        <p>
+            Birmingham
+        </p>
+    </div>
+
+    <div class="list-title-item">
+        <p>
+            Oldham
+        </p>
+    </div>
+
+    <div class="list-title-item">
+        <p>
+            2020-08-08
+        </p>
+    </div>
+
+    <div class="list-title-item">
+        <p>
+            2020-08-09
+        </p>
+    </div>
+
+    <div class="list-title-item">
+        <p>
+            van
+        </p>
+    </div>
+
+    <div class="list-title-item">
+        <p>
+            mjn110
+        </p>
+    </div>
+
+    <div class="list-title-item">
+        <p>
+            100
+        </p>
+    </div>
+
+    <div class="list-title-item">
+        <p>
+            checking
+        </p>
+    </div>
+
+    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
+        <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
+    </div>
+
+    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
+        <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
+    </div>
+
+</div>
+
+
+
+<div id="confirmbox-delete" class="modal fade confirmbox-delete">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:600px; padding:0px;">
+
+            <div class="modal-header" style="border-bottom-color:red;">
+                <h2 class="update-box-header">Delete order</h2>
+            </div>
+
+            <div class="modal-body">
+
+
+
+
+                <div class="popup-admin-deactive">
+
+                    <div class="NewOrder-form">
+
+                        <div class="row">
+
+                            <div class="col-sm-12">
+                                <div class="order-input">
+                                    <p>Are you sure? You realy want to delete this order?</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-sm-6">
+                                <div class="input-submit">
+                                    <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:right;" name="button"><h5>Delete</h5></button>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="input-submit">
+                                    <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:left;" name="button"><h5>Cancel</h5></button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div id="confirmbox" class="modal fade confirmbox">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:600px; padding:0px;">
+
+            <div class="modal-header" style="border-bottom-color:red;">
+                <h2 class="update-box-header">Change order</h2>
+            </div>
+
+            <div class="modal-body">
+
+
+
+
+                <div class="popup-order-update">
+
+                    <div class="NewOrder-form">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="order-input">
+                                    <input type="text" class="" name="" placeholder="Origin">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="order-input">
+                                    <input type="text" class="" name="" placeholder="Destination">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="order-input">
+                                    <input type="text" class="" name="" placeholder="Receive date">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="order-input">
+                                    <input type="text" class="" name="" placeholder="Delivery date">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="order-input">
+                                    <input type="text" class="" name="" placeholder="Car type">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-sm-12">
+                                <div class="input-submit">
+                                    <button type="button" class="book-now-btn" style="color:white; padding-top:14px;" name="button"><h5>Update</h5></button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Orderid)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Origin)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Destination)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReceiveDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DeliveryDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CarType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.State)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Orderid)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Origin)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Destination)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReceiveDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeliveryDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CarType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.State)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>*@

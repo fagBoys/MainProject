@@ -1,0 +1,119 @@
+﻿@model CrestCouriers_Career.Models.User
+
+@{
+    ViewData["Title"] = "User";
+    Layout = "~/Views/Shared/_System.cshtml";
+}
+
+
+    <div class="NewOrder-form"  style="margin:100px;">
+        <form asp-action="User">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <input asp-for="UserName" class="" name="" placeholder="Username">
+                    <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                </div>
+
+                <div class="col-sm-6">
+                    <input asp-for="Password" name="" placeholder="Password">
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <div class="order-input">
+                        <input asp-for="FirstName" name="" placeholder="Fristname">
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="order-input">
+                        <input asp-for="LastName" name="" placeholder="Lastname">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <div class="order-input">
+                        <input asp-for="PhoneNumber" name="" placeholder="Phone number">
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="order-input">
+                        <input asp-for="EmailAddress" name="" placeholder="Email address">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-12">
+                    <div class="input-submit">
+                        <button type="submit" class="book-now-btn" style="color:white; padding-top:14px;" name="button"><h5>Update your information</h5></button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+
+@*<div class="row">
+    <div class="col-md-4">
+        <form asp-action="User">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Userid" class="control-label"></label>
+                <input asp-for="Userid" class="form-control" />
+                <span asp-validation-for="Userid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Active" class="control-label"></label>
+                <input asp-for="Active" class="form-control" />
+                <span asp-validation-for="Active" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailAddress" class="control-label"></label>
+                <input asp-for="EmailAddress" class="form-control" />
+                <span asp-validation-for="EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>*@
