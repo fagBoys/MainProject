@@ -80,7 +80,6 @@ C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netco
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\User\dashboard.g.cshtml.cs
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\User\login.g.cshtml.cs
-C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\User\neworder.g.cshtml.cs
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\User\orderlist.g.cshtml.cs
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\User\register.g.cshtml.cs
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\User\userinformation.g.cshtml.cs
@@ -102,3 +101,12 @@ C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netc
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\AdminSetting.cshtml.g.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\AdminAccounts.cshtml.g.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\UserAccounts.cshtml.g.cs
+C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\AdminAccounts.g.cshtml.cs
+C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\AdminSetting.g.cshtml.cs
+C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Dashboard.g.cshtml.cs
+C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Order.g.cshtml.cs
+C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\UserAccounts.g.cshtml.cs
+C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_System.g.cshtml.cs
+C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_SystemAdmin.g.cshtml.cs
+C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\User\Order.g.cshtml.cs
+C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\User\User.g.cshtml.cs

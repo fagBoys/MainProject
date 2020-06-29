@@ -285,6 +285,51 @@ namespace CrestCouriers_Career.Controllers
             return View();
         }
 
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Order(Order order)
+        {
+
+            ViewData["Title"] = "Order";
+
+            //Recaptcha code begins here
+
+
+            //var recaptcha = await _recaptcha.Validate(Request);
+            //if (!recaptcha.success)
+            //    ModelState.AddModelError("Recaptcha", "There was an error validating recatpcha. Please try again!");
+
+
+            //Recaptcha code ends here
+
+
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+
+            SqlCommand cmd = new SqlCommand("sp_Crest_NewOrder", connection.connect())
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("@OrderDate", order.OrderDate);
+            cmd.Parameters.AddWithValue("@Origin", order.Origin);
+            cmd.Parameters.AddWithValue("@Destination", order.Destination);
+            cmd.Parameters.AddWithValue("@ReceiveDate", order.ReceiveDate);
+            cmd.Parameters.AddWithValue("@DeliveryDate", order.DeliveryDate);
+            cmd.Parameters.AddWithValue("@CarType", order.CarType);
+            cmd.Parameters.AddWithValue("@Price", order.Price);
+            cmd.Parameters.AddWithValue("@State", "1");
+
+
+
+            cmd.ExecuteNonQuery();
+
+            connection.disconnect();
+
+            return View(!ModelState.IsValid ? order : new Order());
+            return new RedirectResult("/Home/Career_delivery");
+        }
+
         public IActionResult orderlist()
         {
             return View();
