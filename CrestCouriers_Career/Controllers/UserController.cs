@@ -311,13 +311,14 @@ namespace CrestCouriers_Career.Controllers
             {
                 CommandType = CommandType.StoredProcedure
             };
-            cmd.Parameters.AddWithValue("@OrderDate", order.OrderDate);
+            cmd.Parameters.AddWithValue("@OrderDate", DateTime.Now);
             cmd.Parameters.AddWithValue("@Origin", order.Origin);
             cmd.Parameters.AddWithValue("@Destination", order.Destination);
             cmd.Parameters.AddWithValue("@ReceiveDate", order.ReceiveDate);
             cmd.Parameters.AddWithValue("@DeliveryDate", order.DeliveryDate);
             cmd.Parameters.AddWithValue("@CarType", order.CarType);
-            cmd.Parameters.AddWithValue("@Price", order.Price);
+            cmd.Parameters.AddWithValue("@Userid", "1");
+            cmd.Parameters.AddWithValue("@Price", "0");
             cmd.Parameters.AddWithValue("@State", "1");
 
 
