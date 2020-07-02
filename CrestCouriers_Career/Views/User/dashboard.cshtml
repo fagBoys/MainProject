@@ -123,8 +123,10 @@
                 </p>
             </div>
 
-            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
-                <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
+
+            @*data-toggle="modal" data-target=".confirmbox-delete"*@
+            <div class="list-record-button">
+                <button type="submit" style="background-color:transparent; border:none;" asp-controller="User" asp-action="Delete" asp-route-id="@item.Orderid"><img src="~/img/System/remove.png" width="35px" height="35px" alt=""></button>
             </div>
 
             <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
@@ -270,7 +272,7 @@
 
 
     }
-}
+            }
 
 @*
 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

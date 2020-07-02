@@ -205,7 +205,7 @@ namespace CrestCouriers_Career.Controllers
             Dal connection = new Dal(myurl);
             SqlDataAdapter da = new SqlDataAdapter();
             DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("sp_Crest__Login", connection.connect());
+            SqlCommand cmd = new SqlCommand("sp_Crest_Login", connection.connect());
             cmd.Parameters.AddWithValue("@UserName", userlogin.UserName);
             cmd.CommandType = CommandType.StoredProcedure;
             da.SelectCommand = cmd;
@@ -252,7 +252,7 @@ namespace CrestCouriers_Career.Controllers
             Dal connection = new Dal(myurl);
             SqlDataAdapter da = new SqlDataAdapter();
             DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("sp_Crest__OrderList", connection.connect());
+            SqlCommand cmd = new SqlCommand("sp_Crest_OrderList", connection.connect());
             cmd.CommandType = CommandType.StoredProcedure;
             da.SelectCommand = cmd;
             da.Fill(dt);
@@ -328,7 +328,7 @@ namespace CrestCouriers_Career.Controllers
             connection.disconnect();
 
             return View(!ModelState.IsValid ? order : new Order());
-            return new RedirectResult("/Home/Career_delivery");
+
         }
 
         public IActionResult orderlist()

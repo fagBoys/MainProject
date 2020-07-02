@@ -6,56 +6,61 @@
 }
 
 <div class="NewOrder-form" style="margin:100px;">
+    <form asp-controller="Admin" asp-action="Order">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
 
-    <div class="row">
-
-        <div class="col-sm-6">
-            <input type="text" class="" name="" placeholder="Origin">
-            <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-        </div>
-
-        <div class="col-sm-6">
-            <input type="text" name="" placeholder="Destination">
-        </div>
-
-    </div>
-
-    <div class="row">
-
-        <div class="col-sm-6">
-            <div class="order-input">
-                <input type="text" name="" placeholder="Recieve date">
+            <div class="col-sm-6">
+                <input asp-for="Origin" placeholder="Origin">
+                <span asp-validation-for="Origin" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
             </div>
-        </div>
 
-        <div class="col-sm-6">
-            <div class="order-input">
-                <input type="text" name="" placeholder="Delivery date">
+            <div class="col-sm-6">
+                <input asp-for="Destination" placeholder="Destination">
+                <span asp-validation-for="Destination" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
             </div>
+
         </div>
 
-    </div>
+        <div class="row">
 
-    <div class="row">
-
-        <div class="col-sm-12">
-            <div class="order-input">
-                <input type="text" name="" placeholder="Car type">
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input asp-for="ReceiveDate" placeholder="Recieve date">
+                    <span asp-validation-for="Destination" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                </div>
             </div>
-        </div>
 
-    </div>
-
-    <div class="row">
-
-        <div class="col-sm-12">
-            <div class="input-submit">
-                <button type="button" class="book-now-btn" style="color:white; padding-top:14px;" name="button" data-toggle="modal" data-target=".confirmbox-new-order"><h5>submit new order</h5></button>
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input asp-for="DeliveryDate" placeholder="Delivery date">
+                    <span asp-validation-for="Destination" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                </div>
             </div>
+
         </div>
 
-    </div>
+        <div class="row">
 
+            <div class="col-sm-12">
+                <div class="order-input">
+                    <input asp-for="CarType" placeholder="Car type">
+                    <span asp-validation-for="Destination" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-12">
+                <div class="input-submit">
+                    <button type="submit" class="book-now-btn" style="color:white; padding-top:14px;" name="button" data-toggle="modal" data-target=".confirmbox-new-order"><h5>submit new order</h5></button>
+                </div>
+            </div>
+
+        </div>
+    </form>
 </div>
 
 
