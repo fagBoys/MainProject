@@ -129,7 +129,7 @@
                 <button type="submit" style="background-color:transparent; border:none;" asp-controller="User" asp-action="Delete" asp-route-id="@item.Orderid"><img src="~/img/System/remove.png" width="35px" height="35px" alt=""></button>
             </div>
 
-            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getValues('@item.Origin','@item.Destination','@item.ReceiveDate','@item.DeliveryDate','@item.CarType')">
                 <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
             </div>
 
@@ -207,7 +207,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="order-input">
-                                            <input type="text" class="" name="" placeholder="Origin" value="  @Html.DisplayFor(modelItem => item.Origin)">
+                                            <input type="text" id="Origin" class="" name="" placeholder="Origin">
                                             <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
                                         </div>
                                     </div>
@@ -216,7 +216,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="order-input">
-                                            <input type="text" class="" name="" placeholder="Destination">
+                                            <input type="text" id="Destination" class="" name="" placeholder="Destination">
                                             <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
                                         </div>
                                     </div>
@@ -225,7 +225,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="order-input">
-                                            <input type="text" class="" name="" placeholder="Receive date">
+                                            <input type="text" id="ReceiveDate" class="" name="" placeholder="Receive date">
                                             <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
                                         </div>
                                     </div>
@@ -234,7 +234,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="order-input">
-                                            <input type="text" class="" name="" placeholder="Delivery date">
+                                            <input type="text" id="DeliveryDate" class="" name="" placeholder="Delivery date">
                                             <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
                                         </div>
                                     </div>
@@ -243,7 +243,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="order-input">
-                                            <input type="text" class="" name="" placeholder="Car type">
+                                            <input type="text" id="CarType" class="" name="" placeholder="Car type">
                                             <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
                                         </div>
                                     </div>
@@ -272,7 +272,19 @@
 
 
     }
-            }
+}
+
+<script>
+    function getValues(Origin, Destination, ReceiveDate, DeliveryDate, CarType) {
+
+        document.getElementById("Origin").value = Origin;
+        document.getElementById("Destination").value = Destination;
+        document.getElementById("ReceiveDate").value = ReceiveDate;
+        document.getElementById("DeliveryDate").value = DeliveryDate;
+        document.getElementById("CarType").value = CarType;
+
+    }
+</script>
 
 @*
 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

@@ -212,8 +212,8 @@ namespace CrestCouriers_Career.Controllers
             da.Fill(dt);
             if (dt.Rows[0][0].ToString() == userlogin.UserName && dt.Rows[0][1].ToString() == userlogin.Password && System.Convert.ToInt32(dt.Rows[0][2].ToString()) == 1)
             {
-                HttpContext.Session.SetString("SessionName",JsonConvert.SerializeObject(userlogin.UserName));
-                return new RedirectResult("/user/dashbord");
+                HttpContext.Session.SetString("UserSession", userlogin.UserName);
+                return new RedirectResult("/user/dashboard");
 
             }
             else
@@ -248,6 +248,8 @@ namespace CrestCouriers_Career.Controllers
         }
         public IActionResult Dashboard()
         {
+            ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
             SqlDataAdapter da = new SqlDataAdapter();
@@ -282,6 +284,8 @@ namespace CrestCouriers_Career.Controllers
 
         public IActionResult Order()
         {
+            ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+
             return View();
         }
 
@@ -290,6 +294,7 @@ namespace CrestCouriers_Career.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Order(Order order)
         {
+            ViewData["Username"] = HttpContext.Session.GetString("UserSession");
 
             ViewData["Title"] = "Order";
 
@@ -338,6 +343,48 @@ namespace CrestCouriers_Career.Controllers
 
         public IActionResult User()
         {
+            ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("sp_Crest_MyUser", connection.connect());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Username", HttpContext.Session.GetString("UserSession"));
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+
+            ViewData["myuser-Username"] = dt.Rows[0][0];
+            ViewData["myuser-Password"] = dt.Rows[0][1];
+            ViewData["myuser-FirstName"] = dt.Rows[0][2];
+            ViewData["myuser-LastName"] = dt.Rows[0][3];
+            ViewData["myuser-PhoneNumber"] = dt.Rows[0][4];
+            ViewData["myuser-EmailAddress"] = dt.Rows[0][5];
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult User(User user)
+        {
+            ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("sp_Crest_UpdateUser", connection.connect());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@UserName", user.UserName);
+            cmd.Parameters.AddWithValue("@Password", user.Password);
+            cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
+            cmd.Parameters.AddWithValue("@LastName", user.LastName);
+            cmd.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
+            cmd.Parameters.AddWithValue("@EmailAddress", user.EmailAddress);
+
+            cmd.ExecuteNonQuery();
             return View();
         }
 
