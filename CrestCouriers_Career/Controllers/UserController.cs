@@ -284,8 +284,53 @@ namespace CrestCouriers_Career.Controllers
 
         public IActionResult Edit(int id)
         {
+            ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("sp_Crest_MyOrder", connection.connect());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Orderid", id);
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+
+                ViewData["Orderid"] = dt.Rows[0][0];
+                ViewData["Origin"] = dt.Rows[0][2];
+                ViewData["Destination"] = dt.Rows[0][3];
+                ViewData["ReceiveDate"] = dt.Rows[0][4];
+                ViewData["DeliveryDate"] = dt.Rows[0][5];
+                ViewData["CarType"] = dt.Rows[0][6];
+            
+
             return View();
         }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Order order)
+        {
+            ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("sp_Crest_UpdateOrder", connection.connect());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Orderid", order.Orderid);
+            cmd.Parameters.AddWithValue("@Origin", order.Origin);
+            cmd.Parameters.AddWithValue("@Destination", order.Destination);
+            cmd.Parameters.AddWithValue("@ReceiveDate", order.ReceiveDate);
+            cmd.Parameters.AddWithValue("@DeliveryDate", order.DeliveryDate);
+            cmd.Parameters.AddWithValue("@CarType", order.CarType);
+
+            cmd.ExecuteNonQuery();
+            return View();
+        }
+
 
         public IActionResult Order()
         {
