@@ -129,8 +129,10 @@
                 <button type="submit" style="background-color:transparent; border:none;" asp-controller="User" asp-action="Delete" asp-route-id="@item.Orderid"><img src="~/img/System/remove.png" width="35px" height="35px" alt=""></button>
             </div>
 
-            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getValues('@item.Origin','@item.Destination','@item.ReceiveDate','@item.DeliveryDate','@item.CarType')">
-                <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getValues('@item.Orderid','@item.Origin','@item.Destination','@item.ReceiveDate','@item.DeliveryDate','@item.CarType')">
+                <button asp-controller="User" asp-action="Edit" asp-route-id="@item.Orderid" style="background-color:transparent; border:none;">
+                    <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
+                </button>
             </div>
 
         </div>
@@ -275,7 +277,7 @@
 }
 
 <script>
-    function getValues(Origin, Destination, ReceiveDate, DeliveryDate, CarType) {
+    function getValues(Orderid,Origin, Destination, ReceiveDate, DeliveryDate, CarType) {
 
         document.getElementById("Origin").value = Origin;
         document.getElementById("Destination").value = Destination;
@@ -283,6 +285,7 @@
         document.getElementById("DeliveryDate").value = DeliveryDate;
         document.getElementById("CarType").value = CarType;
 
+        @ViewData["Orderid"] = Orderid;
     }
 </script>
 

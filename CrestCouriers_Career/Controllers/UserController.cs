@@ -282,6 +282,11 @@ namespace CrestCouriers_Career.Controllers
             return RedirectToAction("dashboard");
         }
 
+        public IActionResult Edit(int id)
+        {
+            return View();
+        }
+
         public IActionResult Order()
         {
             ViewData["Username"] = HttpContext.Session.GetString("UserSession");
