@@ -231,7 +231,7 @@ namespace CrestCouriers_Career.Controllers
             {
                 yield return new Order
                 {
-                    Orderid= Convert.ToInt32( item["Orderid"].ToString()),
+                    Orderid = Convert.ToInt32(item["Orderid"].ToString()),
                     OrderDate = item["OrderDate"].ToString(),
                     Origin = item["origin"].ToString(),
                     Destination = item["Destination"].ToString(),
@@ -242,7 +242,7 @@ namespace CrestCouriers_Career.Controllers
                     Price = item["Price"].ToString(),
                     State = item["State"].ToString(),
                 };
-            }                                                               
+            }
 
 
         }
@@ -258,9 +258,9 @@ namespace CrestCouriers_Career.Controllers
             cmd.CommandType = CommandType.StoredProcedure;
             da.SelectCommand = cmd;
             da.Fill(dt);
-            
+
             return View(MyOrders(dt));
-            
+
 
         }
 
@@ -284,7 +284,7 @@ namespace CrestCouriers_Career.Controllers
 
         public IActionResult Edit(int id)
         {
-            ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+            ViewData["Orderid"] = HttpContext.Session.GetString("OrderIDSession");
 
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
@@ -296,13 +296,13 @@ namespace CrestCouriers_Career.Controllers
             da.SelectCommand = cmd;
             da.Fill(dt);
 
-                ViewData["Orderid"] = dt.Rows[0][0];
-                ViewData["Origin"] = dt.Rows[0][2];
-                ViewData["Destination"] = dt.Rows[0][3];
-                ViewData["ReceiveDate"] = dt.Rows[0][4];
-                ViewData["DeliveryDate"] = dt.Rows[0][5];
-                ViewData["CarType"] = dt.Rows[0][6];
-            
+            ViewData["Orderid"] = dt.Rows[0][0];
+            ViewData["Origin"] = dt.Rows[0][2];
+            ViewData["Destination"] = dt.Rows[0][3];
+            ViewData["ReceiveDate"] = dt.Rows[0][4];
+            ViewData["DeliveryDate"] = dt.Rows[0][5];
+            ViewData["CarType"] = dt.Rows[0][6];
+
 
             return View();
         }
@@ -310,7 +310,7 @@ namespace CrestCouriers_Career.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Order order)
+        public IActionResult EditOrder(Order order)
         {
             ViewData["Username"] = HttpContext.Session.GetString("UserSession");
 
@@ -327,8 +327,9 @@ namespace CrestCouriers_Career.Controllers
             cmd.Parameters.AddWithValue("@DeliveryDate", order.DeliveryDate);
             cmd.Parameters.AddWithValue("@CarType", order.CarType);
 
+
             cmd.ExecuteNonQuery();
-            return View();
+            return new RedirectResult("/User/dashboard");
         }
 
 
