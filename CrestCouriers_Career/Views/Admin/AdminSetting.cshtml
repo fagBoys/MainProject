@@ -6,82 +6,102 @@
 }
 
 
-<div class="NewOrder-form" style="margin:100px;">
+    <div class="NewOrder-form" style="margin:100px;">
 
-    <div class="row">
+        <div class="row">
 
-        <div class="col-sm-6">
-            <input type="text" class="" name="" placeholder="Username">
-            <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-        </div>
-
-        <div class="col-sm-6">
-            <input type="text" name="" placeholder="Password">
-        </div>
-
-    </div>
-
-    <div class="row">
-
-        <div class="col-sm-6">
-            <div class="order-input">
-                <input type="text" name="" placeholder="Fristname">
+            <div class="col-sm-6">
+                <input type="text" class="" name="" placeholder="Username" value="@ViewData["myAdmin-UserName"]">
+                <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
             </div>
-        </div>
 
-        <div class="col-sm-6">
-            <div class="order-input">
-                <input type="text" name="" placeholder="Lastname">
+            <div class="col-sm-6">
+                <input type="text" name="" placeholder="Password" value="@ViewData["myAdmin-Password"]">
             </div>
+
         </div>
 
-    </div>
+        <div class="row">
 
-    <div class="row">
-
-        <div class="col-sm-12">
-            <div class="input-submit">
-                <button type="button" class="book-now-btn" style="color:white; padding-top:14px;" name="button" data-toggle="modal" data-target=".confirmbox-admin-info"><h5>Update your information</h5></button>
-            </div>
-        </div>
-
-    </div>
-
-    <div id="confirmbox-admin-info" class="modal fade confirmbox-admin-info">
-        <div class="modal-dialog">
-            <div class="modal-content" style="width:600px; padding:0px;">
-
-                <div class="modal-header" style="border-bottom-color:red;">
-                    <h2 class="update-box-header">Update information</h2>
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input type="text" name="" placeholder="Fristname" value="@ViewData["myAdmin-FirstName"]">
                 </div>
+            </div>
 
-                <div class="modal-body">
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input type="text" name="" placeholder="Lastname" value="@ViewData["myAdmin-Lastname"]">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input type="text" name="" placeholder="PhoneNumber" value="@ViewData["myAdmin-PhoneNumber"]">
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input type="text" name="" placeholder="EmailAddress" value="@ViewData["myAdmin-EmailAddress"]">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-sm-12">
+                <div class="input-submit">
+                    <button type="button" class="book-now-btn" style="color:white; padding-top:14px;" name="button" data-toggle="modal" data-target=".confirmbox-admin-info"><h5>Update your information</h5></button>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="confirmbox-admin-info" class="modal fade confirmbox-admin-info">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width:600px; padding:0px;">
+
+                    <div class="modal-header" style="border-bottom-color:red;">
+                        <h2 class="update-box-header">Update information</h2>
+                    </div>
+
+                    <div class="modal-body">
 
 
 
 
-                    <div class="popup-admin-deactive">
+                        <div class="popup-admin-deactive">
 
-                        <div class="NewOrder-form">
+                            <div class="NewOrder-form">
 
-                            <div class="row">
+                                <div class="row">
 
-                                <div class="col-sm-12">
-                                    <div class="order-input">
-                                        <p>Your information has been updated.</p>
+                                    <div class="col-sm-12">
+                                        <div class="order-input">
+                                            <p>Your information has been updated.</p>
+                                        </div>
                                     </div>
+
                                 </div>
 
-                            </div>
+                                <div class="row">
 
-                            <div class="row">
-
-                                <div class="col-sm-12">
-                                    <div class="input-submit">
-                                        <button type="button" class="book-now-btn" style="color:white; padding-top:14px; margin:0 auto; margin-top:20px;" name="button"><h5>Close</h5></button>
+                                    <div class="col-sm-12">
+                                        <div class="input-submit">
+                                            <button type="button" class="book-now-btn" style="color:white; padding-top:14px; margin:0 auto; margin-top:20px;" name="button"><h5>Close</h5></button>
+                                        </div>
                                     </div>
-                                </div>
 
+
+                                </div>
 
                             </div>
 
@@ -89,15 +109,13 @@
 
                     </div>
 
+
                 </div>
-
-
             </div>
         </div>
+
+
     </div>
-
-
-</div>
 
 
 
