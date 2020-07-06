@@ -77,18 +77,68 @@ namespace CrestCouriers_Career.Controllers
         {
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
-            SqlCommand cmd = new SqlCommand("sp_crest_DeleteAdmin", connection.connect())
+            SqlCommand cmd = new SqlCommand("sp_Crest_DeleteOrder", connection.connect())
             {
                 CommandType = CommandType.StoredProcedure
             };
             SqlParameter parametrid = new SqlParameter();
-            parametrid.ParameterName = "@Adminid";
+            parametrid.ParameterName = "@Orderid";
             parametrid.Value = id;
             cmd.Parameters.Add(parametrid);
             cmd.ExecuteNonQuery();
 
 
             return RedirectToAction("dashboard");
+        }
+
+        public IActionResult Edit(int id)
+        {
+            ViewData["Orderid"] = HttpContext.Session.GetString("OrderIDSession");
+
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("sp_Crest_MyOrder", connection.connect());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Orderid", id);
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+
+            ViewData["Orderid"] = dt.Rows[0][0];
+            ViewData["Origin"] = dt.Rows[0][2];
+            ViewData["Destination"] = dt.Rows[0][3];
+            ViewData["ReceiveDate"] = dt.Rows[0][4];
+            ViewData["DeliveryDate"] = dt.Rows[0][5];
+            ViewData["CarType"] = dt.Rows[0][6];
+
+
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult EditOrder(Order order)
+        {
+            ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
+
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("sp_Crest_UpdateOrder", connection.connect());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Orderid", order.Orderid);
+            cmd.Parameters.AddWithValue("@Origin", order.Origin);
+            cmd.Parameters.AddWithValue("@Destination", order.Destination);
+            cmd.Parameters.AddWithValue("@ReceiveDate", order.ReceiveDate);
+            cmd.Parameters.AddWithValue("@DeliveryDate", order.DeliveryDate);
+            cmd.Parameters.AddWithValue("@CarType", order.CarType);
+
+
+            cmd.ExecuteNonQuery();
+            return new RedirectResult("/User/dashboard");
         }
 
         public IActionResult Order()
@@ -143,7 +193,7 @@ namespace CrestCouriers_Career.Controllers
 
         public IActionResult AdminSetting()
         {
-            ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+            ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
 
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
@@ -169,7 +219,7 @@ namespace CrestCouriers_Career.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult AdminSetting(Admin admin)
         {
-            ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+            ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
 
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);

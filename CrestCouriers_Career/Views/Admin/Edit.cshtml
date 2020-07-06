@@ -1,0 +1,47 @@
+﻿@model CrestCouriers_Career.Models.Order
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_System.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Admin" asp-action="EditOrder" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Orderid" hidden class="control-label"></label>
+                <input asp-for="Orderid" hidden class="form-control" value="@ViewData["Orderid"]" />
+                <span asp-validation-for="Orderid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Origin" class="control-label"></label>
+                <input asp-for="Origin" class="form-control" value="@ViewData["Origin"]" />
+                <span asp-validation-for="Origin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination" class="control-label"></label>
+                <input asp-for="Destination" class="form-control" value="@ViewData["Destination"]" />
+                <span asp-validation-for="Destination" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReceiveDate" class="control-label"></label>
+                <input asp-for="ReceiveDate" class="form-control" value="@ViewData["ReceiveDate"]" />
+                <span asp-validation-for="ReceiveDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeliveryDate" class="control-label"></label>
+                <input asp-for="DeliveryDate" class="form-control" value="@ViewData["DeliveryDate"]" />
+                <span asp-validation-for="DeliveryDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CarType" class="control-label"></label>
+                <input asp-for="CarType" class="form-control" value="@ViewData["CarType"]" />
+                <span asp-validation-for="CarType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" name="Save" class="btn btn-default"></button>
+            </div>
+        </form>
+    </div>
+</div>
