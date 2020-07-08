@@ -76,15 +76,24 @@
 
         <div class="row" style="height:93%">
             <div class="col-sm-2" style="background-color:#282828; height:100%; padding:0;">
-                <div class="panel-option-active">
-                    <h5>Dashboard</h5>
-                </div>
-                <div class="panel-option">
-                    <h5>Order</h5>
-                </div>
-                <div class="panel-option">
-                    <h5>User</h5>
-                </div>
+                @RenderSection("UserMenu");
+                @*<ul class="menu-ul">
+                    <a asp-controller="User" asp-action="Dashboard">
+                        <div class="panel-option-active">
+                            <li><h5>Dashboard</h5></li>
+                        </div>
+                    </a>
+                    <a asp-controller="User" asp-action="Order">
+                        <div class="panel-option">
+                            <li><h5>Order</h5></li>
+                        </div>
+                    </a>
+                    <a asp-controller="User" asp-action="User">
+                        <div class="panel-option">
+                            <li><h5>User</h5></li>
+                        </div>
+                    </a>
+                </ul>*@
             </div>
 
             <div class="col-sm-10" style="text-align:center; margin:0 auto; padding:0;">

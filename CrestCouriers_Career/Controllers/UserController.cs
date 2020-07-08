@@ -248,7 +248,13 @@ namespace CrestCouriers_Career.Controllers
         }
         public IActionResult Dashboard()
         {
-            ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+            if(HttpContext.Session.GetString("UserSession") == null)
+            {
+                return new RedirectResult("/User/Login");
+            }
+            { 
+                ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+            }
 
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
@@ -284,6 +290,14 @@ namespace CrestCouriers_Career.Controllers
 
         public IActionResult Edit(int id)
         {
+            if (HttpContext.Session.GetString("UserSession") == null)
+            {
+                return new RedirectResult("/User/Login");
+            }
+            {
+                ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+            }
+
             ViewData["Orderid"] = HttpContext.Session.GetString("OrderIDSession");
 
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
@@ -312,7 +326,13 @@ namespace CrestCouriers_Career.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult EditOrder(Order order)
         {
-            ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+            if (HttpContext.Session.GetString("UserSession") == null)
+            {
+                return new RedirectResult("/User/Login");
+            }
+            {
+                ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+            }
 
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
@@ -335,7 +355,13 @@ namespace CrestCouriers_Career.Controllers
 
         public IActionResult Order()
         {
-            ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+            if (HttpContext.Session.GetString("UserSession") == null)
+            {
+                return new RedirectResult("/User/Login");
+            }
+            {
+                ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+            }
 
             return View();
         }
@@ -345,7 +371,13 @@ namespace CrestCouriers_Career.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Order(Order order)
         {
-            ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+            if (HttpContext.Session.GetString("UserSession") == null)
+            {
+                return new RedirectResult("/User/Login");
+            }
+            {
+                ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+            }
 
             ViewData["Title"] = "Order";
 
@@ -394,7 +426,13 @@ namespace CrestCouriers_Career.Controllers
 
         public IActionResult User()
         {
-            ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+            if (HttpContext.Session.GetString("UserSession") == null)
+            {
+                return new RedirectResult("/User/Login");
+            }
+            {
+                ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+            }
 
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
@@ -420,7 +458,13 @@ namespace CrestCouriers_Career.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult User(User user)
         {
-            ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+            if (HttpContext.Session.GetString("UserSession") == null)
+            {
+                return new RedirectResult("/User/Login");
+            }
+            {
+                ViewData["Username"] = HttpContext.Session.GetString("UserSession");
+            }
 
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);

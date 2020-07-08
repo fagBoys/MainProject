@@ -59,28 +59,37 @@
   border-left: none;
 }
 
-.panel-option
-{
+.panel-option {
 
-  height: 50px;
-  width: 100%;
-  padding-left: 15px;
-  padding-top: 12px;
-  color: white;
-
+    text-decoration: none;
+    height: 50px;
+    width: 100%;
+    padding-left: 15px;
+    padding-top: 12px;
+    color: white;
 }
 
-.panel-option-active
-{
+.panel-option:hover {
 
-  height: 50px;
-  width: 100%;
-  padding-left: 15px;
-  padding-top: 12px;
-  background-color: white;
-  color: red;
-  font-weight: bold;
+    
+    height: 50px;
+    width: 100%;
+    padding-left: 15px;
+    padding-top: 12px;
+    color: white;
+    background-color: darkgray;
+}
 
+.panel-option-active {
+
+    text-decoration: none;
+    height: 50px;
+    width: 100%;
+    padding-left: 15px;
+    padding-top: 12px;
+    background-color: white;
+    color: red;
+    font-weight: bold;
 }
 
 .last-order
@@ -284,4 +293,13 @@ margin-top: 50px;
 {
   margin-left: 20px;
 
+}
+
+.menu-ul
+{
+    padding:0px;
+    list-style-type:none;
+}
+a.menu-option-link {
+    text-decoration: none !important;
 }

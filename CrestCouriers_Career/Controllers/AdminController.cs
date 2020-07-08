@@ -66,7 +66,7 @@ namespace CrestCouriers_Career.Controllers
             Dal connection = new Dal(myurl);
             SqlDataAdapter da = new SqlDataAdapter();
             DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("sp_Crest_AdminList", connection.connect());
+            SqlCommand cmd = new SqlCommand("sp_Crest_OrderList", connection.connect());
             cmd.CommandType = CommandType.StoredProcedure;
             da.SelectCommand = cmd;
             da.Fill(dt);
@@ -412,7 +412,7 @@ namespace CrestCouriers_Career.Controllers
             cmd.CommandType = CommandType.StoredProcedure;
             da.SelectCommand = cmd;
             da.Fill(dt);
-            if (dt.Rows[0][1].ToString() == admin.UserName && dt.Rows[0][2].ToString() == admin.Password && System.Convert.ToInt32(dt.Rows[0][5].ToString()) != 0)
+            if (dt.Rows[0][0].ToString() == admin.UserName && dt.Rows[0][1].ToString() == admin.Password && System.Convert.ToInt32(dt.Rows[0][2].ToString()) != 0)
             {
                 HttpContext.Session.SetString("AdminSession", admin.UserName);
                 return new RedirectResult("/Admin/dashboard");

@@ -5,6 +5,26 @@
     Layout = "~/Views/Shared/_System.cshtml";
 }
 
+@section UserMenu{
+    <ul class="menu-ul">
+        <a asp-controller="User" asp-action="Dashboard" class="menu-option-link">
+            <div class="panel-option-active">
+                <li><h5>Dashboard</h5></li>
+            </div>
+        </a>
+        <a asp-controller="User" asp-action="Order" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Order</h5></li>
+            </div>
+        </a>
+        <a asp-controller="User" asp-action="User" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>User</h5></li>
+            </div>
+        </a>
+    </ul>
+}
+
 <div class="list-title">
     <div class="list-title-item">
         <h5 class="list-title-item-text">
@@ -126,7 +146,9 @@
 
             @*data-toggle="modal" data-target=".confirmbox-delete"*@
             <div class="list-record-button">
-                <button type="submit" style="background-color:transparent; border:none;" asp-controller="User" asp-action="Delete" asp-route-id="@item.Orderid"><img src="~/img/System/remove.png" width="35px" height="35px" alt=""></button>
+                <button type="submit" style="        background-color: transparent;
+        border: none;
+" asp-controller="User" asp-action="Delete" asp-route-id="@item.Orderid"><img src="~/img/System/remove.png" width="35px" height="35px" alt=""></button>
             </div>
 
             <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getValues('@item.Orderid','@item.Origin','@item.Destination','@item.ReceiveDate','@item.DeliveryDate','@item.CarType')">
@@ -140,7 +162,9 @@
 
         <div id="confirmbox-delete" class="modal fade confirmbox-delete">
             <div class="modal-dialog">
-                <div class="modal-content" style="width:600px; padding:0px;">
+                <div class="modal-content" style="        width: 600px;
+        padding: 0px;
+">
 
                     <div class="modal-header" style="border-bottom-color:red;">
                         <h2 class="update-box-header">Delete order</h2>
@@ -193,70 +217,72 @@
         </div>
 
         @*<div id="confirmbox" class="modal fade confirmbox">
-            <div class="modal-dialog">
-                <div class="modal-content" style="width:600px; padding:0px;">
+                <div class="modal-dialog">
+                    <div class="modal-content" style="width:600px; padding:0px;">
 
-                    <div class="modal-header" style="border-bottom-color:red;">
-                        <h2 class="update-box-header">Change order</h2>
-                    </div>
+                        <div class="modal-header" style="border-bottom-color:red;">
+                            <h2 class="update-box-header">Change order</h2>
+                        </div>
 
-                    <div class="modal-body">
+                        <div class="modal-body">
 
-                        <div class="popup-order-update">
+                            <div class="popup-order-update">
 
-                            <div class="NewOrder-form">
+                                <div class="NewOrder-form">
 
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="order-input">
-                                            <input type="text" id="Origin" class="" name="" placeholder="Origin">
-                                            <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="order-input">
+                                                <input type="text" id="Origin" class="" name="" placeholder="Origin">
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="order-input">
-                                            <input type="text" id="Destination" class="" name="" placeholder="Destination">
-                                            <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="order-input">
+                                                <input type="text" id="Destination" class="" name="" placeholder="Destination">
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="order-input">
-                                            <input type="text" id="ReceiveDate" class="" name="" placeholder="Receive date">
-                                            <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="order-input">
+                                                <input type="text" id="ReceiveDate" class="" name="" placeholder="Receive date">
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="order-input">
-                                            <input type="text" id="DeliveryDate" class="" name="" placeholder="Delivery date">
-                                            <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="order-input">
+                                                <input type="text" id="DeliveryDate" class="" name="" placeholder="Delivery date">
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="order-input">
-                                            <input type="text" id="CarType" class="" name="" placeholder="Car type">
-                                            <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="order-input">
+                                                <input type="text" id="CarType" class="" name="" placeholder="Car type">
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="row">
+                                    <div class="row">
 
-                                    <div class="col-sm-12">
-                                        <div class="input-submit">
-                                            <button type="button" class="book-now-btn" style="color:white; padding-top:14px;" name="button"><h5>Update</h5></button>
+                                        <div class="col-sm-12">
+                                            <div class="input-submit">
+                                                <button type="button" class="book-now-btn" style="color:white; padding-top:14px;" name="button"><h5>Update</h5></button>
+                                            </div>
                                         </div>
+
                                     </div>
 
                                 </div>
@@ -265,12 +291,10 @@
 
                         </div>
 
+
                     </div>
-
-
                 </div>
-            </div>
-        </div>*@
+            </div>*@
 
 
     }
@@ -290,8 +314,8 @@
 </script>
 
 @*
-@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
 *@
 
