@@ -121,7 +121,13 @@ namespace CrestCouriers_Career.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult EditOrder(Order order)
         {
-            ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
+            //if (HttpContext.Session.GetString("AdminSession") == null)
+            //{
+            //    return new RedirectResult("/Admin/AdminLogin");
+            //}
+            {
+                ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
+            }
 
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
@@ -138,8 +144,10 @@ namespace CrestCouriers_Career.Controllers
 
 
             cmd.ExecuteNonQuery();
-            return new RedirectResult("/User/dashboard");
+            return new RedirectResult("/Admin/dashboard");
         }
+
+
 
         public IActionResult Order()
         {
@@ -201,7 +209,7 @@ namespace CrestCouriers_Career.Controllers
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand("sp_Crest_MyAdmin", connection.connect());
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Username", HttpContext.Session.GetString("UserSession"));
+            cmd.Parameters.AddWithValue("@Username", HttpContext.Session.GetString("AdminSession"));
             da.SelectCommand = cmd;
             da.Fill(dt);
 

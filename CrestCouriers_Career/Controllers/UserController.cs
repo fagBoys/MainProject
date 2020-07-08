@@ -248,10 +248,10 @@ namespace CrestCouriers_Career.Controllers
         }
         public IActionResult Dashboard()
         {
-            if(HttpContext.Session.GetString("UserSession") == null)
-            {
-                return new RedirectResult("/User/Login");
-            }
+            //if(HttpContext.Session.GetString("UserSession") == null)
+            //{
+            //    return new RedirectResult("/User/Login");
+            //}
             { 
                 ViewData["Username"] = HttpContext.Session.GetString("UserSession");
             }
@@ -290,10 +290,10 @@ namespace CrestCouriers_Career.Controllers
 
         public IActionResult Edit(int id)
         {
-            if (HttpContext.Session.GetString("UserSession") == null)
-            {
-                return new RedirectResult("/User/Login");
-            }
+            //if (HttpContext.Session.GetString("UserSession") == null)
+            //{
+            //    return new RedirectResult("/User/Login");
+            //}
             {
                 ViewData["Username"] = HttpContext.Session.GetString("UserSession");
             }
@@ -326,10 +326,10 @@ namespace CrestCouriers_Career.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult EditOrder(Order order)
         {
-            if (HttpContext.Session.GetString("UserSession") == null)
-            {
-                return new RedirectResult("/User/Login");
-            }
+            //if (HttpContext.Session.GetString("UserSession") == null)
+            //{
+            //    return new RedirectResult("/User/Login");
+            //}
             {
                 ViewData["Username"] = HttpContext.Session.GetString("UserSession");
             }
