@@ -78,48 +78,59 @@
 </div>
 
 <hr style="width:90%; border-color:red;">
+@foreach (var item in Model)
+{
+    @using (Html.BeginForm("Delete", "Admin", new { id = item.Adminid }))
+    {
+        <div class="list-order">
 
-<div class="list-order">
+            <div class="admin-list-title-item">
+                <p>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                    mjn110
+                </p>
+            </div>
 
-    <div class="admin-list-title-item">
-        <p>
-            mjn110
-        </p>
-    </div>
+            <div class="admin-list-title-item">
+                <p>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </p>
+            </div>
 
-    <div class="admin-list-title-item">
-        <p>
-            Mohammad Javad
-        </p>
-    </div>
+            <div class="admin-list-title-item">
+                <p>
+                    @Html.DisplayFor(modelItem => item.Lastname)
+                </p>
+            </div>
 
-    <div class="admin-list-title-item">
-        <p>
-            Najafi
-        </p>
-    </div>
+            <div class="admin-list-title-item">
+                <p>
+                    @Html.DisplayFor(modelItem => item.Level)
+                </p>
+            </div>
 
-    <div class="admin-list-title-item">
-        <p>
-            Admin
-        </p>
-    </div>
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
+                <button type="submit" style="background-color: transparent; border: none;">
+                    <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
+                </button>
+            </div>
 
-    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
-        <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
-    </div>
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
+                <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="Edit" asp-route-id="@item.Adminid">
+                    <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
+                </button>
+            </div>
 
-    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
-        <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
-    </div>
-
-    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
-        <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
-    </div>
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
+                <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="Active" asp-route-id="@item.Adminid">
+                    <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
+                </button>
+            </div>
 
 
-</div>
-
+        </div>
+    }
+}
 
 
 <div id="confirmbox-delete" class="modal fade confirmbox-delete">
