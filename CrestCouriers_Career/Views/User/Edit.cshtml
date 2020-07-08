@@ -5,26 +5,6 @@
     Layout = "~/Views/Shared/_System.cshtml";
 }
 
-@section UserMenu{
-    <ul class="menu-ul">
-        <a asp-controller="User" asp-action="Dashboard" class="menu-option-link">
-            <div class="panel-option-active">
-                <li><h5>Dashboard</h5></li>
-            </div>
-        </a>
-        <a asp-controller="User" asp-action="Order" class="menu-option-link">
-            <div class="panel-option">
-                <li><h5>Order</h5></li>
-            </div>
-        </a>
-        <a asp-controller="User" asp-action="User" class="menu-option-link">
-            <div class="panel-option">
-                <li><h5>User</h5></li>
-            </div>
-        </a>
-    </ul>
-}
-
 <div class="row">
     <div class="col-md-4">
         <form asp-controller="User" asp-action="EditOrder" method="post">
