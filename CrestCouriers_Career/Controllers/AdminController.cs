@@ -62,6 +62,13 @@ namespace CrestCouriers_Career.Controllers
 
         public IActionResult Dashboard()
         {
+            if (HttpContext.Session.GetString("AdminSession") == null)
+            {
+                return new RedirectResult("/Admin/AdminLogin");
+            }
+            {
+                ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
+            }
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
             SqlDataAdapter da = new SqlDataAdapter();
@@ -93,7 +100,13 @@ namespace CrestCouriers_Career.Controllers
 
         public IActionResult Edit(int id)
         {
-            ViewData["Orderid"] = HttpContext.Session.GetString("OrderIDSession");
+            if (HttpContext.Session.GetString("AdminSession") == null)
+            {
+                return new RedirectResult("/Admin/AdminLogin");
+            }
+            {
+                ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
+            }
 
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
@@ -121,14 +134,13 @@ namespace CrestCouriers_Career.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult EditOrder(Order order)
         {
-            //if (HttpContext.Session.GetString("AdminSession") == null)
-            //{
-            //    return new RedirectResult("/Admin/AdminLogin");
-            //}
+            if (HttpContext.Session.GetString("AdminSession") == null)
+            {
+                return new RedirectResult("/Admin/AdminLogin");
+            }
             {
                 ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
             }
-
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
             SqlDataAdapter da = new SqlDataAdapter();
@@ -141,7 +153,6 @@ namespace CrestCouriers_Career.Controllers
             cmd.Parameters.AddWithValue("@ReceiveDate", order.ReceiveDate);
             cmd.Parameters.AddWithValue("@DeliveryDate", order.DeliveryDate);
             cmd.Parameters.AddWithValue("@CarType", order.CarType);
-
 
             cmd.ExecuteNonQuery();
             return new RedirectResult("/Admin/dashboard");
@@ -159,7 +170,13 @@ namespace CrestCouriers_Career.Controllers
         public IActionResult Order(Order order)
         {
             ViewData["Title"] = "Order";
-
+            if (HttpContext.Session.GetString("AdminSession") == null)
+            {
+                return new RedirectResult("/Admin/AdminLogin");
+            }
+            {
+                ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
+            }
             //Recaptcha code begins here
 
 
@@ -184,8 +201,8 @@ namespace CrestCouriers_Career.Controllers
             cmd.Parameters.AddWithValue("@ReceiveDate", order.ReceiveDate);
             cmd.Parameters.AddWithValue("@DeliveryDate", order.DeliveryDate);
             cmd.Parameters.AddWithValue("@CarType", order.CarType);
-            cmd.Parameters.AddWithValue("@Userid", "1");
-            cmd.Parameters.AddWithValue("@Price", "0");
+            cmd.Parameters.AddWithValue("@Userid", 1);
+            cmd.Parameters.AddWithValue("@Price", "1");
             cmd.Parameters.AddWithValue("@State", "1");
 
 
@@ -201,7 +218,14 @@ namespace CrestCouriers_Career.Controllers
 
         public IActionResult AdminSetting()
         {
-            ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
+            if (HttpContext.Session.GetString("AdminSession") == null)
+            {
+                return new RedirectResult("/Admin/AdminLogin");
+            }
+            else
+            {
+                ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
+            }
 
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
@@ -209,7 +233,7 @@ namespace CrestCouriers_Career.Controllers
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand("sp_Crest_MyAdmin", connection.connect());
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Username", HttpContext.Session.GetString("AdminSession"));
+            cmd.Parameters.AddWithValue("@UserName", ViewData["Username"]);
             da.SelectCommand = cmd;
             da.Fill(dt);
 
@@ -227,8 +251,13 @@ namespace CrestCouriers_Career.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult AdminSetting(Admin admin)
         {
-            ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
-
+            if (HttpContext.Session.GetString("AdminSession") == null)
+            {
+                return new RedirectResult("/Admin/AdminLogin");
+            }
+            {
+                ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
+            }
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
             SqlDataAdapter da = new SqlDataAdapter();
@@ -239,17 +268,54 @@ namespace CrestCouriers_Career.Controllers
             cmd.Parameters.AddWithValue("@Password", admin.Password);
             cmd.Parameters.AddWithValue("@FirstName", admin.FirstName);
             cmd.Parameters.AddWithValue("@LastName", admin.Lastname);
+            cmd.Parameters.AddWithValue("@PhoneNumber", admin.PhoneNumber);
+            cmd.Parameters.AddWithValue("@Email", admin.EmailAddress);
+ 
             
 
             cmd.ExecuteNonQuery();
             return View();
         }
 
-
-        public IActionResult AdminAccounts()
+        public IEnumerable<Admin> MyAdmin(DataTable dataTable)
         {
-            return View();
+
+            foreach (DataRow item in dataTable.Rows)
+            {
+                yield return new Admin
+                {
+                    Adminid = Convert.ToInt32(item["Adminid"].ToString()),
+                    UserName = item["UserName"].ToString(),
+                    FirstName = item["FirstName"].ToString(),
+                    Lastname = item["Lastname"].ToString(),
+                    Level = item["Level"].ToString(),
+                };
+
+            }
         }
+
+        public IActionResult AdminAccounts(DataTable dataTable)
+        {
+            if (HttpContext.Session.GetString("AdminSession") == null)
+            {
+                return new RedirectResult("/Admin/AdminLogin");
+            }
+            {
+                ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
+            }
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("sp_Crest_AdminList", connection.connect());
+            cmd.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+
+            return View(MyAdmin(dt));
+        }
+
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -257,7 +323,13 @@ namespace CrestCouriers_Career.Controllers
         {
 
             ViewData["Title"] = "AdminAccounts";
-
+            if (HttpContext.Session.GetString("AdminSession") == null)
+            {
+                return new RedirectResult("/Admin/AdminLogin");
+            }
+            {
+                ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
+            }
             //Recaptcha code begins here
 
 
@@ -281,8 +353,8 @@ namespace CrestCouriers_Career.Controllers
             cmd.Parameters.AddWithValue("@FirstName", register.FirstName);
             cmd.Parameters.AddWithValue("@Lastname", register.Lastname);
             cmd.Parameters.AddWithValue("@Level", 0);
-            cmd.Parameters.AddWithValue("@PhoneNumber", register.PhoneNumber);
-            cmd.Parameters.AddWithValue("@EmailAddress", register.EmailAddress);
+            cmd.Parameters.AddWithValue("@PhoneNumber", 0);
+            cmd.Parameters.AddWithValue("@EmailAddress", 0);
 
 
 
