@@ -294,6 +294,7 @@ namespace CrestCouriers_Career.Controllers
             {
                 return new RedirectResult("/User/Login");
             }
+            else
             {
                 ViewData["Username"] = HttpContext.Session.GetString("UserSession");
             }
