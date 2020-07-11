@@ -274,7 +274,7 @@ namespace CrestCouriers_Career.Controllers
             
 
             cmd.ExecuteNonQuery();
-            return View();
+            return new RedirectResult("/Admin/AdminSetting");
         }
 
         public IEnumerable<Admin> MyAdmin(DataTable dataTable)
@@ -293,6 +293,7 @@ namespace CrestCouriers_Career.Controllers
 
             }
         }
+
 
         public IActionResult AdminAccounts(DataTable dataTable)
         {
@@ -314,7 +315,6 @@ namespace CrestCouriers_Career.Controllers
 
             return View(MyAdmin(dt));
         }
-
 
 
         [HttpPost]
@@ -467,6 +467,89 @@ namespace CrestCouriers_Career.Controllers
             return new RedirectResult("/Home/Career_delivery");
 
         }
+
+        public ActionResult AdminDelete(int id)
+        {
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            SqlCommand cmd = new SqlCommand("sp_crest_DeleteAdmin", connection.connect())
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            SqlParameter parametrid = new SqlParameter();
+            parametrid.ParameterName = "@Adminid";
+            parametrid.Value = id;
+            cmd.Parameters.Add(parametrid);
+            cmd.ExecuteNonQuery();
+
+
+            return RedirectToAction("AdminAccounts");
+        }
+
+
+        public IActionResult AdminAccountEdit( string UserName)
+        {
+            if (HttpContext.Session.GetString("AdminSession") == null)
+            {
+                return new RedirectResult("/Admin/AdminLogin");
+            }
+            {
+                ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
+            }
+
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("sp_Crest_MyAdmin", connection.connect());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@UserName", UserName);
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+
+            ViewData["Adminid"] = dt.Rows[0][0];
+            ViewData["UserName"] = dt.Rows[0][1];
+            ViewData["Password"] = dt.Rows[0][2];
+            ViewData["FirstName"] = dt.Rows[0][3];
+            ViewData["Lastname"] = dt.Rows[0][4];
+            ViewData["PhoneNumber"] = dt.Rows[0][5];
+            ViewData["Email"] = dt.Rows[0][6];
+
+
+
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AdminEdit(Admin admin)
+        {
+            if (HttpContext.Session.GetString("AdminSession") == null)
+            {
+                return new RedirectResult("/Admin/AdminLogin");
+            }
+            {
+                ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
+            }
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("sp_Crest_UpdateAdmin", connection.connect());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@UserName", admin.UserName);
+            cmd.Parameters.AddWithValue("@Password", admin.Password);
+            cmd.Parameters.AddWithValue("@FirstName", admin.FirstName);
+            cmd.Parameters.AddWithValue("@LastName", admin.Lastname);
+            cmd.Parameters.AddWithValue("@PhoneNumber", admin.PhoneNumber);
+            cmd.Parameters.AddWithValue("@Email", admin.EmailAddress);
+
+
+            cmd.ExecuteNonQuery();
+            return new RedirectResult("/Admin/AdminAccounts");
+        }
+
 
         public IActionResult UserAccounts()
         {

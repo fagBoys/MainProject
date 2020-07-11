@@ -116,3 +116,4 @@ C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netco
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\AdminLogin.cshtml.g.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Edit.cshtml.g.cs
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Edit.g.cshtml.cs
+C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\AdminAccountEdit.g.cshtml.cs
