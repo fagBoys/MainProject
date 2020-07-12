@@ -295,7 +295,7 @@ namespace CrestCouriers_Career.Controllers
         }
 
 
-        public IActionResult AdminAccounts(DataTable dataTable)
+        public IActionResult AdminAccounts()
         {
             if (HttpContext.Session.GetString("AdminSession") == null)
             {
@@ -550,11 +550,130 @@ namespace CrestCouriers_Career.Controllers
             return new RedirectResult("/Admin/AdminAccounts");
         }
 
+        public IEnumerable<User> MySystemUser(DataTable dataTable)
+        {
 
+            foreach (DataRow item in dataTable.Rows)
+            {
+                yield return new User
+                {
+                    Userid = Convert.ToInt32(item["Userid"].ToString()),
+                    UserName = item["UserName"].ToString(),
+                    Password = item["Password"].ToString(),
+                    FirstName = item["FirstName"].ToString(),
+                    LastName = item["LastName"].ToString(),
+                    PhoneNumber = item["PhoneNumber"].ToString(),
+                    EmailAddress = item["EmailAddress"].ToString(),
+                    Active = item["Active"].ToString(),
+
+                };
+
+            }
+        }
         public IActionResult UserAccounts()
         {
+            if (HttpContext.Session.GetString("AdminSession") == null)
+            {
+                return new RedirectResult("/Admin/AdminLogin");
+            }
+            {
+                ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
+            }
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("sp_Crest_SystemUserList", connection.connect());
+            cmd.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+            return View(MySystemUser(dt));
+        }
+
+        public ActionResult SystemUserDelete(int id)
+        {
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            SqlCommand cmd = new SqlCommand("sp_Crest_DeleteSystemUser", connection.connect())
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            SqlParameter parametrid = new SqlParameter();
+            parametrid.ParameterName = "@Userid";
+            parametrid.Value = id;
+            cmd.Parameters.Add(parametrid);
+            cmd.ExecuteNonQuery();
+
+
+            return RedirectToAction("UserAccounts");
+        }
+
+        public IActionResult SystemUserEdit(int id)
+        {
+            if (HttpContext.Session.GetString("AdminSession") == null)
+            {
+                return new RedirectResult("/Admin/AdminLogin");
+            }
+            {
+                ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
+            }
+
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("sp_Crest_MySystemUser", connection.connect());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Userid", id);
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+
+            ViewData["Userid"] = dt.Rows[0][0];
+            ViewData["UserName"] = dt.Rows[0][1];
+            ViewData["FirstName"] = dt.Rows[0][3];
+            ViewData["LastName"] = dt.Rows[0][4];
+            ViewData["PhoneNumber"] = dt.Rows[0][5];
+            ViewData["EmailAddress"] = dt.Rows[0][6];
+            ViewData["Active"] = dt.Rows[0][7];
+
+
+
             return View();
         }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult SystemUserEdite(User user)
+        {
+            if (HttpContext.Session.GetString("AdminSession") == null)
+            {
+                return new RedirectResult("/Admin/AdminLogin");
+            }
+            {
+                ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
+            }
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("sp_Crest_UpdateSystemUser", connection.connect());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Userid", user.Userid);
+            cmd.Parameters.AddWithValue("@UserName", user.UserName);
+            cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
+            cmd.Parameters.AddWithValue("@LastName", user.LastName);
+            cmd.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
+            cmd.Parameters.AddWithValue("@EmailAddress", user.EmailAddress);
+            cmd.Parameters.AddWithValue("@Active", user.Active);
+
+
+            cmd.ExecuteNonQuery();
+            return new RedirectResult("/Admin/UserAccounts");
+        }
+
+
+
         public IActionResult AdminLogin()
         {
 

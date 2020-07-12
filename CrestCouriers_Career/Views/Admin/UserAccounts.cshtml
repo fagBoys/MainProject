@@ -81,59 +81,71 @@
 
 <hr style="width:90%; border-color:red;">
 
-<div class="list-order">
+@foreach (var item in Model)
+{
+    using (Html.BeginForm("Delete", "Admin", new { id = item.Userid }))
+    {
 
-    <div class="user-list-title-item">
-        <p>
-            mjn110
-        </p>
-    </div>
+        <div class="list-order">
 
-    <div class="user-list-title-item">
-        <p>
-            mjn110
-        </p>
-    </div>
+            <div class="list-title-item">
+                <p>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </p>
+            </div>
 
-    <div class="user-list-title-item">
-        <p>
-            Mohammad Javad
-        </p>
-    </div>
+            <div class="list-title-item">
+                <p>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </p>
+            </div>
 
-    <div class="user-list-title-item">
-        <p>
-            Najafi
-        </p>
-    </div>
+            <div class="list-title-item">
+                <p>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </p>
+            </div>
 
-    <div class="user-list-title-item">
-        <p>
-            09386955901
-        </p>
-    </div>
+            <div class="list-title-item">
+                <p>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </p>
+            </div>
 
-    <div class="user-list-title-item">
-        <p>
-            mjn220@gmail.com
-        </p>
-    </div>
+            <div class="list-title-item">
+                <p>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </p>
+            </div>
 
-    <div class="user-list-title-item">
-        <p>
-            Yes
-        </p>
-    </div>
+            <div class="list-title-item">
+                <p>
+                    @Html.DisplayFor(modelItem => item.EmailAddress)
+                </p>
+            </div>
 
-    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
-        <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
-    </div>
+            <div class="list-title-item">
+                <p>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </p>
+            </div>
 
-    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
-        <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
-    </div>
 
-</div>
+            @*data-toggle="modal" data-target=".confirmbox-delete"*@
+            <div class="list-record-button">
+                <button type="submit" style="background-color:transparent; border:none;" asp-controller="Admin" asp-action="SystemUserDelete" asp-route-id="@item.Userid"><img src="~/img/System/remove.png" width="35px" height="35px" alt=""></button>
+            </div>
+
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getValues('@item.Userid','@item.UserName','@item.FirstName','@item.LastName','@item.PhoneNumber','@item.EmailAddress','@item.Active')">
+                <button asp-controller="Admin" asp-action="SystemUserEdit" asp-route-id="@item.Userid" style="background-color:transparent; border:none;">
+                    <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
+                </button>
+            </div>
+
+        </div>
+
+    }
+}
 
 
 <div id="confirmbox-delete" class="modal fade confirmbox-delete">

@@ -445,7 +445,6 @@ namespace CrestCouriers_Career.Controllers
             da.SelectCommand = cmd;
             da.Fill(dt);
 
-            ViewData["myuser-Userid"] = dt.Rows[0][0];
             ViewData["myuser-Username"] = dt.Rows[0][1];
             ViewData["myuser-Password"] = dt.Rows[0][2];
             ViewData["myuser-FirstName"] = dt.Rows[0][3];
@@ -482,7 +481,7 @@ namespace CrestCouriers_Career.Controllers
             cmd.Parameters.AddWithValue("@EmailAddress", user.EmailAddress);
 
             cmd.ExecuteNonQuery();
-            return View();
+            return new RedirectResult("/User/User");
         }
 
     }
