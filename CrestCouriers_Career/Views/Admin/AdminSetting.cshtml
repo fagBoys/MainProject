@@ -5,107 +5,134 @@
     Layout = "~/Views/Shared/_SystemAdmin.cshtml";
 }
 
+@section AdminMenu{
+    <ul class="menu-ul">
+        <a asp-controller="Admin" asp-action="Dashboard" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Dashboard</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="Order" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Order</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="AdminSetting" class="menu-option-link">
+            <div class="panel-option-active">
+                <li><h5>Admin setting</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="AdminAccounts" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Admin accounts</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="UserAccounts" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>User accounts</h5></li>
+            </div>
+        </a>
+    </ul>
+}
 
-    <div class="NewOrder-form" style="margin:100px;">
-        <form asp-controller="Admin" asp-action="AdminSetting" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="row">
+<div class="NewOrder-form" style="margin:100px;">
+    <form asp-controller="Admin" asp-action="AdminSetting" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
 
-                <div class="col-sm-6">
-                    <input asp-for="UserName" class="" placeholder="Username" value="@ViewData["myAdmin-UserName"]">
-                    <span asp-validation-for="UserName" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                </div>
-
-                <div class="col-sm-6">
-                    <input asp-for="Password" placeholder="Password" value="@ViewData["myAdmin-Password"]">
-                    <span asp-validation-for="Password" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                </div>
-
+            <div class="col-sm-6">
+                <input asp-for="UserName" class="" placeholder="Username" value="@ViewData["myAdmin-UserName"]">
+                <span asp-validation-for="UserName" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
             </div>
 
-            <div class="row">
-
-                <div class="col-sm-6">
-                    <div class="order-input">
-                        <input asp-for="FirstName" placeholder="Fristname" value="@ViewData["myAdmin-FirstName"]">
-                        <span asp-validation-for="FirstName" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                    </div>
-                </div>
-
-                <div class="col-sm-6">
-                    <div class="order-input">
-                        <input asp-for="Lastname" placeholder="Lastname" value="@ViewData["myAdmin-Lastname"]">
-                        <span asp-validation-for="Lastname" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                    </div>
-                </div>
-
+            <div class="col-sm-6">
+                <input asp-for="Password" placeholder="Password" value="@ViewData["myAdmin-Password"]">
+                <span asp-validation-for="Password" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
             </div>
 
-            <div class="row">
+        </div>
 
-                <div class="col-sm-6">
-                    <div class="order-input">
-                        <input asp-for="PhoneNumber" placeholder="PhoneNumber" value="@ViewData["myAdmin-PhoneNumber"]">
-                        <span asp-validation-for="PhoneNumber" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                    </div>
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input asp-for="FirstName" placeholder="Fristname" value="@ViewData["myAdmin-FirstName"]">
+                    <span asp-validation-for="FirstName" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
                 </div>
-
-                <div class="col-sm-6">
-                    <div class="order-input">
-                        <input asp-for="EmailAddress" placeholder="EmailAddress" value="@ViewData["myAdmin-EmailAddress"]">
-                        <span asp-validation-for="EmailAddress" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>                    
-                    </div>
-                </div>
-
             </div>
 
-            <div class="row">
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input asp-for="Lastname" placeholder="Lastname" value="@ViewData["myAdmin-Lastname"]">
+                    <span asp-validation-for="Lastname" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                </div>
+            </div>
 
-                <div class="col-sm-12">
-                    <div class="input-submit">
-                        <button type="submit" class="book-now-btn" style="color:white; padding-top:14px;" name="button" data-toggle="modal" data-target=".confirmbox-admin-info"><h5>Update your information</h5></button>
-                    </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input asp-for="PhoneNumber" placeholder="PhoneNumber" value="@ViewData["myAdmin-PhoneNumber"]">
+                    <span asp-validation-for="PhoneNumber" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input asp-for="EmailAddress" placeholder="EmailAddress" value="@ViewData["myAdmin-EmailAddress"]">
+                    <span asp-validation-for="EmailAddress" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-12">
+                <div class="input-submit">
+                    <button type="submit" class="book-now-btn" style="color:white; padding-top:14px;" name="button" data-toggle="modal" data-target=".confirmbox-admin-info"><h5>Update your information</h5></button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+    <div id="confirmbox-admin-info" class="modal fade confirmbox-admin-info">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width:600px; padding:0px;">
+
+                <div class="modal-header" style="border-bottom-color:red;">
+                    <h2 class="update-box-header">Update information</h2>
                 </div>
 
-            </div>
-        </form>
-        <div id="confirmbox-admin-info" class="modal fade confirmbox-admin-info">
-            <div class="modal-dialog">
-                <div class="modal-content" style="width:600px; padding:0px;">
-
-                    <div class="modal-header" style="border-bottom-color:red;">
-                        <h2 class="update-box-header">Update information</h2>
-                    </div>
-
-                    <div class="modal-body">
+                <div class="modal-body">
 
 
 
 
-                        <div class="popup-admin-deactive">
+                    <div class="popup-admin-deactive">
 
-                            <div class="NewOrder-form">
+                        <div class="NewOrder-form">
 
-                                <div class="row">
+                            <div class="row">
 
-                                    <div class="col-sm-12">
-                                        <div class="order-input">
-                                            <p>Your information has been updated.</p>
-                                        </div>
+                                <div class="col-sm-12">
+                                    <div class="order-input">
+                                        <p>Your information has been updated.</p>
                                     </div>
-
                                 </div>
 
-                                <div class="row">
+                            </div>
 
-                                    <div class="col-sm-12">
-                                        <div class="input-submit">
-                                            <button type="button" class="book-now-btn" style="color:white; padding-top:14px; margin:0 auto; margin-top:20px;" name="button"><h5>Close</h5></button>
-                                        </div>
+                            <div class="row">
+
+                                <div class="col-sm-12">
+                                    <div class="input-submit">
+                                        <button type="button" class="book-now-btn" style="color:white; padding-top:14px; margin:0 auto; margin-top:20px;" name="button"><h5>Close</h5></button>
                                     </div>
-
-
                                 </div>
+
 
                             </div>
 
@@ -113,13 +140,15 @@
 
                     </div>
 
-
                 </div>
+
+
             </div>
         </div>
-
-
     </div>
+
+
+</div>
 
 
 

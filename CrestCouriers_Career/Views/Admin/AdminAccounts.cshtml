@@ -5,6 +5,36 @@
     Layout = "~/Views/Shared/_SystemAdmin.cshtml";
 }
 
+@section AdminMenu{
+    <ul class="menu-ul">
+        <a asp-controller="Admin" asp-action="Dashboard" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Dashboard</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="Order" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Order</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="AdminSetting" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Admin setting</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="AdminAccounts" class="menu-option-link">
+            <div class="panel-option-active">
+                <li><h5>Admin accounts</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="UserAccounts" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>User accounts</h5></li>
+            </div>
+        </a>
+    </ul>
+}
+
 <div class="NewAdmin-form" style="margin:100px;">
 
     <div class="row">
@@ -82,51 +112,52 @@
 {
     @using (Html.BeginForm("Delete", "Admin", new { id = item.Adminid }))
     {
-<div class="list-order">
+        <div class="list-order">
 
-    <div class="admin-list-title-item">
-        <p>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </p>
-    </div>
+            <div class="admin-list-title-item">
+                <p>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </p>
+            </div>
 
-    <div class="admin-list-title-item">
-        <p>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </p>
-    </div>
+            <div class="admin-list-title-item">
+                <p>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </p>
+            </div>
 
-    <div class="admin-list-title-item">
-        <p>
-            @Html.DisplayFor(modelItem => item.Lastname)
-        </p>
-    </div>
+            <div class="admin-list-title-item">
+                <p>
+                    @Html.DisplayFor(modelItem => item.Lastname)
+                </p>
+            </div>
 
-    <div class="admin-list-title-item">
-        <p>
-            @Html.DisplayFor(modelItem => item.Level)
-        </p>
-    </div>
+            <div class="admin-list-title-item">
+                <p>
+                    @Html.DisplayFor(modelItem => item.Level)
+                </p>
+            </div>
 
-    <div class="list-record-button">
-        <button type="submit" style="background-color:transparent; border:none;" asp-controller="Admin" asp-action="AdminDelete" asp-route-id="@item.Adminid"><img src="~/img/System/remove.png" width="35px" height="35px" alt=""></button>
-    </div>
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
+                <button type="submit" style="background-color: transparent; border: none;">
+                    <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
+                </button>
+            </div>
 
-    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getValues('@item.Adminid','@item.UserName','@item.Password','@item.FirstName','@item.Lastname','@item.PhoneNumber','@item.EmailAddress')">
-        <button asp-controller="Admin" asp-action="AdminAccountEdit" asp-route-UserName ="@item.UserName" style="background-color:transparent; border:none;">
-            <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
-        </button>
-    </div>
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
+                <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="Edit" asp-route-id="@item.Adminid">
+                    <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
+                </button>
+            </div>
+
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
+                <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="Active" asp-route-id="@item.Adminid">
+                    <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
+                </button>
+            </div>
 
 
-    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
-        <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="Active" asp-route-id="@item.Adminid">
-            <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
-        </button>
-    </div>
-
-
-</div>
+        </div>
     }
 }
 

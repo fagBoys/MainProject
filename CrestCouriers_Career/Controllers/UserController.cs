@@ -445,12 +445,13 @@ namespace CrestCouriers_Career.Controllers
             da.SelectCommand = cmd;
             da.Fill(dt);
 
-            ViewData["myuser-Username"] = dt.Rows[0][0];
-            ViewData["myuser-Password"] = dt.Rows[0][1];
-            ViewData["myuser-FirstName"] = dt.Rows[0][2];
-            ViewData["myuser-LastName"] = dt.Rows[0][3];
-            ViewData["myuser-PhoneNumber"] = dt.Rows[0][4];
-            ViewData["myuser-EmailAddress"] = dt.Rows[0][5];
+            ViewData["myuser-Userid"] = dt.Rows[0][0];
+            ViewData["myuser-Username"] = dt.Rows[0][1];
+            ViewData["myuser-Password"] = dt.Rows[0][2];
+            ViewData["myuser-FirstName"] = dt.Rows[0][3];
+            ViewData["myuser-LastName"] = dt.Rows[0][4];
+            ViewData["myuser-PhoneNumber"] = dt.Rows[0][5];
+            ViewData["myuser-EmailAddress"] = dt.Rows[0][6];
 
             return View();
         }

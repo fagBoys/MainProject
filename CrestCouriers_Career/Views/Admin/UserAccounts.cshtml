@@ -5,6 +5,35 @@
     Layout = "~/Views/Shared/_SystemAdmin.cshtml";
 }
 
+@section AdminMenu{
+    <ul class="menu-ul">
+        <a asp-controller="Admin" asp-action="Dashboard" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Dashboard</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="Order" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Order</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="AdminSetting" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Admin setting</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="AdminAccounts" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Admin accounts</h5></li>
+            </div>
+        </a>
+        <a asp-controller="User" asp-action="UserAccounts" class="menu-option-link">
+            <div class="panel-option-active">
+                <li><h5>User accounts</h5></li>
+            </div>
+        </a>
+    </ul>
+}
 
 <div class="list-title">
     <div class="user-list-title-item">
