@@ -550,6 +550,28 @@ namespace CrestCouriers_Career.Controllers
             return new RedirectResult("/Admin/AdminAccounts");
         }
 
+        public IActionResult AdminAccountActive(string Level, int Adminid)
+        {
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("sp_Crest_AdminActive", connection.connect());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Adminid", Adminid);
+            if (Level == "0")
+            {
+                cmd.Parameters.AddWithValue("@Level", "2");
+            }
+            else if (Level == "2")
+            {
+                cmd.Parameters.AddWithValue("@Level", "0");
+            }
+
+            cmd.ExecuteNonQuery();
+            return new RedirectResult("/Admin/AdminAccounts");
+        }
+
         public IEnumerable<User> MySystemUser(DataTable dataTable)
         {
 

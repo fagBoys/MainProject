@@ -138,6 +138,8 @@
                 </p>
             </div>
 
+            @if (item.Level == "2" || item.Level == "0")
+            {
             <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
                 <button type="submit" style="background-color: transparent; border: none;">
                     <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
@@ -151,11 +153,15 @@
             </div>
 
             <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
-                <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="Active" asp-route-id="@item.Adminid">
+                <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Level="@item.Level" asp-route-Adminid="@item.Adminid">
                     <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
                 </button>
             </div>
-
+            }
+            else if(item.Level == "1")
+            {
+                <div>Go fuck yoursel</div>
+            }
 
         </div>
     }

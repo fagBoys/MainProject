@@ -2,6 +2,12 @@
 @using Microsoft.Extensions.Options
 @using reCAPTCHA.AspNetCore;
 
+
+@inject IOptions<RecaptchaSettings> RecaptchaSettings
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
 @{
     Layout = null;
 }
@@ -91,6 +97,6 @@
 
 
 
-    
+
 </body>
 </html>

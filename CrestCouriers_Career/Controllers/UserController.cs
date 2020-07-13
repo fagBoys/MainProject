@@ -55,9 +55,9 @@ namespace CrestCouriers_Career.Controllers
             //Recaptcha code begins here
 
 
-            var recaptcha = await _recaptcha.Validate(Request);
-            if (!recaptcha.success)
-                ModelState.AddModelError("Recaptcha", "There was an error validating recatpcha. Please try again!");
+            //var recaptcha = await _recaptcha.Validate(Request);
+            //if (!recaptcha.success)
+            //    ModelState.AddModelError("Recaptcha", "There was an error validating recatpcha. Please try again!");
 
 
             //Recaptcha code ends here
@@ -66,7 +66,7 @@ namespace CrestCouriers_Career.Controllers
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
 
-            SqlCommand cmd = new SqlCommand("sp_Crest_contact", connection.connect())
+            SqlCommand cmd = new SqlCommand("sp_Crest_Register", connection.connect())
             {
                 CommandType = CommandType.StoredProcedure
             };
