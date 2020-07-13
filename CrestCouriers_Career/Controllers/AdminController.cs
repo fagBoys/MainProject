@@ -605,7 +605,7 @@ namespace CrestCouriers_Career.Controllers
             Dal connection = new Dal(myurl);
             SqlDataAdapter da = new SqlDataAdapter();
             DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("sp_Crest_SystemUserList", connection.connect());
+            SqlCommand cmd = new SqlCommand("sp_Crest_UserList", connection.connect());
             cmd.CommandType = CommandType.StoredProcedure;
             da.SelectCommand = cmd;
             da.Fill(dt);
@@ -616,21 +616,19 @@ namespace CrestCouriers_Career.Controllers
         {
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
-            SqlCommand cmd = new SqlCommand("sp_Crest_DeleteSystemUser", connection.connect())
+            SqlCommand cmd = new SqlCommand("sp_Crest_DeleteUser", connection.connect())
             {
                 CommandType = CommandType.StoredProcedure
             };
-            SqlParameter parametrid = new SqlParameter();
-            parametrid.ParameterName = "@Userid";
-            parametrid.Value = id;
-            cmd.Parameters.Add(parametrid);
+            cmd.Parameters.AddWithValue("@Userid",id);
+
             cmd.ExecuteNonQuery();
 
 
             return RedirectToAction("UserAccounts");
         }
 
-        public IActionResult SystemUserEdit(int id)
+        public IActionResult SystemUserEdit(string Username)
         {
             if (HttpContext.Session.GetString("AdminSession") == null)
             {
@@ -644,19 +642,19 @@ namespace CrestCouriers_Career.Controllers
             Dal connection = new Dal(myurl);
             SqlDataAdapter da = new SqlDataAdapter();
             DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("sp_Crest_MySystemUser", connection.connect());
+            SqlCommand cmd = new SqlCommand("sp_Crest_MyUser", connection.connect());
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Userid", id);
+            cmd.Parameters.AddWithValue("@UserName", Username);
             da.SelectCommand = cmd;
             da.Fill(dt);
 
-            ViewData["Userid"] = dt.Rows[0][0];
+            
             ViewData["UserName"] = dt.Rows[0][1];
+            ViewData["Password"] = dt.Rows[0][2];
             ViewData["FirstName"] = dt.Rows[0][3];
             ViewData["LastName"] = dt.Rows[0][4];
             ViewData["PhoneNumber"] = dt.Rows[0][5];
             ViewData["EmailAddress"] = dt.Rows[0][6];
-            ViewData["Active"] = dt.Rows[0][7];
 
 
 
@@ -679,15 +677,22 @@ namespace CrestCouriers_Career.Controllers
             Dal connection = new Dal(myurl);
             SqlDataAdapter da = new SqlDataAdapter();
             DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("sp_Crest_UpdateSystemUser", connection.connect());
+            SqlCommand cmd = new SqlCommand("sp_Crest_UpdateUser", connection.connect());
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Userid", user.Userid);
+
+            //cmd.Parameters.AddWithValue("@UserName", "mjn110");
+            //cmd.Parameters.AddWithValue("@Password", "mjn110");
+            //cmd.Parameters.AddWithValue("@FirstName", "mohammad");
+            //cmd.Parameters.AddWithValue("@LastName", "najafi");
+            //cmd.Parameters.AddWithValue("@PhoneNumber", "09386955901");
+            //cmd.Parameters.AddWithValue("@EmailAddress", "mjn220@gmail.com");
+
             cmd.Parameters.AddWithValue("@UserName", user.UserName);
+            cmd.Parameters.AddWithValue("@Password", user.Password);
             cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
             cmd.Parameters.AddWithValue("@LastName", user.LastName);
             cmd.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
             cmd.Parameters.AddWithValue("@EmailAddress", user.EmailAddress);
-            cmd.Parameters.AddWithValue("@Active", user.Active);
 
 
             cmd.ExecuteNonQuery();

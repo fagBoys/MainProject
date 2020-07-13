@@ -39,15 +39,16 @@
     <div class="col-md-4">
         <form asp-controller="Admin" asp-action="SystemUserEdite" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Userid" hidden class="control-label"></label>
-                <input asp-for="Userid" hidden class="form-control" value="@ViewData["Userid"]" />
-                <span asp-validation-for="Userid" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 <label asp-for="UserName" class="control-label"></label>
                 <input asp-for="UserName" class="form-control" value="@ViewData["UserName"]" />
                 <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" value="@ViewData["Password"]" />
+                <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
@@ -69,11 +70,7 @@
                 <input asp-for="EmailAddress" class="form-control" value="@ViewData["EmailAddress"]" />
                 <span asp-validation-for="EmailAddress" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Active" class="control-label"></label>
-                <input asp-for="Active" class="form-control" value="@ViewData["Active"]" />
-                <span asp-validation-for="Active" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 <button type="submit" name="Save" class="btn btn-default"></button>
             </div>
