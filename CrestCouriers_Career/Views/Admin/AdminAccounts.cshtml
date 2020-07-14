@@ -37,44 +37,64 @@
 
 <div class="NewAdmin-form" style="margin:100px;">
 
-    <div class="row">
+    <form asp-controller="Admin" asp-action="AdminAccounts" method="post">
 
-        <div class="col-sm-6">
-            <input type="text" class="" name="" placeholder="Username">
-            <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-        </div>
+        <div class="row">
 
-        <div class="col-sm-6">
-            <input type="text" name="" placeholder="Password">
-        </div>
-
-    </div>
-
-    <div class="row">
-
-        <div class="col-sm-6">
-            <div class="order-input">
-                <input type="text" name="" placeholder="Firstname">
+            <div class="col-sm-6">
+                <input name="UserName" class="" placeholder="Username">
+                <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
             </div>
-        </div>
 
-        <div class="col-sm-6">
-            <div class="order-input">
-                <input type="text" name="" placeholder="Lastname">
+            <div class="col-sm-6">
+                <input name="Password" placeholder="Password">
             </div>
+
         </div>
 
-    </div>
+        <div class="row">
 
-    <div class="row">
-
-        <div class="col-sm-12">
-            <div class="input-submit">
-                <button type="button" class="book-now-btn" style="color:white; padding-top:14px;" name="button" data-toggle="modal" data-target=".confirmbox-new-order"><h5>submit new admin</h5></button>
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input name="Firstname" placeholder="Firstname">
+                </div>
             </div>
+
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input name="Lastname" placeholder="Lastname">
+                </div>
+            </div>
+
         </div>
 
-    </div>
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input name="PhoneNumber" placeholder="Phone number">
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input name="EmailAddress" placeholder="Email address">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-12">
+                <div class="input-submit">
+                    <button type="submit" class="book-now-btn" style="color:white; padding-top:14px;" name="button" data-toggle="modal" data-target=".confirmbox-new-order"><h5>submit new admin</h5></button>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
 
 </div>
 
@@ -112,58 +132,74 @@
 {
     @using (Html.BeginForm("Delete", "Admin", new { id = item.Adminid }))
     {
-        <div class="list-order">
+<div class="list-order">
 
-            <div class="admin-list-title-item">
-                <p>
-                    @Html.DisplayFor(modelItem => item.UserName)
-                </p>
-            </div>
+    <div class="admin-list-title-item">
+        <p>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </p>
+    </div>
 
-            <div class="admin-list-title-item">
-                <p>
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                </p>
-            </div>
+    <div class="admin-list-title-item">
+        <p>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </p>
+    </div>
 
-            <div class="admin-list-title-item">
-                <p>
-                    @Html.DisplayFor(modelItem => item.Lastname)
-                </p>
-            </div>
+    <div class="admin-list-title-item">
+        <p>
+            @Html.DisplayFor(modelItem => item.Lastname)
+        </p>
+    </div>
 
-            <div class="admin-list-title-item">
-                <p>
-                    @Html.DisplayFor(modelItem => item.Level)
-                </p>
-            </div>
+    <div class="admin-list-title-item">
+        <p>
+            @Html.DisplayFor(modelItem => item.Level)
+        </p>
+    </div>
 
-            @if (item.Level == "2" || item.Level == "0")
-            {
-            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
-                <button type="submit" style="background-color: transparent; border: none;">
-                    <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
-                </button>
-            </div>
-
-            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
-                <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="AdminAccountEdit" asp-route-UserName="@item.UserName">
-                    <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
-                </button>
-            </div>
-
-            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
-                <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Level="@item.Level" asp-route-Adminid="@item.Adminid">
-                    <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
-                </button>
-            </div>
-            }
-            else if(item.Level == "1")
-            {
-                <div>Go fuck yoursel</div>
-            }
-
+    @if (item.Level == "2" || item.Level == "0")
+    {
+        <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
+            <button type="submit" style="background-color: transparent; border: none;">
+                <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
+            </button>
         </div>
+
+        <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
+            <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="AdminAccountEdit" asp-route-UserName="@item.UserName">
+                <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
+            </button>
+        </div>
+
+        <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
+            <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Level="@item.Level" asp-route-Adminid="@item.Adminid">
+                <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
+            </button>
+        </div>
+    }
+    else if (item.Level == "1")
+    {
+        <div class="list-record-button">
+            
+                <img src="~/img/System/remove-disable.png" width="35px" height="35px" alt="">
+            
+        </div>
+
+        <div class="list-record-button">
+
+                <img src="~/img/System/edit-disable.png" width="35px" height="35px" alt="">
+            
+        </div>
+
+        <div class="list-record-button">
+            
+                <img src="~/img/System/deactive-disable.png" width="35px" height="35px" alt="">
+            
+        </div>
+    }
+
+</div>
     }
 }
 

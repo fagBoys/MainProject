@@ -319,7 +319,7 @@ namespace CrestCouriers_Career.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AdminAccounts(Admin register, EmailRequest emailRequest)
+        public async Task<IActionResult> AdminAccounts(string UserName, string Password, string Firstname, string Lastname, string PhoneNumber, string EmailAddress)
         {
 
             ViewData["Title"] = "AdminAccounts";
@@ -330,31 +330,22 @@ namespace CrestCouriers_Career.Controllers
             {
                 ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
             }
-            //Recaptcha code begins here
-
-
-            var recaptcha = await _recaptcha.Validate(Request);
-            if (!recaptcha.success)
-                ModelState.AddModelError("Recaptcha", "There was an error validating recatpcha. Please try again!");
-
-
-            //Recaptcha code ends here
 
 
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
 
-            SqlCommand cmd = new SqlCommand("sp_Crest_RegisterAdmin", connection.connect())
+            SqlCommand cmd = new SqlCommand("sp_Crest_InsertAdmin", connection.connect())
             {
                 CommandType = CommandType.StoredProcedure
             };
-            cmd.Parameters.AddWithValue("@UserName", register.UserName);
-            cmd.Parameters.AddWithValue("@Password", register.Password);
-            cmd.Parameters.AddWithValue("@FirstName", register.FirstName);
-            cmd.Parameters.AddWithValue("@Lastname", register.Lastname);
-            cmd.Parameters.AddWithValue("@Level", 0);
-            cmd.Parameters.AddWithValue("@PhoneNumber", 0);
-            cmd.Parameters.AddWithValue("@EmailAddress", 0);
+            cmd.Parameters.AddWithValue("@UserName", UserName);
+            cmd.Parameters.AddWithValue("@Password", Password);
+            cmd.Parameters.AddWithValue("@FirstName", Firstname);
+            cmd.Parameters.AddWithValue("@Lastname", Lastname);
+            cmd.Parameters.AddWithValue("@Level", "0");
+            cmd.Parameters.AddWithValue("@PhoneNumber", PhoneNumber);
+            cmd.Parameters.AddWithValue("@Email", EmailAddress);
 
 
 
@@ -363,108 +354,8 @@ namespace CrestCouriers_Career.Controllers
             connection.disconnect();
 
 
-            /////////    Send Email     ///////
-            //MimeMessage message = new MimeMessage();
+            return new RedirectResult("/Admin/AdminAccounts");
 
-            //MailboxAddress from = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
-            //message.From.Add(from);
-
-            //MailboxAddress to = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
-            //message.To.Add(to);
-
-            //message.Subject = " Adminregister";
-
-            //BodyBuilder bodyBuilder = new BodyBuilder();
-            //var usericfile = System.IO.File.OpenRead(_environment.WebRootPath + @"\Email\newuser.png");
-            //MemoryStream newms = new MemoryStream();
-            //await usericfile.CopyToAsync(newms);
-
-
-            //var mybody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailbody-contact.html");
-
-            //mybody = mybody.Replace("Value00", register.UserName);
-            //mybody = mybody.Replace("Value01", register.Password);
-            //mybody = mybody.Replace("Value02", register.FirstName);
-            //mybody = mybody.Replace("Value03", register.Lastname);
-            //mybody = mybody.Replace("Value04", register.PhoneNumber);
-            //mybody = mybody.Replace("Value05", register.EmailAddress);
-
-
-            //bodyBuilder.HtmlBody = mybody;
-
-            //var usericon = bodyBuilder.LinkedResources.Add(_environment.WebRootPath + @"/Email/newuser.png");
-            //usericon.ContentId = MimeUtils.GenerateMessageId();
-
-            //bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("{", "{{");
-            //bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("}", "}}");
-            //bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("{{0}}", "{0}");
-
-            //bodyBuilder.HtmlBody = string.Format(bodyBuilder.HtmlBody, usericon.ContentId);
-
-            //message.Body = bodyBuilder.ToMessageBody();
-
-
-            //SmtpClient client = new SmtpClient();
-            //client.Connect("smtp.gmail.com", 465, true);
-            //client.Authenticate("crestcouriers@gmail.com", "CRESTcouriers123");
-
-
-            //client.Send(message);
-            ////First email
-
-
-            //MimeMessage message2 = new MimeMessage();
-
-            //MailboxAddress from2 = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
-            //message2.From.Add(from2);
-
-            //MailboxAddress to2 = new MailboxAddress(register.FirstName + " " + register.Lastname, register.EmailAddress);
-            //message2.To.Add(to2);
-
-            //message2.Subject = "Adminregister";
-
-
-            //BodyBuilder bobu = new BodyBuilder
-            //{
-            //    HtmlBody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailreply-contact.html")
-            //};
-
-
-
-
-            //// var logo = System.IO.File.OpenRead(_environment.WebRootPath + @"/img/logo.png");
-            //MemoryStream myms = new MemoryStream();
-            //await usericfile.CopyToAsync(myms);
-
-            //var embedlogo = bobu.LinkedResources.Add(_environment.WebRootPath + @"/img/logo.png");
-            //embedlogo.ContentId = MimeUtils.GenerateMessageId();
-
-            //bobu.HtmlBody = bobu.HtmlBody.Replace("{", "{{");
-            //bobu.HtmlBody = bobu.HtmlBody.Replace("}", "}}");
-            //bobu.HtmlBody = bobu.HtmlBody.Replace("{{0}}", "{0}");
-
-            //bobu.HtmlBody = string.Format(bobu.HtmlBody, embedlogo.ContentId);
-
-
-            //message2.Body = bobu.ToMessageBody();
-
-            //SmtpClient client2 = new SmtpClient();
-            //client2.Connect("smtp.gmail.com", 465, true);
-            //client2.Authenticate("crestcouriers@gmail.com", "CRESTcouriers123");
-
-
-            //client2.Send(message2);
-            //client2.Disconnect(true);
-            //client2.Dispose();
-            /////////   End Send Email    //////////
-
-
-
-
-
-
-            return View(!ModelState.IsValid ? register : new Admin());
-            return new RedirectResult("/Home/Career_delivery");
 
         }
 
