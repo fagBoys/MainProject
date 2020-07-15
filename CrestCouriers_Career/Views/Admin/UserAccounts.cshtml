@@ -86,63 +86,68 @@
     using (Html.BeginForm("Delete", "Admin", new { id = item.Userid }))
     {
 
-        <div class="list-order">
+<div class="list-order">
 
-            <div class="user-list-title-item">
-                <p>
-                    @Html.DisplayFor(modelItem => item.UserName)
-                </p>
-            </div>
+    <div class="user-list-title-item">
+        <p>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </p>
+    </div>
 
-            <div class="user-list-title-item">
-                <p>
-                    @Html.DisplayFor(modelItem => item.Password)
-                </p>
-            </div>
+    <div class="user-list-title-item">
+        <p>
+            @Html.DisplayFor(modelItem => item.Password)
+        </p>
+    </div>
 
-            <div class="user-list-title-item">
-                <p>
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                </p>
-            </div>
+    <div class="user-list-title-item">
+        <p>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </p>
+    </div>
 
-            <div class="user-list-title-item">
-                <p>
-                    @Html.DisplayFor(modelItem => item.LastName)
-                </p>
-            </div>
+    <div class="user-list-title-item">
+        <p>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </p>
+    </div>
 
-            <div class="user-list-title-item">
-                <p>
-                    @Html.DisplayFor(modelItem => item.PhoneNumber)
-                </p>
-            </div>
+    <div class="user-list-title-item">
+        <p>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </p>
+    </div>
 
-            <div class="user-list-title-item">
-                <p>
-                    @Html.DisplayFor(modelItem => item.EmailAddress)
-                </p>
-            </div>
+    <div class="user-list-title-item">
+        <p>
+            @Html.DisplayFor(modelItem => item.EmailAddress)
+        </p>
+    </div>
 
-            <div class="user-list-title-item">
-                <p>
-                    @Html.DisplayFor(modelItem => item.Active)
-                </p>
-            </div>
+    <div class="user-list-title-item">
+        <p>
+            @Html.DisplayFor(modelItem => item.Active)
+        </p>
+    </div>
 
 
-            @*data-toggle="modal" data-target=".confirmbox-delete"*@
-            <div class="list-record-button">
-                <button type="submit" style="background-color:transparent; border:none;" asp-controller="Admin" asp-action="SystemUserDelete" asp-route-id="@item.Userid"><img src="~/img/System/remove.png" width="35px" height="35px" alt=""></button>
-            </div>
+    @*data-toggle="modal" data-target=".confirmbox-delete"*@
+    <div class="list-record-button">
+        <button type="submit" style="background-color:transparent; border:none;" asp-controller="Admin" asp-action="SystemUserDelete" asp-route-id="@item.Userid"><img src="~/img/System/remove.png" width="35px" height="35px" alt=""></button>
+    </div>
 
-            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getValues('@item.Userid','@item.UserName','@item.FirstName','@item.LastName','@item.PhoneNumber','@item.EmailAddress','@item.Active')">
-                <button asp-controller="Admin" asp-action="SystemUserEdit" asp-route-Username="@item.UserName" style="background-color:transparent; border:none;">
-                    <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
-                </button>
-            </div>
-
-        </div>
+    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getValues('@item.Userid','@item.UserName','@item.FirstName','@item.LastName','@item.PhoneNumber','@item.EmailAddress','@item.Active')">
+        <button asp-controller="Admin" asp-action="SystemUserEdit" asp-route-Username="@item.UserName" style="background-color:transparent; border:none;">
+            <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
+        </button>
+    </div>
+    
+    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
+        <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="UserAccountActive" asp-route-Active="@item.Active" asp-route-Userid="@item.Userid">
+            <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
+        </button>
+    </div>
+</div>
 
     }
 }

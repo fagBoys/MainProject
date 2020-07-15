@@ -496,7 +496,7 @@ namespace CrestCouriers_Career.Controllers
             Dal connection = new Dal(myurl);
             SqlDataAdapter da = new SqlDataAdapter();
             DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("sp_Crest_UserList", connection.connect());
+            SqlCommand cmd = new SqlCommand("sp_Crest_SystemUserList", connection.connect());
             cmd.CommandType = CommandType.StoredProcedure;
             da.SelectCommand = cmd;
             da.Fill(dt);
@@ -590,7 +590,27 @@ namespace CrestCouriers_Career.Controllers
             return new RedirectResult("/Admin/UserAccounts");
         }
 
+        public IActionResult UserAccountActive(string Active, int Userid)
+        {
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("sp_Crest_UserActive", connection.connect());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Userid", Userid);
+            if (Active == "0")
+            {
+                cmd.Parameters.AddWithValue("@Active", "1");
+            }
+            else if (Active == "1")
+            {
+                cmd.Parameters.AddWithValue("@Active", "0");
+            }
 
+            cmd.ExecuteNonQuery();
+            return new RedirectResult("/Admin/UserAccounts");
+        }
 
         public IActionResult AdminLogin()
         {
