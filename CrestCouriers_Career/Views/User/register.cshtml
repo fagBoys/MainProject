@@ -5,6 +5,9 @@
 
 @inject IOptions<RecaptchaSettings> RecaptchaSettings
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="~/js/bootstrap.min.js"></script>
+
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 
@@ -31,7 +34,7 @@
             </div>
 
             <div class="col-lg-8 login-form-area">
-                <form asp-controller="User" asp-action="register" method="post">
+                <form asp-controller="User" asp-action="Register" method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <div class="row">
@@ -42,40 +45,40 @@
 
                     <div class="row">
                         <div class="input-div-location-right">
-                            <input asp-for="FirstName" class="form-control2" placeholder="Firstname">
+                            <input asp-for="FirstName" style="margin-bottom:0;" class="form-control2" placeholder="Firstname">
                             <span asp-validation-for="FirstName" class="text-danger"></span>
                         </div>
                         <div class="input-div-location-left">
-                            <input asp-for="LastName" class="form-control2" placeholder="Lastname">
+                            <input asp-for="LastName" style="margin-bottom:0;" class="form-control2" placeholder="Lastname">
                             <span asp-validation-for="LastName" class="text-danger"></span>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-div-location-right">
-                            <input asp-for="UserName" style="margin:0;" class="form-control2" placeholder="Username">
+                            <input asp-for="UserName" style="margin-bottom:0;" class="form-control2" placeholder="Username">
                             <span asp-validation-for="UserName" class="text-danger"></span>
                         </div>
                         <div class="input-div-location-left">
-                            <input asp-for="Password" style="margin:0;" class="form-control2" placeholder="Password">
+                            <input asp-for="Password" style="margin-bottom:0;" class="form-control2" placeholder="Password">
                             <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-div-location-right">
-                            <input asp-for="PhoneNumber" class="form-control2" placeholder="Phone number">
+                            <input asp-for="PhoneNumber" style="margin-bottom:0;" class="form-control2" placeholder="Phone number">
                             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                         </div>
                         <div class="input-div-location-left">
-                            <input asp-for="EmailAddress" class="form-control2" placeholder="Email address">
+                            <input asp-for="EmailAddress" style="margin-bottom:0;" class="form-control2" placeholder="Email address">
                             <span asp-validation-for="EmailAddress" class="text-danger"></span>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="button-div-location">
-                            <button type="submit" class="book-now-btn" style="" name="button">Register</button>
+                            <button type="submit" style="margin-top:30px;" class="book-now-btn" style="" name="button">Register</button>
                         </div>
                     </div>
 
@@ -91,7 +94,53 @@
     </div>
 
 
+    <div id="confirmbox-delete" class="modal fade confirmbox-RepeatedUser">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 600px;padding: 0px;">
 
+                <div class="modal-header" style="border-bottom-color:red;">
+                    <h2 class="update-box-header">Delete order</h2>
+                </div>
+
+                <div class="modal-body">
+
+
+
+
+                    <div class="popup-admin-deactive">
+
+                        <div class="NewOrder-form">
+
+                            <div class="row">
+
+                                <div class="col-sm-12">
+                                    <div class="order-input">
+                                        <p>The username is already taken. Please choose another username.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-sm-12">
+                                    <div class="input-submit" style="text-align:center;">
+                                        <button type="submit" id="close" onclick="CloseModal();" class="book-now-btn" style="color:white; padding-top:14px;" name="button"><h5>Close</h5></button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
 
 
 
@@ -100,3 +149,21 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+
+    var value = "@ViewData["RepeatedUser"]";
+    $(document).ready(function() {
+
+        if (value == "yes") {
+            $(".confirmbox-RepeatedUser").modal('show');
+        }
+        document.getElementById("close").onclick = CloseModal;
+        function CloseModal() {
+            $(".confirmbox-RepeatedUser").modal('hide');
+        }
+
+    });
+
+</script>
+

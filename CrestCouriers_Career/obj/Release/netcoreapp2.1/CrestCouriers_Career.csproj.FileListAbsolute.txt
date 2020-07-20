@@ -95,7 +95,6 @@ C:\Users\Niloofar\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\
 C:\Users\Niloofar\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Shared\_System.cshtml.g.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\AdminAccounts.cshtml.g.cs
-C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\AdminLogin.cshtml.g.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\AdminSetting.cshtml.g.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\Dashboard.cshtml.g.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\Edit.cshtml.g.cs
@@ -164,3 +163,6 @@ C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\net
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\CrestCouriers_Career.dll
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\CrestCouriers_Career.pdb
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\CrestCouriers_Career.csproj.CopyComplete
+C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\AdminAccountEdit.cshtml.g.cs
+C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\Login.cshtml.g.cs
+C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\SystemUserEdit.cshtml.g.cs

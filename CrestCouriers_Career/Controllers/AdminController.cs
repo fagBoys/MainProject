@@ -64,7 +64,7 @@ namespace CrestCouriers_Career.Controllers
         {
             if (HttpContext.Session.GetString("AdminSession") == null)
             {
-                return new RedirectResult("/Admin/AdminLogin");
+                return new RedirectResult("/Admin/Login");
             }
             {
                 ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
@@ -102,7 +102,7 @@ namespace CrestCouriers_Career.Controllers
         {
             if (HttpContext.Session.GetString("AdminSession") == null)
             {
-                return new RedirectResult("/Admin/AdminLogin");
+                return new RedirectResult("/Admin/Login");
             }
             {
                 ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
@@ -136,7 +136,7 @@ namespace CrestCouriers_Career.Controllers
         {
             if (HttpContext.Session.GetString("AdminSession") == null)
             {
-                return new RedirectResult("/Admin/AdminLogin");
+                return new RedirectResult("/Admin/Login");
             }
             {
                 ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
@@ -172,7 +172,7 @@ namespace CrestCouriers_Career.Controllers
             ViewData["Title"] = "Order";
             if (HttpContext.Session.GetString("AdminSession") == null)
             {
-                return new RedirectResult("/Admin/AdminLogin");
+                return new RedirectResult("/Admin/Login");
             }
             {
                 ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
@@ -220,7 +220,7 @@ namespace CrestCouriers_Career.Controllers
         {
             if (HttpContext.Session.GetString("AdminSession") == null)
             {
-                return new RedirectResult("/Admin/AdminLogin");
+                return new RedirectResult("/Admin/Login");
             }
             else
             {
@@ -253,7 +253,7 @@ namespace CrestCouriers_Career.Controllers
         {
             if (HttpContext.Session.GetString("AdminSession") == null)
             {
-                return new RedirectResult("/Admin/AdminLogin");
+                return new RedirectResult("/Admin/Login");
             }
             {
                 ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
@@ -299,7 +299,7 @@ namespace CrestCouriers_Career.Controllers
         {
             if (HttpContext.Session.GetString("AdminSession") == null)
             {
-                return new RedirectResult("/Admin/AdminLogin");
+                return new RedirectResult("/Admin/Login");
             }
             {
                 ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
@@ -325,7 +325,7 @@ namespace CrestCouriers_Career.Controllers
             ViewData["Title"] = "AdminAccounts";
             if (HttpContext.Session.GetString("AdminSession") == null)
             {
-                return new RedirectResult("/Admin/AdminLogin");
+                return new RedirectResult("/Admin/Login");
             }
             {
                 ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
@@ -382,7 +382,7 @@ namespace CrestCouriers_Career.Controllers
         {
             if (HttpContext.Session.GetString("AdminSession") == null)
             {
-                return new RedirectResult("/Admin/AdminLogin");
+                return new RedirectResult("/Admin/Login");
             }
             {
                 ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
@@ -418,7 +418,7 @@ namespace CrestCouriers_Career.Controllers
         {
             if (HttpContext.Session.GetString("AdminSession") == null)
             {
-                return new RedirectResult("/Admin/AdminLogin");
+                return new RedirectResult("/Admin/Login");
             }
             {
                 ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
@@ -487,7 +487,7 @@ namespace CrestCouriers_Career.Controllers
         {
             if (HttpContext.Session.GetString("AdminSession") == null)
             {
-                return new RedirectResult("/Admin/AdminLogin");
+                return new RedirectResult("/Admin/Login");
             }
             {
                 ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
@@ -496,7 +496,7 @@ namespace CrestCouriers_Career.Controllers
             Dal connection = new Dal(myurl);
             SqlDataAdapter da = new SqlDataAdapter();
             DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("sp_Crest_SystemUserList", connection.connect());
+            SqlCommand cmd = new SqlCommand("sp_Crest_UserList", connection.connect());
             cmd.CommandType = CommandType.StoredProcedure;
             da.SelectCommand = cmd;
             da.Fill(dt);
@@ -523,7 +523,7 @@ namespace CrestCouriers_Career.Controllers
         {
             if (HttpContext.Session.GetString("AdminSession") == null)
             {
-                return new RedirectResult("/Admin/AdminLogin");
+                return new RedirectResult("/Admin/Login");
             }
             {
                 ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
@@ -559,7 +559,7 @@ namespace CrestCouriers_Career.Controllers
         {
             if (HttpContext.Session.GetString("AdminSession") == null)
             {
-                return new RedirectResult("/Admin/AdminLogin");
+                return new RedirectResult("/Admin/Login");
             }
             {
                 ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
@@ -612,7 +612,7 @@ namespace CrestCouriers_Career.Controllers
             return new RedirectResult("/Admin/UserAccounts");
         }
 
-        public IActionResult AdminLogin()
+        public IActionResult Login()
         {
 
             return View();
@@ -621,28 +621,42 @@ namespace CrestCouriers_Career.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AdminLogin(Admin admin)
+        public async Task<IActionResult> Login(Admin admin)
         {
-            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            Dal connection = new Dal(myurl);
-            SqlDataAdapter da = new SqlDataAdapter();
-            DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("sp_Crest_AdminLogin", connection.connect());
-            cmd.Parameters.AddWithValue("@UserName", admin.UserName);
-            cmd.CommandType = CommandType.StoredProcedure;
-            da.SelectCommand = cmd;
-            da.Fill(dt);
-            if (dt.Rows[0][0].ToString() == admin.UserName && dt.Rows[0][1].ToString() == admin.Password && System.Convert.ToInt32(dt.Rows[0][2].ToString()) != 0)
-            {
-                HttpContext.Session.SetString("AdminSession", admin.UserName);
-                return new RedirectResult("/Admin/dashboard");
-
-            }
-            else
+            if (!ModelState.IsValid)
             {
                 return View();
             }
+            else
+            {
+                string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+                Dal connection = new Dal(myurl);
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+                SqlCommand cmd = new SqlCommand("sp_Crest_AdminLogin", connection.connect());
+                cmd.Parameters.AddWithValue("@UserName", admin.UserName);
+                cmd.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    if (dt.Rows[0][0].ToString() != admin.UserName && dt.Rows[0][1].ToString() != admin.Password && System.Convert.ToInt32(dt.Rows[0][2].ToString()) == 0)
+                    {
+                        return View();
+                    }
+                    else if (dt.Rows[0][0].ToString() == admin.UserName && dt.Rows[0][1].ToString() == admin.Password && System.Convert.ToInt32(dt.Rows[0][2].ToString()) != 0)
+                    {
+                        HttpContext.Session.SetString("AdminSession", admin.UserName);
+                        return new RedirectResult("/Admin/dashboard");
+                    }
+                }
+                else
+                {
+                    return View();
+                }
 
+                return View();
+            }
         }
 
     }

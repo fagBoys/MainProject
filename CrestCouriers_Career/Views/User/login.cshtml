@@ -34,13 +34,15 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <div class="input-div-location">
-                        <input asp-for="UserName" class="form-control2" placeholder="Username">
+                        <input asp-for="UserName" value=""  style="margin-bottom:0px;" class="form-control2" placeholder="Username">
+                        <span asp-validation-for="UserName" class="text-danger"></span>
                     </div>
                     <div class="input-div-location">
-                        <input asp-for="Password" class="form-control2" placeholder="Password">
+                        <input type="password" asp-for="Password" value="" style="margin-bottom:0px;" class="form-control2" placeholder="Password">
+                        <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
                     <div class="button-div-location">
-                        <button type="submit" class="book-now-btn" style="margin:0 auto" name="button">Login</button>
+                        <button type="submit" class="book-now-btn" style="margin:0 auto; margin-top:30px;" name="button">Login</button>
                     </div>
 
                 </form>
@@ -56,54 +58,3 @@
     </div>
 </body>
 </html>
-
-
-@*<!DOCTYPE html>
-    <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="systemstyle.css" />
-    </head>
-    <body>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-
-                </div>
-
-                <div class="col-lg-4 system-form">
-
-                    <form asp-action="login" asp-controller="User" method="post">
-
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                        <div class="input">
-                            <input asp-for="UserName" type="text" placeholder="Username">
-                            <span asp-validation-for="UserName" class="text-danger"></span>
-                        </div>
-                        <div class="input">
-                            <input asp-for="Password" type="text" placeholder="Password">
-                            <span asp-validation-for="Password" class="text-danger"></span>
-                        </div>
-                        <div class="input">
-                            <button type="submit">Login</button>
-                        </div>
-
-                    </form>
-
-                </div>
-
-                <div class="col-lg-4">
-
-                </div>
-
-            </div>
-        </div>
-    </body>
-    </html>*@

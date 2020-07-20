@@ -32,7 +32,6 @@ namespace CrestCouriers_Career.Models
         public string LastName { get; set; }
 
 
-        [Required]
         [MaxLength(50)]
         public string Active { get; set; }
 

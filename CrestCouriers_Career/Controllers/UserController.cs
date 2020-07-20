@@ -17,6 +17,8 @@ using Microsoft.IdentityModel.Protocols;
 using System.Configuration;
 using MimeKit.Utils;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
+using CrestCouriers_Career.ViewModels;
 
 namespace CrestCouriers_Career.Controllers
 {
@@ -39,7 +41,7 @@ namespace CrestCouriers_Career.Controllers
             return View();
         }
 
-        public IActionResult register()
+        public IActionResult Register()
         {
             return View();
         }
@@ -47,180 +49,253 @@ namespace CrestCouriers_Career.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> register(User register, EmailRequest emailRequest)
+        public async Task<IActionResult> Register(User register, EmailRequest emailRequest)
         {
 
-            ViewData["Title"] = "register";
-
-            //Recaptcha code begins here
-
-
-            //var recaptcha = await _recaptcha.Validate(Request);
-            //if (!recaptcha.success)
-            //    ModelState.AddModelError("Recaptcha", "There was an error validating recatpcha. Please try again!");
-
-
-            //Recaptcha code ends here
-
-
-            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            Dal connection = new Dal(myurl);
-
-            SqlCommand cmd = new SqlCommand("sp_Crest_Register", connection.connect())
+            ViewData["RepeatedUser"] = "no";
+            if (ModelState.IsValid)
             {
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@FirstName", register.FirstName);
-            cmd.Parameters.AddWithValue("@LastName", register.LastName);
-            cmd.Parameters.AddWithValue("@UserName", register.UserName);
-            cmd.Parameters.AddWithValue("@Password", register.Password);
-            cmd.Parameters.AddWithValue("@PhoneNumber", register.PhoneNumber);
-            cmd.Parameters.AddWithValue("@EmailAddress", register.EmailAddress);
-            cmd.Parameters.AddWithValue("@Active", "0");
+                ViewData["Title"] = "register";
+
+                //Recaptcha code begins here
 
 
-            cmd.ExecuteNonQuery();
-
-            connection.disconnect();
-
-
-            ///////    Send Email     ///////
-            MimeMessage message = new MimeMessage();
-
-            MailboxAddress from = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
-            message.From.Add(from);
-
-            MailboxAddress to = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
-            message.To.Add(to);
-
-            message.Subject = " register";
-
-            BodyBuilder bodyBuilder = new BodyBuilder();
-            var usericfile = System.IO.File.OpenRead(_environment.WebRootPath + @"\Email\newuser.png");
-            MemoryStream newms = new MemoryStream();
-            await usericfile.CopyToAsync(newms);
+                //var recaptcha = await _recaptcha.Validate(Request);
+                //if (!recaptcha.success)
+                //    ModelState.AddModelError("Recaptcha", "There was an error validating recatpcha. Please try again!");
 
 
-            var mybody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailbody-contact.html");
+                //Recaptcha code ends here
 
-            mybody = mybody.Replace("Value00", register.FirstName);
-            mybody = mybody.Replace("Value01", register.LastName);
-            mybody = mybody.Replace("Value02", register.UserName);
-            mybody = mybody.Replace("Value03", register.Password);
-            mybody = mybody.Replace("Value04", register.PhoneNumber);
-            mybody = mybody.Replace("Value05", register.EmailAddress);
+                string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+                Dal connection1 = new Dal(myurl);
+                SqlCommand getUser = new SqlCommand("sp_Crest_MyUser", connection1.connect());
+                SqlDataAdapter userda = new SqlDataAdapter();
+                DataTable userdt = new DataTable();
+                getUser.CommandType = CommandType.StoredProcedure;
+                getUser.Parameters.AddWithValue("UserName", register.UserName);
+                userda.SelectCommand = getUser;
+                userda.Fill(userdt);
+                if (userdt.Rows.Count > 0)
+                {
+                    ViewData["RepeatedUser"] = "yes";
+                    return View();
+                }
+                else
+                {
+                    myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+                    Dal connection2 = new Dal(myurl);
 
-
-
-
-            bodyBuilder.HtmlBody = mybody;
-
-            var usericon = bodyBuilder.LinkedResources.Add(_environment.WebRootPath + @"/Email/newuser.png");
-            usericon.ContentId = MimeUtils.GenerateMessageId();
-
-            bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("{", "{{");
-            bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("}", "}}");
-            bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("{{0}}", "{0}");
-
-            bodyBuilder.HtmlBody = string.Format(bodyBuilder.HtmlBody, usericon.ContentId);
-
-            message.Body = bodyBuilder.ToMessageBody();
-
-
-            SmtpClient client = new SmtpClient();
-            client.Connect("smtp.gmail.com", 465, true);
-            client.Authenticate("crestcouriers@gmail.com", "CRESTcouriers123");
-
-
-            client.Send(message);
-            //First email
-
-
-            MimeMessage message2 = new MimeMessage();
-
-            MailboxAddress from2 = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
-            message2.From.Add(from2);
-
-            MailboxAddress to2 = new MailboxAddress(register.FirstName + " " + register.LastName, register.EmailAddress);
-            message2.To.Add(to2);
-
-            message2.Subject = "register";
+                    SqlCommand cmd = new SqlCommand("sp_Crest_Register", connection2.connect())
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    cmd.Parameters.AddWithValue("@FirstName", register.FirstName);
+                    cmd.Parameters.AddWithValue("@LastName", register.LastName);
+                    cmd.Parameters.AddWithValue("@UserName", register.UserName);
+                    cmd.Parameters.AddWithValue("@Password", register.Password);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", register.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@EmailAddress", register.EmailAddress);
+                    cmd.Parameters.AddWithValue("@Active", "1");
 
 
-            BodyBuilder bobu = new BodyBuilder
-            {
-                HtmlBody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailreply-contact.html")
-            };
+                    cmd.ExecuteNonQuery();
+
+                    connection2.disconnect();
+
+
+                    ///////    Send Email     ///////
+                    MimeMessage message = new MimeMessage();
+
+                    MailboxAddress from = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
+                    message.From.Add(from);
+
+                    MailboxAddress to = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
+                    message.To.Add(to);
+
+                    message.Subject = " register";
+
+                    BodyBuilder bodyBuilder = new BodyBuilder();
+                    var usericfile = System.IO.File.OpenRead(_environment.WebRootPath + @"\Email\newuser.png");
+                    MemoryStream newms = new MemoryStream();
+                    await usericfile.CopyToAsync(newms);
+
+
+                    var mybody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailbody-contact.html");
+
+                    mybody = mybody.Replace("Value00", register.FirstName);
+                    mybody = mybody.Replace("Value01", register.LastName);
+                    mybody = mybody.Replace("Value02", register.UserName);
+                    mybody = mybody.Replace("Value03", register.Password);
+                    mybody = mybody.Replace("Value04", register.PhoneNumber);
+                    mybody = mybody.Replace("Value05", register.EmailAddress);
 
 
 
 
-            // var logo = System.IO.File.OpenRead(_environment.WebRootPath + @"/img/logo.png");
-            MemoryStream myms = new MemoryStream();
-            await usericfile.CopyToAsync(myms);
+                    bodyBuilder.HtmlBody = mybody;
 
-            var embedlogo = bobu.LinkedResources.Add(_environment.WebRootPath + @"/img/logo.png");
-            embedlogo.ContentId = MimeUtils.GenerateMessageId();
+                    var usericon = bodyBuilder.LinkedResources.Add(_environment.WebRootPath + @"/Email/newuser.png");
+                    usericon.ContentId = MimeUtils.GenerateMessageId();
 
-            bobu.HtmlBody = bobu.HtmlBody.Replace("{", "{{");
-            bobu.HtmlBody = bobu.HtmlBody.Replace("}", "}}");
-            bobu.HtmlBody = bobu.HtmlBody.Replace("{{0}}", "{0}");
+                    bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("{", "{{");
+                    bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("}", "}}");
+                    bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("{{0}}", "{0}");
 
-            bobu.HtmlBody = string.Format(bobu.HtmlBody, embedlogo.ContentId);
+                    bodyBuilder.HtmlBody = string.Format(bodyBuilder.HtmlBody, usericon.ContentId);
 
-
-            message2.Body = bobu.ToMessageBody();
-
-            SmtpClient client2 = new SmtpClient();
-            client2.Connect("smtp.gmail.com", 465, true);
-            client2.Authenticate("crestcouriers@gmail.com", "CRESTcouriers123");
+                    message.Body = bodyBuilder.ToMessageBody();
 
 
-            client2.Send(message2);
-            client2.Disconnect(true);
-            client2.Dispose();
-            ///////   End Send Email    //////////
+                    SmtpClient client = new SmtpClient();
+                    client.Connect("smtp.gmail.com", 465, true);
+                    client.Authenticate("crestcouriers@gmail.com", "CRESTcouriers123");
+
+
+                    client.Send(message);
+                    //First email
+
+
+                    MimeMessage message2 = new MimeMessage();
+
+                    MailboxAddress from2 = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
+                    message2.From.Add(from2);
+
+                    MailboxAddress to2 = new MailboxAddress(register.FirstName + " " + register.LastName, register.EmailAddress);
+                    message2.To.Add(to2);
+
+                    message2.Subject = "register";
+
+
+                    BodyBuilder bobu = new BodyBuilder
+                    {
+                        HtmlBody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailreply-contact.html")
+                    };
+
+
+
+
+                    // var logo = System.IO.File.OpenRead(_environment.WebRootPath + @"/img/logo.png");
+                    MemoryStream myms = new MemoryStream();
+                    await usericfile.CopyToAsync(myms);
+
+                    var embedlogo = bobu.LinkedResources.Add(_environment.WebRootPath + @"/img/logo.png");
+                    embedlogo.ContentId = MimeUtils.GenerateMessageId();
+
+                    bobu.HtmlBody = bobu.HtmlBody.Replace("{", "{{");
+                    bobu.HtmlBody = bobu.HtmlBody.Replace("}", "}}");
+                    bobu.HtmlBody = bobu.HtmlBody.Replace("{{0}}", "{0}");
+
+                    bobu.HtmlBody = string.Format(bobu.HtmlBody, embedlogo.ContentId);
+
+
+                    message2.Body = bobu.ToMessageBody();
+
+                    SmtpClient client2 = new SmtpClient();
+                    client2.Connect("smtp.gmail.com", 465, true);
+                    client2.Authenticate("crestcouriers@gmail.com", "CRESTcouriers123");
+
+
+                    client2.Send(message2);
+                    client2.Disconnect(true);
+                    client2.Dispose();
+                    ///////   End Send Email    //////////
 
 
 
 
 
 
-            return View(!ModelState.IsValid ? register : new User());
-            return new RedirectResult("/Home/Career_delivery");
-
-        }
-
-
-        public IActionResult login()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> login(User userlogin)
-        {
-            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            Dal connection = new Dal(myurl);
-            SqlDataAdapter da = new SqlDataAdapter();
-            DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("sp_Crest_Login", connection.connect());
-            cmd.Parameters.AddWithValue("@UserName", userlogin.UserName);
-            cmd.CommandType = CommandType.StoredProcedure;
-            da.SelectCommand = cmd;
-            da.Fill(dt);
-            if (dt.Rows[0][0].ToString() == userlogin.UserName && dt.Rows[0][1].ToString() == userlogin.Password && System.Convert.ToInt32(dt.Rows[0][2].ToString()) == 1)
-            {
-                HttpContext.Session.SetString("UserSession", userlogin.UserName);
-                return new RedirectResult("/user/dashboard");
-
+                    return View(!ModelState.IsValid ? register : new User());
+                }
             }
             else
             {
                 return View();
             }
 
+        }
+
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(User userlogin)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View();
+            }
+            else
+            { 
+                string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+                Dal connection = new Dal(myurl);
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+                SqlCommand cmd = new SqlCommand("sp_Crest_Login", connection.connect());
+                cmd.Parameters.AddWithValue("@UserName", userlogin.UserName);
+                cmd.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    if (dt.Rows[0][0].ToString() != userlogin.UserName && dt.Rows[0][1].ToString() != userlogin.Password && System.Convert.ToInt32(dt.Rows[0][2].ToString()) == 0)
+                    {
+                        return View();
+                    }
+                    else if (dt.Rows[0][0].ToString() == userlogin.UserName && dt.Rows[0][1].ToString() == userlogin.Password && System.Convert.ToInt32(dt.Rows[0][2].ToString()) != 0)
+                    {
+                        HttpContext.Session.SetString("UserSession", userlogin.UserName);
+                        return new RedirectResult("/user/dashboard");
+                    }
+                }
+                else
+                {
+                    return View();
+                }
+
+                return View();
+            }
+
+        }
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if(!ModelState.IsValid)
+            {
+
+                string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+                Dal connection = new Dal(myurl);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection.connect();
+                cmd.CommandText = "SELECT * From SystemUser WHERE EmailAddress='"+ model.Email +"'";
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    
+                }
+                return View();
+            }
+            else
+            {
+                return View(model);
+            }
         }
 
         public IEnumerable<Order> MyOrders(DataTable dataTable)
@@ -252,7 +327,8 @@ namespace CrestCouriers_Career.Controllers
             {
                 return new RedirectResult("/User/Login");
             }
-            { 
+            else
+            {
                 ViewData["Username"] = HttpContext.Session.GetString("UserSession");
             }
 
@@ -260,8 +336,9 @@ namespace CrestCouriers_Career.Controllers
             Dal connection = new Dal(myurl);
             SqlDataAdapter da = new SqlDataAdapter();
             DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("sp_Crest_OrderList", connection.connect());
+            SqlCommand cmd = new SqlCommand("sp_Crest_UserOrderList", connection.connect());
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("UserName", ViewData["Username"]);
             da.SelectCommand = cmd;
             da.Fill(dt);
 
