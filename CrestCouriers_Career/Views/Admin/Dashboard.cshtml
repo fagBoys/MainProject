@@ -95,7 +95,7 @@
 
 @foreach (var item in Model)
 {
-    using (Html.BeginForm("Delete", "User", new { id = item.Orderid }))
+    using (Html.BeginForm("Delete", "User", new { id = item.OrderId }))
     {
 
         <div class="list-order">
@@ -120,7 +120,7 @@
 
             <div class="list-title-item">
                 <p>
-                    @Html.DisplayFor(modelItem => item.ReceiveDate)
+                    @Html.DisplayFor(modelItem => item.CollectionDate)
                 </p>
             </div>
 
@@ -156,11 +156,11 @@
 
             @*data-toggle="modal" data-target=".confirmbox-delete"*@
             <div class="list-record-button">
-                <button type="submit" style="background-color:transparent; border:none;" asp-controller="Admin" asp-action="Delete" asp-route-id="@item.Orderid"><img src="~/img/System/remove.png" width="35px" height="35px" alt=""></button>
+                <button type="submit" style="background-color:transparent; border:none;" asp-controller="Admin" asp-action="Delete" asp-route-id="@item.OrderId"><img src="~/img/System/remove.png" width="35px" height="35px" alt=""></button>
             </div>
 
-            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getValues('@item.Orderid','@item.Origin','@item.Destination','@item.ReceiveDate','@item.DeliveryDate','@item.CarType')">
-                <button asp-controller="Admin" asp-action="Edit" asp-route-id="@item.Orderid" style="background-color:transparent; border:none;">
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getValues('@item.OrderId','@item.Origin','@item.Destination','@item.CollectionDate','@item.DeliveryDate','@item.CarType')">
+                <button asp-controller="Admin" asp-action="Edit" asp-route-id="@item.OrderId" style="background-color:transparent; border:none;">
                     <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
                 </button>
             </div>

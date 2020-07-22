@@ -45,14 +45,14 @@ namespace CrestCouriers_Career.Controllers
 
                 yield return new Order
                 {
-                    Orderid = System.Convert.ToInt32(item["Orderid"].ToString()),
-                    OrderDate = item["OrderDate"].ToString(),
+                    OrderId = System.Convert.ToInt32(item["Orderid"].ToString()),
+                    OrderDate = Convert.ToDateTime(item["OrderDate"]),
                     Origin = item["Origin"].ToString(),
                     Destination = item["Destination"].ToString(),
-                    ReceiveDate = item["ReceiveDate"].ToString(),
-                    DeliveryDate = item["DeliveryDate"].ToString(),
+                    CollectionDate = Convert.ToDateTime(item["CollectionDate"]),
+                    DeliveryDate = Convert.ToDateTime(item["DeliveryDate"]),
                     CarType = item["CarType"].ToString(),
-                    UserId = item["UserId"].ToString(),
+                    UserId = System.Convert.ToInt32(item["UserId"].ToString()),
                     Price = item["Price"].ToString(),
                     State = item["State"].ToString(),
                 };
@@ -147,10 +147,10 @@ namespace CrestCouriers_Career.Controllers
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand("sp_Crest_UpdateOrder", connection.connect());
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Orderid", order.Orderid);
+            cmd.Parameters.AddWithValue("@Orderid", order.OrderId);
             cmd.Parameters.AddWithValue("@Origin", order.Origin);
             cmd.Parameters.AddWithValue("@Destination", order.Destination);
-            cmd.Parameters.AddWithValue("@ReceiveDate", order.ReceiveDate);
+            cmd.Parameters.AddWithValue("@ReceiveDate", order.CollectionDate);
             cmd.Parameters.AddWithValue("@DeliveryDate", order.DeliveryDate);
             cmd.Parameters.AddWithValue("@CarType", order.CarType);
 
@@ -198,7 +198,7 @@ namespace CrestCouriers_Career.Controllers
             cmd.Parameters.AddWithValue("@OrderDate", DateTime.Now);
             cmd.Parameters.AddWithValue("@Origin", order.Origin);
             cmd.Parameters.AddWithValue("@Destination", order.Destination);
-            cmd.Parameters.AddWithValue("@ReceiveDate", order.ReceiveDate);
+            cmd.Parameters.AddWithValue("@ReceiveDate", order.CollectionDate);
             cmd.Parameters.AddWithValue("@DeliveryDate", order.DeliveryDate);
             cmd.Parameters.AddWithValue("@CarType", order.CarType);
             cmd.Parameters.AddWithValue("@Userid", 1);
@@ -284,7 +284,7 @@ namespace CrestCouriers_Career.Controllers
             {
                 yield return new Admin
                 {
-                    Adminid = Convert.ToInt32(item["Adminid"].ToString()),
+                    AdminId = Convert.ToInt32(item["Adminid"].ToString()),
                     UserName = item["UserName"].ToString(),
                     FirstName = item["FirstName"].ToString(),
                     Lastname = item["Lastname"].ToString(),
@@ -470,7 +470,7 @@ namespace CrestCouriers_Career.Controllers
             {
                 yield return new User
                 {
-                    Userid = Convert.ToInt32(item["Userid"].ToString()),
+                    UserId = Convert.ToInt32(item["Userid"].ToString()),
                     UserName = item["UserName"].ToString(),
                     Password = item["Password"].ToString(),
                     FirstName = item["FirstName"].ToString(),
@@ -594,8 +594,6 @@ namespace CrestCouriers_Career.Controllers
         {
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
             Dal connection = new Dal(myurl);
-            SqlDataAdapter da = new SqlDataAdapter();
-            DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand("sp_Crest_UserActive", connection.connect());
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Userid", Userid);

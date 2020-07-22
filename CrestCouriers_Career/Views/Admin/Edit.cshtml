@@ -40,9 +40,9 @@
         <form asp-controller="Admin" asp-action="EditOrder" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Orderid" hidden class="control-label"></label>
-                <input asp-for="Orderid" hidden class="form-control" value="@ViewData["Orderid"]" />
-                <span asp-validation-for="Orderid" class="text-danger"></span>
+                <label asp-for="OrderId" hidden class="control-label"></label>
+                <input asp-for="OrderId" hidden class="form-control" value="@ViewData["OrderId"]" />
+                <span asp-validation-for="OrderId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Origin" class="control-label"></label>
@@ -55,9 +55,9 @@
                 <span asp-validation-for="Destination" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ReceiveDate" class="control-label"></label>
-                <input asp-for="ReceiveDate" class="form-control" value="@ViewData["ReceiveDate"]" />
-                <span asp-validation-for="ReceiveDate" class="text-danger"></span>
+                <label asp-for="CollectionDate" class="control-label"></label>
+                <input asp-for="CollectionDate" class="form-control" value="@ViewData["CollectionDate"]" />
+                <span asp-validation-for="CollectionDate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DeliveryDate" class="control-label"></label>

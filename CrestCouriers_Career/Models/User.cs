@@ -10,30 +10,23 @@ namespace CrestCouriers_Career.Models
     {
 
         [Key]
-        public int Userid { get; set; }
+        public int UserId { get; set; }
 
         [Required]
         [MaxLength(50)]
         public string UserName { get; set; }
 
-
         [Required]
         [MaxLength(50)]
         public string Password { get; set; }
-
 
         [Required]
         [MaxLength(50)]
         public string FirstName { get; set; }
 
-
         [Required]
         [MaxLength(50)]
         public string LastName { get; set; }
-
-
-        [MaxLength(50)]
-        public string Active { get; set; }
 
         [Required]
         [MaxLength(50)]
@@ -43,8 +36,12 @@ namespace CrestCouriers_Career.Models
         [EmailAddress]
         public string EmailAddress { get; set; }
 
+        [MaxLength(50)]
+        public string Active { get; set; }
 
 
+
+        public ICollection<Order> Orders { get; set; }
     }
 }
 

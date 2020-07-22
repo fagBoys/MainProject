@@ -10,7 +10,7 @@ namespace CrestCouriers_Career.Models
     public class Contact
     {
         [Key]
-        public int Contactid { get; set; }
+        public int ContactId { get; set; }
 
         [Required]
         [MaxLength(50)]
@@ -28,7 +28,7 @@ namespace CrestCouriers_Career.Models
         public string Subject { get; set; }
 
         [Required]
-        [MaxLength(250)]
+        [MaxLength(500)]
         public string Message { get; set; }
 
     }

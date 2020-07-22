@@ -9,7 +9,7 @@ namespace CrestCouriers_Career.Models
     public class Admin
     {
         [Key]
-        public int Adminid { get; set; }
+        public int AdminId { get; set; }
 
         [Required]
         [MaxLength(50)]
@@ -29,16 +29,15 @@ namespace CrestCouriers_Career.Models
 
         [Required]
         [MaxLength(50)]
-        public string Level { get; set; }
-
-        [Required]
-        [MaxLength(50)]
         public string PhoneNumber { get; set; }
 
         [Required]
         [EmailAddress]
         public string EmailAddress { get; set; }
 
+        [Required]
+        [MaxLength(50)]
+        public string Level { get; set; }
 
 
     }

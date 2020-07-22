@@ -10,15 +10,15 @@ namespace CrestCouriers_Career.Data
     public class CrestContext : DbContext
 
     {
-        public DbSet<Admin> Admins { get; set; }
-        public DbSet<Contact> Contacts { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<RegCareer>RegCareers { get; set; }
-        public DbSet<User>Users { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder )
+        public CrestContext(DbContextOptions options) : base(options)
         {
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-MNCHKTA;Initial Catalog=Crest;Integrated Security=True;");
+
         }
+
+        public DbSet<Admin> Admin { get; set; }
+        public DbSet<Contact> Contact { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<RegCareer> RegCareer { get; set; }
+        public DbSet<User> User { get; set; }
     }
 }

@@ -9,11 +9,11 @@ namespace CrestCouriers_Career.Models
     public class Order
     {
         [Key]
-        public int  Orderid { get; set; }
+        public int  OrderId { get; set; }
 
         [Required]
         [MaxLength(50)]
-        public string OrderDate { get; set; }
+        public DateTime OrderDate { get; set; }
 
         [Required]
         [MaxLength(50)]
@@ -25,19 +25,15 @@ namespace CrestCouriers_Career.Models
 
         [Required]
         [MaxLength(50)]
-        public string ReceiveDate { get; set; }
+        public DateTime CollectionDate { get; set; }
 
         [Required]
         [MaxLength(50)]
-        public string DeliveryDate { get; set; }
+        public DateTime DeliveryDate { get; set; }
 
         [Required]
         [MaxLength(50)]
         public string CarType { get; set; }
-
-        [Required]
-        [MaxLength(50)]
-        public string UserId { get; set; }
 
         [Required]
         [MaxLength(50)]
@@ -47,8 +43,10 @@ namespace CrestCouriers_Career.Models
         [MaxLength(50)]
         public string State { get; set; }
 
+        [Required]
+        public int UserId { get; set; }
 
 
-
+        public User User { get; set; }
     }
 }

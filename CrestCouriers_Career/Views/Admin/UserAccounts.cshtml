@@ -83,7 +83,7 @@
 
 @foreach (var item in Model)
 {
-    using (Html.BeginForm("Delete", "Admin", new { id = item.Userid }))
+    using (Html.BeginForm("Delete", "Admin", new { id = item.UserId }))
     {
 
 <div class="list-order">
@@ -133,17 +133,17 @@
 
     @*data-toggle="modal" data-target=".confirmbox-delete"*@
     <div class="list-record-button">
-        <button type="submit" style="background-color:transparent; border:none;" asp-controller="Admin" asp-action="SystemUserDelete" asp-route-id="@item.Userid"><img src="~/img/System/remove.png" width="35px" height="35px" alt=""></button>
+        <button type="submit" style="background-color:transparent; border:none;" asp-controller="Admin" asp-action="SystemUserDelete" asp-route-id="@item.UserId"><img src="~/img/System/remove.png" width="35px" height="35px" alt=""></button>
     </div>
 
-    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getValues('@item.Userid','@item.UserName','@item.FirstName','@item.LastName','@item.PhoneNumber','@item.EmailAddress','@item.Active')">
+    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getValues('@item.UserId','@item.UserName','@item.FirstName','@item.LastName','@item.PhoneNumber','@item.EmailAddress','@item.Active')">
         <button asp-controller="Admin" asp-action="SystemUserEdit" asp-route-Username="@item.UserName" style="background-color:transparent; border:none;">
             <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
         </button>
     </div>
     
     <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
-        <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="UserAccountActive" asp-route-Active="@item.Active" asp-route-Userid="@item.Userid">
+        <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="UserAccountActive" asp-route-Active="@item.Active" asp-route-Userid="@item.UserId">
             <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
         </button>
     </div>
