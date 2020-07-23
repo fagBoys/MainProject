@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CrestCouriers_Career.Migrations
 {
     [DbContext(typeof(CrestContext))]
-    [Migration("20200723094927_InitialCreate")]
+    [Migration("20200723124810_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -49,7 +49,7 @@ namespace CrestCouriers_Career
 
             services.AddHttpContextAccessor();
 
-            services.AddDbContext<CrestContext>(option => option.UseSqlServer("Data Source=.;Initial Catalog=CrestDB;Integrated Security=True;"));
+            //services.AddDbContext<CrestContext>(option => option.UseSqlServer("Data Source=.;Initial Catalog=CrestDB;Integrated Security=True;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -23,5 +23,10 @@ namespace CrestCouriers_Career.Data
         public DbSet<Order> Order { get; set; }
         public DbSet<RegCareer> RegCareer { get; set; }
         public DbSet<User> User { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=CrestDB;Integrated Security=True;");
+        }
     }
 }

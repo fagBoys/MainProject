@@ -81,29 +81,46 @@ namespace CrestCouriers_Career.Controllers
             { 
                 ModelState.AddModelError("Recaptcha", "There was an error validating recatpcha. Please try again!");
             }
-          
+
 
             //Recaptcha code ends here
 
 
-            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            Dal connection = new Dal(myurl);
+            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            //Dal connection = new Dal(myurl);
 
-            SqlCommand cmd = new SqlCommand("sp_Crest_contact", connection.connect())
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@FullName", Contact.FullName);
-            cmd.Parameters.AddWithValue("@EmailAddress", Contact.EmailAddress);
-            cmd.Parameters.AddWithValue("@PhoneNumber", Contact.PhoneNumber);
-            cmd.Parameters.AddWithValue("@Subject", Contact.Subject);
-            cmd.Parameters.AddWithValue("@Message", Contact.Message);
-
-
-            cmd.ExecuteNonQuery();
+            //SqlCommand cmd = new SqlCommand("sp_Crest_contact", connection.connect())
+            //{
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //cmd.Parameters.AddWithValue("@FullName", Contact.FullName);
+            //cmd.Parameters.AddWithValue("@EmailAddress", Contact.EmailAddress);
+            //cmd.Parameters.AddWithValue("@PhoneNumber", Contact.PhoneNumber);
+            //cmd.Parameters.AddWithValue("@Subject", Contact.Subject);
+            //cmd.Parameters.AddWithValue("@Message", Contact.Message);
 
 
-            connection.disconnect();
+            //cmd.ExecuteNonQuery();
+
+
+            //connection.disconnect();
+
+
+
+            //EF core code
+
+            CrestContext CC = new CrestContext();
+            Contact newcontact = new Contact();
+
+            newcontact = Contact;
+
+            CC.Contact.Add(newcontact);
+
+            CC.SaveChanges();
+
+            //EF core code ends
+
+
 
 
             ///////    Send Email     ///////
