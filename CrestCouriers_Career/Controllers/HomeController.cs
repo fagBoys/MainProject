@@ -17,6 +17,7 @@ using Microsoft.IdentityModel.Protocols;
 using System.Configuration;
 using MimeKit.Utils;
 using Newtonsoft.Json;
+using CrestCouriers_Career.Data;
 
 namespace CrestCouriers_Career.Controllers
 {
@@ -100,6 +101,7 @@ namespace CrestCouriers_Career.Controllers
 
 
             cmd.ExecuteNonQuery();
+
 
             connection.disconnect();
 

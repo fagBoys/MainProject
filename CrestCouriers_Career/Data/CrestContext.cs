@@ -10,11 +10,14 @@ namespace CrestCouriers_Career.Data
     public class CrestContext : DbContext
 
     {
+        public CrestContext()
+        {
+        }
+
         public CrestContext(DbContextOptions options) : base(options)
         {
 
         }
-
         public DbSet<Admin> Admin { get; set; }
         public DbSet<Contact> Contact { get; set; }
         public DbSet<Order> Order { get; set; }

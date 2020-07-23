@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CrestCouriers_Career.Migrations
 {
     [DbContext(typeof(CrestContext))]
-    [Migration("20200722043739_NewDbCreate")]
-    partial class NewDbCreate
+    [Migration("20200723094927_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
