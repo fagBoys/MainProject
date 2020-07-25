@@ -19,6 +19,8 @@ using MimeKit.Utils;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Authorization;
 using CrestCouriers_Career.ViewModels;
+using CrestCouriers_Career.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CrestCouriers_Career.Controllers
 {
@@ -40,7 +42,7 @@ namespace CrestCouriers_Career.Controllers
         {
             return View();
         }
-
+        
         public IActionResult Register()
         {
             return View();
@@ -226,12 +228,12 @@ namespace CrestCouriers_Career.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(User userlogin)
         {
-            if(!ModelState.IsValid)
-            {
-                return View();
-            }
-            else
-            { 
+            //if(!ModelState.IsValid)
+            //{
+            //    return View();
+            //}
+            //else
+            //{ 
                 string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
                 Dal connection = new Dal(myurl);
                 SqlDataAdapter da = new SqlDataAdapter();
@@ -259,7 +261,7 @@ namespace CrestCouriers_Career.Controllers
                 }
 
                 return View();
-            }
+            //}
 
         }
         [HttpGet]
@@ -332,37 +334,53 @@ namespace CrestCouriers_Career.Controllers
                 ViewData["Username"] = HttpContext.Session.GetString("UserSession");
             }
 
-            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            Dal connection = new Dal(myurl);
-            SqlDataAdapter da = new SqlDataAdapter();
-            DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("sp_Crest_UserOrderList", connection.connect());
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("UserName", ViewData["Username"]);
-            da.SelectCommand = cmd;
-            da.Fill(dt);
+            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            //Dal connection = new Dal(myurl);
+            //SqlDataAdapter da = new SqlDataAdapter();
+            //DataTable dt = new DataTable();
+            //SqlCommand cmd = new SqlCommand("sp_Crest_UserOrderList", connection.connect());
+            //cmd.CommandType = CommandType.StoredProcedure;
+            //cmd.Parameters.AddWithValue("UserName", ViewData["Username"]);
+            //da.SelectCommand = cmd;
+            //da.Fill(dt);
 
-            return View(MyOrders(dt));
+            //EF core start
+
+            CrestContext context = new CrestContext();
+            IEnumerable<Order> orders = context.Order.ToList();
+
+            //EF core end
+
+            return View(orders);
 
 
         }
 
         public ActionResult Delete(int id)
         {
-            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            Dal connection = new Dal(myurl);
-            SqlCommand cmd = new SqlCommand("sp_Crest_DeleteOrder", connection.connect())
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-            SqlParameter parametrid = new SqlParameter();
-            parametrid.ParameterName = "@Orderid";
-            parametrid.Value = id;
-            cmd.Parameters.Add(parametrid);
-            cmd.ExecuteNonQuery();
+            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            //Dal connection = new Dal(myurl);
+            //SqlCommand cmd = new SqlCommand("sp_Crest_DeleteOrder", connection.connect())
+            //{
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //SqlParameter parametrid = new SqlParameter();
+            //parametrid.ParameterName = "@Orderid";
+            //parametrid.Value = id;
+            //cmd.Parameters.Add(parametrid);
+            //cmd.ExecuteNonQuery();
+
+            //EF core start
+            CrestContext context = new CrestContext();
+            Order order = context.Order.FirstOrDefault(o => o.OrderId == id);
+            context.Order.Remove(order);
+            context.SaveChangesAsync();
+            //EF core end
 
 
-            return RedirectToAction("dashboard");
+
+
+            return new RedirectResult("/User/Dashboard");
         }
 
         public IActionResult Edit(int id)
@@ -378,22 +396,34 @@ namespace CrestCouriers_Career.Controllers
 
             ViewData["Orderid"] = HttpContext.Session.GetString("OrderIDSession");
 
-            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            Dal connection = new Dal(myurl);
-            SqlDataAdapter da = new SqlDataAdapter();
-            DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("sp_Crest_MyOrder", connection.connect());
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Orderid", id);
-            da.SelectCommand = cmd;
-            da.Fill(dt);
+            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            //Dal connection = new Dal(myurl);
+            //SqlDataAdapter da = new SqlDataAdapter();
+            //DataTable dt = new DataTable();
+            //SqlCommand cmd = new SqlCommand("sp_Crest_MyOrder", connection.connect());
+            //cmd.CommandType = CommandType.StoredProcedure;
+            //cmd.Parameters.AddWithValue("@Orderid", id);
+            //da.SelectCommand = cmd;
+            //da.Fill(dt);
 
-            ViewData["Orderid"] = dt.Rows[0][0];
-            ViewData["Origin"] = dt.Rows[0][2];
-            ViewData["Destination"] = dt.Rows[0][3];
-            ViewData["ReceiveDate"] = dt.Rows[0][4];
-            ViewData["DeliveryDate"] = dt.Rows[0][5];
-            ViewData["CarType"] = dt.Rows[0][6];
+            //ViewData["Orderid"] = dt.Rows[0][0];
+            //ViewData["Origin"] = dt.Rows[0][2];
+            //ViewData["Destination"] = dt.Rows[0][3];
+            //ViewData["ReceiveDate"] = dt.Rows[0][4];
+            //ViewData["DeliveryDate"] = dt.Rows[0][5];
+            //ViewData["CarType"] = dt.Rows[0][6];
+
+            //EF core start
+            CrestContext context = new CrestContext();
+            Order order = context.Order.FirstOrDefault(o => o.OrderId == id);
+
+            ViewData["Orderid"] = order.OrderId;
+            ViewData["Origin"] = order.Origin;
+            ViewData["Destination"] = order.Destination;
+            ViewData["CollectionDate"] = order.CollectionDate;
+            ViewData["DeliveryDate"] = order.DeliveryDate;
+            ViewData["CarType"] = order.CarType;
+            //EF core end
 
 
             return View();
@@ -412,23 +442,30 @@ namespace CrestCouriers_Career.Controllers
                 ViewData["Username"] = HttpContext.Session.GetString("UserSession");
             }
 
-            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            Dal connection = new Dal(myurl);
-            SqlDataAdapter da = new SqlDataAdapter();
-            DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("sp_Crest_UpdateOrder", connection.connect())
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@Orderid", order.OrderId);
-            cmd.Parameters.AddWithValue("@Origin", order.Origin);
-            cmd.Parameters.AddWithValue("@Destination", order.Destination);
-            cmd.Parameters.AddWithValue("@ReceiveDate", order.CollectionDate);
-            cmd.Parameters.AddWithValue("@DeliveryDate", order.DeliveryDate);
-            cmd.Parameters.AddWithValue("@CarType", order.CarType);
+            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            //Dal connection = new Dal(myurl);
+            //SqlDataAdapter da = new SqlDataAdapter();
+            //DataTable dt = new DataTable();
+            //SqlCommand cmd = new SqlCommand("sp_Crest_UpdateOrder", connection.connect())
+            //{
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //cmd.Parameters.AddWithValue("@Orderid", order.OrderId);
+            //cmd.Parameters.AddWithValue("@Origin", order.Origin);
+            //cmd.Parameters.AddWithValue("@Destination", order.Destination);
+            //cmd.Parameters.AddWithValue("@ReceiveDate", order.CollectionDate);
+            //cmd.Parameters.AddWithValue("@DeliveryDate", order.DeliveryDate);
+            //cmd.Parameters.AddWithValue("@CarType", order.CarType);
 
 
-            cmd.ExecuteNonQuery();
+            //cmd.ExecuteNonQuery();
+
+            //EF core start
+            CrestContext context = new CrestContext();
+            context.Attach(order).State = EntityState.Modified;
+            context.SaveChangesAsync();
+            //EF core end
+
             return new RedirectResult("/User/dashboard");
         }
 

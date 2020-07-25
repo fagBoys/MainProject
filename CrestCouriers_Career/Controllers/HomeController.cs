@@ -109,14 +109,11 @@ namespace CrestCouriers_Career.Controllers
 
             //EF core code
 
-            CrestContext CC = new CrestContext();
-            Contact newcontact = new Contact();
+            CrestContext context = new CrestContext();
 
-            newcontact = Contact;
+            context.Contact.Add(Contact);
 
-            CC.Contact.Add(newcontact);
-
-            CC.SaveChanges();
+            context.SaveChanges();
 
             //EF core code ends
 
