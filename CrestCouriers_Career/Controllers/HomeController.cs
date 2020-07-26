@@ -86,34 +86,34 @@ namespace CrestCouriers_Career.Controllers
             //Recaptcha code ends here
 
 
-            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            //Dal connection = new Dal(myurl);
+            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            Dal connection = new Dal(myurl);
 
-            //SqlCommand cmd = new SqlCommand("sp_Crest_contact", connection.connect())
-            //{
-            //    CommandType = CommandType.StoredProcedure
-            //};
-            //cmd.Parameters.AddWithValue("@FullName", Contact.FullName);
-            //cmd.Parameters.AddWithValue("@EmailAddress", Contact.EmailAddress);
-            //cmd.Parameters.AddWithValue("@PhoneNumber", Contact.PhoneNumber);
-            //cmd.Parameters.AddWithValue("@Subject", Contact.Subject);
-            //cmd.Parameters.AddWithValue("@Message", Contact.Message);
-
-
-            //cmd.ExecuteNonQuery();
+            SqlCommand cmd = new SqlCommand("sp_Crest_contact", connection.connect())
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("@FullName", Contact.FullName);
+            cmd.Parameters.AddWithValue("@EmailAddress", Contact.EmailAddress);
+            cmd.Parameters.AddWithValue("@PhoneNumber", Contact.PhoneNumber);
+            cmd.Parameters.AddWithValue("@Subject", Contact.Subject);
+            cmd.Parameters.AddWithValue("@Message", Contact.Message);
 
 
-            //connection.disconnect();
+            cmd.ExecuteNonQuery();
+
+
+            connection.disconnect();
 
 
 
             //EF core code
 
-            CrestContext context = new CrestContext();
+            //CrestContext context = new CrestContext();
 
-            context.Contact.Add(Contact);
+            //context.Contact.Add(Contact);
 
-            context.SaveChanges();
+            //context.SaveChanges();
 
             //EF core code ends
 
@@ -123,10 +123,10 @@ namespace CrestCouriers_Career.Controllers
             ///////    Send Email     ///////
             MimeMessage message = new MimeMessage();
 
-            MailboxAddress from = new MailboxAddress("Crest Couriers", "careers@crestcouriers.com");
+            MailboxAddress from = new MailboxAddress("Crest Couriers", "contact@crestcouriers.co.uk");
             message.From.Add(from);
 
-            MailboxAddress to = new MailboxAddress("Crest Couriers", "careers@crestcouriers.com");
+            MailboxAddress to = new MailboxAddress("Crest Couriers", "contact@crestcouriers.co.uk");
             message.To.Add(to);
 
             message.Subject = " Contact";
@@ -174,7 +174,7 @@ namespace CrestCouriers_Career.Controllers
 
             MimeMessage message2 = new MimeMessage();
 
-            MailboxAddress from2 = new MailboxAddress("Crest Couriers", "careers@crestcouriers.com");
+            MailboxAddress from2 = new MailboxAddress("Crest Couriers", "contact@crestcouriers.co.uk");
             message2.From.Add(from2);
 
             MailboxAddress to2 = new MailboxAddress(Contact.FullName + " " + Contact.Subject, Contact.EmailAddress);
@@ -258,21 +258,21 @@ namespace CrestCouriers_Career.Controllers
             {
 
                 ViewData["City"] = id;
-                if (id == "Birmingham")
+                if (id == "Slough")
                 {
-                    ViewData["CityMap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d155526.29467269467!2d-2.003714890183722!3d52.47735487694842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870942d1b417173%3A0xca81fef0aeee7998!2sBirmingham!5e0!3m2!1sen!2suk!4v1586544000369!5m2!1sen!2suk";
+                    ViewData["CityMap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d170995.7475644822!2d-0.8568035154010306!3d51.54269866872921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487663427e9e92a9%3A0xb16ca352b90b0206!2sSlough!5e0!3m2!1sen!2suk!4v1595755000550!5m2!1sen!2suk";
                 }
-                else if (id == "Coventry")
+                else if (id == "Oxford")
                 {
-                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d77875.64936090495!2d-1.584957836701814!3d52.41367085814577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870b151656e22b7%3A0x4f660f5564f0689!2sCoventry!5e0!3m2!1sen!2suk!4v1586544031949!5m2!1sen!2suk";
+                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d79041.62410713962!2d-1.31762755242436!3d51.7503954869318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48713380adc41faf%3A0xc820dba8cb547402!2sOxford!5e0!3m2!1sen!2suk!4v1595755080403!5m2!1sen!2suk";
                 }
-                else if (id == "Leeds")
+                else if (id == "Gloucester")
                 {
-                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d150788.90157917945!2d-1.6758143576752904!3d53.80592089177427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48793e4ada64bd99%3A0x51adbafd0213dca9!2sLeeds!5e0!3m2!1sen!2suk!4v1586543961493!5m2!1sen!2suk";
+                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39839.46618518486!2d-2.2775265544521845!3d51.85708406793612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870fdfbf6ebf2cf%3A0xec709b9621e819cf!2sGloucester!5e0!3m2!1sen!2suk!4v1595755142846!5m2!1sen!2suk";
                 }
-                else if (id == "Oldham")
+                else if (id == "Bristol")
                 {
-                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d75878.79433501452!2d-2.1637169125702176!3d53.536123038778264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bb0aa67777af1%3A0x18b3b8d9a96b3258!2sOldham!5e0!3m2!1sen!2suk!4v1586543894888!5m2!1sen!2suk";
+                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d159068.2712730391!2d-2.7308006159249643!3d51.46840550054924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4871836681b3d861%3A0x8ee4b22e4b9ad71f!2sBristol!5e0!3m2!1sen!2suk!4v1595755174884!5m2!1sen!2suk";
                 }
                 return View();
 

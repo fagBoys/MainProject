@@ -25,7 +25,7 @@ namespace CrestCouriers_Career.Controllers
 
             string fagboysdb = @"Server=127.0.0.1;Database=fagboys;User Id=fagboys;Password=FAGpass123;Integrated Security=False;";
             string crestdb = @"Server=sql11.hostinguk.net;Database=crestcou_database;User Id=crestdbuser;Password=CRESTcouriers.db;Integrated Security=False;";
-            string localdb = @"Data Source=DESKTOP-MNCHKTA;Initial Catalog=Crest;Integrated Security=True;";
+            string localdb = @"Data Source=.;Initial Catalog=Crest;Integrated Security=True;";
             //DESKTOP-9V538JM
             //DESKTOP-N7V04NE
 
