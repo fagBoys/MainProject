@@ -432,7 +432,7 @@ namespace CrestCouriers_Career.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult EditOrder(Order order)
+        public IActionResult EditOrder(Order editedorder)
         {
             if (HttpContext.Session.GetString("UserSession") == null)
             {
@@ -462,8 +462,15 @@ namespace CrestCouriers_Career.Controllers
 
             //EF core start
             CrestContext context = new CrestContext();
-            context.Attach(order).State = EntityState.Modified;
-            context.SaveChangesAsync();
+            Order order = new Order();
+            order = context.Order.FirstOrDefault(O => O.OrderId == editedorder.OrderId);
+            editedorder.OrderDate = order.OrderDate;
+            editedorder.Price = order.Price;
+            editedorder.State = order.State;
+            editedorder.UserId = order.UserId;
+            CrestContext editcontext = new CrestContext();
+            editcontext.Attach(editedorder).State = EntityState.Modified;
+            editcontext.SaveChangesAsync();
             //EF core end
 
             return new RedirectResult("/User/dashboard");

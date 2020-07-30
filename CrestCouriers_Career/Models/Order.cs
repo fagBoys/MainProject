@@ -12,7 +12,6 @@ namespace CrestCouriers_Career.Models
         public int  OrderId { get; set; }
 
         [Required]
-        [MaxLength(50)]
         public DateTime OrderDate { get; set; }
 
         [Required]
@@ -24,11 +23,9 @@ namespace CrestCouriers_Career.Models
         public string Destination { get; set; }
 
         [Required]
-        [MaxLength(50)]
         public DateTime CollectionDate { get; set; }
 
         [Required]
-        [MaxLength(50)]
         public DateTime DeliveryDate { get; set; }
 
         [Required]
