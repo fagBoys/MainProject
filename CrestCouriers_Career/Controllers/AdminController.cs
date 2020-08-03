@@ -757,7 +757,7 @@ namespace CrestCouriers_Career.Controllers
             CrestContext context = new CrestContext();
             User user= new User();
             user = context.User.FirstOrDefault(O => O.UserName == EditedUser.UserName);
-            
+            EditedUser.UserId = user.UserId;
             CrestContext editcontext = new CrestContext();
             editcontext.Attach(EditedUser).State = EntityState.Modified;
             editcontext.SaveChangesAsync();

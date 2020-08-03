@@ -40,7 +40,7 @@ namespace CrestCouriers_Career.Models
         public string Active { get; set; }
 
 
-
+        
         public ICollection<Order> Orders { get; set; }
     }
 }
