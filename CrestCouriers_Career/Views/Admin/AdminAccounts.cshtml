@@ -130,7 +130,7 @@
 <hr style="width:90%; border-color:red;">
 @foreach (var item in Model)
 {
-    @using (Html.BeginForm("Delete", "Admin", new { id = item.AdminId }))
+    @using (Html.BeginForm("AdminDelete", "Admin", new { id = item.AdminId }))
     {
 <div class="list-order">
 
