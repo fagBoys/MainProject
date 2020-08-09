@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\suzan\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj": {}
+    "C:\\Users\\Niloofar\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\suzan\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj": {
+    "C:\\Users\\Niloofar\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\suzan\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\Niloofar\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
         "projectName": "WebApiSample.DataAccess",
-        "projectPath": "C:\\Users\\suzan\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
-        "packagesPath": "C:\\Users\\suzan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\suzan\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\obj\\",
+        "projectPath": "C:\\Users\\Niloofar\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\Niloofar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Niloofar\\Documents\\GitHub\\MainProject\\WebApiSample.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\suzan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Niloofar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

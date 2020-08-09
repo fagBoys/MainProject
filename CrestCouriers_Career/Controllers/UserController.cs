@@ -516,28 +516,42 @@ namespace CrestCouriers_Career.Controllers
             //Recaptcha code ends here
 
 
-            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            Dal connection = new Dal(myurl);
-
-            SqlCommand cmd = new SqlCommand("sp_Crest_NewOrder", connection.connect())
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@OrderDate", DateTime.Now);
-            cmd.Parameters.AddWithValue("@Origin", order.Origin);
-            cmd.Parameters.AddWithValue("@Destination", order.Destination);
-            cmd.Parameters.AddWithValue("@ReceiveDate", order.CollectionDate);
-            cmd.Parameters.AddWithValue("@DeliveryDate", order.DeliveryDate);
-            cmd.Parameters.AddWithValue("@CarType", order.CarType);
-            cmd.Parameters.AddWithValue("@Userid", "1");
-            cmd.Parameters.AddWithValue("@Price", "0");
-            cmd.Parameters.AddWithValue("@State", "1");
 
 
+            ///////////////////////////////////////////////
 
-            cmd.ExecuteNonQuery();
+            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            //Dal connection = new Dal(myurl);
 
-            connection.disconnect();
+            //SqlCommand cmd = new SqlCommand("sp_Crest_NewOrder", connection.connect())
+            //{
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //cmd.Parameters.AddWithValue("@OrderDate", DateTime.Now);
+            //cmd.Parameters.AddWithValue("@Origin", order.Origin);
+            //cmd.Parameters.AddWithValue("@Destination", order.Destination);
+            //cmd.Parameters.AddWithValue("@ReceiveDate", order.CollectionDate);
+            //cmd.Parameters.AddWithValue("@DeliveryDate", order.DeliveryDate);
+            //cmd.Parameters.AddWithValue("@CarType", order.CarType);
+            //cmd.Parameters.AddWithValue("@Userid", "1");
+            //cmd.Parameters.AddWithValue("@Price", "0");
+            //cmd.Parameters.AddWithValue("@State", "1");
+            //cmd.ExecuteNonQuery();
+            //connection.disconnect();
+
+
+
+            //EF CORE START
+
+            CrestContext context = new CrestContext();
+
+            context.Order.Add(order);
+            order.Price = "0";
+            order.UserId = 1;
+            order.State = "1";
+            context.SaveChanges();
+
+            //EF CORE END
 
             return View(!ModelState.IsValid ? order : new Order());
 
@@ -558,22 +572,27 @@ namespace CrestCouriers_Career.Controllers
                 ViewData["Username"] = HttpContext.Session.GetString("UserSession");
             }
 
-            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            Dal connection = new Dal(myurl);
-            SqlDataAdapter da = new SqlDataAdapter();
-            DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("sp_Crest_MyUser", connection.connect());
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Username", HttpContext.Session.GetString("UserSession"));
-            da.SelectCommand = cmd;
-            da.Fill(dt);
+            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            //Dal connection = new Dal(myurl);
+            //SqlDataAdapter da = new SqlDataAdapter();
+            //DataTable dt = new DataTable();
+            //SqlCommand cmd = new SqlCommand("sp_Crest_MyUser", connection.connect());
+            //cmd.CommandType = CommandType.StoredProcedure;
+            //cmd.Parameters.AddWithValue("@Username", HttpContext.Session.GetString("UserSession"));
+            //da.SelectCommand = cmd;
+            //da.Fill(dt);
 
-            ViewData["myuser-Username"] = dt.Rows[0][1];
-            ViewData["myuser-Password"] = dt.Rows[0][2];
-            ViewData["myuser-FirstName"] = dt.Rows[0][3];
-            ViewData["myuser-LastName"] = dt.Rows[0][4];
-            ViewData["myuser-PhoneNumber"] = dt.Rows[0][5];
-            ViewData["myuser-EmailAddress"] = dt.Rows[0][6];
+            //EF
+            CrestContext context = new CrestContext();
+            User users = context.User.FirstOrDefault(U => U.UserName == ViewData["Username"].ToString());
+            //EF
+
+            ViewData["myuser-Username"] = users.UserName;
+            ViewData["myuser-Password"] = users.Password;
+            ViewData["myuser-FirstName"] = users.FirstName;
+            ViewData["myuser-LastName"] = users.LastName;
+            ViewData["myuser-PhoneNumber"] = users.PhoneNumber;
+            ViewData["myuser-EmailAddress"] = users.EmailAddress;
 
             return View();
         }
@@ -590,18 +609,47 @@ namespace CrestCouriers_Career.Controllers
                 ViewData["Username"] = HttpContext.Session.GetString("UserSession");
             }
 
-            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            Dal connection = new Dal(myurl);
-            SqlCommand cmd = new SqlCommand("sp_Crest_UpdateUser", connection.connect());
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@UserName", user.UserName);
-            cmd.Parameters.AddWithValue("@Password", user.Password);
-            cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
-            cmd.Parameters.AddWithValue("@LastName", user.LastName);
-            cmd.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
-            cmd.Parameters.AddWithValue("@EmailAddress", user.EmailAddress);
+            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            //Dal connection = new Dal(myurl);
+            //SqlCommand cmd = new SqlCommand("sp_Crest_UpdateUser", connection.connect());
+            //cmd.CommandType = CommandType.StoredProcedure;
+            //cmd.Parameters.AddWithValue("@UserName", user.UserName);
+            //cmd.Parameters.AddWithValue("@Password", user.Password);
+            //cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
+            //cmd.Parameters.AddWithValue("@LastName", user.LastName);
+            //cmd.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
+            //cmd.Parameters.AddWithValue("@EmailAddress", user.EmailAddress);
 
-            cmd.ExecuteNonQuery();
+            //cmd.ExecuteNonQuery();
+
+
+
+            ////EF core start
+            CrestContext context = new CrestContext();
+
+            User user1 = new User();
+            user1 = context.User.FirstOrDefault(O => O.UserName == user.UserName);
+
+            user.Active = user1.Active;
+            user.UserId = user1.UserId;
+
+            CrestContext editcontext = new CrestContext();
+            editcontext.Attach(user).State = EntityState.Modified;
+            editcontext.SaveChangesAsync();
+            ////EF core end
+
+
+
+
+
+
+
+
+
+
+
+
+
             return new RedirectResult("/User/User");
         }
 
