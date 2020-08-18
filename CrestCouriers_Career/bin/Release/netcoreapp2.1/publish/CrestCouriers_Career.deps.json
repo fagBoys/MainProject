@@ -26,7 +26,20 @@
         "dependencies": {
           "MailKit": "2.4.1",
           "Microsoft.AspNetCore.App": "2.1.1",
+          "Microsoft.AspNetCore.Authentication": "2.1.2",
+          "Microsoft.AspNetCore.Authentication.Abstractions": "2.1.1",
+          "Microsoft.AspNetCore.Authentication.Cookies": "2.1.16",
+          "Microsoft.AspNetCore.Authentication.Facebook": "2.1.2",
+          "Microsoft.AspNetCore.Authentication.Google": "2.1.8",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "2.1.2",
+          "Microsoft.AspNetCore.Authentication.MicrosoftAccount": "2.1.2",
+          "Microsoft.AspNetCore.Authentication.OAuth": "2.1.2",
+          "Microsoft.AspNetCore.Authentication.OpenIdConnect": "2.1.2",
+          "Microsoft.AspNetCore.Authentication.Twitter": "2.1.2",
+          "Microsoft.AspNetCore.Identity": "2.1.6",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.1.6",
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
+          "Microsoft.CodeAnalysis.FxCopAnalyzers": "3.0.0",
           "Microsoft.EntityFrameworkCore.Design": "3.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.1.14",
           "Microsoft.EntityFrameworkCore.Tools": "2.2.6",
@@ -59,6 +72,174 @@
           "lib/netstandard2.0/MailKit.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Authentication/2.1.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Core": "2.1.1",
+          "Microsoft.AspNetCore.DataProtection": "2.1.1",
+          "Microsoft.AspNetCore.Http": "2.1.1",
+          "Microsoft.AspNetCore.Http.Extensions": "2.1.1",
+          "Microsoft.Extensions.Logging.Abstractions": "2.1.1",
+          "Microsoft.Extensions.Options": "2.1.1",
+          "Microsoft.Extensions.WebEncoders": "2.1.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.dll": {
+            "assemblyVersion": "2.1.2.0",
+            "fileVersion": "2.1.2.18207"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Cookies/2.1.16": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication": "2.1.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Cookies.dll": {
+            "assemblyVersion": "2.1.16.0",
+            "fileVersion": "2.1.16.20017"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Cookies.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Facebook/2.1.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.OAuth": "2.1.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {
+            "assemblyVersion": "2.1.2.0",
+            "fileVersion": "2.1.2.18207"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Google/2.1.8": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.OAuth": "2.1.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "assemblyVersion": "2.1.8.0",
+            "fileVersion": "2.1.8.19018"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Google.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/2.1.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication": "2.1.2",
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "assemblyVersion": "2.1.2.0",
+            "fileVersion": "2.1.2.18207"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.MicrosoftAccount/2.1.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.OAuth": "2.1.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll": {
+            "assemblyVersion": "2.1.2.0",
+            "fileVersion": "2.1.2.18207"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.OAuth/2.1.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication": "2.1.2",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.OAuth.dll": {
+            "assemblyVersion": "2.1.2.0",
+            "fileVersion": "2.1.2.18207"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.OAuth.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.OpenIdConnect/2.1.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.OAuth": "2.1.2",
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll": {
+            "assemblyVersion": "2.1.2.0",
+            "fileVersion": "2.1.2.18207"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Twitter/2.1.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.OAuth": "2.1.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Twitter.dll": {
+            "assemblyVersion": "2.1.2.0",
+            "fileVersion": "2.1.2.18207"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Twitter.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Identity/2.1.6": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Cookies": "2.1.16",
+          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "2.1.1",
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.1.1",
+          "Microsoft.Extensions.Identity.Core": "2.1.6"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Identity.dll": {
+            "assemblyVersion": "2.1.6.0",
+            "fileVersion": "2.1.6.18298"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Identity.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/2.1.6": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity": "2.1.6",
+          "Microsoft.EntityFrameworkCore.Relational": "2.1.14",
+          "Microsoft.Extensions.Identity.Stores": "2.1.6"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
+            "assemblyVersion": "2.1.6.0",
+            "fileVersion": "2.1.6.18298"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Razor.Design/2.1.2": {},
       "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
         "dependencies": {
@@ -75,6 +256,15 @@
           "lib/netstandard1.3/Microsoft.CodeAnalysis.CSharp.Workspaces.dll": {}
         }
       },
+      "Microsoft.CodeAnalysis.FxCopAnalyzers/3.0.0": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.VersionCheckAnalyzer": "3.0.0",
+          "Microsoft.CodeQuality.Analyzers": "3.0.0",
+          "Microsoft.NetCore.Analyzers": "3.0.0",
+          "Microsoft.NetFramework.Analyzers": "3.0.0"
+        }
+      },
+      "Microsoft.CodeAnalysis.VersionCheckAnalyzer/3.0.0": {},
       "Microsoft.CodeAnalysis.Workspaces.Common/2.8.0": {
         "dependencies": {
           "Microsoft.CodeAnalysis.Common": "2.8.0",
@@ -95,6 +285,7 @@
           "lib/netstandard1.3/Microsoft.CodeAnalysis.Workspaces.dll": {}
         }
       },
+      "Microsoft.CodeQuality.Analyzers/3.0.0": {},
       "Microsoft.EntityFrameworkCore/2.1.14": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Abstractions": "2.1.14",
@@ -165,6 +356,59 @@
           "Microsoft.EntityFrameworkCore.Design": "3.0.3"
         }
       },
+      "Microsoft.Extensions.Identity.Core/2.1.6": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "2.1.1",
+          "Microsoft.Extensions.Logging": "2.1.1",
+          "Microsoft.Extensions.Options": "2.1.1",
+          "System.ComponentModel.Annotations": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Identity.Core.dll": {
+            "assemblyVersion": "2.1.6.0",
+            "fileVersion": "2.1.6.18298"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Identity.Core.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Identity.Stores/2.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.Identity.Core": "2.1.6",
+          "Microsoft.Extensions.Logging": "2.1.1",
+          "System.ComponentModel.Annotations": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Identity.Stores.dll": {
+            "assemblyVersion": "2.1.6.0",
+            "fileVersion": "2.1.6.18298"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Identity.Stores.dll": {}
+        }
+      },
+      "Microsoft.IdentityModel.Protocols.OpenIdConnect/5.2.0": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols": "5.2.0",
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "11.0.2",
+          "System.Dynamic.Runtime": "4.3.0",
+          "System.IdentityModel.Tokens.Jwt": "5.2.0"
+        },
+        "runtime": {
+          "lib/netstandard1.4/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {
+            "assemblyVersion": "5.2.0.0",
+            "fileVersion": "5.2.0.50129"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.4/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {}
+        }
+      },
+      "Microsoft.NetCore.Analyzers/3.0.0": {},
+      "Microsoft.NetFramework.Analyzers/3.0.0": {},
       "Microsoft.VisualStudio.Web.CodeGeneration/2.1.10": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "2.1.1",
@@ -699,17 +943,17 @@
           "Microsoft.AspNet.WebApi.Client": "5.2.6",
           "Microsoft.AspNetCore": "2.1.1",
           "Microsoft.AspNetCore.Antiforgery": "2.1.1",
-          "Microsoft.AspNetCore.Authentication": "2.1.1",
+          "Microsoft.AspNetCore.Authentication": "2.1.2",
           "Microsoft.AspNetCore.Authentication.Abstractions": "2.1.1",
-          "Microsoft.AspNetCore.Authentication.Cookies": "2.1.1",
+          "Microsoft.AspNetCore.Authentication.Cookies": "2.1.16",
           "Microsoft.AspNetCore.Authentication.Core": "2.1.1",
-          "Microsoft.AspNetCore.Authentication.Facebook": "2.1.1",
-          "Microsoft.AspNetCore.Authentication.Google": "2.1.1",
-          "Microsoft.AspNetCore.Authentication.JwtBearer": "2.1.1",
-          "Microsoft.AspNetCore.Authentication.MicrosoftAccount": "2.1.1",
-          "Microsoft.AspNetCore.Authentication.OAuth": "2.1.1",
-          "Microsoft.AspNetCore.Authentication.OpenIdConnect": "2.1.1",
-          "Microsoft.AspNetCore.Authentication.Twitter": "2.1.1",
+          "Microsoft.AspNetCore.Authentication.Facebook": "2.1.2",
+          "Microsoft.AspNetCore.Authentication.Google": "2.1.8",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "2.1.2",
+          "Microsoft.AspNetCore.Authentication.MicrosoftAccount": "2.1.2",
+          "Microsoft.AspNetCore.Authentication.OAuth": "2.1.2",
+          "Microsoft.AspNetCore.Authentication.OpenIdConnect": "2.1.2",
+          "Microsoft.AspNetCore.Authentication.Twitter": "2.1.2",
           "Microsoft.AspNetCore.Authentication.WsFederation": "2.1.1",
           "Microsoft.AspNetCore.Authorization": "2.1.1",
           "Microsoft.AspNetCore.Authorization.Policy": "2.1.1",
@@ -737,8 +981,8 @@
           "Microsoft.AspNetCore.Http.Features": "2.1.1",
           "Microsoft.AspNetCore.HttpOverrides": "2.1.1",
           "Microsoft.AspNetCore.HttpsPolicy": "2.1.1",
-          "Microsoft.AspNetCore.Identity": "2.1.1",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.1.1",
+          "Microsoft.AspNetCore.Identity": "2.1.6",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.1.6",
           "Microsoft.AspNetCore.Identity.UI": "2.1.1",
           "Microsoft.AspNetCore.JsonPatch": "2.1.1",
           "Microsoft.AspNetCore.Localization": "2.1.1",
@@ -823,8 +1067,8 @@
           "Microsoft.Extensions.Hosting": "2.1.1",
           "Microsoft.Extensions.Hosting.Abstractions": "2.1.1",
           "Microsoft.Extensions.Http": "2.1.1",
-          "Microsoft.Extensions.Identity.Core": "2.1.1",
-          "Microsoft.Extensions.Identity.Stores": "2.1.1",
+          "Microsoft.Extensions.Identity.Core": "2.1.6",
+          "Microsoft.Extensions.Identity.Stores": "2.1.6",
           "Microsoft.Extensions.Localization": "2.1.1",
           "Microsoft.Extensions.Localization.Abstractions": "2.1.1",
           "Microsoft.Extensions.Logging": "2.1.1",
@@ -843,21 +1087,6 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Authentication/2.1.1": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Authentication.Core": "2.1.1",
-          "Microsoft.AspNetCore.DataProtection": "2.1.1",
-          "Microsoft.AspNetCore.Http": "2.1.1",
-          "Microsoft.AspNetCore.Http.Extensions": "2.1.1",
-          "Microsoft.Extensions.Logging.Abstractions": "2.1.1",
-          "Microsoft.Extensions.Options": "2.1.1",
-          "Microsoft.Extensions.WebEncoders": "2.1.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.dll": {}
-        },
-        "compileOnly": true
-      },
       "Microsoft.AspNetCore.Authentication.Abstractions/2.1.1": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.1.1",
@@ -866,15 +1095,6 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Abstractions.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.AspNetCore.Authentication.Cookies/2.1.1": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Authentication": "2.1.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Cookies.dll": {}
         },
         "compileOnly": true
       },
@@ -889,75 +1109,9 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Authentication.Facebook/2.1.1": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Authentication.OAuth": "2.1.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.AspNetCore.Authentication.Google/2.1.1": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Authentication.OAuth": "2.1.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Google.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.AspNetCore.Authentication.JwtBearer/2.1.1": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Authentication": "2.1.1",
-          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.2.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.AspNetCore.Authentication.MicrosoftAccount/2.1.1": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Authentication.OAuth": "2.1.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.AspNetCore.Authentication.OAuth/2.1.1": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Authentication": "2.1.1",
-          "Newtonsoft.Json": "11.0.2"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.OAuth.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.AspNetCore.Authentication.OpenIdConnect/2.1.1": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Authentication.OAuth": "2.1.1",
-          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.2.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.AspNetCore.Authentication.Twitter/2.1.1": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Authentication.OAuth": "2.1.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Twitter.dll": {}
-        },
-        "compileOnly": true
-      },
       "Microsoft.AspNetCore.Authentication.WsFederation/2.1.1": {
         "dependencies": {
-          "Microsoft.AspNetCore.Authentication": "2.1.1",
+          "Microsoft.AspNetCore.Authentication": "2.1.2",
           "Microsoft.IdentityModel.Protocols.WsFederation": "5.2.0",
           "System.IdentityModel.Tokens.Jwt": "5.2.0"
         },
@@ -1258,36 +1412,13 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Identity/2.1.1": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Authentication.Cookies": "2.1.1",
-          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "2.1.1",
-          "Microsoft.AspNetCore.Hosting.Abstractions": "2.1.1",
-          "Microsoft.Extensions.Identity.Core": "2.1.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Identity.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/2.1.1": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Identity": "2.1.1",
-          "Microsoft.EntityFrameworkCore.Relational": "2.1.14",
-          "Microsoft.Extensions.Identity.Stores": "2.1.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {}
-        },
-        "compileOnly": true
-      },
       "Microsoft.AspNetCore.Identity.UI/2.1.1": {
         "dependencies": {
-          "Microsoft.AspNetCore.Identity": "2.1.1",
+          "Microsoft.AspNetCore.Identity": "2.1.6",
           "Microsoft.AspNetCore.Mvc": "2.1.1",
           "Microsoft.AspNetCore.StaticFiles": "2.1.1",
           "Microsoft.Extensions.FileProviders.Embedded": "2.1.1",
-          "Microsoft.Extensions.Identity.Stores": "2.1.1"
+          "Microsoft.Extensions.Identity.Stores": "2.1.6"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Identity.UI.Views.dll": {},
@@ -2202,29 +2333,6 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Identity.Core/2.1.1": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "2.1.1",
-          "Microsoft.Extensions.Logging": "2.1.1",
-          "Microsoft.Extensions.Options": "2.1.1",
-          "System.ComponentModel.Annotations": "4.5.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Identity.Core.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.Identity.Stores/2.1.1": {
-        "dependencies": {
-          "Microsoft.Extensions.Identity.Core": "2.1.1",
-          "Microsoft.Extensions.Logging": "2.1.1",
-          "System.ComponentModel.Annotations": "4.5.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Identity.Stores.dll": {}
-        },
-        "compileOnly": true
-      },
       "Microsoft.Extensions.Localization/2.1.1": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "2.1.1",
@@ -2383,19 +2491,6 @@
         },
         "compile": {
           "lib/netstandard1.4/Microsoft.IdentityModel.Protocols.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.IdentityModel.Protocols.OpenIdConnect/5.2.0": {
-        "dependencies": {
-          "Microsoft.IdentityModel.Protocols": "5.2.0",
-          "NETStandard.Library": "2.0.3",
-          "Newtonsoft.Json": "11.0.2",
-          "System.Dynamic.Runtime": "4.3.0",
-          "System.IdentityModel.Tokens.Jwt": "5.2.0"
-        },
-        "compile": {
-          "lib/netstandard1.4/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {}
         },
         "compileOnly": true
       },
@@ -3631,6 +3726,83 @@
       "path": "mailkit/2.4.1",
       "hashPath": "mailkit.2.4.1.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Authentication/2.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RYM3HHMm/MNwsbUh1xnrhosAGNeZV2Q/FmNQrblgytIK1HIZ6UqNMorFI+kz2MW7gNKHKn6TBLTUXPRmqC6iRQ==",
+      "path": "microsoft.aspnetcore.authentication/2.1.2",
+      "hashPath": "microsoft.aspnetcore.authentication.2.1.2.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Cookies/2.1.16": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6+FNjDMuNoaYUIifu8d/h9h/MUNGY6nx1FPregHyMdlX+03an7eP+grmKhPKg6PqX+4w9Q0F6zvLpyOobIKWSg==",
+      "path": "microsoft.aspnetcore.authentication.cookies/2.1.16",
+      "hashPath": "microsoft.aspnetcore.authentication.cookies.2.1.16.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Facebook/2.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5p5VeM2M9GdxprQRUOFkA/XFAnJad7s/9mRs3I2oIM8I6U4RMmn/kOJPnULrZyoPBJraRSvg9fE2khTtCv05Bg==",
+      "path": "microsoft.aspnetcore.authentication.facebook/2.1.2",
+      "hashPath": "microsoft.aspnetcore.authentication.facebook.2.1.2.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Google/2.1.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-H1u9D+q5kSCocmxsa5iZXgB1E2+MJt1+6cUDVFoT8afT19Hc3M00vj9ukLIBCjXbtuBzP/qBhPSaxfsbxHxDlQ==",
+      "path": "microsoft.aspnetcore.authentication.google/2.1.8",
+      "hashPath": "microsoft.aspnetcore.authentication.google.2.1.8.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/2.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hedJ6YxyZRIJPXC2olml9YM5t3+yIFt9hcyBXp/q5+z4XpJMY5gUwbc1F5QRGEdcvwSCpFmmRLVaPPh4Kiaq0g==",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/2.1.2",
+      "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.2.1.2.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.MicrosoftAccount/2.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qeraPHfzag8lY/o6A63vxiOXrWC3t0y05FxE54y4gEDz/CbQ8xYYZ4yfKJscs2HruAjLSNTTI7j4XQD5GM22Bg==",
+      "path": "microsoft.aspnetcore.authentication.microsoftaccount/2.1.2",
+      "hashPath": "microsoft.aspnetcore.authentication.microsoftaccount.2.1.2.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.OAuth/2.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oY0gzBiLXjfbJJYK3zDh8KjqYzvje+kKrK6ZpbojWNy826XO2KVLapjmk1/olrjg2bAKLTL6HHVk0xmZhPRBRA==",
+      "path": "microsoft.aspnetcore.authentication.oauth/2.1.2",
+      "hashPath": "microsoft.aspnetcore.authentication.oauth.2.1.2.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.OpenIdConnect/2.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XdbxZFGrppRVFpRfPyu6qH1tGAHqBkrn/0uTGDQngTCJOnHtpHXNyQgOg/yj2UUCeJxjOX9p19F065ljiYBIxg==",
+      "path": "microsoft.aspnetcore.authentication.openidconnect/2.1.2",
+      "hashPath": "microsoft.aspnetcore.authentication.openidconnect.2.1.2.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Twitter/2.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UhMS0G20OYLascJsKjgKfSgqKfwrUvx6E17cMYdaLkVGbwDQ6tboQ8LvrrVsKeVpSjtqOb7LA1uCk/7KigJKDA==",
+      "path": "microsoft.aspnetcore.authentication.twitter/2.1.2",
+      "hashPath": "microsoft.aspnetcore.authentication.twitter.2.1.2.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Identity/2.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vKCHmKW04KIONhGtbt/mSXEbrjn1q17MKhi47olOugvMflozcLJ5QoqAp4HmCsvhcmE8BSSTxKuMJyDk/sLKyw==",
+      "path": "microsoft.aspnetcore.identity/2.1.6",
+      "hashPath": "microsoft.aspnetcore.identity.2.1.6.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/2.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zwFpzjQ1OcOq4osV5sdRTP5wCfoDPdsBMggRvE81KsKfht0mR6lFmG7sbFsaXALa28kVowHA7MXCzDmmkc9skw==",
+      "path": "microsoft.aspnetcore.identity.entityframeworkcore/2.1.6",
+      "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.2.1.6.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
       "type": "package",
       "serviceable": true,
@@ -3645,12 +3817,33 @@
       "path": "microsoft.codeanalysis.csharp.workspaces/2.8.0",
       "hashPath": "microsoft.codeanalysis.csharp.workspaces.2.8.0.nupkg.sha512"
     },
+    "Microsoft.CodeAnalysis.FxCopAnalyzers/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ea8bbNa4fzS/s55AUCAvYjb6Y3lFysFVfEwt9zIwR/NeFpOcUluIleOXSUPAyUtwBFugn01aWvNfMVmIwnvgqQ==",
+      "path": "microsoft.codeanalysis.fxcopanalyzers/3.0.0",
+      "hashPath": "microsoft.codeanalysis.fxcopanalyzers.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.CodeAnalysis.VersionCheckAnalyzer/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RL9OdvWLhtQXcvxK2EPbXM9LandLcDG14Ndz5baVH2aiyvEB11VrHfrzLNoEE5B2/zhRGqN+BHsBg21f75wG9g==",
+      "path": "microsoft.codeanalysis.versioncheckanalyzer/3.0.0",
+      "hashPath": "microsoft.codeanalysis.versioncheckanalyzer.3.0.0.nupkg.sha512"
+    },
     "Microsoft.CodeAnalysis.Workspaces.Common/2.8.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-tJlJ99SD8bHBAXShOG/pXQ1K118cnsF01obEf9aAtdgLbw3yEPahZ7qvWeGMjrheUhvOsSkv/wTKYg9euKa8MQ==",
       "path": "microsoft.codeanalysis.workspaces.common/2.8.0",
       "hashPath": "microsoft.codeanalysis.workspaces.common.2.8.0.nupkg.sha512"
+    },
+    "Microsoft.CodeQuality.Analyzers/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pOROTgdPa+15sYfEMvDlWlDEedCO1SuRLrRjX36Ltli3SmhZawC2Vgws4crz1XMs9WRzBo8WIJM5WRzGNsOSmQ==",
+      "path": "microsoft.codequality.analyzers/3.0.0",
+      "hashPath": "microsoft.codequality.analyzers.3.0.0.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore/2.1.14": {
       "type": "package",
@@ -3700,6 +3893,41 @@
       "sha512": "sha512-L6vi+eT++Q+2jSIWtOB1LD4yB4dR1nQrWg/Wx1kArPo0rD8D9R4uD6LU5OFz3U/ibjADxLgmQmYDqjusrOI7SA==",
       "path": "microsoft.entityframeworkcore.tools/2.2.6",
       "hashPath": "microsoft.entityframeworkcore.tools.2.2.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Identity.Core/2.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ikSUlGZ9KocgGpDvei7mF3R4NCcXFeB52aGErOY3ss3AVtfV77+PtjTGmuJW3PSlVB3B4fT8FTeMg9ilVlV7qA==",
+      "path": "microsoft.extensions.identity.core/2.1.6",
+      "hashPath": "microsoft.extensions.identity.core.2.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Identity.Stores/2.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+y0RlwL/C0Ujw3Hx/LPqho5x2CeQVWAT4uAnTa+lLumIcROWjR/Mhr7+ggg3fY2t20+XZidxAYZhGGo/nXndPQ==",
+      "path": "microsoft.extensions.identity.stores/2.1.6",
+      "hashPath": "microsoft.extensions.identity.stores.2.1.6.nupkg.sha512"
+    },
+    "Microsoft.IdentityModel.Protocols.OpenIdConnect/5.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hMjsfdvgI/Gk/HWPgyVnju6fy3iULralgn1XU6eL17KkkFN2rJ1fDzJX3RKrjr888Y5S+hTSQAUcGzb4Fe3aBA==",
+      "path": "microsoft.identitymodel.protocols.openidconnect/5.2.0",
+      "hashPath": "microsoft.identitymodel.protocols.openidconnect.5.2.0.nupkg.sha512"
+    },
+    "Microsoft.NetCore.Analyzers/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JdjhkobYjmQAu4JpsEALDAr7xig2pzXMsXGilHJ2gvmUaUSBjYObw53CBaIkRXmPu0DaDPN8ze9LCtsRd1R8UA==",
+      "path": "microsoft.netcore.analyzers/3.0.0",
+      "hashPath": "microsoft.netcore.analyzers.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.NetFramework.Analyzers/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Q0sB3JYld9JMa9/HKtioIxhqmOohEku1FkfSC/uf0usGcCIhm6GYWU565klP64jC2kzmjFIu/6fkHEIYRqZCQQ==",
+      "path": "microsoft.netframework.analyzers/3.0.0",
+      "hashPath": "microsoft.netframework.analyzers.3.0.0.nupkg.sha512"
     },
     "Microsoft.VisualStudio.Web.CodeGeneration/2.1.10": {
       "type": "package",
@@ -4016,13 +4244,6 @@
       "path": "microsoft.aspnetcore.app/2.1.1",
       "hashPath": "microsoft.aspnetcore.app.2.1.1.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Authentication/2.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-F9Ewm6Oo5hn1CR7HglsZnKM5pMJekdZoGJoi8fnKEFOoQruxJUQVpHB8dfpB+0ZJmyeapGn+grdrXsoBWilIFg==",
-      "path": "microsoft.aspnetcore.authentication/2.1.1",
-      "hashPath": "microsoft.aspnetcore.authentication.2.1.1.nupkg.sha512"
-    },
     "Microsoft.AspNetCore.Authentication.Abstractions/2.1.1": {
       "type": "package",
       "serviceable": true,
@@ -4030,68 +4251,12 @@
       "path": "microsoft.aspnetcore.authentication.abstractions/2.1.1",
       "hashPath": "microsoft.aspnetcore.authentication.abstractions.2.1.1.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Authentication.Cookies/2.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-jvoFydzEDkijY9UlHIvAMA+xJpQ3+w2FvpOfbSOpcb/6Om8yuh3JHM8lh7zLZNsakaoHW5SkY9q3HvUnWAyZXw==",
-      "path": "microsoft.aspnetcore.authentication.cookies/2.1.1",
-      "hashPath": "microsoft.aspnetcore.authentication.cookies.2.1.1.nupkg.sha512"
-    },
     "Microsoft.AspNetCore.Authentication.Core/2.1.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-Zo6SLzqxrW0PFg1AB0xSb+Rta4hCuX8hgOY425ldhFq4kKcmw45oJQ2zOIeeW/6EuBtEy+hwDB96baxTmXtfeA==",
       "path": "microsoft.aspnetcore.authentication.core/2.1.1",
       "hashPath": "microsoft.aspnetcore.authentication.core.2.1.1.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Authentication.Facebook/2.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-crdvaKV0iAAQEeVyRGipYe43qaz8gnfDF1VQYtHGi4EUbQq+n89hDTK/U+SgKaNACfIvv4UEdHJBGYBNUAtFoQ==",
-      "path": "microsoft.aspnetcore.authentication.facebook/2.1.1",
-      "hashPath": "microsoft.aspnetcore.authentication.facebook.2.1.1.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Authentication.Google/2.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-yLFEgOl1Uwgnr6yPqJDqiM/jSlyJyo1ZDDktYfDN1kzP5ga4/5vFpTrNkO1Q7MEttdwVc9bICX3icmXBuTjsXg==",
-      "path": "microsoft.aspnetcore.authentication.google/2.1.1",
-      "hashPath": "microsoft.aspnetcore.authentication.google.2.1.1.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Authentication.JwtBearer/2.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-lMakzPdMkf4rpwy+YY3cd4VeFqdqM8vwt9pT6Lc1eyKMgOTPgAgesgOwHQf4JUASFBTkG/mTPC+miQwG1WGymg==",
-      "path": "microsoft.aspnetcore.authentication.jwtbearer/2.1.1",
-      "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.2.1.1.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Authentication.MicrosoftAccount/2.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Zc4ix18n3VTZ6rYUKe7Wxk7w5jLqbuWDThNwYykvt0TuF48GeiHV2LSLEdkZCXGL3qaZ/I2rWq3IpSqlEEIgsA==",
-      "path": "microsoft.aspnetcore.authentication.microsoftaccount/2.1.1",
-      "hashPath": "microsoft.aspnetcore.authentication.microsoftaccount.2.1.1.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Authentication.OAuth/2.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-vjc/kzkOZqcaH/MHOiZIjoCAuHNNk4ivVPP3/V3sTaR93UZRqgP06f/CmqI59U41nONHb5EuZVqohgdDcMfrcQ==",
-      "path": "microsoft.aspnetcore.authentication.oauth/2.1.1",
-      "hashPath": "microsoft.aspnetcore.authentication.oauth.2.1.1.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Authentication.OpenIdConnect/2.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-5YgPcDI6zmkfEfUC0phDyR6tY30UamVD18k83PCzJ90/pKKUVDmUSkjMq6IpAJ7Tb6K5zh9+KHgYpj5SvDiHPA==",
-      "path": "microsoft.aspnetcore.authentication.openidconnect/2.1.1",
-      "hashPath": "microsoft.aspnetcore.authentication.openidconnect.2.1.1.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Authentication.Twitter/2.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-0p2o2cAsBIAutJDsloW6HPcxiB1JHHXbmjRQH+7jNO4FM8l8XHVTOLm4i/j8x3E2NH5F2n3ML2VB9faroq7Thg==",
-      "path": "microsoft.aspnetcore.authentication.twitter/2.1.1",
-      "hashPath": "microsoft.aspnetcore.authentication.twitter.2.1.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.WsFederation/2.1.1": {
       "type": "package",
@@ -4281,20 +4446,6 @@
       "sha512": "sha512-NpdDAjvK2ElehzeOO8nB3tHj8SOFxbSvTSTsPHA5hfeY782BqSvEl9+o5YMVosIRES0o5jkqgzJDlLdn3kT2OQ==",
       "path": "microsoft.aspnetcore.httpspolicy/2.1.1",
       "hashPath": "microsoft.aspnetcore.httpspolicy.2.1.1.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Identity/2.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-pcVCJSyg5OkKJUyhsFZa3iovu2dqVVB8y9gn1DeDA+7atQhksjB+UMpM4m+EY9awXHZGwmAn6a5xws8rWFEowA==",
-      "path": "microsoft.aspnetcore.identity/2.1.1",
-      "hashPath": "microsoft.aspnetcore.identity.2.1.1.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/2.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-0KM6pAyIsBBgPlqdb3Ah0W/DmF+uxtIgHyY46R2ys2Tmusvgu8eUDIPCJO8P9wsO/o3mpllWlgc5frbJhGnLUQ==",
-      "path": "microsoft.aspnetcore.identity.entityframeworkcore/2.1.1",
-      "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.2.1.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Identity.UI/2.1.1": {
       "type": "package",
@@ -4870,20 +5021,6 @@
       "path": "microsoft.extensions.http/2.1.1",
       "hashPath": "microsoft.extensions.http.2.1.1.nupkg.sha512"
     },
-    "Microsoft.Extensions.Identity.Core/2.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-4dv6des0aRMNLgo+zbGy2Bp6Amy6YbVsSRB9VvSAqdTfhXAcLQ95AQdsLcqDhBI3H4s0sJxCdwmLDKQMbi0Vag==",
-      "path": "microsoft.extensions.identity.core/2.1.1",
-      "hashPath": "microsoft.extensions.identity.core.2.1.1.nupkg.sha512"
-    },
-    "Microsoft.Extensions.Identity.Stores/2.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ihjvNMbiZI9cs1qbcVFiICA2RrwM8mlSfypDIIPu7taDBa9vOLSmCHqOg5QmlMtVi5jwkMGfNKznEIYPbaHNmQ==",
-      "path": "microsoft.extensions.identity.stores/2.1.1",
-      "hashPath": "microsoft.extensions.identity.stores.2.1.1.nupkg.sha512"
-    },
     "Microsoft.Extensions.Localization/2.1.1": {
       "type": "package",
       "serviceable": true,
@@ -4995,13 +5132,6 @@
       "sha512": "sha512-pakGqbE3FRort3vb0qqWI0Qfy84IOXs8sG7ygANUpoRT+544svQ62JfvCX4UPnqf5bCUpSxVc3rDh8yCQBtc7w==",
       "path": "microsoft.identitymodel.protocols/5.2.0",
       "hashPath": "microsoft.identitymodel.protocols.5.2.0.nupkg.sha512"
-    },
-    "Microsoft.IdentityModel.Protocols.OpenIdConnect/5.2.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-hMjsfdvgI/Gk/HWPgyVnju6fy3iULralgn1XU6eL17KkkFN2rJ1fDzJX3RKrjr888Y5S+hTSQAUcGzb4Fe3aBA==",
-      "path": "microsoft.identitymodel.protocols.openidconnect/5.2.0",
-      "hashPath": "microsoft.identitymodel.protocols.openidconnect.5.2.0.nupkg.sha512"
     },
     "Microsoft.IdentityModel.Protocols.WsFederation/5.2.0": {
       "type": "package",

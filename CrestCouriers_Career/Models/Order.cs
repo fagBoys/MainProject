@@ -32,18 +32,12 @@ namespace CrestCouriers_Career.Models
         [MaxLength(50)]
         public string CarType { get; set; }
 
-        [Required]
         [MaxLength(50)]
         public string Price { get; set; }
 
-        [Required]
         [MaxLength(50)]
         public string State { get; set; }
 
-        [Required]
-        public int UserId { get; set; }
-
-
-        public User User { get; set; }
+        public Account Account { get; set; }
     }
 }

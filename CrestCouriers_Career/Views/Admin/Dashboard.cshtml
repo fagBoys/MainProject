@@ -1,5 +1,8 @@
 ﻿@model IEnumerable<CrestCouriers_Career.Models.Order>
-
+@using Microsoft.AspNetCore.Identity
+@using CrestCouriers_Career.Models
+@inject SignInManager<Account> SignInManager
+@inject UserManager<Account> UserManager
 @{
     ViewData["Title"] = "Dashboard";
     Layout = "~/Views/Shared/_SystemAdmin.cshtml";
@@ -138,7 +141,8 @@
 
             <div class="list-title-item">
                 <p>
-                    @Html.DisplayFor(modelItem => item.UserId)
+
+                    @Html.DisplayFor(modelItem => item.Account.UserName)
                 </p>
             </div>
 

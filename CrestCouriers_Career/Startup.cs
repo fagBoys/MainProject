@@ -13,6 +13,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using reCAPTCHA.AspNetCore;
+using CrestCouriers_Career.Models;
+using Microsoft.AspNetCore.Identity;
+
 
 namespace CrestCouriers_Career
 {
@@ -49,7 +52,9 @@ namespace CrestCouriers_Career
 
             services.AddHttpContextAccessor();
 
-            //services.AddDbContext<CrestContext>(option => option.UseSqlServer("Data Source=.;Initial Catalog=CrestDB;Integrated Security=True;"));
+            services.AddDbContext<CrestContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddIdentity<Account, IdentityRole>().AddEntityFrameworkStores<CrestContext>().AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,6 +73,7 @@ namespace CrestCouriers_Career
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseAuthentication();
             //app.UseCookiePolicy();    //Cookie has been disabled
             app.UseSession();
 

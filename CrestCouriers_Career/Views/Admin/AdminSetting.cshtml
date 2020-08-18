@@ -1,4 +1,4 @@
-﻿@model CrestCouriers_Career.Models.Admin
+﻿@model CrestCouriers_Career.Models.Account
 
 @{
     ViewData["Title"] = "AdminSetting";
@@ -39,19 +39,19 @@
     <form asp-controller="Admin" asp-action="AdminSetting" method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="row">
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="AdminId" hidden class="control-label"></label>
                 <input asp-for="AdminId" hidden class="form-control" value="@ViewData["myAdmin-AdminId"]" />
                 <span asp-validation-for="AdminId" class="text-danger"></span>
-            </div>
+            </div>*@
             <div class="col-sm-6">
-                <input asp-for="UserName" class="" placeholder="Username" value="@ViewData["myAdmin-UserName"]">
+                <input asp-for="UserName" class="" placeholder="Username">
                 <span asp-validation-for="UserName" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
             </div>
 
             <div class="col-sm-6">
-                <input asp-for="Password" placeholder="Password" value="@ViewData["myAdmin-Password"]">
-                <span asp-validation-for="Password" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                <input asp-for="PasswordHash" placeholder="Password">
+                <span asp-validation-for="PasswordHash" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
             </div>
 
         </div>
@@ -60,15 +60,15 @@
 
             <div class="col-sm-6">
                 <div class="order-input">
-                    <input asp-for="FirstName" placeholder="Fristname" value="@ViewData["myAdmin-FirstName"]">
+                    <input asp-for="FirstName" placeholder="Fristname">
                     <span asp-validation-for="FirstName" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
                 </div>
             </div>
 
             <div class="col-sm-6">
                 <div class="order-input">
-                    <input asp-for="Lastname" placeholder="Lastname" value="@ViewData["myAdmin-Lastname"]">
-                    <span asp-validation-for="Lastname" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                    <input asp-for="LastName" placeholder="Lastname">
+                    <span asp-validation-for="LastName" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
                 </div>
             </div>
 
@@ -78,15 +78,15 @@
 
             <div class="col-sm-6">
                 <div class="order-input">
-                    <input asp-for="PhoneNumber" placeholder="PhoneNumber" value="@ViewData["myAdmin-PhoneNumber"]">
+                    <input asp-for="PhoneNumber" placeholder="PhoneNumber">
                     <span asp-validation-for="PhoneNumber" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
                 </div>
             </div>
 
             <div class="col-sm-6">
                 <div class="order-input">
-                    <input asp-for="EmailAddress" placeholder="EmailAddress" value="@ViewData["myAdmin-EmailAddress"]">
-                    <span asp-validation-for="EmailAddress" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                    <input asp-for="Email" placeholder="EmailAddress">
+                    <span asp-validation-for="Email" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
                 </div>
             </div>
 

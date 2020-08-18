@@ -1,7 +1,14 @@
-﻿@model CrestCouriers_Career.Models.Admin;
+﻿@model CrestCouriers_Career.ViewModels.AccountViewModels.LoginViewModel
 @using Microsoft.Extensions.Options;
 @using reCAPTCHA.AspNetCore;
-
+@using System.Collections.Generic
+@using System.Linq
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Authentication
+@inject SignInManager<Account> SignInManager
+@{
+    ViewData["Title"] = "Log in";
+}
 @{
     Layout = null;
 }
@@ -35,12 +42,18 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <div class="input-div-location">
-                        <input asp-for="UserName" value="" style="margin-bottom:0px;" class="form-control2" placeholder="Username">
-                        <span asp-validation-for="UserName" class="text-danger"></span>
+                        <input asp-for="Email" value="" style="margin-bottom:0px;" class="form-control2" placeholder="Username">
+                        <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                     <div class="input-div-location">
                         <input type="password" asp-for="Password" value="" style="margin-bottom:0px;" class="form-control2" placeholder="Password">
                         <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="input-div-location">
+                        <label asp-for="RememberMe">
+                            <input asp-for="RememberMe" />
+                            @Html.DisplayNameFor(m => m.RememberMe)
+                        </label>
                     </div>
                     <div class="button-div-location">
                         <button type="submit" class="book-now-btn" style="margin:0 auto; margin-top:30px;" name="button">Login</button>
@@ -49,7 +62,7 @@
                 </form>
 
                 <div class="additional-text">
-                    <a class="login-single-text" asp-controller="Admin" asp-action="AdminLogin"><h6>Forgot Password</h6></a>
+                    <a class="login-single-text" asp-controller="User" asp-action="Login"><h6>Forgot Password</h6></a>
                     <a class="login-single-text" asp-controller="Home" asp-action="Index"><h6>Back to website</h6></a>
                 </div>
 

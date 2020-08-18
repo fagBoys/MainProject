@@ -187,7 +187,7 @@
 }
 
 .user-list-title-item {
-    width: 12%;
+    width: 13%;
     height: 100%;
     float: left;
     padding-top: 6px;
@@ -215,15 +215,23 @@
   border-radius: 25px;
   float: right;
   margin-right: 30px;
+
+  
 }
 
 .username-style
 {
   float: left;
   margin-top: 4px !important;
-  margin-left: 5px;
-  width: 100px;
+  margin-left: 10px;
   text-align:center;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100px;
+  max-height: 100px;
+
 
 }
 

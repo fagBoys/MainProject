@@ -261,18 +261,22 @@ namespace CrestCouriers_Career.Controllers
                 if (id == "Slough")
                 {
                     ViewData["CityMap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d170995.7475644822!2d-0.8568035154010306!3d51.54269866872921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487663427e9e92a9%3A0xb16ca352b90b0206!2sSlough!5e0!3m2!1sen!2suk!4v1595755000550!5m2!1sen!2suk";
+                    ViewData["Salary"] = "£12.00 Per Hours";
                 }
-                else if (id == "Oxford")
+                else if (id == "Birmingham")
                 {
-                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d79041.62410713962!2d-1.31762755242436!3d51.7503954869318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48713380adc41faf%3A0xc820dba8cb547402!2sOxford!5e0!3m2!1sen!2suk!4v1595755080403!5m2!1sen!2suk";
+                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d76145.62257369689!2d-2.6435830798807842!3d53.3870880561791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b01835b28c2a7%3A0x88e8e7e8adef7e45!2sWarrington!5e0!3m2!1sen!2suk!4v1597744842846!5m2!1sen!2suk";
+                    ViewData["Salary"] = "£9.00 Per Hours";
                 }
-                else if (id == "Gloucester")
+                else if (id == "Warrington")
                 {
-                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39839.46618518486!2d-2.2775265544521845!3d51.85708406793612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870fdfbf6ebf2cf%3A0xec709b9621e819cf!2sGloucester!5e0!3m2!1sen!2suk!4v1595755142846!5m2!1sen!2suk";
+                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d76145.62257369689!2d-2.6435830798807842!3d53.3870880561791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b01835b28c2a7%3A0x88e8e7e8adef7e45!2sWarrington!5e0!3m2!1sen!2suk!4v1597744842846!5m2!1sen!2suk";
+                    ViewData["Salary"] = "£9.00 Per Hours";
                 }
                 else if (id == "Bristol")
                 {
                     ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d159068.2712730391!2d-2.7308006159249643!3d51.46840550054924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4871836681b3d861%3A0x8ee4b22e4b9ad71f!2sBristol!5e0!3m2!1sen!2suk!4v1595755174884!5m2!1sen!2suk";
+                    ViewData["Salary"] = "£12.00 Per Hours";
                 }
                 return View();
 

@@ -1,4 +1,4 @@
-﻿@model CrestCouriers_Career.Models.User;
+﻿@model CrestCouriers_Career.ViewModels.AccountViewModels.RegisterViewModel;
 @using Microsoft.Extensions.Options
 @using reCAPTCHA.AspNetCore;
 
@@ -45,19 +45,8 @@
 
                     <div class="row">
                         <div class="input-div-location-right">
-                            <input asp-for="FirstName" style="margin-bottom:0;" class="form-control2" placeholder="Firstname">
-                            <span asp-validation-for="FirstName" class="text-danger"></span>
-                        </div>
-                        <div class="input-div-location-left">
-                            <input asp-for="LastName" style="margin-bottom:0;" class="form-control2" placeholder="Lastname">
-                            <span asp-validation-for="LastName" class="text-danger"></span>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-div-location-right">
-                            <input asp-for="UserName" style="margin-bottom:0;" class="form-control2" placeholder="Username">
-                            <span asp-validation-for="UserName" class="text-danger"></span>
+                            <input asp-for="Email" style="margin-bottom:0;" class="form-control2" placeholder="Email">
+                            <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                         <div class="input-div-location-left">
                             <input asp-for="Password" style="margin-bottom:0;" class="form-control2" placeholder="Password">
@@ -67,15 +56,10 @@
 
                     <div class="row">
                         <div class="input-div-location-right">
-                            <input asp-for="PhoneNumber" style="margin-bottom:0;" class="form-control2" placeholder="Phone number">
-                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                        </div>
-                        <div class="input-div-location-left">
-                            <input asp-for="EmailAddress" style="margin-bottom:0;" class="form-control2" placeholder="Email address">
-                            <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                            <input asp-for="ConfirmPassword" style="margin-bottom:0;" class="form-control2" placeholder="ConfirmPassword">
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="button-div-location">
                             <button type="submit" style="margin-top:30px;" class="book-now-btn" style="" name="button">Register</button>

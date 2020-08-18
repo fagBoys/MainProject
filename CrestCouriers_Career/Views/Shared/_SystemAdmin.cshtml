@@ -1,5 +1,8 @@
 ﻿<!DOCTYPE html>
-
+@using Microsoft.AspNetCore.Identity
+@using CrestCouriers_Career.Models
+@inject SignInManager<Account> SignInManager
+@inject UserManager<Account> UserManager
 <html>
 <head>
     <title>@ViewBag.Title</title>
@@ -69,7 +72,12 @@
                     <div class="circle" style="width:20px; height:20px;">
                         <img src="~/img/System/down-arrow.png" width="10px" height="10px" style="margin-left:5px; margin-bottom:6px;" alt="">
                     </div>
-                    <h6 class="username-style">@ViewData["Username"]</h6>
+                    <h6 class="username-style">
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            @UserManager.GetUserName(User)
+                        }
+                    </h6>
                 </div>
             </div>
         </div>
@@ -78,20 +86,20 @@
             <div class="col-sm-2" style="background-color:#282828; height:100%; padding:0;">
                 @RenderSection("AdminMenu");
                 @*<div class="panel-option-active">
-                    <h5>Dashboard</h5>
-                </div>
-                <div class="panel-option">
-                    <h5>Order</h5>
-                </div>
-                <div class="panel-option">
-                    <h5>Admin setting</h5>
-                </div>
-                <div class="panel-option">
-                    <h5>Admin accounts</h5>
-                </div>
-                <div class="panel-option">
-                    <h5>User accounts</h5>
-                </div>*@
+                        <h5>Dashboard</h5>
+                    </div>
+                    <div class="panel-option">
+                        <h5>Order</h5>
+                    </div>
+                    <div class="panel-option">
+                        <h5>Admin setting</h5>
+                    </div>
+                    <div class="panel-option">
+                        <h5>Admin accounts</h5>
+                    </div>
+                    <div class="panel-option">
+                        <h5>User accounts</h5>
+                    </div>*@
             </div>
 
             <div class="col-sm-10" style="text-align:center; margin:0 auto; padding:0;">

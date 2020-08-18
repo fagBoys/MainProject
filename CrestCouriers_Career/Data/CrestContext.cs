@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using CrestCouriers_Career.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace CrestCouriers_Career.Data
 {
-    public class CrestContext : DbContext
+    public class CrestContext : IdentityDbContext
 
     {
         public CrestContext()
@@ -18,15 +19,18 @@ namespace CrestCouriers_Career.Data
         {
 
         }
-        public DbSet<Admin> Admin { get; set; }
-        public DbSet<Contact> Contact { get; set; }
+        public DbSet<Account> Account { get; set; }
         public DbSet<Order> Order { get; set; }
+        public DbSet<Contact> Contact { get; set; }
         public DbSet<RegCareer> RegCareer { get; set; }
-        public DbSet<User> User { get; set; }
-
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=CrestDB;Integrated Security=True;");
+            optionsBuilder.UseSqlServer("Server=.;Database=CrestDB;Trusted_Connection=True;MultipleActiveResultSets=true");
+        }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
         }
     }
 }

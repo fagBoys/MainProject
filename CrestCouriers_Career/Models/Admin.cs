@@ -3,21 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace CrestCouriers_Career.Models
 {
-    public class Admin
+    public class Admin : IdentityUser
     {
-        [Key]
-        public int AdminId { get; set; }
-
-        [Required]
-        [MaxLength(50)]
-        public string UserName { get; set; }
-
-        [Required]
-        [MaxLength(50)]
-        public string Password { get; set; }
 
         [Required]
         [MaxLength(50)]
@@ -29,16 +20,7 @@ namespace CrestCouriers_Career.Models
 
         [Required]
         [MaxLength(50)]
-        public string PhoneNumber { get; set; }
-
-        [Required]
-        [EmailAddress]
-        public string EmailAddress { get; set; }
-
-        [Required]
-        [MaxLength(50)]
         public string Level { get; set; }
-
 
     }
 }

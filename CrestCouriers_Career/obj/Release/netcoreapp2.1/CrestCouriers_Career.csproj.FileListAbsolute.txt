@@ -103,7 +103,6 @@ C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\ne
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Shared\_SystemAdmin.cshtml.g.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\User\Edit.cshtml.g.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\User\Order.cshtml.g.cs
-C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\User\User.cshtml.g.cs
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\bin\Release\netcoreapp2.1\CrestCouriers_Career.deps.json
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\bin\Release\netcoreapp2.1\CrestCouriers_Career.runtimeconfig.json
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\bin\Release\netcoreapp2.1\CrestCouriers_Career.runtimeconfig.dev.json
@@ -167,3 +166,4 @@ C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\ne
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\Login.cshtml.g.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\SystemUserEdit.cshtml.g.cs
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\User\ForgotPassword.cshtml.g.cs
+C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs

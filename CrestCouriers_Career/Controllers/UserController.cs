@@ -1,26 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using CrestCouriers_Career.Data;
 using CrestCouriers_Career.Models;
-using System.Data.SqlClient;
-using System.Data;
-using System.IO;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Hosting;
-using MailKit.Net.Smtp;
-using MimeKit;
-using reCAPTCHA.AspNetCore;
-using Microsoft.IdentityModel.Protocols;
-using System.Configuration;
-using MimeKit.Utils;
-using Newtonsoft.Json;
-using Microsoft.AspNetCore.Authorization;
 using CrestCouriers_Career.ViewModels;
-using CrestCouriers_Career.Data;
+using CrestCouriers_Career.ViewModels.AccountViewModels;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using reCAPTCHA.AspNetCore;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace CrestCouriers_Career.Controllers
 {
@@ -30,240 +26,191 @@ namespace CrestCouriers_Career.Controllers
         private IHostingEnvironment _environment;
 
         private IRecaptchaService _recaptcha;
-        public UserController(IHostingEnvironment environment, IRecaptchaService recaptcha)
+
+        private readonly UserManager<Account> _userManager;
+
+        private readonly SignInManager<Account> _signInManager;
+
+        private readonly ILogger _logger;
+       
+        public UserController(IHostingEnvironment environment, IRecaptchaService recaptcha, UserManager<Account> userManager, SignInManager<Account> signInManager, ILogger<Account> logger)
         {
             _environment = environment;
 
             _recaptcha = recaptcha;
+
+            _userManager = userManager;
+
+            _signInManager = signInManager;
+
+            _logger = logger;
         }
 
+        private void AddErrors(IdentityResult result)
+        {
+            foreach(var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+        }
+
+        private IActionResult RedirectToLocal(string returnUrl)
+        {
+            if(Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            else
+            {
+                return RedirectToAction(nameof(HomeController.Index), "Home");
+            }
+        }
 
         public IActionResult Index()
         {
             return View();
         }
         
-        public IActionResult Register()
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Register(string returnUrl = null)
         {
+            ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
 
 
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(User register, EmailRequest emailRequest)
+        public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
         {
+            ViewData["ReturnUrl"] = returnUrl;
+            //ViewData["RepeatedUser"] = "no";
 
-            ViewData["RepeatedUser"] = "no";
             if (ModelState.IsValid)
             {
-                ViewData["Title"] = "register";
+                //ViewData["Title"] = "register";
 
-                //Recaptcha code begins here
-
-
-                //var recaptcha = await _recaptcha.Validate(Request);
-                //if (!recaptcha.success)
-                //    ModelState.AddModelError("Recaptcha", "There was an error validating recatpcha. Please try again!");
+                ////Recaptcha code begins here
 
 
-                //Recaptcha code ends here
+                ////var recaptcha = await _recaptcha.Validate(Request);
+                ////if (!recaptcha.success)
+                ////    ModelState.AddModelError("Recaptcha", "There was an error validating recatpcha. Please try again!");
 
-                string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-                Dal connection1 = new Dal(myurl);
-                SqlCommand getUser = new SqlCommand("sp_Crest_MyUser", connection1.connect());
-                SqlDataAdapter userda = new SqlDataAdapter();
-                DataTable userdt = new DataTable();
-                getUser.CommandType = CommandType.StoredProcedure;
-                getUser.Parameters.AddWithValue("UserName", register.UserName);
-                userda.SelectCommand = getUser;
-                userda.Fill(userdt);
-                if (userdt.Rows.Count > 0)
+
+                ////Recaptcha code ends here
+
+
+
+                var user = new Account { UserName = model.Email, Email = model.Email, IsUser = true, IsActive = false, IsAdmin = false, AdminType = false};
+                var result = await _userManager.CreateAsync(user, model.Password);
+
+                if(result.Succeeded)
                 {
-                    ViewData["RepeatedUser"] = "yes";
-                    return View();
+                    _logger.LogInformation("User created a new account with password.");
+
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+
+
+                    _logger.LogInformation("User created new account with password.");
+                    return RedirectToLocal(returnUrl);
                 }
-                else
-                {
-                    myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-                    Dal connection2 = new Dal(myurl);
-
-                    SqlCommand cmd = new SqlCommand("sp_Crest_Register", connection2.connect())
-                    {
-                        CommandType = CommandType.StoredProcedure
-                    };
-                    cmd.Parameters.AddWithValue("@FirstName", register.FirstName);
-                    cmd.Parameters.AddWithValue("@LastName", register.LastName);
-                    cmd.Parameters.AddWithValue("@UserName", register.UserName);
-                    cmd.Parameters.AddWithValue("@Password", register.Password);
-                    cmd.Parameters.AddWithValue("@PhoneNumber", register.PhoneNumber);
-                    cmd.Parameters.AddWithValue("@EmailAddress", register.EmailAddress);
-                    cmd.Parameters.AddWithValue("@Active", "1");
-
-
-                    cmd.ExecuteNonQuery();
-
-                    connection2.disconnect();
-
-
-                    ///////    Send Email     ///////
-                    MimeMessage message = new MimeMessage();
-
-                    MailboxAddress from = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
-                    message.From.Add(from);
-
-                    MailboxAddress to = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
-                    message.To.Add(to);
-
-                    message.Subject = " register";
-
-                    BodyBuilder bodyBuilder = new BodyBuilder();
-                    var usericfile = System.IO.File.OpenRead(_environment.WebRootPath + @"\Email\newuser.png");
-                    MemoryStream newms = new MemoryStream();
-                    await usericfile.CopyToAsync(newms);
-
-
-                    var mybody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailbody-contact.html");
-
-                    mybody = mybody.Replace("Value00", register.FirstName);
-                    mybody = mybody.Replace("Value01", register.LastName);
-                    mybody = mybody.Replace("Value02", register.UserName);
-                    mybody = mybody.Replace("Value03", register.Password);
-                    mybody = mybody.Replace("Value04", register.PhoneNumber);
-                    mybody = mybody.Replace("Value05", register.EmailAddress);
-
-
-
-
-                    bodyBuilder.HtmlBody = mybody;
-
-                    var usericon = bodyBuilder.LinkedResources.Add(_environment.WebRootPath + @"/Email/newuser.png");
-                    usericon.ContentId = MimeUtils.GenerateMessageId();
-
-                    bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("{", "{{");
-                    bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("}", "}}");
-                    bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("{{0}}", "{0}");
-
-                    bodyBuilder.HtmlBody = string.Format(bodyBuilder.HtmlBody, usericon.ContentId);
-
-                    message.Body = bodyBuilder.ToMessageBody();
-
-
-                    SmtpClient client = new SmtpClient();
-                    client.Connect("smtp.gmail.com", 465, true);
-                    client.Authenticate("crestcouriers@gmail.com", "CRESTcouriers123");
-
-
-                    client.Send(message);
-                    //First email
-
-
-                    MimeMessage message2 = new MimeMessage();
-
-                    MailboxAddress from2 = new MailboxAddress("CrestCouriers", "test@crestcouriers.com");
-                    message2.From.Add(from2);
-
-                    MailboxAddress to2 = new MailboxAddress(register.FirstName + " " + register.LastName, register.EmailAddress);
-                    message2.To.Add(to2);
-
-                    message2.Subject = "register";
-
-
-                    BodyBuilder bobu = new BodyBuilder
-                    {
-                        HtmlBody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailreply-contact.html")
-                    };
-
-
-
-
-                    // var logo = System.IO.File.OpenRead(_environment.WebRootPath + @"/img/logo.png");
-                    MemoryStream myms = new MemoryStream();
-                    await usericfile.CopyToAsync(myms);
-
-                    var embedlogo = bobu.LinkedResources.Add(_environment.WebRootPath + @"/img/logo.png");
-                    embedlogo.ContentId = MimeUtils.GenerateMessageId();
-
-                    bobu.HtmlBody = bobu.HtmlBody.Replace("{", "{{");
-                    bobu.HtmlBody = bobu.HtmlBody.Replace("}", "}}");
-                    bobu.HtmlBody = bobu.HtmlBody.Replace("{{0}}", "{0}");
-
-                    bobu.HtmlBody = string.Format(bobu.HtmlBody, embedlogo.ContentId);
-
-
-                    message2.Body = bobu.ToMessageBody();
-
-                    SmtpClient client2 = new SmtpClient();
-                    client2.Connect("smtp.gmail.com", 465, true);
-                    client2.Authenticate("crestcouriers@gmail.com", "CRESTcouriers123");
-
-
-                    client2.Send(message2);
-                    client2.Disconnect(true);
-                    client2.Dispose();
-                    ///////   End Send Email    //////////
-
-
-
-
-
-
-                    return View(!ModelState.IsValid ? register : new User());
-                }
+                AddErrors(result);
             }
-            else
-            {
                 return View();
-            }
-
         }
 
-
-        public IActionResult Login()
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> Login(string returnUrl = null)
         {
+            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+
+            ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(User userlogin)
+        public async Task<IActionResult> Login(LoginViewModel model,string returnUrl = null)
         {
-            //if(!ModelState.IsValid)
-            //{
+            ////if(!ModelState.IsValid)
+            ////{
+            ////    return View();
+            ////}
+            ////else
+            ////{ 
+            //    string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            //    Dal connection = new Dal(myurl);
+            //    SqlDataAdapter da = new SqlDataAdapter();
+            //    DataTable dt = new DataTable();
+            //    SqlCommand cmd = new SqlCommand("sp_Crest_Login", connection.connect());
+            //    cmd.Parameters.AddWithValue("@UserName", userlogin.UserName);
+            //    cmd.CommandType = CommandType.StoredProcedure;
+            //    da.SelectCommand = cmd;
+            //    da.Fill(dt);
+            //    if (dt.Rows.Count > 0)
+            //    {
+            //        if (dt.Rows[0][0].ToString() != userlogin.UserName && dt.Rows[0][1].ToString() != userlogin.PasswordHash && System.Convert.ToInt32(dt.Rows[0][2].ToString()) == 0)
+            //        {
+            //            return View();
+            //        }
+            //        else if (dt.Rows[0][0].ToString() == userlogin.UserName && dt.Rows[0][1].ToString() == userlogin.PasswordHash && System.Convert.ToInt32(dt.Rows[0][2].ToString()) != 0)
+            //        {
+            //            HttpContext.Session.SetString("UserSession", userlogin.UserName);
+            //            return new RedirectResult("/user/dashboard");
+            //        }
+            //    }
+            //    else
+            //    {
+            //        return View();
+            //    }
+
             //    return View();
-            //}
-            //else
-            //{ 
-                string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-                Dal connection = new Dal(myurl);
-                SqlDataAdapter da = new SqlDataAdapter();
-                DataTable dt = new DataTable();
-                SqlCommand cmd = new SqlCommand("sp_Crest_Login", connection.connect());
-                cmd.Parameters.AddWithValue("@UserName", userlogin.UserName);
-                cmd.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand = cmd;
-                da.Fill(dt);
-                if (dt.Rows.Count > 0)
+            ////}
+            ///
+
+
+            ViewData["ReturnUrl"] = returnUrl;
+
+            if(ModelState.IsValid)
+            {
+                CrestContext context = new CrestContext();
+                var result = await _signInManager.PasswordSignInAsync(model.Email,model.Password,model.RememberMe, lockoutOnFailure: false);
+                Account Account = await context.Account.Where(A=>A.Email == model.Email).FirstOrDefaultAsync();
+                if(result.Succeeded && Account.IsUser && Account.IsActive)
                 {
-                    if (dt.Rows[0][0].ToString() != userlogin.UserName && dt.Rows[0][1].ToString() != userlogin.Password && System.Convert.ToInt32(dt.Rows[0][2].ToString()) == 0)
-                    {
-                        return View();
-                    }
-                    else if (dt.Rows[0][0].ToString() == userlogin.UserName && dt.Rows[0][1].ToString() == userlogin.Password && System.Convert.ToInt32(dt.Rows[0][2].ToString()) != 0)
-                    {
-                        HttpContext.Session.SetString("UserSession", userlogin.UserName);
-                        return new RedirectResult("/user/dashboard");
-                    }
+                    
+                    _logger.LogInformation("User logged in.");
+                    return RedirectToAction(nameof(Dashboard));
+
+                }
+                if(result.IsLockedOut)
+                {
+                    _logger.LogWarning("User account locked out.");
+                    return RedirectToLocal(nameof(Lockout));
                 }
                 else
                 {
-                    return View();
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    return View(model);
                 }
+            }
 
-                return View();
-            //}
+            return View();
 
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Lockout()
+        {
+            return View();
+        }
+
         [HttpGet]
         [AllowAnonymous]
         public IActionResult ForgotPassword()
@@ -300,54 +247,17 @@ namespace CrestCouriers_Career.Controllers
             }
         }
 
-        public IEnumerable<Order> MyOrders(DataTable dataTable)
-        {
 
-
-            foreach (DataRow item in dataTable.Rows)
-            {
-                yield return new Order
-                {
-                    OrderId = System.Convert.ToInt32(item["Orderid"].ToString()),
-                    OrderDate = Convert.ToDateTime(item["OrderDate"]),
-                    Origin = item["Origin"].ToString(),
-                    Destination = item["Destination"].ToString(),
-                    CollectionDate = Convert.ToDateTime(item["CollectionDate"]),
-                    DeliveryDate = Convert.ToDateTime(item["DeliveryDate"]),
-                    CarType = item["CarType"].ToString(),
-                    UserId = System.Convert.ToInt32(item["UserId"].ToString()),
-                    Price = item["Price"].ToString(),
-                    State = item["State"].ToString(),
-                };
-            }
-
-
-        }
         public IActionResult Dashboard()
         {
-            if (HttpContext.Session.GetString("UserSession") == null)
-            {
-                return new RedirectResult("/User/Login");
-            }
-            else
-            {
-                ViewData["Username"] = HttpContext.Session.GetString("UserSession");
-            }
-
-            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            //Dal connection = new Dal(myurl);
-            //SqlDataAdapter da = new SqlDataAdapter();
-            //DataTable dt = new DataTable();
-            //SqlCommand cmd = new SqlCommand("sp_Crest_UserOrderList", connection.connect());
-            //cmd.CommandType = CommandType.StoredProcedure;
-            //cmd.Parameters.AddWithValue("UserName", ViewData["Username"]);
-            //da.SelectCommand = cmd;
-            //da.Fill(dt);
 
             //EF core start
 
             CrestContext context = new CrestContext();
-            IEnumerable<Order> orders = context.Order.ToList();
+            Account Account = context.Account.FirstOrDefault(A => A.Id == _userManager.GetUserId(User as ClaimsPrincipal));
+
+            CrestContext GetOrders = new CrestContext();
+            IEnumerable<Order> orders = context.Order.Where(O => O.Account == Account);
 
             //EF core end
 
@@ -385,48 +295,17 @@ namespace CrestCouriers_Career.Controllers
 
         public IActionResult Edit(int id)
         {
-            if (HttpContext.Session.GetString("UserSession") == null)
-            {
-                return new RedirectResult("/User/Login");
-            }
-            else
-            {
-                ViewData["Username"] = HttpContext.Session.GetString("UserSession");
-            }
 
             ViewData["Orderid"] = HttpContext.Session.GetString("OrderIDSession");
-
-            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            //Dal connection = new Dal(myurl);
-            //SqlDataAdapter da = new SqlDataAdapter();
-            //DataTable dt = new DataTable();
-            //SqlCommand cmd = new SqlCommand("sp_Crest_MyOrder", connection.connect());
-            //cmd.CommandType = CommandType.StoredProcedure;
-            //cmd.Parameters.AddWithValue("@Orderid", id);
-            //da.SelectCommand = cmd;
-            //da.Fill(dt);
-
-            //ViewData["Orderid"] = dt.Rows[0][0];
-            //ViewData["Origin"] = dt.Rows[0][2];
-            //ViewData["Destination"] = dt.Rows[0][3];
-            //ViewData["ReceiveDate"] = dt.Rows[0][4];
-            //ViewData["DeliveryDate"] = dt.Rows[0][5];
-            //ViewData["CarType"] = dt.Rows[0][6];
 
             //EF core start
             CrestContext context = new CrestContext();
             Order order = context.Order.FirstOrDefault(o => o.OrderId == id);
 
-            ViewData["Orderid"] = order.OrderId;
-            ViewData["Origin"] = order.Origin;
-            ViewData["Destination"] = order.Destination;
-            ViewData["CollectionDate"] = order.CollectionDate;
-            ViewData["DeliveryDate"] = order.DeliveryDate;
-            ViewData["CarType"] = order.CarType;
             //EF core end
 
 
-            return View();
+            return View(order);
         }
 
 
@@ -434,31 +313,6 @@ namespace CrestCouriers_Career.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult EditOrder(Order editedorder)
         {
-            if (HttpContext.Session.GetString("UserSession") == null)
-            {
-                return new RedirectResult("/User/Login");
-            }
-            {
-                ViewData["Username"] = HttpContext.Session.GetString("UserSession");
-            }
-
-            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            //Dal connection = new Dal(myurl);
-            //SqlDataAdapter da = new SqlDataAdapter();
-            //DataTable dt = new DataTable();
-            //SqlCommand cmd = new SqlCommand("sp_Crest_UpdateOrder", connection.connect())
-            //{
-            //    CommandType = CommandType.StoredProcedure
-            //};
-            //cmd.Parameters.AddWithValue("@Orderid", order.OrderId);
-            //cmd.Parameters.AddWithValue("@Origin", order.Origin);
-            //cmd.Parameters.AddWithValue("@Destination", order.Destination);
-            //cmd.Parameters.AddWithValue("@ReceiveDate", order.CollectionDate);
-            //cmd.Parameters.AddWithValue("@DeliveryDate", order.DeliveryDate);
-            //cmd.Parameters.AddWithValue("@CarType", order.CarType);
-
-
-            //cmd.ExecuteNonQuery();
 
             //EF core start
             CrestContext context = new CrestContext();
@@ -467,7 +321,7 @@ namespace CrestCouriers_Career.Controllers
             editedorder.OrderDate = order.OrderDate;
             editedorder.Price = order.Price;
             editedorder.State = order.State;
-            editedorder.UserId = order.UserId;
+            //editedorder.Id = order.Id;
             CrestContext editcontext = new CrestContext();
             editcontext.Attach(editedorder).State = EntityState.Modified;
             editcontext.SaveChangesAsync();
@@ -479,14 +333,6 @@ namespace CrestCouriers_Career.Controllers
 
         public IActionResult Order()
         {
-            if (HttpContext.Session.GetString("UserSession") == null)
-            {
-                return new RedirectResult("/User/Login");
-            }
-            {
-                ViewData["Username"] = HttpContext.Session.GetString("UserSession");
-            }
-
             return View();
         }
 
@@ -495,14 +341,6 @@ namespace CrestCouriers_Career.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Order(Order order)
         {
-            if (HttpContext.Session.GetString("UserSession") == null)
-            {
-                return new RedirectResult("/User/Login");
-            }
-            {
-                ViewData["Username"] = HttpContext.Session.GetString("UserSession");
-            }
-
             ViewData["Title"] = "Order";
 
             //Recaptcha code begins here
@@ -516,39 +354,13 @@ namespace CrestCouriers_Career.Controllers
             //Recaptcha code ends here
 
 
-
-
-            ///////////////////////////////////////////////
-
-            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            //Dal connection = new Dal(myurl);
-
-            //SqlCommand cmd = new SqlCommand("sp_Crest_NewOrder", connection.connect())
-            //{
-            //    CommandType = CommandType.StoredProcedure
-            //};
-            //cmd.Parameters.AddWithValue("@OrderDate", DateTime.Now);
-            //cmd.Parameters.AddWithValue("@Origin", order.Origin);
-            //cmd.Parameters.AddWithValue("@Destination", order.Destination);
-            //cmd.Parameters.AddWithValue("@ReceiveDate", order.CollectionDate);
-            //cmd.Parameters.AddWithValue("@DeliveryDate", order.DeliveryDate);
-            //cmd.Parameters.AddWithValue("@CarType", order.CarType);
-            //cmd.Parameters.AddWithValue("@Userid", "1");
-            //cmd.Parameters.AddWithValue("@Price", "0");
-            //cmd.Parameters.AddWithValue("@State", "1");
-            //cmd.ExecuteNonQuery();
-            //connection.disconnect();
-
-
-
             //EF CORE START
 
             CrestContext context = new CrestContext();
-
+            Account curaccount = context.Account.FirstOrDefault(A => A.Id == _userManager.GetUserId(User as ClaimsPrincipal));
+            context.Attach(curaccount).State = EntityState.Unchanged;
+            order.Account = curaccount as Account;
             context.Order.Add(order);
-            order.Price = "0";
-            order.UserId = 1;
-            order.State = "1";
             context.SaveChanges();
 
             //EF CORE END
@@ -561,96 +373,45 @@ namespace CrestCouriers_Career.Controllers
         {
             return View();
         }
-
-        public IActionResult User()
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult UserInformation()
         {
-            if (HttpContext.Session.GetString("UserSession") == null)
-            {
-                return new RedirectResult("/User/Login");
-            }
-            {
-                ViewData["Username"] = HttpContext.Session.GetString("UserSession");
-            }
-
-            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            //Dal connection = new Dal(myurl);
-            //SqlDataAdapter da = new SqlDataAdapter();
-            //DataTable dt = new DataTable();
-            //SqlCommand cmd = new SqlCommand("sp_Crest_MyUser", connection.connect());
-            //cmd.CommandType = CommandType.StoredProcedure;
-            //cmd.Parameters.AddWithValue("@Username", HttpContext.Session.GetString("UserSession"));
-            //da.SelectCommand = cmd;
-            //da.Fill(dt);
 
             //EF
             CrestContext context = new CrestContext();
-            User users = context.User.FirstOrDefault(U => U.UserName == ViewData["Username"].ToString());
+            Account Account = context.Account.FirstOrDefault(A => A.Id == _userManager.GetUserId(User as ClaimsPrincipal));
             //EF
+            return View(Account);
 
-            ViewData["myuser-Username"] = users.UserName;
-            ViewData["myuser-Password"] = users.Password;
-            ViewData["myuser-FirstName"] = users.FirstName;
-            ViewData["myuser-LastName"] = users.LastName;
-            ViewData["myuser-PhoneNumber"] = users.PhoneNumber;
-            ViewData["myuser-EmailAddress"] = users.EmailAddress;
-
-            return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public IActionResult User(User user)
+        public async Task<IActionResult> UserInformation(Account UpdatedAccount)
         {
-            if (HttpContext.Session.GetString("UserSession") == null)
-            {
-                return new RedirectResult("/User/Login");
-            }
-            {
-                ViewData["Username"] = HttpContext.Session.GetString("UserSession");
-            }
-
-            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            //Dal connection = new Dal(myurl);
-            //SqlCommand cmd = new SqlCommand("sp_Crest_UpdateUser", connection.connect());
-            //cmd.CommandType = CommandType.StoredProcedure;
-            //cmd.Parameters.AddWithValue("@UserName", user.UserName);
-            //cmd.Parameters.AddWithValue("@Password", user.Password);
-            //cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
-            //cmd.Parameters.AddWithValue("@LastName", user.LastName);
-            //cmd.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
-            //cmd.Parameters.AddWithValue("@EmailAddress", user.EmailAddress);
-
-            //cmd.ExecuteNonQuery();
 
 
 
             ////EF core start
+            
             CrestContext context = new CrestContext();
+            Account CurrentAccount = await _userManager.FindByIdAsync(_userManager.GetUserId(User as ClaimsPrincipal));
 
-            User user1 = new User();
-            user1 = context.User.FirstOrDefault(O => O.UserName == user.UserName);
+            CurrentAccount.UserName = UpdatedAccount.UserName;
+            CurrentAccount.PasswordHash = UpdatedAccount.PasswordHash;
+            CurrentAccount.FirstName = UpdatedAccount.FirstName;
+            CurrentAccount.LastName = UpdatedAccount.LastName;
+            CurrentAccount.PhoneNumber = UpdatedAccount.PhoneNumber;
 
-            user.Active = user1.Active;
-            user.UserId = user1.UserId;
+            _userManager.UpdateAsync(CurrentAccount);
 
-            CrestContext editcontext = new CrestContext();
-            editcontext.Attach(user).State = EntityState.Modified;
-            editcontext.SaveChangesAsync();
             ////EF core end
 
 
 
-
-
-
-
-
-
-
-
-
-
-            return new RedirectResult("/User/User");
+            return new RedirectResult("/User/UserInformation");
         }
 
     }
