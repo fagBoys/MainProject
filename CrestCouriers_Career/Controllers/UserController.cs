@@ -10,6 +10,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using MimeKit;
+using MimeKit.Utils;
+using MailKit.Net.Smtp;
 using reCAPTCHA.AspNetCore;
 using System.Collections.Generic;
 using System.Data;
@@ -104,7 +107,7 @@ namespace CrestCouriers_Career.Controllers
 
 
 
-                var user = new Account { UserName = model.Email, Email = model.Email, IsUser = true, IsActive = false, IsAdmin = false, AdminType = false};
+                var user = new Account { UserName = model.Username, Email = model.Email, IsUser = true, FirstName = model.Firstname, LastName = model.Lastname, IsActive = false, IsAdmin = false, AdminType = false};
                 var result = await _userManager.CreateAsync(user, model.Password);
 
                 if(result.Succeeded)
@@ -137,50 +140,14 @@ namespace CrestCouriers_Career.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model,string returnUrl = null)
         {
-            ////if(!ModelState.IsValid)
-            ////{
-            ////    return View();
-            ////}
-            ////else
-            ////{ 
-            //    string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            //    Dal connection = new Dal(myurl);
-            //    SqlDataAdapter da = new SqlDataAdapter();
-            //    DataTable dt = new DataTable();
-            //    SqlCommand cmd = new SqlCommand("sp_Crest_Login", connection.connect());
-            //    cmd.Parameters.AddWithValue("@UserName", userlogin.UserName);
-            //    cmd.CommandType = CommandType.StoredProcedure;
-            //    da.SelectCommand = cmd;
-            //    da.Fill(dt);
-            //    if (dt.Rows.Count > 0)
-            //    {
-            //        if (dt.Rows[0][0].ToString() != userlogin.UserName && dt.Rows[0][1].ToString() != userlogin.PasswordHash && System.Convert.ToInt32(dt.Rows[0][2].ToString()) == 0)
-            //        {
-            //            return View();
-            //        }
-            //        else if (dt.Rows[0][0].ToString() == userlogin.UserName && dt.Rows[0][1].ToString() == userlogin.PasswordHash && System.Convert.ToInt32(dt.Rows[0][2].ToString()) != 0)
-            //        {
-            //            HttpContext.Session.SetString("UserSession", userlogin.UserName);
-            //            return new RedirectResult("/user/dashboard");
-            //        }
-            //    }
-            //    else
-            //    {
-            //        return View();
-            //    }
-
-            //    return View();
-            ////}
-            ///
-
 
             ViewData["ReturnUrl"] = returnUrl;
 
             if(ModelState.IsValid)
             {
                 CrestContext context = new CrestContext();
-                var result = await _signInManager.PasswordSignInAsync(model.Email,model.Password,model.RememberMe, lockoutOnFailure: false);
-                Account Account = await context.Account.Where(A=>A.Email == model.Email).FirstOrDefaultAsync();
+                var result = await _signInManager.PasswordSignInAsync(model.Username,model.Password,model.RememberMe, lockoutOnFailure: false);
+                Account Account = await context.Account.Where(A=>A.UserName == model.Username).FirstOrDefaultAsync();
                 if(result.Succeeded && Account.IsUser && Account.IsActive)
                 {
                     
@@ -206,13 +173,6 @@ namespace CrestCouriers_Career.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Lockout()
-        {
-            return View();
-        }
-
-        [HttpGet]
-        [AllowAnonymous]
         public IActionResult ForgotPassword()
         {
             return View();
@@ -222,31 +182,99 @@ namespace CrestCouriers_Career.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
-            if(!ModelState.IsValid)
+            if(ModelState.IsValid)
             {
-
-                string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-                Dal connection = new Dal(myurl);
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = connection.connect();
-                cmd.CommandText = "SELECT * From SystemUser WHERE EmailAddress='"+ model.Email +"'";
-                SqlDataAdapter da = new SqlDataAdapter();
-                DataTable dt = new DataTable();
-                da.SelectCommand = cmd;
-                da.Fill(dt);
-
-                if (dt.Rows.Count > 0)
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                if(user != null && await _userManager.IsEmailConfirmedAsync(user))
                 {
-                    
+                    var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+                    var passwordResetLink = Url.Action("ResetPassword", "User", new { email = model.Email, token = token }, Request.Scheme);
+
+                    //Logge(LogLevel.Warning, passwordResetLink);
+
+                    //  Send Email  //
+                    MailboxAddress from = new MailboxAddress("Crest Couriers", "contact@crestcouriers.co.uk");
+
+                    MailboxAddress to = new MailboxAddress(user.FirstName + " " + user.LastName, user.Email);
+
+                    MimeMessage message = new MimeMessage();
+                    message.Subject = "Resset Password";
+                    BodyBuilder bodyBuilder = new BodyBuilder();
+                    var mybody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailreply-forgotpassword.html");
+                    mybody = mybody.Replace("Value00", user.FirstName + " " + user.LastName);
+                    mybody = mybody.Replace("Value01", passwordResetLink);
+
+                    bodyBuilder.HtmlBody = mybody;
+                    var usericon = bodyBuilder.LinkedResources.Add(_environment.WebRootPath + @"/Email/newuser.png");
+                    usericon.ContentId = MimeUtils.GenerateMessageId();
+
+                    bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("{", "{{");
+                    bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("}", "}}");
+                    bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("{{0}}", "{0}");
+
+                    bodyBuilder.HtmlBody = string.Format(bodyBuilder.HtmlBody, usericon.ContentId);
+
+                    message.Body = bodyBuilder.ToMessageBody();
+
+                    SmtpClient client = new SmtpClient();
+                    client.Connect("smtp.gmail.com", 465, true);
+                    client.Authenticate("crestcouriers@gmail.com", "CRESTcouriers123");
+
+                    message.From.Add(from);
+                    message.To.Add(to);
+
+                    client.Send(message);
+                    //  Send Email ends here    //
+
+                    return View();
                 }
                 return View();
             }
-            else
-            {
-                return View(model);
-            }
+
+            return View(model);
         }
 
+        public IActionResult ResetPassword(string token, string email)
+        {
+            if(token == null || email == null)
+            {
+                ModelState.AddModelError("", "Invalid password reset token.");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                if(user != null)
+                {
+                    var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+                    if(result.Succeeded)
+                    {
+                        return View();
+                    }
+                    foreach(var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                    return View();
+                }
+                return View();
+            }
+            return View(model);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Lockout()
+        {
+            return View();
+        }
 
         public IActionResult Dashboard()
         {
@@ -268,17 +296,6 @@ namespace CrestCouriers_Career.Controllers
 
         public ActionResult Delete(int id)
         {
-            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            //Dal connection = new Dal(myurl);
-            //SqlCommand cmd = new SqlCommand("sp_Crest_DeleteOrder", connection.connect())
-            //{
-            //    CommandType = CommandType.StoredProcedure
-            //};
-            //SqlParameter parametrid = new SqlParameter();
-            //parametrid.ParameterName = "@Orderid";
-            //parametrid.Value = id;
-            //cmd.Parameters.Add(parametrid);
-            //cmd.ExecuteNonQuery();
 
             //EF core start
             CrestContext context = new CrestContext();
@@ -286,9 +303,6 @@ namespace CrestCouriers_Career.Controllers
             context.Order.Remove(order);
             context.SaveChangesAsync();
             //EF core end
-
-
-
 
             return new RedirectResult("/User/Dashboard");
         }
@@ -327,7 +341,7 @@ namespace CrestCouriers_Career.Controllers
             editcontext.SaveChangesAsync();
             //EF core end
 
-            return new RedirectResult("/User/dashboard");
+            return RedirectToAction("Dashboard");
         }
 
 
@@ -360,6 +374,8 @@ namespace CrestCouriers_Career.Controllers
             Account curaccount = context.Account.FirstOrDefault(A => A.Id == _userManager.GetUserId(User as ClaimsPrincipal));
             context.Attach(curaccount).State = EntityState.Unchanged;
             order.Account = curaccount as Account;
+            order.Price = "0";
+            order.State = "1";
             context.Order.Add(order);
             context.SaveChanges();
 
@@ -400,12 +416,12 @@ namespace CrestCouriers_Career.Controllers
             Account CurrentAccount = await _userManager.FindByIdAsync(_userManager.GetUserId(User as ClaimsPrincipal));
 
             CurrentAccount.UserName = UpdatedAccount.UserName;
-            CurrentAccount.PasswordHash = UpdatedAccount.PasswordHash;
+            CurrentAccount.PhoneNumber = UpdatedAccount.PhoneNumber;
             CurrentAccount.FirstName = UpdatedAccount.FirstName;
             CurrentAccount.LastName = UpdatedAccount.LastName;
-            CurrentAccount.PhoneNumber = UpdatedAccount.PhoneNumber;
 
-            _userManager.UpdateAsync(CurrentAccount);
+
+            await _userManager.UpdateAsync(CurrentAccount);
 
             ////EF core end
 
@@ -414,5 +430,14 @@ namespace CrestCouriers_Career.Controllers
             return new RedirectResult("/User/UserInformation");
         }
 
+        public async Task<IActionResult> Logout()
+        {
+            if(User.Identity.IsAuthenticated)
+            {
+                await HttpContext.SignOutAsync();
+                return RedirectToAction("Login");
+            }
+            return View();
+        }
     }
 }

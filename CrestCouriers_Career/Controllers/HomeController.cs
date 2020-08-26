@@ -132,7 +132,6 @@ namespace CrestCouriers_Career.Controllers
             message.Subject = " Contact";
 
             BodyBuilder bodyBuilder = new BodyBuilder();
-            //ViewData["filepath"] = @"C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\wwwroot\Email\newuser.png";
             var usericfile = System.IO.File.OpenRead(_environment.WebRootPath + @"\Email\newuser.png");
             MemoryStream newms = new MemoryStream();
             await usericfile.CopyToAsync(newms);

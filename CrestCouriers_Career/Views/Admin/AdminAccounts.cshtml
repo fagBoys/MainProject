@@ -32,6 +32,11 @@
                 <li><h5>User accounts</h5></li>
             </div>
         </a>
+        <a asp-controller="Admin" asp-action="Logout" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Logout</h5></li>
+            </div>
+        </a>
     </ul>
 }
 
@@ -47,7 +52,24 @@
             </div>
 
             <div class="col-sm-6">
-                <input name="Password" placeholder="Password">
+                    <input name="EmailAddress" placeholder="Email">
+            </div>
+
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input name="Password" placeholder="Password">
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input name="ConfirmPassword" placeholder="Confirm password">
+                </div>
             </div>
 
         </div>
@@ -63,22 +85,6 @@
             <div class="col-sm-6">
                 <div class="order-input">
                     <input name="Lastname" placeholder="Lastname">
-                </div>
-            </div>
-
-        </div>
-
-        <div class="row">
-
-            <div class="col-sm-6">
-                <div class="order-input">
-                    <input name="PhoneNumber" placeholder="Phone number">
-                </div>
-            </div>
-
-            <div class="col-sm-6">
-                <div class="order-input">
-                    <input name="EmailAddress" placeholder="Email address">
                 </div>
             </div>
 
@@ -102,27 +108,33 @@
 
 <div class="list-title">
     <div class="admin-list-title-item">
-        <h5 class="list-title-item-text">
+        <h6 class="list-title-item-text">
             Username
-        </h5>
+        </h6>
     </div>
 
     <div class="admin-list-title-item">
-        <h5 class="list-title-item-text">
+        <h6 class="list-title-item-text">
             Firstname
-        </h5>
+        </h6>
     </div>
 
     <div class="admin-list-title-item">
-        <h5 class="list-title-item-text">
+        <h6 class="list-title-item-text">
             Lastname
-        </h5>
+        </h6>
     </div>
 
     <div class="admin-list-title-item">
-        <h5 class="list-title-item-text">
+        <h6 class="list-title-item-text">
+            AdminStatus
+        </h6>
+    </div>
+
+    <div class="admin-list-title-item">
+        <h6 class="list-title-item-text">
             Level
-        </h5>
+        </h6>
     </div>
 
 </div>
@@ -153,9 +165,29 @@
     </div>
 
     <div class="admin-list-title-item">
-        <p>
-            @Html.DisplayFor(modelItem => item.Level)
-        </p>
+        
+            @if (item.IsActive == true)
+            {
+                <p>Active</p>
+            }
+            else if (item.IsActive == false)
+            {
+                <p>Deactive</p>
+            }
+
+    </div>
+
+    <div class="admin-list-title-item">
+        
+            @if (item.AdminType == true)
+            {
+                <p>Admin</p>
+            }
+            else if (item.AdminType == false)
+            {
+                <p>Limited Admin</p>
+            }
+
     </div>
 
     @if (item.AdminType == false)
@@ -167,13 +199,13 @@
         </div>
 
         <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
-            <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="AdminAccountEdit" asp-route-UserName="@item.UserName">
+            <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="AdminAccountEdit" asp-route-Id="@item.Id">
                 <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
             </button>
         </div>
 
         <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
-            <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Level="@item.Level" asp-route-Adminid="@item.Id">
+            <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Adminid="@item.Id">
                 <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
             </button>
         </div>

@@ -32,44 +32,49 @@
                 <li><h5>User accounts</h5></li>
             </div>
         </a>
+        <a asp-controller="Admin" asp-action="Logout" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Logout</h5></li>
+            </div>
+        </a>
     </ul>
 }
 
 <div class="list-title">
     <div class="user-list-title-item">
-        <h5 class="list-title-item-text">
+        <h6 class="list-title-item-text">
             Username
-        </h5>
+        </h6>
     </div>
 
     <div class="user-list-title-item">
-        <h5 class="list-title-item-text">
+        <h6 class="list-title-item-text">
             First name
-        </h5>
+        </h6>
     </div>
 
     <div class="user-list-title-item">
-        <h5 class="list-title-item-text">
+        <h6 class="list-title-item-text">
             Last name
-        </h5>
+        </h6>
     </div>
 
     <div class="user-list-title-item">
-        <h5 class="list-title-item-text">
+        <h6 class="list-title-item-text">
             Phone number
-        </h5>
+        </h6>
     </div>
 
     <div class="user-list-title-item">
-        <h5 class="list-title-item-text">
+        <h6 class="list-title-item-text">
             Email address
-        </h5>
+        </h6>
     </div>
 
     <div class="user-list-title-item">
-        <h5 class="list-title-item-text">
+        <h6 class="list-title-item-text">
             Active
-        </h5>
+        </h6>
     </div>
 </div>
 
@@ -114,8 +119,7 @@
 
     <div class="user-list-title-item">
         <p>
-            -
-            @*@Html.DisplayFor(modelItem => item.Active)*@
+            @Html.DisplayFor(modelItem => item.IsActive)
         </p>
     </div>
 

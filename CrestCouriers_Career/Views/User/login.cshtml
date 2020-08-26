@@ -42,18 +42,18 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <div class="input-div-location">
-                        <input asp-for="Email" value="" style="margin-bottom:0px;" class="form-control2" placeholder="Username">
-                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <input asp-for="Username" value="" style="margin-bottom:0px;" class="form-control2" placeholder="Username">
+                        <span asp-validation-for="Username" class="text-danger"></span>
                     </div>
                     <div class="input-div-location">
                         <input type="password" asp-for="Password" value="" style="margin-bottom:0px;" class="form-control2" placeholder="Password">
                         <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
                     <div class="input-div-location">
-                        <label asp-for="RememberMe">
-                            <input asp-for="RememberMe" />
+                        <h6 asp-for="RememberMe" class="login-remember-me">
+                            <input asp-for="RememberMe"/>
                             @Html.DisplayNameFor(m=>m.RememberMe)
-                        </label>
+                        </h6>
                     </div>
                     <div class="button-div-location">
                         <button type="submit" class="book-now-btn" style="margin:0 auto; margin-top:30px;" name="button">Login</button>
@@ -62,7 +62,7 @@
                 </form>
 
                 <div class="additional-text">
-                    <a class="login-single-text" asp-controller="User" asp-action="Login"><h6>Forgot Password</h6></a>
+                    <a class="login-single-text" asp-controller="User" asp-action="ForgotPassword"><h6>Forgot Password</h6></a>
                     <a class="login-single-text" asp-controller="Home" asp-action="Index"><h6>Back to website</h6></a>
                 </div>
 

@@ -181,6 +181,8 @@ namespace CrestCouriers_Career.Controllers
             Account curaccount = context.Account.FirstOrDefault(A => A.Id == _userManager.GetUserId(User as ClaimsPrincipal));
             context.Attach(curaccount).State = EntityState.Unchanged;
             order.Account = curaccount as Account;
+            order.Price = "0";
+            order.State = "1";
             context.Order.Add(order);
             context.SaveChanges();
 
@@ -190,13 +192,16 @@ namespace CrestCouriers_Career.Controllers
 
         }
 
+
+
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult AdminSetting()
+        public async Task<IActionResult> AdminSetting()
         {
             //EF
             CrestContext context = new CrestContext();
             Account Account = context.Account.FirstOrDefault(A => A.Id == _userManager.GetUserId(User as ClaimsPrincipal));
+            ViewData["CurrentUser"] = Account;
             //EF
 
             return View(Account);
@@ -204,28 +209,44 @@ namespace CrestCouriers_Career.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AdminSetting(Account UpdatedAccount)
+        public async Task<IActionResult> AdminSetting(Account UpdatedAccount)
         {
 
             ////EF core start
             CrestContext context = new CrestContext();
-            Account CurrentAccount = context.Account.FirstOrDefault(A => A.Id == _userManager.GetUserId(User as ClaimsPrincipal));
+            Account CurrentAccount = await _userManager.FindByIdAsync(_userManager.GetUserId(User as ClaimsPrincipal));
 
             CurrentAccount.UserName = UpdatedAccount.UserName;
-            CurrentAccount.PasswordHash = UpdatedAccount.PasswordHash;
+            CurrentAccount.PhoneNumber = UpdatedAccount.PhoneNumber;
             CurrentAccount.FirstName = UpdatedAccount.FirstName;
             CurrentAccount.LastName = UpdatedAccount.LastName;
-            CurrentAccount.PhoneNumber = UpdatedAccount.PhoneNumber;
 
-            _userManager.UpdateAsync(CurrentAccount);
 
-            context.SaveChangesAsync();
+            await _userManager.UpdateAsync(CurrentAccount);
             ////EF core end
 
 
+            return RedirectToAction("AdminSetting");
 
-            return new RedirectResult("/Admin/AdminSetting");
         }
+
+        //public async Task<IActionResult> ChangePassword(string OldPassword, string NewPassword)
+        //{
+        //    CrestContext context = new CrestContext();
+        //    Account ThisUser = context.Account.FirstOrDefault(A => A.Id == _userManager.GetUserId(User as ClaimsPrincipal));
+        //    if (result.Succeeded)
+        //    {
+        //        foreach (var error in result.Errors)
+        //        {
+        //            ModelState.AddModelError(string.Empty, error.Description);
+        //        }
+        //        return RedirectToAction("AdminSetting");
+        //    }
+        //    return RedirectToAction("AdminSetting");
+        //}
+
+
+
 
         public IActionResult AdminAccounts()
         {
@@ -244,7 +265,7 @@ namespace CrestCouriers_Career.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AdminAccounts(string UserName, string Password, string FirstName, string LastName, string PhoneNumber ,string EmailAddress, string returnUrl = null)
+        public async Task<IActionResult> AdminAccounts(string UserName, string EmailAddress, string Password, string ConfirmPassword, string FirstName, string LastName, string returnUrl = null)
         {
 
             ViewData["Title"] = "AdminAccounts";
@@ -253,7 +274,7 @@ namespace CrestCouriers_Career.Controllers
             { 
                 //EF core code
 
-                var user = new Account { UserName = EmailAddress};
+                var user = new Account { UserName = UserName, Email = EmailAddress, FirstName = FirstName, LastName = LastName, IsAdmin = true, IsActive = false, IsUser = false, AdminType = false};
                 var result = await _userManager.CreateAsync(user, Password);
                 if(result.Succeeded)
                 {
@@ -276,20 +297,18 @@ namespace CrestCouriers_Career.Controllers
 
         }
 
-        public ActionResult AdminDelete(int id)
+        public async Task<ActionResult> AdminDelete(string Id)
         {
             //EF core start
-            CrestContext context = new CrestContext();
-            //Admin admin = context.Admin.FirstOrDefault(o => o.AdminId == id);
-            //context.Admin.Remove(admin);
-            context.SaveChangesAsync();
+            Account Account = await _userManager.FindByIdAsync(Id);
+            await _userManager.DeleteAsync(Account);
             //EF core end
 
             return RedirectToAction("AdminAccounts");
         }
 
 
-        public IActionResult AdminAccountEdit( string UserName)
+        public async Task<IActionResult> AdminAccountEdit(string Id)
         {
             //if (HttpContext.Session.GetString("AdminSession") == null)
             //{
@@ -299,28 +318,8 @@ namespace CrestCouriers_Career.Controllers
             //    ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
             //}
 
-            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            //Dal connection = new Dal(myurl);
-            //SqlDataAdapter da = new SqlDataAdapter();
-            //DataTable dt = new DataTable();
-            //SqlCommand cmd = new SqlCommand("sp_Crest_MyAdmin", connection.connect());
-            //cmd.CommandType = CommandType.StoredProcedure;
-            //cmd.Parameters.AddWithValue("@UserName", UserName);
-            //da.SelectCommand = cmd;
-            //da.Fill(dt);
-
-            //ViewData["Adminid"] = dt.Rows[0][0];
-            //ViewData["UserName"] = dt.Rows[0][1];
-            //ViewData["Password"] = dt.Rows[0][2];
-            //ViewData["FirstName"] = dt.Rows[0][3];
-            //ViewData["Lastname"] = dt.Rows[0][4];
-            //ViewData["PhoneNumber"] = dt.Rows[0][5];
-            //ViewData["Email"] = dt.Rows[0][6];
-
             //EF core start
-            CrestContext context = new CrestContext();
-            //Admin admin= context.Admin.FirstOrDefault(o => o.UserName== UserName);
-
+            Account Account = await _userManager.FindByIdAsync(Id);
             //ViewData["Adminid"] = admin.AdminId;
             //ViewData["UserName"] = admin.UserName;
             //ViewData["Password"] = admin.Password;
@@ -333,13 +332,13 @@ namespace CrestCouriers_Career.Controllers
 
 
 
-            return View();
+            return View(Account);
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AdminEdit(Admin EditedAdmin)
+        public async Task<IActionResult> AdminEdit(Account EditedAdmin)
         {
             //if (HttpContext.Session.GetString("AdminSession") == null)
             //{
@@ -349,66 +348,35 @@ namespace CrestCouriers_Career.Controllers
             //    ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
             //}
 
-            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            //Dal connection = new Dal(myurl);
-            //SqlDataAdapter da = new SqlDataAdapter();
-            //DataTable dt = new DataTable();
-            //SqlCommand cmd = new SqlCommand("sp_Crest_UpdateAdmin", connection.connect());
-            //cmd.CommandType = CommandType.StoredProcedure;
-            //cmd.Parameters.AddWithValue("@UserName", admin.UserName);
-            //cmd.Parameters.AddWithValue("@Password", admin.Password);
-            //cmd.Parameters.AddWithValue("@FirstName", admin.FirstName);
-            //cmd.Parameters.AddWithValue("@LastName", admin.Lastname);
-            //cmd.Parameters.AddWithValue("@PhoneNumber", admin.PhoneNumber);
-            //cmd.Parameters.AddWithValue("@Email", admin.EmailAddress);
-            //cmd.ExecuteNonQuery();
-
             //EF core start
-            CrestContext context = new CrestContext();
-            Admin admin = new Admin();
-            //admin = context.Admin.FirstOrDefault(O => O.AdminId == EditedAdmin.AdminId);
-            EditedAdmin.Level = admin.Level;
-            CrestContext editcontext = new CrestContext();
-            editcontext.Attach(EditedAdmin).State = EntityState.Modified;
-            editcontext.SaveChangesAsync();
+            Account Account = await _userManager.FindByIdAsync(EditedAdmin.Id);
+            Account.UserName = EditedAdmin.UserName;
+            Account.FirstName = EditedAdmin.FirstName;
+            Account.LastName = EditedAdmin.LastName;
+            Account.PhoneNumber = EditedAdmin.PhoneNumber;
+            Account.Email = EditedAdmin.Email;
+            await _userManager.UpdateAsync(Account);
             //EF core end
             return new RedirectResult("/Admin/AdminAccounts");
         }
 
-        public IActionResult AdminAccountActive(bool IsActive, int Adminid)
+        public async Task<IActionResult> AdminAccountActive(string Adminid)
         {
-            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            //Dal connection = new Dal(myurl);
-            //SqlDataAdapter da = new SqlDataAdapter();
-            //DataTable dt = new DataTable();
-            //SqlCommand cmd = new SqlCommand("sp_Crest_AdminActive", connection.connect());
-            //cmd.CommandType = CommandType.StoredProcedure;
-            //cmd.Parameters.AddWithValue("@Adminid", Adminid);
-            //if (Level == "0")
-            //{
-            //    cmd.Parameters.AddWithValue("@Level", "2");
-            //}
-            //else if (Level == "2")
-            //{
-            //    cmd.Parameters.AddWithValue("@Level", "0");
-            //}
-            //cmd.ExecuteNonQuery();
 
             //EF core start
-            CrestContext context = new CrestContext();
-            Admin admin = new Admin();
-            //admin = context.Admin.FirstOrDefault(O => O.AdminId == Adminid);
-            //if (Level == "0")
-            //{
-            //    admin.Level = "2";
-            //}
-            //else if (Level == "2")
-            //{
-            //    admin.Level = "0";
-            //}
-            CrestContext editcontext = new CrestContext();
-            editcontext.Attach(admin).State = EntityState.Modified;
-            editcontext.SaveChangesAsync();
+
+            Account Account = await _userManager.FindByIdAsync(Adminid);
+
+            if (Account.IsActive == true)
+            {
+                Account.IsActive = false;
+            }
+            else if (Account.IsActive == false)
+            {
+                Account.IsActive = true;
+            }
+            await _userManager.UpdateAsync(Account);
+
             //EF core end
 
             return new RedirectResult("/Admin/AdminAccounts");
@@ -421,7 +389,7 @@ namespace CrestCouriers_Career.Controllers
             //EF core start
 
             CrestContext context = new CrestContext();
-            IEnumerable<Account> accounts = context.Account.ToList();
+            IEnumerable<Account> accounts = context.Account.Where(A=>A.IsUser == true).ToList();
 
             //EF core end
 
@@ -456,6 +424,7 @@ namespace CrestCouriers_Career.Controllers
 
 
             //EF core start
+            //string userid = UpdatedAccount.Id;
             Account OldAccount = await _userManager.FindByIdAsync(UpdatedAccount.Id);
 
             OldAccount.UserName = UpdatedAccount.UserName;
@@ -463,33 +432,38 @@ namespace CrestCouriers_Career.Controllers
             OldAccount.FirstName = UpdatedAccount.FirstName;
             OldAccount.LastName = UpdatedAccount.LastName;
             OldAccount.PhoneNumber = UpdatedAccount.PhoneNumber;
+            OldAccount.Email = UpdatedAccount.Email;
 
-            _userManager.UpdateAsync(OldAccount);
+            await _userManager.UpdateAsync(OldAccount);
             //EF core end
 
             return new RedirectResult("/Admin/UserAccounts");
         }
 
-        public IActionResult UserAccountActive(string Active, int Userid)
+        public async Task<IActionResult> UserAccountActive(string Userid)
         {
 
             //EF core start
-            CrestContext context = new CrestContext();
-            User user= new User();
+            //CrestContext context = new CrestContext();
+            //User user= new User();
 
+            Account Account = await _userManager.FindByIdAsync(Userid);
             //user = context.User.FirstOrDefault(O => O.Id == Userid);
-            //if (Active == "0")
-            //{
-            //    user.Active= "1";
-            //}
-            //else if (Active == "1")
-            //{
-            //    user.Active= "0";
-            //}
 
-            CrestContext editcontext = new CrestContext();
-            editcontext.Attach(user).State = EntityState.Modified;
-            editcontext.SaveChangesAsync();
+            if (Account.IsActive == true)
+            {
+                Account.IsActive = false;
+            }
+            else if (Account.IsActive == false)
+            {
+                Account.IsActive = true;
+            }
+
+            await _userManager.UpdateAsync(Account);
+
+            //CrestContext editcontext = new CrestContext();
+            //editcontext.Attach(user).State = EntityState.Modified;
+            //editcontext.SaveChangesAsync();
             //EF core end
 
             return new RedirectResult("/Admin/UserAccounts");
@@ -516,8 +490,8 @@ namespace CrestCouriers_Career.Controllers
             if (ModelState.IsValid)
             {
                 CrestContext context = new CrestContext();
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
-                Account Account = await context.Account.Where(A => A.Email == model.Email).FirstOrDefaultAsync();
+                var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, lockoutOnFailure: false);
+                Account Account = await context.Account.Where(A => A.UserName == model.Username).FirstOrDefaultAsync();
                 if (result.Succeeded && Account.IsAdmin && Account.IsActive)
                 {
                     _logger.LogInformation("User logged in.");
@@ -540,10 +514,119 @@ namespace CrestCouriers_Career.Controllers
         
         }
 
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                if (user != null && await _userManager.IsEmailConfirmedAsync(user))
+                {
+                    var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+                    var passwordResetLink = Url.Action("ResetPassword", "User", new { email = model.Email, token = token }, Request.Scheme);
+
+                    //Logge(LogLevel.Warning, passwordResetLink);
+
+                    //  Send Email  //
+                    MailboxAddress from = new MailboxAddress("Crest Couriers", "contact@crestcouriers.co.uk");
+
+                    MailboxAddress to = new MailboxAddress(user.FirstName + " " + user.LastName, user.Email);
+
+                    MimeMessage message = new MimeMessage();
+                    message.Subject = "Resset Password";
+                    BodyBuilder bodyBuilder = new BodyBuilder();
+                    var mybody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailreply-forgotpassword.html");
+                    mybody = mybody.Replace("Value00", user.FirstName + " " + user.LastName);
+                    mybody = mybody.Replace("Value01", passwordResetLink);
+
+                    bodyBuilder.HtmlBody = mybody;
+                    var usericon = bodyBuilder.LinkedResources.Add(_environment.WebRootPath + @"/Email/newuser.png");
+                    usericon.ContentId = MimeUtils.GenerateMessageId();
+
+                    bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("{", "{{");
+                    bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("}", "}}");
+                    bodyBuilder.HtmlBody = bodyBuilder.HtmlBody.Replace("{{0}}", "{0}");
+
+                    bodyBuilder.HtmlBody = string.Format(bodyBuilder.HtmlBody, usericon.ContentId);
+
+                    message.Body = bodyBuilder.ToMessageBody();
+
+                    SmtpClient client = new SmtpClient();
+                    client.Connect("smtp.gmail.com", 465, true);
+                    client.Authenticate("crestcouriers@gmail.com", "CRESTcouriers123");
+
+                    message.From.Add(from);
+                    message.To.Add(to);
+
+                    client.Send(message);
+                    //  Send Email ends here    //
+
+                    return View();
+                }
+                return View();
+            }
+
+            return View(model);
+        }
+
+        public IActionResult ResetPassword(string token, string email)
+        {
+            if (token == null || email == null)
+            {
+                ModelState.AddModelError("", "Invalid password reset token.");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                if (user != null)
+                {
+                    var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+                    if (result.Succeeded)
+                    {
+                        return View();
+                    }
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                    return View();
+                }
+                return View();
+            }
+            return View(model);
+        }
+
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Lockout()
         {
+            return View();
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                await HttpContext.SignOutAsync();
+                return RedirectToAction("Login");
+            }
             return View();
         }
 

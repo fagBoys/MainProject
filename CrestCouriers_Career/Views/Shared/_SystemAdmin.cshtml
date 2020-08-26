@@ -61,17 +61,17 @@
 </head>
 <body>
 
-    <div class="container-fluid" style="height:100vh;">
+    <div class="container-fluid" style="display: flex; flex-flow: column; height:100%;">
 
-        <div class="row" style="height: 7%;">
+        <div class="row" style="height: 65px;">
             <div class="col-sm-6" style="background-color:black; height:100%; padding-top:10px;">
                 <img src="~/img/System/logo.png" alt="">
             </div>
             <div class="col-sm-6" style="background-color:black; height:100%; padding-top:14px;">
                 <div class="username-box">
-                    <div class="circle" style="width:20px; height:20px;">
+                    @*<div class="circle" style="width:20px; height:20px;">
                         <img src="~/img/System/down-arrow.png" width="10px" height="10px" style="margin-left:5px; margin-bottom:6px;" alt="">
-                    </div>
+                    </div>*@
                     <h6 class="username-style">
                         @if (SignInManager.IsSignedIn(User))
                         {
@@ -82,7 +82,7 @@
             </div>
         </div>
 
-        <div class="row" style="height:93%">
+        <div class="row" style="flex-grow: 1;">
             <div class="col-sm-2" style="background-color:#282828; height:100%; padding:0;">
                 @RenderSection("AdminMenu");
                 @*<div class="panel-option-active">
