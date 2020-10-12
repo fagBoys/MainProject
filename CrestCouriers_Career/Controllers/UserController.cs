@@ -107,7 +107,7 @@ namespace CrestCouriers_Career.Controllers
 
 
 
-                var user = new Account { UserName = model.Username, Email = model.Email, IsUser = true, FirstName = model.Firstname, LastName = model.Lastname, IsActive = false, IsAdmin = false, AdminType = false};
+                var user = new Account { UserName = model.Username, Email = model.Email, IsUser = true, FirstName = model.Firstname, LastName = model.Lastname, IsActive = false, IsAdmin = false};
                 var result = await _userManager.CreateAsync(user, model.Password);
 
                 if(result.Succeeded)

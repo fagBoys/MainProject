@@ -254,3 +254,6 @@ C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\CrestCouriers_Career.csproj.CopyComplete
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\CrestCouriers_Career.csproj.CoreCompileInputs.cache
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Bill.cshtml.g.cs
+C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_SystemAccountancyAdmin.cshtml.g.cs
+C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\ListOfBills.cshtml.g.cs

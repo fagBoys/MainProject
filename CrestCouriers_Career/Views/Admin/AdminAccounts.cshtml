@@ -179,18 +179,18 @@
 
     <div class="admin-list-title-item">
         
-            @if (item.AdminType == true)
+            @if (item.AdminType == 1)
             {
                 <p>Admin</p>
             }
-            else if (item.AdminType == false)
+            else if (item.AdminType == 2)
             {
                 <p>Limited Admin</p>
             }
 
     </div>
 
-    @if (item.AdminType == false)
+    @if (item.AdminType == 2)
     {
         <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
             <button type="submit" style="background-color: transparent; border: none;">
@@ -210,7 +210,7 @@
             </button>
         </div>
     }
-    else if (item.AdminType == true)
+    else if (item.AdminType == 1)
     {
         <div class="list-record-button">
             

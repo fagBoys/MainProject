@@ -274,7 +274,7 @@ namespace CrestCouriers_Career.Controllers
             { 
                 //EF core code
 
-                var user = new Account { UserName = UserName, Email = EmailAddress, FirstName = FirstName, LastName = LastName, IsAdmin = true, IsActive = false, IsUser = false, AdminType = false};
+                var user = new Account { UserName = UserName, Email = EmailAddress, FirstName = FirstName, LastName = LastName, IsAdmin = true, IsActive = false, IsUser = false, AdminType = 1};
                 var result = await _userManager.CreateAsync(user, Password);
                 if(result.Succeeded)
                 {
@@ -640,6 +640,11 @@ namespace CrestCouriers_Career.Controllers
                 await HttpContext.SignOutAsync();
                 return RedirectToAction("Login");
             }
+            return RedirectToAction("Login");
+        }
+
+        public IActionResult ListOfBills()
+        {
             return View();
         }
 
