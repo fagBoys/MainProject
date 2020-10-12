@@ -492,12 +492,25 @@ namespace CrestCouriers_Career.Controllers
                 CrestContext context = new CrestContext();
                 var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, lockoutOnFailure: false);
                 Account Account = await context.Account.Where(A => A.UserName == model.Username).FirstOrDefaultAsync();
-                if (result.Succeeded && Account.IsAdmin && Account.IsActive)
+                if (result.Succeeded && Account.IsAdmin && Account.IsActive && Account.AdminType==1 )
                 {
                     _logger.LogInformation("User logged in.");
                     return RedirectToAction(nameof(Dashboard));
 
                 }
+                if (result.Succeeded && Account.IsAdmin && Account.IsActive && Account.AdminType == 2)
+                {
+                    _logger.LogInformation("User logged in.");
+                    return RedirectToAction(nameof(Dashboard));
+
+                }
+                if (result.Succeeded && Account.IsAdmin && Account.IsActive && Account.AdminType == 3)
+                {
+                    _logger.LogInformation("User logged in.");
+                    return RedirectToAction(nameof(Bill));
+
+                }
+
                 if (result.IsLockedOut)
                 {
                     _logger.LogWarning("User account locked out.");
