@@ -630,5 +630,9 @@ namespace CrestCouriers_Career.Controllers
             return View();
         }
 
+        public IActionResult Bill()
+        {
+            return View();
+        }
     }
 }

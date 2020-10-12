@@ -32,5 +32,6 @@ namespace CrestCouriers_Career.Data
         {
             base.OnModelCreating(builder);
         }
+        public DbSet<CrestCouriers_Career.Models.Bill> Bill { get; set; }
     }
 }
