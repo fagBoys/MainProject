@@ -9,17 +9,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CrestCouriers_Career.Models
 {
-    public class Bill :DbContext
+    public class Bill
 
     {
         [Required]
         public int BillID { get; set; }
 
-        
+        [Required]
         [MaxLength(50)]
         public DateTime Date { get; set; }
 
-        [Required]
+        
         [MaxLength(50)]
         public DateTime DownloadDate { get; set; }
 
