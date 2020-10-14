@@ -136,8 +136,8 @@ input
     width: 100%;
     padding-left: 15px;
     padding-top: 12px;
-    color: white;
-    background-color: darkgray;
+    color: red;
+    background-color: white;
 }
 
 .panel-option-active {
@@ -370,3 +370,34 @@ margin-top: 50px;
 a.menu-option-link {
     text-decoration: none !important;
 }
+
+/* For Bill Start */
+
+.billDashbord
+{
+
+    
+    margin :50px 65px;
+
+}
+
+.billDashbord #BillDate {
+    /*background-color: teal;*/
+    height:60px;
+    
+}
+
+    .billDashbord #BillFile {
+        margin-top: 35px;
+        padding-left: 45%;
+        padding-top: 150px;
+        color: rgba(129, 129, 129, 0.8);
+        height: 350px;
+        font-weight: bold;
+        font-size: 20px;
+        border: dashed;
+        border-color: rgba(129, 129, 129, 0.5);
+        border-width: thick;
+    }
+
+/* For Bill End */
