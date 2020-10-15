@@ -398,6 +398,24 @@ a.menu-option-link {
         border: dashed;
         border-color: rgba(129, 129, 129, 0.5);
         border-width: thick;
+        overflow: auto;
+    }
+
+
+    .billDashbord #BillButton {
+        background-color: red;
+        padding-bottom: 10px;
+        padding-top: 0px;
+        width: 150px;
+        height: 40px;
+        border: none;
+        border-radius: 3px 4px;
+        font-size: 15px;
+        font-weight: normal;
+        float: left;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        text-transform: capitalize;
     }
 
 /* For Bill End */
