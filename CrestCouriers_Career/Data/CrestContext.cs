@@ -23,7 +23,8 @@ namespace CrestCouriers_Career.Data
         public DbSet<Order> Order { get; set; }
         public DbSet<Contact> Contact { get; set; }
         public DbSet<RegCareer> RegCareer { get; set; }
-        
+        public DbSet<Bill> Bill { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=.;Database=CrestDB;Trusted_Connection=True;MultipleActiveResultSets=true");
@@ -32,6 +33,5 @@ namespace CrestCouriers_Career.Data
         {
             base.OnModelCreating(builder);
         }
-        public DbSet<CrestCouriers_Career.Models.Bill> Bill { get; set; }
     }
 }

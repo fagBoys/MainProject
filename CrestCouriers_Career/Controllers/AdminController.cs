@@ -652,5 +652,24 @@ namespace CrestCouriers_Career.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Bill(IFormFile file)
+        {
+            CrestContext Context = new CrestContext();
+            Bill CreateBill = new Bill();
+            CreateBill.Date = DateTime.Now;
+            if (file.Length > 0)
+            {
+                using (var ms = new MemoryStream())
+                {
+                    file.CopyTo(ms);
+                    var FileByte = ms.ToArray();
+                    CreateBill.File = System.Convert.ToByte(FileByte);
+                }
+            }
+            Context.Bill.Add(CreateBill);
+            return View();
+        }
     }
 }
