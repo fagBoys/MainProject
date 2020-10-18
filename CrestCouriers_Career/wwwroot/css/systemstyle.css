@@ -373,12 +373,16 @@ a.menu-option-link {
 
 /* For Bill Start */
 
-.billDashbord
-{
+/*USE IN Both*/
+.panel-option {
+    overflow:  auto;
+}
 
-    
-    margin :50px 65px;
 
+
+
+.billDashbord {
+    margin: 50px 65px;
 }
 
 .billDashbord #BillDate {
@@ -387,35 +391,57 @@ a.menu-option-link {
     
 }
 
-    .billDashbord #BillFile {
-        margin-top: 35px;
-        padding-left: 45%;
-        padding-top: 150px;
-        color: rgba(129, 129, 129, 0.8);
-        height: 350px;
-        font-weight: bold;
-        font-size: 20px;
-        border: dashed;
-        border-color: rgba(129, 129, 129, 0.5);
-        border-width: thick;
-        overflow: auto;
-    }
+.billDashbord #BillFile {
+margin-top: 35px;
+padding-left: 45%;
+padding-top: 150px;
+color: rgba(129, 129, 129, 0.8);
+height: 350px;
+font-weight: bold;
+font-size: 20px;
+border: dashed;
+border-color: rgba(129, 129, 129, 0.5);
+border-width: thick;
+overflow: auto;
+}
 
 
-    .billDashbord #BillButton {
-        background-color: red;
-        padding-bottom: 10px;
-        padding-top: 0px;
-        width: 150px;
-        height: 40px;
-        border: none;
-        border-radius: 3px 4px;
-        font-size: 15px;
-        font-weight: normal;
-        float: left;
-        margin-top: 20px;
-        margin-bottom: 50px;
-        text-transform: capitalize;
-    }
+.billDashbord #BillButton {
+background-color: red;
+padding-bottom: 10px;
+padding-top: 0px;
+width: 150px;
+height: 40px;
+border: none;
+border-radius: 3px 4px;
+font-size: 15px;
+font-weight: normal;
+float: left;
+margin-top: 20px;
+margin-bottom: 50px;
+text-transform: capitalize;
+}
 
 /* For Bill End */
+
+/* For List Of Bills Start */
+#ListOfBillsPaging:hover {
+
+color:red;
+
+}
+.active, .PagingColor:hover {
+    color: white !important;
+    background-color: red !important;
+    
+
+   
+}
+
+.PagingColor {
+    color: red !important;
+    background-color: white !important;
+    border-color: silver !important;
+    cursor: pointer;
+}
+/* For List Of Bills End */
