@@ -645,9 +645,12 @@ namespace CrestCouriers_Career.Controllers
 
         public IActionResult ListOfBills()
         {
-            return View();
-        }
+            CrestContext context = new CrestContext();
+            IEnumerable<Bill> bills = context.Bill.ToList();
 
+            return View(bills);
+        }
+        
         public IActionResult Bill()
         {
             return View();
