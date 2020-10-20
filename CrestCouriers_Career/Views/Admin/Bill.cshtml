@@ -32,57 +32,12 @@
 
 
 <!-- New01 -->
-<form class="billDashbord">
-    <div class="form-group ">
+<form class="billDashbord" asp-controller="Admin" asp-action="Bill" method="post" enctype="multipart/form-data">
 
-        <input type="date" class="form-control" id="BillDate" aria-describedby="Date" placeholder="Date">
-
-    </div>
     <div class="form-group">
-        <input type="file" class="form-control" id="BillFile" placeholder="Drop your file here">
+        <input type="file" name="file" class="form-control" id="BillFile" placeholder="Drop your file here">
     </div>
     
-
     <button type="submit" class="btn btn-primary" id="BillButton">Submit</button>
 </form>
 <!-- EndOfNew01 -->
-<!--<table class="table">
-    <!-- <thead>
-         <tr>
-             <th>
-                 @Html.DisplayNameFor(model => model.Date)
-             </th>
-             <th>
-                 @Html.DisplayNameFor(model => model.DownloadDate)
-             </th>
-             <th>
-                 @Html.DisplayNameFor(model => model.File)
-                 fuck_test
-             </th>
-             <th></th>
-         </tr>
-     </thead>
-
-    @*<tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Date)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DownloadDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.File)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.BillID">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.BillID">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.BillID">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>*@
-</table>
-    //-->

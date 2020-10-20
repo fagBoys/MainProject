@@ -12,18 +12,18 @@ namespace CrestCouriers_Career.Models
     public class Bill
 
     {
-        [Required]
+        [Key]
         public int BillID { get; set; }
 
         [Required]
         [MaxLength(50)]
         public DateTime Date { get; set; }
 
-        
+
         [MaxLength(50)]
         public DateTime DownloadDate { get; set; }
 
         [Required]
-        public byte File { get; set; }
+        public byte[] File { get; set; }
     }
 }

@@ -665,10 +665,11 @@ namespace CrestCouriers_Career.Controllers
                 {
                     file.CopyTo(ms);
                     var FileByte = ms.ToArray();
-                    CreateBill.File = System.Convert.ToByte(FileByte);
+                    CreateBill.File = FileByte;
                 }
             }
             Context.Bill.Add(CreateBill);
+            Context.SaveChangesAsync();
             return View();
         }
     }
