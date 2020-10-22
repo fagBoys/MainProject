@@ -56,12 +56,9 @@
                         @Html.DisplayFor(modelItem => item.DownloadDate)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.File)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.BillID">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.BillID">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.BillID">Delete</a>
+                        @*<a asp-action="Edit" asp-route-id="@item.BillID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.BillID">Details</a> |*@
+                        <a asp-action="DownloadBill" asp-route-id="@item.BillID">Download</a>
                     </td>
                 </tr>
             }
