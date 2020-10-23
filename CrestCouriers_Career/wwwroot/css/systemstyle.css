@@ -430,7 +430,7 @@ text-transform: capitalize;
 color:red;
 
 }
-.active, .PagingColor:hover {
+.PagingColor:hover {
     color: white !important;
     background-color: red !important;
     
@@ -443,5 +443,9 @@ color:red;
     background-color: white !important;
     border-color: silver !important;
     cursor: pointer;
+}
+.active {
+    color: white !important;
+    background-color: red !important;
 }
 /* For List Of Bills End */
