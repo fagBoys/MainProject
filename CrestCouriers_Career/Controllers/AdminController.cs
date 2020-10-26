@@ -646,15 +646,22 @@ namespace CrestCouriers_Career.Controllers
         public IActionResult ListOfBills()
         {
             CrestContext context = new CrestContext();
-           // IEnumerable<Bill> bills = context.Bill.ToList();
+           
+            IEnumerable<Bill> bills = context.Bill.ToList();
             
-            Bill file = context.Bill.OrderByDescending(i => i.BillID).FirstOrDefault(m=>m.BillID == 1);
-            string imageBase64Data = Convert.ToBase64String(file.File);
-            string imageDataURL = string.Format("data:image/jpg;base64,{0}",imageBase64Data);
-
-            return View(file);
+            return View(bills);
         }
-        
+
+        [HttpGet]
+        public async Task<IActionResult> DownloadBill(int id, DateTime date)
+        {
+            CrestContext context = new CrestContext();
+            Bill bill = context.Bill.FirstOrDefault(B => B.BillID == id);
+            var myfile = Convert.ToBase64String(bill.File);
+
+            return File(bill.File, "application/pdf", date.ToShortDateString() + ".pdf");
+        }
+
         public IActionResult Bill()
         {
             return View();

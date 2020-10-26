@@ -56,8 +56,8 @@
                 @Html.DisplayFor(modelItem => item.DownloadDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.File)
-               {0}
+                @*@Html.DisplayFor(modelItem => item.File)*@
+                <a asp-action="DownloadBill" asp-route-id="@item.BillID" asp-route-date="@item.Date">Download</a>
             </td>
             <!--<td>-->
             @*<a asp-action="Edit" asp-route-id="@item.BillID">Edit</a> |
