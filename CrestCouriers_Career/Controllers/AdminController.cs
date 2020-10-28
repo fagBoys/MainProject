@@ -643,13 +643,15 @@ namespace CrestCouriers_Career.Controllers
             return RedirectToAction("Login");
         }
 
-        public IActionResult ListOfBills(string currentFilter , int? pageNumber)
+        public async Task<IActionResult> ListOfBills(string currentFilter , int? pageNumber)
         {
             CrestContext context = new CrestContext();
-           
-            IEnumerable<Bill> bills = context.Bill.ToList();
-            
-            return View(await PaginatefList<AdminController>.CreateAsunc());
+
+            //IEnumerable<Bill> bills = context.Bill.ToList();
+
+            var bills = from B in context.Bill select B;
+
+            return View(await PaginatefList<Bill>.CreateAsunc(bills,pageNumber ?? 1,2));
         }
 
         [HttpGet]
