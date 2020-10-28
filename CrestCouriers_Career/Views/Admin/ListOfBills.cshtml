@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CrestCouriers_Career.Models.Bill>
+﻿@model PaginatefList<CrestCouriers_Career.Models.Bill>
 
 @{
     ViewData["Title"] = "Bill";
@@ -34,13 +34,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Date)
+                Date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DownloadDate)
+                DownloadDate
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.File)
+                File
             </th>
             <th></th>
         </tr>
@@ -69,36 +69,39 @@
         </tbody
 </table>
 
-@*@{
-    var prevDesabled = !Model.has
- }*@
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+ }
 
-<ul class="pagination ">
-
-
-    <li class="page-item disabled">
-        <a class="page-link PagingColor " href="#" tabindex="-1" aria-disabled="true" id="ListOfBillsPaging">Previous</a>
-    </li>
-
-    <li class="page-item  " aria-current="page">
-        <a class="page-link PagingColor active" href="#">1</a>
-    </li>
+<nav class="Page navigation example">
+    <ul class="pagination justify-content-center">
 
 
-    <li class="page-item ">
-        <a class="page-link PagingColor" href="#">2 <span class="sr-only">(current)</span></a>
-    </li>
+        <li class="page-item PagingColor @prevDisabled">
+            <a asp-action="ListOfBills" asp-route-pageNumber="@(Model.PageIndex-1)" class="page-link PagingColor @prevDisabled" id="@*ListOfBillsPaging*@">Previous</a>
+        </li>
 
-    <li class="page-item">
-        <a class="page-link PagingColor" href="#">3</a>
-    </li>
-
-    <li class="page-item">
-        <a class="page-link PagingColor" href="#">Next</a>
-    </li>
+        <li class="page-item  " aria-current="page">
+            <a class="page-link PagingColor active" href="#">1</a>
+        </li>
 
 
-</ul>
+        <li class="page-item ">
+            <a class="page-link PagingColor" href="#">2 <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="page-item">
+            <a class="page-link PagingColor" href="#">3</a>
+        </li>
+
+        <li class="page-item PagingColor @nextDisabled">
+            <a asp-action="ListOfBills" asp-route-pageNumber="@(Model.PageIndex+1)" class="page-link PagingColor @prevDisabled">Next</a>
+        </li>
+
+
+    </ul>
+</nav>
 
 @* YOUUUUUU Do Not Delet this it is requere for paging later *@
     @*

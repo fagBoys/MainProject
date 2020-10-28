@@ -13,13 +13,13 @@ namespace CrestCouriers_Career
 
         public PaginatefList(List<T> items , int count , int PageIndex , int PageSize) 
         {
-            PageIndex = PageIndex;
-            TotalPage = (int)Math.Ceiling(count / (double)PageSize);
+            this.PageIndex = PageIndex;
+            this.TotalPage = (int)Math.Ceiling(count / (double)PageSize);
 
             this.AddRange(items);
         }
 
-        public bool HasPreviousPaege
+        public bool HasPreviousPage
         {
             get
             {
@@ -35,11 +35,11 @@ namespace CrestCouriers_Career
             }
         }
 
-        public static async Task<PaginatefList<T>> CreateAsunc(IQueryable<T> source, int PageIndext, int PageSize)
+        public static async Task<PaginatefList<T>> CreateAsunc(IQueryable<T> source, int PageIndex, int PageSize)
         {
             var count = await source.CountAsync();
-            var items = await source.Skip((PageIndext-1)* PageSize).Take(PageSize).ToListAsync();
-            return new PaginatefList<T>(items , count, PageIndext , PageSize);
+            var items = await source.Skip((PageIndex-1)* PageSize).Take(PageSize).ToListAsync();
+            return new PaginatefList<T>(items , count, PageIndex , PageSize);
         }
     }
 }

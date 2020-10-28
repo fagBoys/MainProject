@@ -431,18 +431,16 @@ color:red;
 
 }
 .PagingColor:hover {
-    color: white !important;
-    background-color: red !important;
-    
+    color: red !important;
 
-   
+}
+
+.PagingColor:disabled {
+    color: #868e96 !important;
 }
 
 .PagingColor {
     color: red !important;
-    background-color: white !important;
-    border-color: silver !important;
-    cursor: pointer;
 }
 .active {
     color: white !important;
