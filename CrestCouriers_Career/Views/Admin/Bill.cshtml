@@ -34,9 +34,10 @@
 <!-- New01 -->
 <form class="billDashbord" asp-controller="Admin" asp-action="Bill" method="post" enctype="multipart/form-data">
 
-    <div class="form-group" id="BillFile">
-        @*<input type="file" name="file" class="form-control" id="BillFile" placeholder="Drop your file here">*@
-        <p class="text-center" id="BillTextCenter">Drop your file here</p>
+    <div class="form-group" id="BillFileDiv">
+        
+
+        <p class="BillTextCenter" id=""><label for="BillFile" class="BillTextCenter">Drop your file here</label><input type="file" name="file" class="form-control" id="BillFile" placeholder="Drop your file here"></p>
     </div>
     
     <button type="submit" class="btn btn-primary" id="BillButton">Submit</button>
