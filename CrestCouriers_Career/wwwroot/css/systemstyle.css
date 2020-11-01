@@ -477,4 +477,18 @@ color:red;
     color: white !important;
     background-color: red !important;
 }
+.FormsData {
+
+margin-top:140px;
+}
+
+.BottomPaging {
+    margin:0px;
+    padding:0px;
+    clear : both;
+    position:center;
+    padding-top:200px;
+    
+    
+}
 /* For List Of Bills End */
