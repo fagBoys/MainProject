@@ -42,16 +42,16 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <div class="input-div-location">
-                        <input asp-for="Username" value="" style="margin-bottom:0px;" class="form-control2" placeholder="Username">
+                        <input type="text" asp-for="Username" style="margin-bottom:0px;" class="form-control2" placeholder="Username" />
                         <span asp-validation-for="Username" class="text-danger"></span>
                     </div>
                     <div class="input-div-location">
-                        <input type="password" asp-for="Password" value="" style="margin-bottom:0px;" class="form-control2" placeholder="Password">
+                        <input type="password" asp-for="Password" style="margin-bottom:0px;" class="form-control2" placeholder="Password" />
                         <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
                     <div class="input-div-location">
                         <h6 asp-for="RememberMe" class="login-remember-me">
-                            <input asp-for="RememberMe" />
+                            <input type="checkbox" asp-for="RememberMe" />
                             @Html.DisplayNameFor(m => m.RememberMe)
                         </h6>
                     </div>

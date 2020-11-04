@@ -52,7 +52,7 @@
             </div>
 
             <div class="col-sm-6">
-                    <input name="EmailAddress" placeholder="Email">
+                <input name="EmailAddress" placeholder="Email">
             </div>
 
 
@@ -88,13 +88,35 @@
                 </div>
             </div>
 
+            <input type="text" name="MyType" id="MyType" hidden/>
+
         </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="order-input">
+                    <div class="dropdown" style="float:left">
+                        <button placeholder="Type" class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Admin Type
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <button class="dropdown-item" type="button" id="Limited" onclick="SetType('Limited Admin');">Limited Admin</button>
+                            <button class="dropdown-item" type="button" id="Accountancy" onclick="SetType('Accountancy');">Accountancy</button>
+                            <button class="dropdown-item" type="button" id="Secretary" onclick="SetType('Secretary');">Secretary</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
 
         <div class="row">
 
             <div class="col-sm-12">
                 <div class="input-submit">
-                    <button type="submit" class="book-now-btn" style="color:white; padding-top:14px;" name="button" data-toggle="modal" data-target=".confirmbox-new-order" asp-route-UserName="UserName" asp-route-Password="Password" asp-route-FirstName="FirstName" asp-route-LastName="LastName" asp-route-PhoneNumber="PhoneNumber" asp-route-EmailAddress="EmailAddress"><h5>submit new admin</h5></button>
+                    <button id="" type="submit" class="book-now-btn" style="color:white; padding-top:14px;" name="button" data-toggle="modal" data-target=".confirmbox-new-order" asp-route-UserName="UserName" asp-route-Password="Password" asp-route-FirstName="FirstName" asp-route-LastName="LastName" asp-route-PhoneNumber="PhoneNumber" asp-route-MyType = "MyType" asp-route-EmailAddress="EmailAddress"><h5>submit new admin</h5></button>
                 </div>
             </div>
 
@@ -165,32 +187,36 @@
     </div>
 
     <div class="admin-list-title-item">
-        
-            @if (item.IsActive == true)
-            {
-                <p>Active</p>
-            }
-            else if (item.IsActive == false)
-            {
-                <p>Deactive</p>
-            }
+
+        @if (item.IsActive == true)
+        {
+            <p>Active</p>
+        }
+        else if (item.IsActive == false)
+        {
+            <p>Deactive</p>
+        }
 
     </div>
 
     <div class="admin-list-title-item">
-        
-            @if (item.AdminType == 1)
-            {
-                <p>Admin</p>
-            }
-            else if (item.AdminType == 2)
-            {
-                <p>Limited Admin</p>
-            }
+
+        @if (item.AdminType == "Admin")
+        {
+            <p>Admin</p>
+        }
+        else if (item.AdminType == "Limited Admin")
+        {
+            <p>Limited Admin</p>
+        }
+        else if (item.AdminType == "Accountancy")
+        {
+            <p>Accountancy</p>
+        }
 
     </div>
 
-    @if (item.AdminType == 2)
+    @if (item.AdminType == "Limited Admin")
     {
         <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
             <button type="submit" style="background-color: transparent; border: none;">
@@ -210,24 +236,44 @@
             </button>
         </div>
     }
-    else if (item.AdminType == 1)
+    else if (item.AdminType == "Accountancy")
+    {
+        <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
+            <button type="submit" style="background-color: transparent; border: none;">
+                <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
+            </button>
+        </div>
+
+        <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
+            <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="AdminAccountEdit" asp-route-Id="@item.Id">
+                <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
+            </button>
+        </div>
+
+        <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
+            <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Adminid="@item.Id">
+                <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
+            </button>
+        </div>
+    }
+    else if (item.AdminType == "Admin")
     {
         <div class="list-record-button">
-            
-                <img src="~/img/System/remove-disable.png" width="35px" height="35px" alt="">
-            
+
+            <img src="~/img/System/remove-disable.png" width="35px" height="35px" alt="">
+
         </div>
 
         <div class="list-record-button">
 
-                <img src="~/img/System/edit-disable.png" width="35px" height="35px" alt="">
-            
+            <img src="~/img/System/edit-disable.png" width="35px" height="35px" alt="">
+
         </div>
 
         <div class="list-record-button">
-            
-                <img src="~/img/System/deactive-disable.png" width="35px" height="35px" alt="">
-            
+
+            <img src="~/img/System/deactive-disable.png" width="35px" height="35px" alt="">
+
         </div>
     }
 
@@ -417,6 +463,40 @@
         </div>
     </div>
 </div>
+
+
+<script type="text/javascript">
+
+    function SetType(AdminType) {
+        var T = AdminType;
+        document.getElementById("dropdownMenuButton").innerHTML = T;
+        document.getElementById("MyType").value = T;
+    }
+    function GetType() {
+        var T = document.getElementById("dropdownMenuButton").value;
+        return T;
+    }
+
+    $('button').attr('asp-route-AdminType', document.getElementById("dropdownMenuButton").value);
+
+    //function SetLimited() {
+    //    AdminType = "Limited";
+    //}
+    //function SetAccountancy() {
+    //    AdminType = "Accountancy";
+    //}
+    //function SetSecretary() {
+    //    AdminType = "Secretary";
+    //}
+    //function GetType() {
+    //    document.getElementById("type").innerHTML = AdminType;
+    //}
+    //document.getElementById("type").innerHTML = GetType();
+
+    //$(document).ready(function () {
+        
+    //});
+</script>
 
 
 @*<table class="table">

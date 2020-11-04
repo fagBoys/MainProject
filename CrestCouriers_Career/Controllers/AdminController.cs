@@ -265,7 +265,7 @@ namespace CrestCouriers_Career.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AdminAccounts(string UserName, string EmailAddress, string Password, string ConfirmPassword, string FirstName, string LastName, string returnUrl = null)
+        public async Task<IActionResult> AdminAccounts(string UserName, string EmailAddress, string Password, string ConfirmPassword, string FirstName, string MyType, string LastName, string returnUrl = null)
         {
 
             ViewData["Title"] = "AdminAccounts";
@@ -274,7 +274,7 @@ namespace CrestCouriers_Career.Controllers
             { 
                 //EF core code
 
-                var user = new Account { UserName = UserName, Email = EmailAddress, FirstName = FirstName, LastName = LastName, IsAdmin = true, IsActive = false, IsUser = false, AdminType = 1};
+                var user = new Account { UserName = UserName, Email = EmailAddress, FirstName = FirstName, LastName = LastName, IsAdmin = true, IsActive = false, IsUser = false, AdminType = MyType};
                 var result = await _userManager.CreateAsync(user, Password);
                 if(result.Succeeded)
                 {
@@ -470,18 +470,16 @@ namespace CrestCouriers_Career.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
-        public async Task<IActionResult> Login(string returnUrl = null)
+        public async Task<IActionResult> Login()
         {
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
-            ViewData["ReturnUrl"] = returnUrl;
+            //ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
 
 
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
         {
@@ -492,19 +490,19 @@ namespace CrestCouriers_Career.Controllers
                 CrestContext context = new CrestContext();
                 var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, lockoutOnFailure: false);
                 Account Account = await context.Account.Where(A => A.UserName == model.Username).FirstOrDefaultAsync();
-                if (result.Succeeded && Account.IsAdmin && Account.IsActive && Account.AdminType==1 )
+                if (result.Succeeded && Account.IsAdmin && Account.IsActive && Account.AdminType=="Admin" )
                 {
                     _logger.LogInformation("User logged in.");
                     return RedirectToAction(nameof(Dashboard));
 
                 }
-                if (result.Succeeded && Account.IsAdmin && Account.IsActive && Account.AdminType == 2)
+                if (result.Succeeded && Account.IsAdmin && Account.IsActive && Account.AdminType == "Limited")
                 {
                     _logger.LogInformation("User logged in.");
                     return RedirectToAction(nameof(Dashboard));
 
                 }
-                if (result.Succeeded && Account.IsAdmin && Account.IsActive && Account.AdminType == 3)
+                if (result.Succeeded && Account.IsAdmin && Account.IsActive && Account.AdminType == "Accountancy")
                 {
                     _logger.LogInformation("User logged in.");
                     return RedirectToAction(nameof(Bill));
@@ -651,7 +649,7 @@ namespace CrestCouriers_Career.Controllers
 
             var bills = from B in context.Bill select B;
 
-            return View(await PaginatefList<Bill>.CreateAsunc(bills,pageNumber ?? 1,2));
+            return View(await PaginatefList<Bill>.CreateAsunc(bills,pageNumber ?? 1,10));
         }
 
         [HttpGet]

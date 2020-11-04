@@ -24,7 +24,7 @@ namespace CrestCouriers_Career.Models
 
         public bool IsActive { get; set; }
 
-        public int AdminType { get; set; }
+        public string AdminType { get; set; }
 
         public string Level { get; set; }
 
