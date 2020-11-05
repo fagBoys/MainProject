@@ -508,6 +508,12 @@ namespace CrestCouriers_Career.Controllers
                     return RedirectToAction(nameof(Bill));
 
                 }
+                if (result.Succeeded && Account.IsAdmin && Account.IsActive && Account.AdminType == "Secretary")
+                {
+                    _logger.LogInformation("User logged in.");
+                    return RedirectToAction(nameof(Bill));
+
+                }
 
                 if (result.IsLockedOut)
                 {

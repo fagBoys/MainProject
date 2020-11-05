@@ -213,6 +213,10 @@
         {
             <p>Accountancy</p>
         }
+        else if (item.AdminType == "Secretary")
+        {
+            <p>Secretary</p>
+        }
 
     </div>
 
@@ -237,6 +241,26 @@
         </div>
     }
     else if (item.AdminType == "Accountancy")
+    {
+        <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
+            <button type="submit" style="background-color: transparent; border: none;">
+                <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
+            </button>
+        </div>
+
+        <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
+            <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="AdminAccountEdit" asp-route-Id="@item.Id">
+                <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
+            </button>
+        </div>
+
+        <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
+            <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Adminid="@item.Id">
+                <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
+            </button>
+        </div>
+    }
+    else if (item.AdminType == "Secretary")
     {
         <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
             <button type="submit" style="background-color: transparent; border: none;">

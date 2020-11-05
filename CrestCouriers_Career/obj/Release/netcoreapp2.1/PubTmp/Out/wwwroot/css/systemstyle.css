@@ -1,3 +1,13 @@
+input
+{
+    outline:none;
+}
+
+.container-fuid {
+    display: flex;
+    flex-flow: column;
+}
+
 .login-logo-location
 {
   margin-bottom: 50px;
@@ -48,6 +58,13 @@
 .login-single-text:hover {
     text-align: center;
     margin: 0 auto;
+    color: red;
+    text-decoration: none !important;
+}
+
+.login-remember-me {
+    text-align: left;
+    padding-top:20px;
     color: red;
     text-decoration: none !important;
 }
@@ -119,8 +136,8 @@
     width: 100%;
     padding-left: 15px;
     padding-top: 12px;
-    color: white;
-    background-color: darkgray;
+    color: red;
+    background-color: white;
 }
 
 .panel-option-active {
@@ -179,7 +196,7 @@
 .admin-list-title-item
 {
 
-  width: 20%;
+  width: 16%;
   height: 100%;
   float: left;
   padding-top: 6px;
@@ -215,23 +232,20 @@
   border-radius: 25px;
   float: right;
   margin-right: 30px;
-
-  
 }
 
 .username-style
 {
-  float: left;
-  margin-top: 4px !important;
-  margin-left: 10px;
-  text-align:center;
 
+  margin:0 auto;
+  text-align: center;
+  margin-top: 5px;
+  padding-top: 4px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100px;
   max-height: 100px;
-
 
 }
 
@@ -356,3 +370,125 @@ margin-top: 50px;
 a.menu-option-link {
     text-decoration: none !important;
 }
+
+/* For Bill Start */
+
+/*USE IN Both*/
+.panel-option {
+    overflow:  auto;
+}
+
+
+
+
+.billDashbord {
+    margin: 50px 65px;
+}
+
+.billDashbord #BillDate {
+    /*background-color: teal;*/
+    height:60px;
+    
+}
+.billDashbord #BillFileDiv {
+color: rgba(129, 129, 129, 0.8);
+height: 360px;
+font-weight: bold;
+font-size: 20px;
+border: dashed;
+border-color: rgba(129, 129, 129, 0.5);
+border-width: thick;
+overflow: no-display;
+
+}
+
+
+.billDashbord #BillFile {
+
+color: rgba(129, 129, 129, 0.8);
+height: 350px;
+font-weight: bold;
+font-size: 20px;
+border: none;
+padding:0;
+margin:0;
+overflow: no-display;
+display:none;
+
+}
+
+
+.billDashbord #BillButton {
+background-color: red;
+padding-bottom: 10px;
+padding-top: 0px;
+width: 150px;
+height: 40px;
+border: none;
+border-radius: 3px 4px;
+font-size: 15px;
+font-weight: normal;
+float: left;
+margin-top: 20px;
+margin-bottom: 50px;
+text-transform: capitalize;
+
+}
+
+
+
+p.BillTextCenter{
+    
+
+
+}
+.BillTextCenter {
+    font-size: 22px;
+    font-weight: 700;
+    width: 100%;
+    height: 100%;
+    margin: inherit;
+    overflow: hidden;
+    padding-top : 150px;
+   
+    
+}
+/* For Bill End */
+
+/* For List Of Bills Start */
+#ListOfBillsPaging:hover {
+
+color:red;
+
+}
+.PagingColor:hover {
+    
+
+}
+
+.PagingColor:disabled {
+    color: #868e96 !important;
+}
+
+.PagingColor {
+    color: red !important;
+}
+.active {
+    color: white !important;
+    background-color: red !important;
+}
+.FormsData {
+
+margin-top:140px;
+}
+
+.BottomPaging {
+    margin:0px;
+    padding:0px;
+    clear : both;
+    position:center;
+    margin-top:50px;
+    
+    
+}
+/* For List Of Bills End */
