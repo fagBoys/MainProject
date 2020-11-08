@@ -658,6 +658,11 @@ namespace CrestCouriers_Career.Controllers
             return View(await PaginatefList<Bill>.CreateAsunc(bills,pageNumber ?? 1,10));
         }
 
+        //public async Task<IActionResult> ListOfBills(Bill bill)
+        //{
+        //    return View(bill);
+        //}
+
         [HttpGet]
         public async Task<IActionResult> DownloadBill(int id, DateTime date)
         {
@@ -666,6 +671,13 @@ namespace CrestCouriers_Career.Controllers
             var myfile = Convert.ToBase64String(bill.File);
 
             return File(bill.File, "application/pdf", date.ToShortDateString() + ".pdf");
+        }
+
+        public async Task<IActionResult> DisplayBill(int id)
+        {
+            CrestContext context = new CrestContext();
+            Bill bill = context.Bill.FirstOrDefault(B => B.BillID == id);
+            return View();
         }
 
         public IActionResult Bill()
