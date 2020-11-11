@@ -513,3 +513,21 @@ margin-top:50px;
 
 
 }
+
+.FileUploadIcon {
+    visibility: visible;
+    margin-top: 5px;
+    float: left;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    cursor: pointer;
+}
+
+    .FileUploadIcon:hover {
+        visibility: visible;
+        position: relative;
+        top: 3px;
+        cursor: pointer;
+    }
+
