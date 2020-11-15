@@ -28,6 +28,8 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
 using Microsoft.Extensions.Logging;
 using System.Security.Claims;
 
+using System.Net.Mime;
+
 namespace CrestCouriers_Career.Controllers
 {
     public class AdminController : Controller
@@ -86,8 +88,8 @@ namespace CrestCouriers_Career.Controllers
             //EF core start
 
             CrestContext context = new CrestContext();
-            IEnumerable<Order> orders = context.Order.Include(O=>O.Account).ToList();
-            
+            IEnumerable<Order> orders = context.Order.Include(O => O.Account).ToList();
+
             //EF core end
 
             return View(orders);
@@ -254,7 +256,7 @@ namespace CrestCouriers_Career.Controllers
             //EF core start
 
             CrestContext context = new CrestContext();
-            IEnumerable<Account> accounts = context.Account.Where(A=>A.IsAdmin == true).ToList();
+            IEnumerable<Account> accounts = context.Account.Where(A => A.IsAdmin == true).ToList();
 
             //EF core end
 
@@ -270,13 +272,13 @@ namespace CrestCouriers_Career.Controllers
 
             ViewData["Title"] = "AdminAccounts";
             ViewData["ReturnUrl"] = returnUrl;
-            if(ModelState.IsValid)
-            { 
+            if (ModelState.IsValid)
+            {
                 //EF core code
 
-                var user = new Account { UserName = UserName, Email = EmailAddress, FirstName = FirstName, LastName = LastName, IsAdmin = true, IsActive = false, IsUser = false, AdminType = MyType};
+                var user = new Account { UserName = UserName, Email = EmailAddress, FirstName = FirstName, LastName = LastName, IsAdmin = true, IsActive = false, IsUser = false, AdminType = MyType };
                 var result = await _userManager.CreateAsync(user, Password);
-                if(result.Succeeded)
+                if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
                     await _signInManager.SignInAsync(user, isPersistent: false);
@@ -389,7 +391,7 @@ namespace CrestCouriers_Career.Controllers
             //EF core start
 
             CrestContext context = new CrestContext();
-            IEnumerable<Account> accounts = context.Account.Where(A=>A.IsUser == true).ToList();
+            IEnumerable<Account> accounts = context.Account.Where(A => A.IsUser == true).ToList();
 
             //EF core end
 
@@ -490,7 +492,7 @@ namespace CrestCouriers_Career.Controllers
                 CrestContext context = new CrestContext();
                 var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, lockoutOnFailure: false);
                 Account Account = await context.Account.Where(A => A.UserName == model.Username).FirstOrDefaultAsync();
-                if (result.Succeeded && Account.IsAdmin && Account.IsActive && Account.AdminType=="Admin" )
+                if (result.Succeeded && Account.IsAdmin && Account.IsActive && Account.AdminType == "Admin")
                 {
                     _logger.LogInformation("User logged in.");
                     return RedirectToAction(nameof(Dashboard));
@@ -528,7 +530,7 @@ namespace CrestCouriers_Career.Controllers
             }
 
             return View();
-        
+
         }
 
 
@@ -647,7 +649,7 @@ namespace CrestCouriers_Career.Controllers
             return RedirectToAction("Login");
         }
 
-        public async Task<IActionResult> ListOfBills(string currentFilter , int? pageNumber)
+        public async Task<IActionResult> ListOfBills(string currentFilter, int? pageNumber)
         {
             CrestContext context = new CrestContext();
 
@@ -655,7 +657,7 @@ namespace CrestCouriers_Career.Controllers
 
             var bills = from B in context.Bill select B;
 
-            return View(await PaginatefList<Bill>.CreateAsunc(bills,pageNumber ?? 1,10));
+            return View(await PaginatefList<Bill>.CreateAsunc(bills, pageNumber ?? 1, 5));
         }
 
         //public async Task<IActionResult> ListOfBills(Bill bill)
@@ -673,11 +675,12 @@ namespace CrestCouriers_Career.Controllers
             return File(bill.File, "application/pdf", date.ToShortDateString() + ".pdf");
         }
 
-        public async Task<IActionResult> DisplayBill(int id)
+        public IActionResult DisplayBill(Bill bill)
         {
-            CrestContext context = new CrestContext();
-            Bill bill = context.Bill.FirstOrDefault(B => B.BillID == id);
-            return View();
+            //CrestContext context = new CrestContext();
+            //Bill bill = context.Bill.FirstOrDefault(B => B.BillID == id);
+            var fileS = new FileStreamResult(new MemoryStream(bill.File), "application/pdf");
+            return fileS;
         }
 
         public IActionResult Bill()

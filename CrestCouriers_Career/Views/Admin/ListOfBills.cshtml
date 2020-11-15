@@ -32,6 +32,7 @@
 
 
 
+
 <table class="table FormsData">
     <thead>
         <tr>
@@ -53,38 +54,65 @@
         @foreach (var item in Model)
         {
 
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Date)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DownloadDate)
-                    </td>
-                    <td>
-                        @*@Html.DisplayFor(modelItem => item.File)*@
-                        <a asp-action="DownloadBill" asp-route-id="@item.BillID" asp-route-date="@item.Date">Download</a>
-                    </td>
-                    <!--<td>-->
-                    @*<a asp-action="Edit" asp-route-id="@item.BillID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.BillID">Details</a> |*@
-                    <!--<a asp-action="DownloadBill" asp-route-id="@item.BillID">Download</a>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DownloadDate)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.File)*@
+                    <a href="#" onclick="OpenPDF();">Display</a>
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.File)*@
+                    <a asp-action="DownloadBill" asp-route-id="@item.BillID" asp-route-date="@item.Date">Download</a>
+                </td>
+                <!--<td>-->
+                @*<a asp-action="Edit" asp-route-id="@item.BillID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.BillID">Details</a> |*@
+                <!--<a asp-action="DownloadBill" asp-route-id="@item.BillID">Download</a>
                 </td>-->
-                </tr>
+            </tr>
 
-         }
+            <script type="text/javascript">
+                function OpenPDF() {
+
+                    document.getElementById("pdfBack").style.visibility = "visible";
+                    document.getElementById("pdfDialog").style.visibility = "visible";
+                    @*document.getElementById("pdfFile").setAttribute('src',@{new FileStreamResult(new System.IO.MemoryStream(item.File), "application/pdf");});*@
+                }
+            </script>
+
+
+
+
+        }
+
+
 
 
     </tbody>
 </table>
 
+@section pdfDialog
+{
 
+    <div id="pdfBack" style="background-color:black; width:100%; height:100%; z-index:2; position:absolute; opacity:0.8;  visibility:hidden;">
+    </div>
+    <div id="pdfDialog" style="z-index: 2; position: absolute; margin: auto; text-align:center; margin-left:25%; margin-top:5vh; width:100vh; height:90vh; background-color:black; opacity:1; visibility:hidden;">
+        <embed id="pdfFile" type="application/pdf" src="@Url.Action("DisplayBill","Admin", Model)" width="100%" height="100%" style="" />
+    </div>
+
+}
 
 
 
 @{
     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
- }
+}
 
 <nav class="Page navigation example BottomPaging">
     <ul class="pagination justify-content-center">
@@ -93,8 +121,96 @@
         <li class="page-item PagingColor @prevDisabled">
             <a asp-action="ListOfBills" asp-route-pageNumber="@(Model.PageIndex-1)" class="page-link PagingColor @prevDisabled" id="@*ListOfBillsPaging*@">Previous</a>
         </li>
+        @{
+            string activepage = "";
+            if (Model.TotalPage < 5)
+            {
+                for (var pagecount = 1; pagecount <= Model.TotalPage; pagecount++)
+                {
 
-        <li class="page-item " aria-current="page">
+                    if (pagecount == Model.PageIndex)
+                    {
+                        activepage = "active";
+                    }
+
+                    <li class="page-item " aria-current="page">
+                        <a class="page-link PagingColor @activepage" asp-action="ListOfBills" asp-route-pageNumber="@pagecount">
+                            @pagecount
+                        </a>
+                    </li>
+
+                }
+            }
+            else
+            {
+                if (Model.PageIndex == 1)
+                {
+                    <li class="page-item " aria-current="page">
+                        <a class="page-link PagingColor active">
+                            @Model.PageIndex
+                        </a>
+                    </li>
+                    <li class="page-item " aria-current="page">
+                        <a class="page-link PagingColor" asp-action="ListOfBills" asp-route-pageNumber="@(Model.PageIndex+1)">
+                            @(Model.PageIndex + 1)
+                        </a>
+                    </li>
+                    <li class="page-item " aria-current="page">
+                        <a class="page-link PagingColor">
+                            ...
+                        </a>
+                    </li>
+                    <li class="page-item " aria-current="page">
+                        <a class="page-link PagingColor" asp-action="ListOfBills" asp-route-pageNumber="@Model.TotalPage">
+                            @Model.TotalPage
+                        </a>
+                    </li>
+                }
+                else if (Model.PageIndex == Model.TotalPage)
+                {
+                    <li class="page-item " aria-current="page">
+                        <a class="page-link PagingColor" asp-action="ListOfBills" asp-route-pageNumber="1">
+                            1
+                        </a>
+                    </li>
+                    <li class="page-item " aria-current="page">
+                        <a class="page-link PagingColor">
+                            ...
+                        </a>
+                    </li>
+                    <li class="page-item " aria-current="page">
+                        <a class="page-link PagingColor" asp-action="ListOfBills" asp-route-pageNumber="@(Model.TotalPage-1)">
+                            @(Model.TotalPage - 1)
+                        </a>
+                    </li>
+                    <li class="page-item " aria-current="page">
+                        <a class="page-link PagingColor active">
+                            @Model.TotalPage
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item " aria-current="page">
+                        <a class="page-link PagingColor" asp-action="ListOfBills" asp-route-pageNumber="1">
+                            1
+                        </a>
+                    </li>
+                    <li class="page-item " aria-current="page">
+                        <a class="page-link PagingColor active">
+                            @(Model.PageIndex)
+                        </a>
+                    </li>
+                    <li class="page-item " aria-current="page">
+                        <a class="page-link PagingColor" asp-action="ListOfBills" asp-route-pageNumber="@(Model.TotalPage)">
+                            @Model.TotalPage
+                        </a>
+                    </li>
+                }
+            }
+        }
+
+        @*<li class="page-item " aria-current="page">
             <a class="page-link PagingColor active" href="#">1</a>
         </li>
 
@@ -105,7 +221,7 @@
 
         <li class="page-item">
             <a class="page-link PagingColor" href="#">3</a>
-        </li>
+        </li>*@
 
         <li class="page-item PagingColor @nextDisabled">
             <a asp-action="ListOfBills" asp-route-pageNumber="@(Model.PageIndex+1)" class="page-link PagingColor @prevDisabled">Next</a>
@@ -116,52 +232,52 @@
 </nav>
 
 @* YOUUUUUU Do Not Delet this it is requere for paging later *@
-    @*
+@*
 
-        <style>
-            /* Style the buttons */
-            .btn {
-                border: none;
-                outline: none;
-                padding: 10px 16px;
-                background-color: #f1f1f1;
-                cursor: pointer;
-                font-size: 18px;
+    <style>
+        /* Style the buttons */
+        .btn {
+            border: none;
+            outline: none;
+            padding: 10px 16px;
+            background-color: #f1f1f1;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+            /* Style the active class, and buttons on mouse-over */
+            .active, .btn:hover {
+                background-color: #666;
+                color: white;
             }
+    </style>
 
-                /* Style the active class, and buttons on mouse-over */
-                .active, .btn:hover {
-                    background-color: #666;
-                    color: white;
+
+    <h1>Active Button</h1>
+    <p>Highlight the active/current (pressed) button.</p>
+
+    <div id="myDIV">
+        <button class="btn">1</button>
+        <button class="btn">2</button>
+        <button class="btn">3</button>
+        <button class="btn">4</button>
+        <button class="btn">5</button>
+    </div>
+
+    <script>
+        // Add active class to the current button (highlight it)
+        var header = document.getElementById("myDIV");
+        var btns = header.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                if (current.length > 0) {
+                    current[0].className = current[0].className.replace(" active", "");
                 }
-        </style>
-
-
-        <h1>Active Button</h1>
-        <p>Highlight the active/current (pressed) button.</p>
-
-        <div id="myDIV">
-            <button class="btn">1</button>
-            <button class="btn">2</button>
-            <button class="btn">3</button>
-            <button class="btn">4</button>
-            <button class="btn">5</button>
-        </div>
-
-        <script>
-            // Add active class to the current button (highlight it)
-            var header = document.getElementById("myDIV");
-            var btns = header.getElementsByClassName("btn");
-            for (var i = 0; i < btns.length; i++) {
-                btns[i].addEventListener("click", function () {
-                    var current = document.getElementsByClassName("active");
-                    if (current.length > 0) {
-                        current[0].className = current[0].className.replace(" active", "");
-                    }
-                    this.className += " active";
-                });
-            }
-        </script>
+                this.className += " active";
+            });
+        }
+    </script>
 
 *@
 
