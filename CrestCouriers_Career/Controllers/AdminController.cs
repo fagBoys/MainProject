@@ -680,7 +680,7 @@ namespace CrestCouriers_Career.Controllers
             //CrestContext context = new CrestContext();
             //Bill bill = context.Bill.FirstOrDefault(B => B.BillID == id);
             var fileS = new FileStreamResult(new MemoryStream(bill.File), "application/pdf");
-            return fileS;
+            return View(bill.File);
         }
 
         public IActionResult Bill()
