@@ -458,7 +458,7 @@ p.BillTextCenter{
 /* For List Of Bills Start */
 #ListOfBillsPaging:hover {
 
-color:red;
+    color:red;
 
 }
 .PagingColor:hover {
@@ -471,11 +471,13 @@ color:red;
 }
 
 .PagingColor {
-    color: red !important;
+
+ color: red !important;
+
 }
 .active {
-    color: white !important;
-    background-color: red !important;
+color: white !important;
+background-color: red !important;
 }
 .FormsData {
 
@@ -483,12 +485,49 @@ margin-top:140px;
 }
 
 .BottomPaging {
-    margin:0px;
-    padding:0px;
-    clear : both;
-    position:center;
-    margin-top:50px;
+
+margin:0px;
+padding:0px;
+clear : both;
+position:center;
+margin-top:50px;
     
     
 }
 /* For List Of Bills End */
+#progbar01 {
+    position: inherit;
+    width: 80%;
+    align-content: center;
+    padding-top: 2px;
+    margin: auto;
+    padding-left:180px;
+}
+.progress-bar {
+
+    background-color:red !important;
+
+}
+
+#bar01{
+
+
+}
+
+.FileUploadIcon {
+    visibility: visible;
+    margin-top: 5px;
+    float: left;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    cursor: pointer;
+}
+
+    .FileUploadIcon:hover {
+        visibility: visible;
+        position: relative;
+        top: 3px;
+        cursor: pointer;
+    }
+

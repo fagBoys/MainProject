@@ -86,34 +86,34 @@ namespace CrestCouriers_Career.Controllers
             //Recaptcha code ends here
 
 
-            string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            Dal connection = new Dal(myurl);
+            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
+            //Dal connection = new Dal(myurl);
 
-            SqlCommand cmd = new SqlCommand("sp_Crest_contact", connection.connect())
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@FullName", Contact.FullName);
-            cmd.Parameters.AddWithValue("@EmailAddress", Contact.EmailAddress);
-            cmd.Parameters.AddWithValue("@PhoneNumber", Contact.PhoneNumber);
-            cmd.Parameters.AddWithValue("@Subject", Contact.Subject);
-            cmd.Parameters.AddWithValue("@Message", Contact.Message);
-
-
-            cmd.ExecuteNonQuery();
+            //SqlCommand cmd = new SqlCommand("sp_Crest_contact", connection.connect())
+            //{
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //cmd.Parameters.AddWithValue("@FullName", Contact.FullName);
+            //cmd.Parameters.AddWithValue("@EmailAddress", Contact.EmailAddress);
+            //cmd.Parameters.AddWithValue("@PhoneNumber", Contact.PhoneNumber);
+            //cmd.Parameters.AddWithValue("@Subject", Contact.Subject);
+            //cmd.Parameters.AddWithValue("@Message", Contact.Message);
 
 
-            connection.disconnect();
+            //cmd.ExecuteNonQuery();
+
+
+            //connection.disconnect();
 
 
 
             //EF core code
 
-            //CrestContext context = new CrestContext();
+            CrestContext context = new CrestContext();
 
-            //context.Contact.Add(Contact);
+            context.Contact.Add(Contact);
 
-            //context.SaveChanges();
+            context.SaveChanges();
 
             //EF core code ends
 
@@ -257,29 +257,15 @@ namespace CrestCouriers_Career.Controllers
             {
 
                 ViewData["City"] = id;
-                if (id == "Slough")
-                {
-                    ViewData["CityMap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d170995.7475644822!2d-0.8568035154010306!3d51.54269866872921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487663427e9e92a9%3A0xb16ca352b90b0206!2sSlough!5e0!3m2!1sen!2suk!4v1595755000550!5m2!1sen!2suk";
-                    ViewData["Salary"] = "£10.00 Per Hours";
-                }
-                else if (id == "Birmingham")
+
+                if (id == "Birmingham")
                 {
                     ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d76145.62257369689!2d-2.6435830798807842!3d53.3870880561791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b01835b28c2a7%3A0x88e8e7e8adef7e45!2sWarrington!5e0!3m2!1sen!2suk!4v1597744842846!5m2!1sen!2suk";
-                    ViewData["Salary"] = "£10.00 Per Hours";
-                }
-                else if (id == "Warrington")
-                {
-                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d76145.62257369689!2d-2.6435830798807842!3d53.3870880561791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b01835b28c2a7%3A0x88e8e7e8adef7e45!2sWarrington!5e0!3m2!1sen!2suk!4v1597744842846!5m2!1sen!2suk";
-                    ViewData["Salary"] = "£10.00 Per Hours";
-                }
-                else if (id == "Bristol")
-                {
-                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d159068.2712730391!2d-2.7308006159249643!3d51.46840550054924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4871836681b3d861%3A0x8ee4b22e4b9ad71f!2sBristol!5e0!3m2!1sen!2suk!4v1595755174884!5m2!1sen!2suk";
                     ViewData["Salary"] = "£10.00 Per Hours";
                 }
                 else if (id == "Wolverhampton")
                 {
-                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9694.95544934009!2d-2.132211827315473!3d52.592414403156106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487080d43225d7fd%3A0x526da09547380126!2sWolverhampton%2C%20UK!5e0!3m2!1sen!2s!4v1605534390534!5m2!1sen!2s";
+                    ViewData["Citymap"] = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19389.484137642463!2d-2.1508388128017075!3d52.59337880544072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487080d43225d7fd%3A0x526da09547380126!2sWolverhampton%2C%20UK!5e0!3m2!1sen!2s!4v1605561217575!5m2!1sen!2s";
                     ViewData["Salary"] = "£10.00 Per Hours";
                 }
                 else if (id == "Tamworth")
@@ -304,6 +290,8 @@ namespace CrestCouriers_Career.Controllers
             return View();
 
         }
+
+        [HttpGet]
         public IActionResult Career(string id)
         {
             ViewData["message"] = "No";
@@ -342,28 +330,33 @@ namespace CrestCouriers_Career.Controllers
 
 
             //Dal con = new Dal();
-            SqlCommand cmd = new SqlCommand("sp_Crest_career", connection.connect())
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@FirstName", career.FirstName);
-            cmd.Parameters.AddWithValue("@LastName", career.LastName);
-            cmd.Parameters.AddWithValue("@Gender", career.Gender);
-            cmd.Parameters.AddWithValue("@Age", career.Age);
-            cmd.Parameters.AddWithValue("@Married", career.Married);
-            cmd.Parameters.AddWithValue("@HouseNumber", career.HouseNumber);
-            cmd.Parameters.AddWithValue("@RoadName", career.RoadName);
-            cmd.Parameters.AddWithValue("@City", career.City);
-            cmd.Parameters.AddWithValue("@PostCode", career.PostCode);
-            cmd.Parameters.AddWithValue("@DriverLicence", career.DriverLicence);
-            cmd.Parameters.AddWithValue("@Accident", career.Accident);
-            cmd.Parameters.AddWithValue("@DBS", career.DBS);
-            cmd.Parameters.AddWithValue("@PhoneNumber", career.PhoneNumber);
-            cmd.Parameters.AddWithValue("@Email", career.Email);
-            cmd.Parameters.AddWithValue("@UploadCV", UploadCV.FileName);
 
-            cmd.ExecuteNonQuery();
-            connection.disconnect();
+            CrestContext context = new CrestContext();
+            career.UploadCV = UploadCV.FileName;
+            context.RegCareer.Add(career);
+
+            //SqlCommand cmd = new SqlCommand("sp_Crest_career", connection.connect())
+            //{
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //cmd.Parameters.AddWithValue("@FirstName", career.FirstName);
+            //cmd.Parameters.AddWithValue("@LastName", career.LastName);
+            //cmd.Parameters.AddWithValue("@Gender", career.Gender);
+            //cmd.Parameters.AddWithValue("@Age", career.Age);
+            //cmd.Parameters.AddWithValue("@Married", career.Married);
+            //cmd.Parameters.AddWithValue("@HouseNumber", career.HouseNumber);
+            //cmd.Parameters.AddWithValue("@RoadName", career.RoadName);
+            //cmd.Parameters.AddWithValue("@City", career.City);
+            //cmd.Parameters.AddWithValue("@PostCode", career.PostCode);
+            //cmd.Parameters.AddWithValue("@DriverLicence", career.DriverLicence);
+            //cmd.Parameters.AddWithValue("@Accident", career.Accident);
+            //cmd.Parameters.AddWithValue("@DBS", career.DBS);
+            //cmd.Parameters.AddWithValue("@PhoneNumber", career.PhoneNumber);
+            //cmd.Parameters.AddWithValue("@Email", career.Email);
+            //cmd.Parameters.AddWithValue("@UploadCV", UploadCV.FileName);
+
+            //cmd.ExecuteNonQuery();
+            //connection.disconnect();
 
             //  Upload file started
 

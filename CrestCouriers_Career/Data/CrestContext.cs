@@ -27,7 +27,9 @@ namespace CrestCouriers_Career.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=.;Database=CrestDB;Trusted_Connection=True;MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer("Server =.; Database = CrestDB; Trusted_Connection = True; MultipleActiveResultSets = true");
+            //Server =.; Database = CrestDB; Trusted_Connection = True; MultipleActiveResultSets = true
+            //Server=sql11.hostinguk.net; Database=crestcou_database; User Id=crestdbuser; Password=CRESTcouriers.db;MultipleActiveResultSets=true
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {

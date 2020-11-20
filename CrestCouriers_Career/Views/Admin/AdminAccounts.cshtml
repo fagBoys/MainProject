@@ -62,13 +62,13 @@
 
             <div class="col-sm-6">
                 <div class="order-input">
-                    <input name="Password" placeholder="Password">
+                    <input type="password" name="Password" placeholder="Password">
                 </div>
             </div>
 
             <div class="col-sm-6">
                 <div class="order-input">
-                    <input name="ConfirmPassword" placeholder="Confirm password">
+                    <input type="password" name="ConfirmPassword" placeholder="Confirm password">
                 </div>
             </div>
 
@@ -164,8 +164,7 @@
 <hr style="width:90%; border-color:red;">
 @foreach (var item in Model)
 {
-    @using (Html.BeginForm("AdminDelete", "Admin", new { id = item.Id }))
-    {
+
 <div class="list-order">
 
     <div class="admin-list-title-item">
@@ -229,18 +228,18 @@
         </div>
 
         <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
-            <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="AdminAccountEdit" asp-route-Id="@item.Id">
+            <button style="background-color: transparent; border: none;" @*asp-controller="Admin" asp-action="AdminAccountEdit" asp-route-Id="@item.Id"*@>
                 <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
             </button>
         </div>
 
-        <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
-            <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Adminid="@item.Id">
+        <div class="list-record-button" @*data-toggle="modal" data-target=".confirmbox-deactive"*@>
+            <button style="background-color: transparent; border: none;" @*onclick="OpenDeactive(@item.Id)"*@ @*asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Adminid="@item.Id"*@>
                 <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
             </button>
         </div>
     }
-    else if (item.AdminType == "Accountancy")
+    @*else if (item.AdminType == "Accountancy")
     {
         <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
             <button type="submit" style="background-color: transparent; border: none;">
@@ -299,10 +298,10 @@
             <img src="~/img/System/deactive-disable.png" width="35px" height="35px" alt="">
 
         </div>
-    }
+    }*@
 
 </div>
-    }
+    
 }
 
 
@@ -465,7 +464,7 @@
 
                             <div class="col-sm-6">
                                 <div class="input-submit">
-                                    <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:right;" name="button"><h5>Deactive</h5></button>
+                                    <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:right;" name="button" @*asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Id="@ViewData["AccountId"]"*@><h5>Deactive</h5></button>
                                 </div>
                             </div>
 
@@ -501,6 +500,13 @@
         return T;
     }
 
+    function OpenDeactive(id) {
+
+        @ViewData["AccountId"] = id;
+        $("#confirmbox-deactive").modal();
+        
+    }
+
     $('button').attr('asp-route-AdminType', document.getElementById("dropdownMenuButton").value);
 
     //function SetLimited() {
@@ -521,71 +527,3 @@
         
     //});
 </script>
-
-
-@*<table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Adminid)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.UserName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Password)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FirstName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Lastname)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Level)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PhoneNumber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.EmailAddress)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-    @foreach (var item in Model) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Adminid)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Password)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Lastname)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Level)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PhoneNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EmailAddress)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                </td>
-            </tr>
-    }
-        </tbody>
-    </table>*@

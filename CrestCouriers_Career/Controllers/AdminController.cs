@@ -299,17 +299,9 @@ namespace CrestCouriers_Career.Controllers
 
         }
 
-        public async Task<ActionResult> AdminDelete(string Id)
-        {
-            //EF core start
-            Account Account = await _userManager.FindByIdAsync(Id);
-            await _userManager.DeleteAsync(Account);
-            //EF core end
-
-            return RedirectToAction("AdminAccounts");
-        }
 
 
+        [HttpPost]
         public async Task<IActionResult> AdminAccountEdit(string Id)
         {
             //if (HttpContext.Session.GetString("AdminSession") == null)
@@ -362,12 +354,13 @@ namespace CrestCouriers_Career.Controllers
             return new RedirectResult("/Admin/AdminAccounts");
         }
 
-        public async Task<IActionResult> AdminAccountActive(string Adminid)
+        [HttpPost]
+        public async Task<IActionResult> AdminAccountActive(string Id)
         {
 
             //EF core start
 
-            Account Account = await _userManager.FindByIdAsync(Adminid);
+            Account Account = await _userManager.FindByIdAsync(Id);
 
             if (Account.IsActive == true)
             {
@@ -383,6 +376,17 @@ namespace CrestCouriers_Career.Controllers
 
             return new RedirectResult("/Admin/AdminAccounts");
         }
+
+        //[HttpPost]
+        //public async Task<ActionResult> AdminDelete(string Id)
+        //{
+        //    //EF core start
+        //    Account Account = await _userManager.FindByIdAsync(Id);
+        //    await _userManager.DeleteAsync(Account);
+        //    //EF core end
+
+        //    return RedirectToAction("AdminAccounts");
+        //}
 
         [HttpGet]
         [AllowAnonymous]
