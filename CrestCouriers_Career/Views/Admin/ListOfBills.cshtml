@@ -54,11 +54,11 @@
                     @Html.DisplayFor(modelItem => item.Date)
                 </td>
 
-                @* Display button *@
-                <!--<td>-->
+                 @*Display button*@ 
+                <td>
                     @*@Html.DisplayFor(modelItem => item.File)*@
-                    <!--<a href="#" onclick="OpenPDF();">Display</a>
-                </td>-->
+                    <a href="#" onclick="OpenPDF();">Display</a>
+                </td>
 
                 <td>
                     @*@Html.DisplayFor(modelItem => item.File)*@
@@ -72,15 +72,15 @@
             </tr>
 
             //OpenPDF script
-            <!--<script type="text/javascript">
+            <script type="text/javascript">
                 function OpenPDF() {
 
                     document.getElementById("pdfBack").style.visibility = "visible";
-                    document.getElementById("pdfDialog").style.visibility = "visible";-->
+                    document.getElementById("pdfDialog").style.visibility = "visible";
                     @*document.getElementById("pdfFile").setAttribute("src", "data:application/pdf;base64," + @Convert.ToBase64String(item.File));*@
-                    <!--document.getElementById("pdfFile").setAttribute("src", "data:application/pdf;base64," + "@Convert.ToBase64String(item.File)");
+                    document.getElementById("pdfFile").setAttribute("src", "data:application/pdf;base64," + "@Convert.ToBase64String(item.File)");
                 }
-            </script>-->
+            </script>
 
 
 

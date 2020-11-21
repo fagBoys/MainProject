@@ -233,8 +233,8 @@
             </button>
         </div>
 
-        <div class="list-record-button" @*data-toggle="modal" data-target=".confirmbox-deactive"*@>
-            <button style="background-color: transparent; border: none;" @*onclick="OpenDeactive(@item.Id)"*@ @*asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Adminid="@item.Id"*@>
+        <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
+            <button style="background-color: transparent; border: none;" onclick="OpenDeactive(@item.Id);" @*asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Adminid="@item.Id"*@>
                 <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
             </button>
         </div>
@@ -464,7 +464,7 @@
 
                             <div class="col-sm-6">
                                 <div class="input-submit">
-                                    <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:right;" name="button" @*asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Id="@ViewData["AccountId"]"*@><h5>Deactive</h5></button>
+                                    <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:right;" name="button" asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Id="@ViewData["AccountId"]"><h5>Deactive</h5></button>
                                 </div>
                             </div>
 
@@ -502,7 +502,7 @@
 
     function OpenDeactive(id) {
 
-        @ViewData["AccountId"] = id;
+        @ViewData["AccountId"] = system.convert.toint32(id);
         $("#confirmbox-deactive").modal();
         
     }
