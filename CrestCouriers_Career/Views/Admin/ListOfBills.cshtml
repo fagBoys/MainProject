@@ -30,8 +30,21 @@
     </ul>
 }
 
+<div>
+   
+    <form>
+        <div class="form-row">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="First name">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Last name">
+            </div>
+        </div>
+    </form>
 
-<table class="table">
+</div>
+<table class="table TableST">
     <thead>
         <tr>
             <th>
@@ -40,16 +53,18 @@
             <th>
                 File
             </th>
-            <th></th>
+            <th>
+                
+            </th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="TableST" >
 
 
         @foreach (var item in Model)
         {
 
-            <tr>
+            <tr >
                 <td>
                     @Html.DisplayFor(modelItem => item.Date)
                 </td>

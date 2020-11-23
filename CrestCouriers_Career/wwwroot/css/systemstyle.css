@@ -531,3 +531,14 @@ margin-top:50px;
         cursor: pointer;
     }
 
+.TableST{
+    float:none !important;
+    position: relative !important;
+    width:85% !important;
+    margin-left:8%;
+    
+    
+    
+}
+
+
