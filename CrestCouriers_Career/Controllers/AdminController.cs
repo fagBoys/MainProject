@@ -653,15 +653,30 @@ namespace CrestCouriers_Career.Controllers
             return RedirectToAction("Login");
         }
 
-        public async Task<IActionResult> ListOfBills(string currentFilter, int? pageNumber)
+        public async Task<IActionResult> ListOfBills(string currentFilter, int? pageNumber , string listtype)
         {
             CrestContext context = new CrestContext();
 
             //IEnumerable<Bill> bills = context.Bill.ToList();
 
-            var bills = from B in context.Bill select B;
+            var bills = from B in context.Bill select B ;
 
-            return View(await PaginatefList<Bill>.CreateAsunc(bills, pageNumber ?? 1, 5));
+            
+            Bill billss = new Bill();
+            //var billss = context.Bill.Where(a => a.Confirmation == "Confirmed");
+            if (listtype == "Confirmed")
+            {
+
+                billss = (Bill)from Bill in context.Bill where Bill.Confirmation == "Confirmed" select Bill;
+                //billss = (Bill)context.Bill.Where(a => a.Confirmation == "Confirmed");
+            }
+            else 
+            {
+                billss = (Bill)from Bill in context.Bill where Bill.Confirmation == "NotConfirmed" select Bill;
+                //billss = (Bill)context.Bill.Where(a => a.Confirmation == "NotConfirmed");
+            }
+
+            return View(await PaginatefList<Bill>.CreateAsunc(billss, pageNumber ?? 1, 5));
         }
 
         //public async Task<IActionResult> ListOfBills(Bill bill)
@@ -698,6 +713,7 @@ namespace CrestCouriers_Career.Controllers
             CrestContext Context = new CrestContext();
             Bill CreateBill = new Bill();
             CreateBill.Date = DateTime.Now;
+            CreateBill.Confirmation = "NotConfirmed";
             if (file.Length > 0)
             {
                 using (var ms = new MemoryStream())
