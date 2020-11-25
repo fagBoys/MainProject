@@ -662,11 +662,10 @@ namespace CrestCouriers_Career.Controllers
             var bills = from B in context.Bill select B ;
 
 
-            IEnumerable<Bill> billss =  context.Bill.ToList() ;
+            IEnumerable<Bill> billss;
             //var billss = context.Bill.Where(a => a.Confirmation == "Confirmed");
             if (listtype == "Confirmed")
             {
-
                 //billss = from Bill in context.Bill where Bill.Confirmation == "Confirmed" select Bill;
                 billss = context.Bill.Where(a => a.Confirmation == "Confirmed");
             }
@@ -676,7 +675,7 @@ namespace CrestCouriers_Career.Controllers
                 billss = context.Bill.Where(a => a.Confirmation == "NotConfirmed");
             }
 
-            return View(await PaginatefList<Bill>.CreateAsunc(billss, pageNumber ?? 1, 5));
+            return View(await PaginatefList<Bill>.CreateAsunc((IQueryable<Bill>)billss, pageNumber ?? 1, 2));
         }
 
         //public async Task<IActionResult> ListOfBills(Bill bill)
