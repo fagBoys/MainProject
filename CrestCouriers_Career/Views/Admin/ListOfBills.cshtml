@@ -29,6 +29,12 @@
         </a>
     </ul>
 }
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Admin" asp-action="ListOfBills" asp-route-listtype="Confirmed">Confirmed</a></li>
+        <li class="breadcrumb-item"><a asp-controller="Admin" asp-action="ListOfBills" asp-route-listtype="NotConfirmed">Not confirmed</a></li>
+    </ol>
+</nav>
 
 <div>
    
@@ -87,15 +93,15 @@
             </tr>
 
             //OpenPDF script
-            <script type="text/javascript">
+            <!--<script type="text/javascript">
                 function OpenPDF() {
 
                     document.getElementById("pdfBack").style.visibility = "visible";
-                    document.getElementById("pdfDialog").style.visibility = "visible";
+                    document.getElementById("pdfDialog").style.visibility = "visible";-->
                     @*document.getElementById("pdfFile").setAttribute("src", "data:application/pdf;base64," + @Convert.ToBase64String(item.File));*@
-                    document.getElementById("pdfFile").setAttribute("src", "data:application/pdf;base64," + "@Convert.ToBase64String(item.File)");
+                    <!--document.getElementById("pdfFile").setAttribute("src", "data:application/pdf;base64," + "@Convert.ToBase64String(item.File)");
                 }
-            </script>
+            </script>-->
 
 
 

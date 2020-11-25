@@ -148,7 +148,6 @@ C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netc
 C:\Users\mjn110\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\ResetPassword.cshtml.g.cs
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\bin\Debug\netcoreapp2.1\appsettings.Development.json
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\bin\Debug\netcoreapp2.1\appsettings.json
-C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\bin\Debug\netcoreapp2.1\CrestCouriers_Career.deps.json
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\bin\Debug\netcoreapp2.1\CrestCouriers_Career.runtimeconfig.json
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\bin\Debug\netcoreapp2.1\CrestCouriers_Career.runtimeconfig.dev.json

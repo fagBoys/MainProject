@@ -20,8 +20,8 @@ namespace CrestCouriers_Career.Models
         public DateTime Date { get; set; }
 
 
-        [MaxLength(50)]
-        public DateTime DownloadDate { get; set; }
+        [MaxLength(10)]
+        public string Confirmation { get; set; }
 
         [Required]
         public byte[] File { get; set; }
