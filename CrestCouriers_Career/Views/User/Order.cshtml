@@ -193,15 +193,15 @@
 
             <div class="col-sm-12">
                 <div class="order-input input-group">
-                    <input asp-for="CarType" type="text" style="border-radius:0px;" class="form-control" aria-label="Text input with dropdown button" placeholder="Car type">
+                    <input asp-for="CarType" type="text" id="VehicleInput" style="border-radius:0px;" class="form-control" aria-label="Text input with dropdown button" placeholder="Car type">
                     <span asp-validation-for="CarType" class="text-danger"></span>
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Car type
+                            Vehicle type
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item">Van</a>
-                            <a class="dropdown-item">Taxi</a>
+                            <a onclick="VehicleSelection('Van');" class="dropdown-item">Van</a>
+                            <a onclick="VehicleSelection('Van');" class="dropdown-item">Taxi</a>
                         </div>
                     </div>
                 </div>
@@ -293,6 +293,12 @@
             x.style.display = 'none';
 
         }
+
+    }
+
+    function VehicleSelection(x) {
+
+        document.getElementById('VehicleInput').value = x;
 
     }
 

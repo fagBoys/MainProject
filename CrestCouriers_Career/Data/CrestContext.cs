@@ -21,6 +21,8 @@ namespace CrestCouriers_Career.Data
         }
         public DbSet<Account> Account { get; set; }
         public DbSet<Order> Order { get; set; }
+        public DbSet<Place> Place { get; set; }
+        public DbSet<Address> Address { get; set; }
         public DbSet<Contact> Contact { get; set; }
         public DbSet<RegCareer> RegCareer { get; set; }
         public DbSet<Bill> Bill { get; set; }
@@ -34,6 +36,11 @@ namespace CrestCouriers_Career.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.Entity<Order>()
+            .HasMany<Place>(O => O.Places)
+            .WithOne(P => P.Order);
+
         }
     }
 }

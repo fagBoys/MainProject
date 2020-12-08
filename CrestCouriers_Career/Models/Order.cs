@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CrestCouriers_Career.Models
 {
@@ -14,13 +15,7 @@ namespace CrestCouriers_Career.Models
         [Required]
         public DateTime OrderDate { get; set; }
 
-        [Required]
-        [MaxLength(50)]
-        public string Origin { get; set; }
-
-        [Required]
-        [MaxLength(50)]
-        public string Destination { get; set; }
+        public ICollection<Place> Places { get; set; }
 
         [Required]
         public DateTime CollectionDate { get; set; }

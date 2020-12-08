@@ -1,4 +1,4 @@
-﻿@model CrestCouriers_Career.Models.Order
+﻿@model CrestCouriers_Career.ViewModels.User.OrderViewModel
 
 @{
     ViewData["Title"] = "Order";
@@ -46,13 +46,13 @@
         <div class="row">
 
             <div class="col-sm-6">
-                <input asp-for="Origin" placeholder="Origin">
-                <span asp-validation-for="Origin" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                <input asp-for="OriginAddress" placeholder="Origin">
+                <span asp-validation-for="OriginAddress" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
             </div>
 
             <div class="col-sm-6">
-                <input asp-for="Destination" placeholder="Destination">
-                <span asp-validation-for="Destination" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                <input asp-for="DestinationAddress" placeholder="Destination">
+                <span asp-validation-for="DestinationAddress" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
             </div>
 
         </div>
@@ -62,14 +62,14 @@
             <div class="col-sm-6">
                 <div class="order-input">
                     <input asp-for="CollectionDate" placeholder="Recieve date">
-                    <span asp-validation-for="Destination" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                    <span asp-validation-for="CollectionDate" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
                 </div>
             </div>
 
             <div class="col-sm-6">
                 <div class="order-input">
                     <input asp-for="DeliveryDate" placeholder="Delivery date">
-                    <span asp-validation-for="Destination" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                    <span asp-validation-for="DeliveryDate" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
                 </div>
             </div>
 
@@ -80,7 +80,7 @@
             <div class="col-sm-12">
                 <div class="order-input">
                     <input asp-for="CarType" placeholder="Car type">
-                    <span asp-validation-for="Destination" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                    <span asp-validation-for="CarType" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
                 </div>
             </div>
 

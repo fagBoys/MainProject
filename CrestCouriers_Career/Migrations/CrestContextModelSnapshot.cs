@@ -19,16 +19,34 @@ namespace CrestCouriers_Career.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("CrestCouriers_Career.Models.Address", b =>
+                {
+                    b.Property<int>("AddressId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AddressBody")
+                        .HasMaxLength(200);
+
+                    b.Property<int?>("PlaceId");
+
+                    b.HasKey("AddressId");
+
+                    b.HasIndex("PlaceId");
+
+                    b.ToTable("Address");
+                });
+
             modelBuilder.Entity("CrestCouriers_Career.Models.Bill", b =>
                 {
                     b.Property<int>("BillID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("Date")
-                        .HasMaxLength(50);
+                    b.Property<string>("Confirmation")
+                        .HasMaxLength(10);
 
-                    b.Property<DateTime>("DownloadDate")
+                    b.Property<DateTime>("Date")
                         .HasMaxLength(50);
 
                     b.Property<byte[]>("File")
@@ -84,15 +102,7 @@ namespace CrestCouriers_Career.Migrations
 
                     b.Property<DateTime>("DeliveryDate");
 
-                    b.Property<string>("Destination")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
                     b.Property<DateTime>("OrderDate");
-
-                    b.Property<string>("Origin")
-                        .IsRequired()
-                        .HasMaxLength(50);
 
                     b.Property<string>("Price")
                         .HasMaxLength(50);
@@ -105,6 +115,39 @@ namespace CrestCouriers_Career.Migrations
                     b.HasIndex("AccountId");
 
                     b.ToTable("Order");
+                });
+
+            modelBuilder.Entity("CrestCouriers_Career.Models.Place", b =>
+                {
+                    b.Property<int>("PlaceId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Company")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("LocationType")
+                        .IsRequired()
+                        .HasMaxLength(20);
+
+                    b.Property<int>("OrderId");
+
+                    b.Property<string>("Postcode")
+                        .IsRequired()
+                        .HasMaxLength(20);
+
+                    b.Property<string>("Recipient")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("Town")
+                        .IsRequired()
+                        .HasMaxLength(20);
+
+                    b.HasKey("PlaceId");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("Place");
                 });
 
             modelBuilder.Entity("CrestCouriers_Career.Models.RegCareer", b =>
@@ -338,7 +381,7 @@ namespace CrestCouriers_Career.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-                    b.Property<int>("AdminType");
+                    b.Property<string>("AdminType");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -361,11 +404,26 @@ namespace CrestCouriers_Career.Migrations
                     b.HasDiscriminator().HasValue("Account");
                 });
 
+            modelBuilder.Entity("CrestCouriers_Career.Models.Address", b =>
+                {
+                    b.HasOne("CrestCouriers_Career.Models.Place", "Place")
+                        .WithMany("Addresses")
+                        .HasForeignKey("PlaceId");
+                });
+
             modelBuilder.Entity("CrestCouriers_Career.Models.Order", b =>
                 {
                     b.HasOne("CrestCouriers_Career.Models.Account", "Account")
                         .WithMany("Orders")
                         .HasForeignKey("AccountId");
+                });
+
+            modelBuilder.Entity("CrestCouriers_Career.Models.Place", b =>
+                {
+                    b.HasOne("CrestCouriers_Career.Models.Order", "Order")
+                        .WithMany("Places")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

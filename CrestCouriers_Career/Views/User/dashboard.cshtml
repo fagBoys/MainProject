@@ -105,13 +105,13 @@
 
             <div class="list-title-item">
                 <p>
-                    @Html.DisplayFor(modelItem => item.Origin)
+
                 </p>
             </div>
 
             <div class="list-title-item">
                 <p>
-                    @Html.DisplayFor(modelItem => item.Destination)
+
                 </p>
             </div>
 
@@ -160,7 +160,7 @@
                 <button type="submit" style="background-color: transparent; border: none;" asp-controller="User" asp-action="Delete" asp-route-id="@item.OrderId"><img src="~/img/System/remove.png" width="35px" height="35px" alt=""></button>
             </div>
 
-            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getValues('@item.OrderId','@item.Origin','@item.Destination','@item.CollectionDate','@item.DeliveryDate','@item.CarType')">
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getValues('@item.OrderId','@item.Places.Where(T=>T.LocationType=="Origin")','@item.Places.Where(T=>T.LocationType=="Destination")','@item.CollectionDate','@item.DeliveryDate','@item.CarType')">
                 <button asp-controller="User" asp-action="Edit" asp-route-id="@item.OrderId" style="background-color:transparent; border:none;">
                     <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
                 </button>
@@ -171,9 +171,7 @@
 
         <div id="confirmbox-delete" class="modal fade confirmbox-delete">
             <div class="modal-dialog">
-                <div class="modal-content" style="        width: 600px;
-        padding: 0px;
-">
+                <div class="modal-content" style="width: 600px; padding: 0px;">
 
                     <div class="modal-header" style="border-bottom-color:red;">
                         <h2 class="update-box-header">Delete order</h2>

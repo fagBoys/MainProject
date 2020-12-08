@@ -2,6 +2,7 @@
 using CrestCouriers_Career.Models;
 using CrestCouriers_Career.ViewModels;
 using CrestCouriers_Career.ViewModels.AccountViewModels;
+using CrestCouriers_Career.ViewModels.User;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -353,7 +354,7 @@ namespace CrestCouriers_Career.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Order(Order order)
+        public async Task<IActionResult> Order(OrderViewModel orderviewmodel)
         {
             ViewData["Title"] = "Order";
 
@@ -370,18 +371,103 @@ namespace CrestCouriers_Career.Controllers
 
             //EF CORE START
 
-            CrestContext context = new CrestContext();
-            Account curaccount = context.Account.FirstOrDefault(A => A.Id == _userManager.GetUserId(User as ClaimsPrincipal));
-            context.Attach(curaccount).State = EntityState.Unchanged;
+            CrestContext Ordercontext = new CrestContext();
+            CrestContext Placecontext = new CrestContext();
+            CrestContext Addresscontext = new CrestContext();
+
+            CrestContext FindOrder = new CrestContext();
+
+            Order order = new Order();
+
+            Place origin = new Place();
+            Place destination = new Place();
+
+            Address originaddress1 = new Address();
+            Address originaddress2 = new Address();
+            Address originaddress3 = new Address();
+
+            Address destinationaddress1 = new Address();
+            Address destinationaddress2 = new Address();
+            Address destinationaddress3 = new Address();
+
+            Account curaccount = Ordercontext.Account.FirstOrDefault(A => A.Id == _userManager.GetUserId(User as ClaimsPrincipal));
+            Ordercontext.Attach(curaccount).State = EntityState.Unchanged;
             order.Account = curaccount as Account;
+
+
+            originaddress1.AddressBody = orderviewmodel.OriginAddress;
+
+            originaddress2.AddressBody = orderviewmodel.OriginAddress2;
+
+            originaddress3.AddressBody = orderviewmodel.OriginAddress3;
+
+
+
+            destinationaddress1.AddressBody = orderviewmodel.DestinationAddress;
+
+            destinationaddress2.AddressBody = orderviewmodel.DestinationAddress2;
+
+            destinationaddress3.AddressBody = orderviewmodel.DestinationAddress3;
+
+            origin.Recipient = orderviewmodel.OriginRecipient;
+            origin.Company = orderviewmodel.OriginCompany;
+            origin.Town = orderviewmodel.OriginTown;
+            origin.Postcode = orderviewmodel.OriginPostcode;
+            origin.LocationType = "Origin";
+
+
+            destination.Recipient = orderviewmodel.DestinationRecipient;
+            destination.Company = orderviewmodel.DestinationCompany;
+            destination.Town = orderviewmodel.DestinationTown;
+            destination.Postcode = orderviewmodel.DestinationPostcode;
+            destination.LocationType = "Destination";
+
+            order.OrderDate = System.DateTime.Now;
+            order.CollectionDate = orderviewmodel.CollectionDate;
+            order.DeliveryDate = orderviewmodel.DeliveryDate;
+            order.CarType = orderviewmodel.CarType;
             order.Price = "0";
             order.State = "1";
-            context.Order.Add(order);
-            context.SaveChanges();
+
+            Ordercontext.Order.Add(order);
+            Ordercontext.SaveChanges();
+
+            Order savedOrder = FindOrder.Order.LastOrDefault();
+            FindOrder.Attach(savedOrder).State = EntityState.Unchanged;
+
+            //origin.Order = savedOrder;
+            //destination.Order = savedOrder;
+
+            IList<Place> places = new List<Place>();
+            places.Add(origin);
+            places.Add(destination);
+
+            Placecontext.Place.Add(origin);
+            Placecontext.SaveChangesAsync();
+
+            //originaddress1.Place = origin;
+            //originaddress2.Place = origin;
+            //originaddress3.Place = origin;
+
+            //destinationaddress1.Place = destination;
+            //destinationaddress2.Place = destination;
+            //destinationaddress3.Place = destination;
+
+            IList<Address> addresses = new List<Address>();
+            addresses.Add(originaddress1);
+            addresses.Add(originaddress2);
+            addresses.Add(originaddress3);
+            addresses.Add(destinationaddress1);
+            addresses.Add(destinationaddress2);
+            addresses.Add(destinationaddress3);
+
+            Addresscontext.Address.AddRangeAsync(addresses);
+            Addresscontext.SaveChangesAsync();
+
 
             //EF CORE END
 
-            return View(!ModelState.IsValid ? order : new Order());
+            return View(!ModelState.IsValid ? orderviewmodel : new OrderViewModel());
 
         }
 

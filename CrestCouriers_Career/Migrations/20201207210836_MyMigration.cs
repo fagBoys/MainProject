@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CrestCouriers_Career.Migrations
 {
-    public partial class Initial : Migration
+    public partial class MyMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,11 +44,30 @@ namespace CrestCouriers_Career.Migrations
                     Discriminator = table.Column<string>(nullable: false),
                     FirstName = table.Column<string>(maxLength: 50, nullable: true),
                     LastName = table.Column<string>(maxLength: 50, nullable: true),
-                    Level = table.Column<string>(maxLength: 50, nullable: true)
+                    IsUser = table.Column<bool>(nullable: true),
+                    IsAdmin = table.Column<bool>(nullable: true),
+                    IsActive = table.Column<bool>(nullable: true),
+                    AdminType = table.Column<string>(nullable: true),
+                    Level = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Bill",
+                columns: table => new
+                {
+                    BillID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Date = table.Column<DateTime>(maxLength: 50, nullable: false),
+                    Confirmation = table.Column<string>(maxLength: 10, nullable: true),
+                    File = table.Column<byte[]>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Bill", x => x.BillID);
                 });
 
             migrationBuilder.CreateTable(
@@ -209,13 +228,11 @@ namespace CrestCouriers_Career.Migrations
                     OrderId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     OrderDate = table.Column<DateTime>(nullable: false),
-                    Origin = table.Column<string>(maxLength: 50, nullable: false),
-                    Destination = table.Column<string>(maxLength: 50, nullable: false),
                     CollectionDate = table.Column<DateTime>(nullable: false),
                     DeliveryDate = table.Column<DateTime>(nullable: false),
                     CarType = table.Column<string>(maxLength: 50, nullable: false),
-                    Price = table.Column<string>(maxLength: 50, nullable: false),
-                    State = table.Column<string>(maxLength: 50, nullable: false),
+                    Price = table.Column<string>(maxLength: 50, nullable: true),
+                    State = table.Column<string>(maxLength: 50, nullable: true),
                     AccountId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -228,6 +245,55 @@ namespace CrestCouriers_Career.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Place",
+                columns: table => new
+                {
+                    PlaceId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Recipient = table.Column<string>(maxLength: 20, nullable: true),
+                    Company = table.Column<string>(maxLength: 20, nullable: true),
+                    Town = table.Column<string>(maxLength: 20, nullable: false),
+                    Postcode = table.Column<string>(maxLength: 20, nullable: false),
+                    LocationType = table.Column<string>(maxLength: 20, nullable: false),
+                    OrderId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Place", x => x.PlaceId);
+                    table.ForeignKey(
+                        name: "FK_Place_Order_OrderId",
+                        column: x => x.OrderId,
+                        principalTable: "Order",
+                        principalColumn: "OrderId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Address",
+                columns: table => new
+                {
+                    AddressId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AddressBody = table.Column<string>(maxLength: 200, nullable: true),
+                    PlaceId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Address", x => x.AddressId);
+                    table.ForeignKey(
+                        name: "FK_Address_Place_PlaceId",
+                        column: x => x.PlaceId,
+                        principalTable: "Place",
+                        principalColumn: "PlaceId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Address_PlaceId",
+                table: "Address",
+                column: "PlaceId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -272,10 +338,18 @@ namespace CrestCouriers_Career.Migrations
                 name: "IX_Order_AccountId",
                 table: "Order",
                 column: "AccountId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Place_OrderId",
+                table: "Place",
+                column: "OrderId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Address");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -292,16 +366,22 @@ namespace CrestCouriers_Career.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Contact");
+                name: "Bill");
 
             migrationBuilder.DropTable(
-                name: "Order");
+                name: "Contact");
 
             migrationBuilder.DropTable(
                 name: "RegCareer");
 
             migrationBuilder.DropTable(
+                name: "Place");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Order");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

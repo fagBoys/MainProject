@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace CrestCouriers_Career.Models
 {
-    public class Location
+    public class Place
     {
         [Key]
-        public int LocationId { get; set; }
+        public int PlaceId { get; set; }
 
         [MaxLength(20)]
         public string? Recipient { get; set; }
@@ -30,6 +30,7 @@ namespace CrestCouriers_Career.Models
         [MaxLength(20)]
         public string LocationType { get; set; }
 
+        public int OrderId { get; set; }
         public Order Order { get; set; }
 
         public ICollection<Address> Addresses { get; set; }
