@@ -30,6 +30,7 @@ namespace CrestCouriers_Career.Models
         [MaxLength(20)]
         public string LocationType { get; set; }
 
+        public int OrderId { get; set; }
         public Order Order { get; set; }
 
         public ICollection<Address> Addresses { get; set; }

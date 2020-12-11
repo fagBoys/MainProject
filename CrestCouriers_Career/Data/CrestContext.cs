@@ -21,7 +21,7 @@ namespace CrestCouriers_Career.Data
         }
         public DbSet<Account> Account { get; set; }
         public DbSet<Order> Order { get; set; }
-        public DbSet<Place> Place { get; set; }
+        public DbSet<Location> Location { get; set; }
         public DbSet<Address> Address { get; set; }
         public DbSet<Contact> Contact { get; set; }
         public DbSet<RegCareer> RegCareer { get; set; }
@@ -38,9 +38,12 @@ namespace CrestCouriers_Career.Data
             base.OnModelCreating(builder);
 
             builder.Entity<Order>()
-            .HasMany<Place>(O => O.Places)
+            .HasMany<Location>(O => O.Locations)
             .WithOne(P => P.Order);
 
+            builder.Entity<Location>()
+            .HasMany<Address>(O => O.Addresses)
+            .WithOne(P => P.Location);
         }
     }
 }

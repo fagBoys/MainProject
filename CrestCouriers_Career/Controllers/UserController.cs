@@ -106,8 +106,6 @@ namespace CrestCouriers_Career.Controllers
 
                 ////Recaptcha code ends here
 
-
-
                 var user = new Account { UserName = model.Username, Email = model.Email, IsUser = true, FirstName = model.Firstname, LastName = model.Lastname, IsActive = false, IsAdmin = false};
                 var result = await _userManager.CreateAsync(user, model.Password);
 
@@ -286,7 +284,7 @@ namespace CrestCouriers_Career.Controllers
             Account Account = context.Account.FirstOrDefault(A => A.Id == _userManager.GetUserId(User as ClaimsPrincipal));
 
             CrestContext GetOrders = new CrestContext();
-            IEnumerable<Order> orders = context.Order.Where(O => O.Account == Account);
+            IEnumerable<Order> orders = context.Order.Include(O => O.Locations).Where(O => O.Account == Account);
 
             //EF core end
 
@@ -379,8 +377,8 @@ namespace CrestCouriers_Career.Controllers
 
             Order order = new Order();
 
-            Place origin = new Place();
-            Place destination = new Place();
+            Location origin = new Location();
+            Location destination = new Location();
 
             Address originaddress1 = new Address();
             Address originaddress2 = new Address();
@@ -435,34 +433,46 @@ namespace CrestCouriers_Career.Controllers
             Order savedOrder = FindOrder.Order.LastOrDefault();
             FindOrder.Attach(savedOrder).State = EntityState.Unchanged;
 
-            //origin.Order = savedOrder;
-            //destination.Order = savedOrder;
+            origin.OrderId = order.OrderId;
+            destination.OrderId = order.OrderId;
 
-            IList<Place> places = new List<Place>();
-            places.Add(origin);
-            places.Add(destination);
+            IList<Location> locations = new List<Location>();
+            locations.Add(origin);
+            locations.Add(destination);
 
-            Placecontext.Place.Add(origin);
-            Placecontext.SaveChangesAsync();
+            Placecontext.Location.AddRange(locations);
+            Placecontext.SaveChanges();
 
-            //originaddress1.Place = origin;
-            //originaddress2.Place = origin;
-            //originaddress3.Place = origin;
+            originaddress1.LocationId = origin.LocationId;
+            originaddress2.LocationId = origin.LocationId;
+            originaddress3.LocationId = origin.LocationId;
 
-            //destinationaddress1.Place = destination;
-            //destinationaddress2.Place = destination;
-            //destinationaddress3.Place = destination;
+            destinationaddress1.LocationId = destination.LocationId;
+            destinationaddress2.LocationId = destination.LocationId;
+            destinationaddress3.LocationId = destination.LocationId;
 
             IList<Address> addresses = new List<Address>();
             addresses.Add(originaddress1);
-            addresses.Add(originaddress2);
-            addresses.Add(originaddress3);
+            if(originaddress2.AddressBody != null)
+            { 
+                addresses.Add(originaddress2);
+            }
+            if (originaddress3.AddressBody != null)
+            {
+                addresses.Add(originaddress3);
+            }
             addresses.Add(destinationaddress1);
-            addresses.Add(destinationaddress2);
-            addresses.Add(destinationaddress3);
+            if(destinationaddress2.AddressBody != null)
+            { 
+                addresses.Add(destinationaddress2);
+            }
+            if(destinationaddress3 != null)
+            { 
+                addresses.Add(destinationaddress3);
+            }
 
-            Addresscontext.Address.AddRangeAsync(addresses);
-            Addresscontext.SaveChangesAsync();
+            Addresscontext.Address.AddRange(addresses);
+            Addresscontext.SaveChanges();
 
 
             //EF CORE END

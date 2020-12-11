@@ -15,7 +15,7 @@ namespace CrestCouriers_Career.Models
         [Required]
         public DateTime OrderDate { get; set; }
 
-        public ICollection<Place> Places { get; set; }
+        public ICollection<Location> Locations { get; set; }
 
         [Required]
         public DateTime CollectionDate { get; set; }

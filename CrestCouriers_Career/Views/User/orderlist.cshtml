@@ -21,10 +21,10 @@
                     @Html.DisplayNameFor(model => model.OrderDate)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Places)
+                    @Html.DisplayNameFor(model => model.Locations)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Places)
+                    @Html.DisplayNameFor(model => model.Locations)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.CollectionDate)
@@ -55,10 +55,10 @@
                         @Html.DisplayFor(modelItem => item.OrderDate)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => @item.Places.Where(T=>T.LocationType=="Origin"))
+                        @Html.DisplayFor(modelItem => @item.Locations.Where(T=>T.LocationType=="Origin"))
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => @item.Places.Where(T=>T.LocationType=="Destination"))
+                        @Html.DisplayFor(modelItem => @item.Locations.Where(T=>T.LocationType=="Destination"))
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.CollectionDate)

@@ -16,6 +16,7 @@ namespace CrestCouriers_Career.Models
         [MaxLength(200)]
         public string AddressBody { get; set; }
 
-        public Place Place { get; set; }
+        public int LocationId { get; set; }
+        public Location Location { get; set; }
     }
 }
