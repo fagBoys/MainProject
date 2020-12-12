@@ -713,7 +713,11 @@ namespace CrestCouriers_Career.Controllers
             Bill CreateBill = new Bill();
             CreateBill.Date = DateTime.Now;
             CreateBill.Confirmation = "NotConfirmed";
-            if (file.Length > 0)
+            if (file==null) 
+            {
+                ModelState.AddModelError("", "Please select a file.");
+            }
+            else if (file.Length > 0)
             {
                 using (var ms = new MemoryStream())
                 {
