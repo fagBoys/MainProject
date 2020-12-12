@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CrestCouriers_Career.Models;
+using CrestCouriers_Career.ViewModels.Admin;
 using System.Data.SqlClient;
 using System.Data;
 using System.IO;
@@ -707,28 +708,49 @@ namespace CrestCouriers_Career.Controllers
         }
 
         [HttpPost]
-        public IActionResult Bill(IFormFile file)
+        public IActionResult Bill(BillViewModel NewBill)
         {
             CrestContext Context = new CrestContext();
             Bill CreateBill = new Bill();
             CreateBill.Date = DateTime.Now;
             CreateBill.Confirmation = "NotConfirmed";
-            if (file==null) 
+            if (NewBill.File == null) 
             {
+                return View();
                 ModelState.AddModelError("", "Please select a file.");
             }
-            else if (file.Length > 0)
+            else if (NewBill.File.Length != null)
             {
                 using (var ms = new MemoryStream())
                 {
-                    file.CopyTo(ms);
+                    NewBill.File.CopyTo(ms);
                     var FileByte = ms.ToArray();
                     CreateBill.File = FileByte;
                 }
             }
             Context.Bill.Add(CreateBill);
-            Context.SaveChangesAsync();
+            Context.SaveChanges();
             return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ConfirmBill(int id)
+        {
+            CrestContext context = new CrestContext();
+            Bill mybill = new Bill();
+            mybill = context.Bill.Where(B => B.BillID == id).SingleOrDefault();
+            if(mybill.Confirmation == "NotConfirmed")
+            { 
+                mybill.Confirmation = "Confirmed";
+            }
+            else if(mybill.Confirmation == "Confirmed")
+            {
+                mybill.Confirmation = "NotConfirmed";
+            }
+            context.Attach(mybill).State = EntityState.Modified;
+            context.SaveChangesAsync();
+            
+            return RedirectToAction("ListOfBills");
         }
     }
 }

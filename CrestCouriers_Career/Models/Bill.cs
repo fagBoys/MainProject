@@ -20,7 +20,7 @@ namespace CrestCouriers_Career.Models
         public DateTime Date { get; set; }
 
 
-        [MaxLength(10)]
+        [MaxLength(20)]
         public string Confirmation { get; set; }
 
         [Required]

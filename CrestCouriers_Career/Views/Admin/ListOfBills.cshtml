@@ -75,10 +75,18 @@
                 </td>
 
                  @*Display button*@ 
-                <td>
-                    @*@Html.DisplayFor(modelItem => item.File)*@
-                    <a href="#" onclick="OpenPDF();">Display</a>
-                </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.File)*@
+                @*<a href="#" onclick="OpenPDF();">Display</a>*@
+                @if (item.Confirmation == "NotConfirmed")
+                {
+                    <a asp-action="ConfirmBill" asp-route-id="@item.BillID">Confirm</a>
+                }
+                else if (item.Confirmation == "Confirmed")
+                {
+                    <a asp-action="ConfirmBill" asp-route-id="@item.BillID">Unconfirm</a>
+                }
+            </td>
 
                 <td>
                     @*@Html.DisplayFor(modelItem => item.File)*@
