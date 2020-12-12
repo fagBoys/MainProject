@@ -91,7 +91,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n    <ul class=\"menu-ul\">\r\n        ");
                 EndContext();
                 BeginContext(218, 206, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "755e5f7cbf8d4d3789b3e57bdcb2b6e8", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "84a5a9f1c75143288efcbac7c974f6c6", async() => {
                     BeginContext(294, 126, true);
                     WriteLiteral("\r\n            <div class=\"panel-option-active\">\r\n                <li><h5>List of bills</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -116,7 +116,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(434, 183, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "21b05dba69c6498082385a917c9c0a20", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "654368010bfa4c9fae4c0a488d87e4bd", async() => {
                     BeginContext(503, 110, true);
                     WriteLiteral("\r\n            <div class=\"panel-option\">\r\n                <li><h5>Bill</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -141,7 +141,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(627, 199, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a123a5d185764cbb8ca9e6c02cbade33", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6de7d14c31974ec28b3834fac4d7cb9e", async() => {
                     BeginContext(703, 119, true);
                     WriteLiteral("\r\n            <div class=\"panel-option\">\r\n                <li><h5>Admin setting</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -166,7 +166,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(836, 187, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4d0972f195c145f28cac31dedf458165", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "321762c784064a6b8a29b1445b722f32", async() => {
                     BeginContext(907, 112, true);
                     WriteLiteral("\r\n            <div class=\"panel-option\">\r\n                <li><h5>Logout</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -196,7 +196,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
             WriteLiteral("<nav aria-label=\"breadcrumb\">\r\n    <ol class=\"breadcrumb\">\r\n        <li class=\"breadcrumb-item\">");
             EndContext();
             BeginContext(1135, 95, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d665ad3f376640ffae191b2392bc09f1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fee10f917029414fae21f2be24485f20", async() => {
                 BeginContext(1217, 9, true);
                 WriteLiteral("Confirmed");
                 EndContext();
@@ -226,7 +226,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
             WriteLiteral("</li>\r\n        <li class=\"breadcrumb-item\">");
             EndContext();
             BeginContext(1273, 102, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fca60c6d5e4e41548616869425626155", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "812911529ac24eabb9126e493e2835b5", async() => {
                 BeginContext(1358, 13, true);
                 WriteLiteral("Not confirmed");
                 EndContext();
@@ -256,7 +256,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
             WriteLiteral("</li>\r\n    </ol>\r\n</nav>\r\n\r\n<div>\r\n   \r\n    ");
             EndContext();
             BeginContext(1419, 405, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ddacd804c7234ad89cb88099bba052a1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cef0ad23ccb14a82b2a0b8bc1511221d", async() => {
                 BeginContext(1425, 392, true);
                 WriteLiteral(@"
         <div class=""form-row"">
@@ -338,7 +338,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
             WriteLiteral("                    ");
             EndContext();
             BeginContext(2569, 67, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "49137c65439d4b95bfd088ea302fc54a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "02c12501c7684aa0a8389298bbdbfefb", async() => {
                 BeginContext(2625, 7, true);
                 WriteLiteral("Confirm");
                 EndContext();
@@ -383,7 +383,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
             WriteLiteral("                    ");
             EndContext();
             BeginContext(2756, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9019c4001695443a9f0eda5c813ee446", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "314926aefa2844d7a7813450e12c312c", async() => {
                 BeginContext(2812, 9, true);
                 WriteLiteral("Unconfirm");
                 EndContext();
@@ -429,7 +429,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
             WriteLiteral("                    ");
             EndContext();
             BeginContext(2975, 97, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "02e10af0a0374b029c60fc8c207ad658", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dea3ec20016e41a7b27d039a6b82d953", async() => {
                 BeginContext(3060, 8, true);
                 WriteLiteral("Download");
                 EndContext();
@@ -564,7 +564,7 @@ WriteAttributeValue(" ", 4918, prevDisabled, 4919, 13, false);
             WriteLiteral(">\r\n            ");
             EndContext();
             BeginContext(4948, 155, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3cffbd3709eb4b119041fff9b34f6883", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3d23e98847a24ce98611abadef11d150", async() => {
                 BeginContext(5091, 8, true);
                 WriteLiteral("Previous");
                 EndContext();
@@ -628,7 +628,7 @@ AddHtmlAttributeValue(" ", 5048, prevDisabled, 5049, 13, false);
             WriteLiteral("                    <li class=\"page-item \" aria-current=\"page\">\r\n                        ");
             EndContext();
             BeginContext(5603, 174, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0a167d7040dc4cb5b1c1cae6ec27f3b8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9aacf5ca314d4760925bdf2cb22f5562", async() => {
                 BeginContext(5707, 30, true);
                 WriteLiteral("\r\n                            ");
                 EndContext();
@@ -706,7 +706,7 @@ AddHtmlAttributeValue(" ", 5634, activepage, 5635, 11, false);
             WriteLiteral("\r\n                        </a>\r\n                    </li>\r\n                    <li class=\"page-item \" aria-current=\"page\">\r\n                        ");
             EndContext();
             BeginContext(6280, 184, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "275fbb514f2143fd9c61862990c47931", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a482b1cd50a4084b46f704277f624a4", async() => {
                 BeginContext(6382, 30, true);
                 WriteLiteral("\r\n                            ");
                 EndContext();
@@ -760,7 +760,7 @@ AddHtmlAttributeValue(" ", 5634, activepage, 5635, 11, false);
                         ");
             EndContext();
             BeginContext(6796, 174, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "be722c6cfccd4531a8c28db8ed1ee615", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "479da76789eb457e832dd6a2768a87ba", async() => {
                 BeginContext(6894, 30, true);
                 WriteLiteral("\r\n                            ");
                 EndContext();
@@ -816,7 +816,7 @@ AddHtmlAttributeValue(" ", 5634, activepage, 5635, 11, false);
             WriteLiteral("                    <li class=\"page-item \" aria-current=\"page\">\r\n                        ");
             EndContext();
             BeginContext(7188, 144, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e7d44191dc0f4b9abc079199ee1bba01", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b04e42db0c994f1bbcbe46ad9547fb5b", async() => {
                 BeginContext(7271, 57, true);
                 WriteLiteral("\r\n                            1\r\n                        ");
                 EndContext();
@@ -853,7 +853,7 @@ AddHtmlAttributeValue(" ", 5634, activepage, 5635, 11, false);
                         ");
             EndContext();
             BeginContext(7664, 184, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1eb65192d7f4eebb5855a30ab99cd4d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4f1df6f0743b4b258198ceef9d8be661", async() => {
                 BeginContext(7766, 30, true);
                 WriteLiteral("\r\n                            ");
                 EndContext();
@@ -919,7 +919,7 @@ AddHtmlAttributeValue(" ", 5634, activepage, 5635, 11, false);
             WriteLiteral("                    <li class=\"page-item \" aria-current=\"page\">\r\n                        ");
             EndContext();
             BeginContext(8260, 144, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e3d158f6a8934de3b0a629599b9a0148", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a03335fc02504008b565adec8d127011", async() => {
                 BeginContext(8343, 57, true);
                 WriteLiteral("\r\n                            1\r\n                        ");
                 EndContext();
@@ -958,7 +958,7 @@ AddHtmlAttributeValue(" ", 5634, activepage, 5635, 11, false);
             WriteLiteral("\r\n                        </a>\r\n                    </li>\r\n                    <li class=\"page-item \" aria-current=\"page\">\r\n                        ");
             EndContext();
             BeginContext(8758, 176, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3d8d3ad3d92c4db2af1e53815bdc28b8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "48d462864dca479887f949df273def71", async() => {
                 BeginContext(8858, 30, true);
                 WriteLiteral("\r\n                            ");
                 EndContext();
@@ -1029,7 +1029,7 @@ WriteAttributeValue(" ", 9485, nextDisabled, 9486, 13, false);
             WriteLiteral(">\r\n            ");
             EndContext();
             BeginContext(9515, 124, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "84c9da98dce74c9595ff54ac9fdeb56f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2836c88dfd9c43dfb9a6bc46f9b7c55e", async() => {
                 BeginContext(9631, 4, true);
                 WriteLiteral("Next");
                 EndContext();

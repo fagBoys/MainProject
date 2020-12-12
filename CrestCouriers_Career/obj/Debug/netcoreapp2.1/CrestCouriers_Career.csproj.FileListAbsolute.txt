@@ -408,3 +408,4 @@ D:\Program Files (x86)\GitHubFile\CrestCouriers\CrestCouriers_Career\obj\Debug\n
 D:\Program Files (x86)\GitHubFile\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\CrestCouriers_Career.csproj.CopyComplete
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\CrestCouriers_Career.csproj.CoreCompileInputs.cache
 C:\Users\suzan\Documents\GitHub\MainProject\CrestCouriers_Career\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Home\Blog.cshtml.g.cs
