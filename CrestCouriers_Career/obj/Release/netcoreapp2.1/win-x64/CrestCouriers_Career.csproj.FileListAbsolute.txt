@@ -1,6 +1,5 @@
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\bin\Release\netcoreapp2.1\win-x64\appsettings.Development.json
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\bin\Release\netcoreapp2.1\win-x64\appsettings.json
-C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\bin\Release\netcoreapp2.1\win-x64\Properties\launchSettings.json
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\bin\Release\netcoreapp2.1\win-x64\hostpolicy.dll
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\bin\Release\netcoreapp2.1\win-x64\hostfxr.dll
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\bin\Release\netcoreapp2.1\win-x64\CrestCouriers_Career.exe
@@ -72,3 +71,5 @@ C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\win-x64\CrestCouriers_Career.pdb
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\win-x64\CrestCouriers_Career.genruntimeconfig.cache
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\win-x64\CrestCouriers_Career.csproj.CopyComplete
+C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\win-x64\Razor\Views\Home\Blog.cshtml.g.cs
+C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\win-x64\Razor\Views\Home\Details.cshtml.g.cs

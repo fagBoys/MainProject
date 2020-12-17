@@ -531,3 +531,23 @@ margin-top:50px;
         cursor: pointer;
     }
 
+.TableST{
+
+    float:none !important;
+    position: relative !important;
+    width:85% !important;
+    margin-left:8%;
+   
+    
+    
+    
+}
+#date01 {
+    width:75%;
+    margin-left:50px;
+}
+
+#noT {
+    
+    border-top:none !important;
+}

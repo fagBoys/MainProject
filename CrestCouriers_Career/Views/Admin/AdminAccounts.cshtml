@@ -239,7 +239,7 @@
             </button>
         </div>
     }
-    @*else if (item.AdminType == "Accountancy")
+    else if (item.AdminType == "Accountancy")
     {
         <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
             <button type="submit" style="background-color: transparent; border: none;">
@@ -298,7 +298,7 @@
             <img src="~/img/System/deactive-disable.png" width="35px" height="35px" alt="">
 
         </div>
-    }*@
+    }
 
 </div>
     
@@ -509,21 +509,21 @@
 
     $('button').attr('asp-route-AdminType', document.getElementById("dropdownMenuButton").value);
 
-    //function SetLimited() {
-    //    AdminType = "Limited";
-    //}
-    //function SetAccountancy() {
-    //    AdminType = "Accountancy";
-    //}
-    //function SetSecretary() {
-    //    AdminType = "Secretary";
-    //}
-    //function GetType() {
-    //    document.getElementById("type").innerHTML = AdminType;
-    //}
-    //document.getElementById("type").innerHTML = GetType();
+    function SetLimited() {
+        AdminType = "Limited";
+    }
+    function SetAccountancy() {
+        AdminType = "Accountancy";
+    }
+    function SetSecretary() {
+        AdminType = "Secretary";
+    }
+    function GetType() {
+        document.getElementById("type").innerHTML = AdminType;
+    }
+    document.getElementById("type").innerHTML = GetType();
 
-    //$(document).ready(function () {
+    $(document).ready(function () {
         
-    //});
+    });
 </script>

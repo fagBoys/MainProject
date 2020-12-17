@@ -1,0 +1,172 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Details page";
+}
+
+@section Menu{
+    <div class="col-lg-8 d-none d-xl-block" style="-ms-flex: 0 0 66.666667%; flex: 0 0 66.666667%; max-width: 66.666667%">
+        <nav class="mainmenu alignright">
+            <ul>
+                <li>
+                    <a asp-controller="Home" asp-action="Index">Home</a>
+
+                </li>
+                <li><a asp-controller="Home" asp-action="About">About</a></li>
+                <li><a asp-controller="Home" asp-action="Services">services</a></li>
+                <li><a asp-controller="Home" asp-action="Branches">Branches</a></li>
+                <li class="active"><a asp-controller="Home" asp-action="Blog">Blog</a></li>
+                <li><a asp-controller="Home" asp-action="Careertype">Careers</a></li>
+                <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+
+            </ul>
+        </nav>
+    </div>
+}
+
+
+<!--== Car List Area Start ==-->
+<section id="car-list-area" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <!-- Car List Content Start -->
+            <div class="col-lg-8">
+                <div class="car-details-content">
+                    <h2>The impact of the Corona virus pandemic within the Transport sector</h2>
+                    <div class="car-preview-crousel">
+                        <div class="single-car-preview">
+                            <img src="~/img/car/article-image1.jpg" alt="JSOFT">
+                        </div>
+                        <div class="single-car-preview">
+                            <img src="~/img/car/article-image2.jpg" alt="JSOFT">
+                        </div>
+                        <div class="single-car-preview">
+                            <img src="~/img/car/article-image3.jpg" alt="JSOFT">
+                        </div>
+                    </div>
+                    <div class="car-details-info blog-content">
+                        <p>As the year commenced the spread of the COVID-19 virus is one that is yet to be contained, continuing to affect millions of jobs and sectors every day. The transportation and logistics industry are ones that continue to provide one of the most vital services in our current modernised global and interconnected world, meaning with the current restrictions put into place many companies are facing national and international trade and transportation issues within this climate. In this instance, there has therefore been a variety of interpretations surrounding future impact and risk implications which we will further explore within this article.</p>
+
+
+                        <p>While we are moving into a digital era, our current society is leading towards a constant and further demand for purchases online. Therefore, the need for reliable delivery couriers are more important than ever. This is why the importance around following the new introduced health and safety precautions surrounding the outbreak, whilst continuing keeping drivers and staff members safe will remain a vital priority. Due to this increased demand there is also the opportunity for a new market. As hospitals and private medical sectors are more strained that ever, it has been key to be able to deliver medical supplies where necessary and expand into logistical partners for medicine and similar industries for the future.</p>
+
+                        <p class="thme-blockquote">As any company this has been a very unprecedented time, and one in which will only be overcome by continuing to stick together and follow issued government guidelines. We will continue to work under these safe conditions and make delivering your needs in the safest and quickest manner possible our first concern.</p>
+
+                        <div class="review-area">
+                            <h3>Write Your Comment</h3>
+                            <div class="review-form">
+                                <form action="index.html">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="name-input">
+                                                <input type="text" placeholder="Full Name">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="email-input">
+                                                <input type="email" placeholder="Email Address">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="message-input">
+                                        <textarea name="review" cols="30" rows="5" placeholder="Message"></textarea>
+                                    </div>
+
+                                    <div class="input-submit">
+                                        <button type="submit">Comment</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Car List Content End -->
+            <!-- Sidebar Area Start -->
+            <div class="col-lg-4">
+                <div class="sidebar-content-wrap m-t-50">
+                    <!-- Single Sidebar Start -->
+                    <div class="single-sidebar">
+                        <h3>For More Informations</h3>
+
+                        <div class="sidebar-body">
+                            <p><i class="fa fa-mobile"></i> +44 330 030 0020</p>
+                            <p><i class="fa fa-clock-o"></i> Mon - Sat 8.00 - 18.00</p>
+                        </div>
+                    </div>
+                    <!-- Single Sidebar End -->
+                    <!-- Single Sidebar Start -->
+                    <div class="single-sidebar">
+                        <h3>Rental Tips</h3>
+
+                        <div class="sidebar-body">
+                            <ul class="recent-tips">
+                                <li class="single-recent-tips">
+                                    <div class="recent-tip-thum">
+                                        <a href="#"><img src="~/img/we-do/service1-img.png" alt="JSOFT"></a>
+                                    </div>
+                                    <div class="recent-tip-body">
+                                        <h4><a href="#">How to Enjoy Losses Angeles Car Rentals</a></h4>
+                                        <span class="date">February 5, 2018</span>
+                                    </div>
+                                </li>
+
+                                <li class="single-recent-tips">
+                                    <div class="recent-tip-thum">
+                                        <a href="#"><img src="~/img/we-do/service3-img.png" alt="JSOFT"></a>
+                                    </div>
+                                    <div class="recent-tip-body">
+                                        <h4><a href="#">How to Enjoy Losses Angeles Car Rentals</a></h4>
+                                        <span class="date">February 5, 2018</span>
+                                    </div>
+                                </li>
+
+                                <li class="single-recent-tips">
+                                    <div class="recent-tip-thum">
+                                        <a href="#"><img src="~/img/we-do/service2-img.png" alt="JSOFT"></a>
+                                    </div>
+                                    <div class="recent-tip-body">
+                                        <h4><a href="#">How to Enjoy Losses Angeles Car Rentals</a></h4>
+                                        <span class="date">February 5, 2018</span>
+                                    </div>
+                                </li>
+
+                                <li class="single-recent-tips">
+                                    <div class="recent-tip-thum">
+                                        <a href="#"><img src="~/img/we-do/service3-img.png" alt="JSOFT"></a>
+                                    </div>
+                                    <div class="recent-tip-body">
+                                        <h4><a href="#">How to Enjoy Losses Angeles Car Rentals</a></h4>
+                                        <span class="date">February 5, 2018</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Single Sidebar End -->
+                    <!-- Single Sidebar Start -->
+                    <div class="single-sidebar">
+                        <h3>Connect with Us</h3>
+
+                        <div class="sidebar-body">
+                            <div class="social-icons text-center">
+                                <a href="https://twitter.com/crestcouriers" target="_blank"><i class="fa fa-twitter"></i></a>
+                                <a href="https://www.facebook.com/crestcouriers" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a href="https://www.pinterest.co.uk/crestcouriers" target="_blank"><i class="fa fa-pinterest"></i></a>
+                                <a href="https://www.instagram.com/crestcouriers" target="_blank"><i class="fa fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/company/crestcouriers" target="_blank"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Sidebar End -->
+                </div>
+            </div>
+            <!-- Sidebar Area End -->
+        </div>
+    </div>
+</section>
+<!--== Car List Area End ==-->

@@ -89,7 +89,7 @@ namespace CrestCouriers_Career.Controllers
             //EF core start
 
             CrestContext context = new CrestContext();
-            IEnumerable<Order> orders = context.Order.Include(O => O.Account).ToList();
+            IEnumerable<Order> orders = context.Order.Include(O => O.Locations);
 
             //EF core end
 
