@@ -303,7 +303,7 @@ namespace CrestCouriers_Career.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> AdminAccountEdit(string Id)
+        public async Task<IActionResult> AdminAccountEdit(string UpdateId, string UpdatedUserName, string UpdatedFirstName, string UpdatedLastName, string UpdatedAdminType)
         {
             //if (HttpContext.Session.GetString("AdminSession") == null)
             //{
@@ -314,7 +314,15 @@ namespace CrestCouriers_Career.Controllers
             //}
 
             //EF core start
-            Account Account = await _userManager.FindByIdAsync(Id);
+            Account Account = await _userManager.FindByIdAsync(UpdateId);
+
+            Account.UserName = UpdatedUserName;
+            Account.FirstName = UpdatedFirstName;
+            Account.LastName = UpdatedLastName;
+            Account.Level = UpdatedAdminType;
+
+            await _userManager.UpdateAsync(Account);
+
             //ViewData["Adminid"] = admin.AdminId;
             //ViewData["UserName"] = admin.UserName;
             //ViewData["Password"] = admin.Password;
@@ -327,7 +335,7 @@ namespace CrestCouriers_Career.Controllers
 
 
 
-            return View(Account);
+            return new RedirectResult("/Admin/AdminAccounts");
         }
 
 
@@ -356,12 +364,12 @@ namespace CrestCouriers_Career.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AdminAccountActive(string Id)
+        public async Task<IActionResult> AdminAccountActive(string AdminId)
         {
 
             //EF core start
 
-            Account Account = await _userManager.FindByIdAsync(Id);
+            Account Account = await _userManager.FindByIdAsync(AdminId);
 
             if (Account.IsActive == true)
             {
@@ -403,21 +411,21 @@ namespace CrestCouriers_Career.Controllers
             return View(accounts);
         }
 
-        public async Task<ActionResult> SystemUserDelete(string id)
+        public async Task<ActionResult> SystemUserDelete(string DeleteId, string returnUrl)
         {
 
-            Account account = await _userManager.FindByIdAsync(id);
+            Account account = await _userManager.FindByIdAsync(DeleteId);
             await _userManager.DeleteAsync(account);
 
-            return RedirectToAction("UserAccounts");
+            return RedirectToAction(returnUrl);
         }
 
-        public async Task<IActionResult> SystemUserEdit(string id)
+        public async Task<IActionResult> SystemUserEdit(string Id)
         {
 
 
             //EF core start
-            Account account = await _userManager.FindByIdAsync(id);
+            Account account = await _userManager.FindByIdAsync(Id);
             //EF core end
 
             return View(account);
