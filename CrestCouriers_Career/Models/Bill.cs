@@ -19,6 +19,9 @@ namespace CrestCouriers_Career.Models
         [MaxLength(50)]
         public DateTime Date { get; set; }
 
+        [Required]
+        [MaxLength(50)]
+        public string filename { get; set; }
 
         [MaxLength(20)]
         public string Confirmation { get; set; }

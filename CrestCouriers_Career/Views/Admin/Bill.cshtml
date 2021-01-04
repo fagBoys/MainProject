@@ -37,12 +37,12 @@
 <form class="billDashbord" asp-controller="Admin" asp-action="Bill" method="post" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly"></div>
     <div class="form-group" id="BillFileDiv">
-        
 
-        <p id=""><label for="BillFile" class="BillTextCenter">Drop your file here</label><input type="file" asp-for="File" class="form-control" id="BillFile" accept=".pdf"></p>
+
+        <p id=""><label for="BillFile" class="BillTextCenter label">Drop your file here</label><input type="file" asp-for="File" class="form-control" id="BillFile" accept=".pdf"></p>
         <div><span asp-validation-for="File"></span></div>
     </div>
-    
+
     <button type="submit" class="btn btn-primary" id="BillButton">Submit</button>
 </form>
 
@@ -50,9 +50,16 @@
     <div class="progress">
         <div class="progress-bar " id="bar01" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
     </div>-->
-    <!-- file uploaded icon -->
-    <!--<img src="~/img/System/LogoMakr-8xQnIo (1).png" class="FileUploadIcon" />-->
-    <!-- Delet file icon -->
-    <!--<img src="~/img/System/remove.png" class="FileUploadIcon" />
+<!-- file uploaded icon -->
+<!--<img src="~/img/System/LogoMakr-8xQnIo (1).png" class="FileUploadIcon" />-->
+<!-- Delet file icon -->
+<!--<img src="~/img/System/remove.png" class="FileUploadIcon" />
 </div>-->
 <!-- EndOfNew01 -->
+<script>
+        // Add the following code if you want the name of the file appear on select
+    $(".form-control").on("change", function () {
+            var File = $(this).val().split("\\").pop();
+            $(this).siblings(".label").addClass("selected").html(File);
+        });
+</script>

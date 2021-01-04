@@ -721,6 +721,8 @@ namespace CrestCouriers_Career.Controllers
             CrestContext Context = new CrestContext();
             Bill CreateBill = new Bill();
             CreateBill.Date = DateTime.Now;
+            string filename = Path.GetFileNameWithoutExtension(NewBill.File.FileName);
+            CreateBill.filename = filename;
             CreateBill.Confirmation = "NotConfirmed";
             if (NewBill.File == null) 
             {
