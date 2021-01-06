@@ -4,14 +4,16 @@ using CrestCouriers_Career.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CrestCouriers_Career.Migrations
 {
     [DbContext(typeof(CrestContext))]
-    partial class CrestContextModelSnapshot : ModelSnapshot
+    [Migration("20210104105218_BillsFilename")]
+    partial class BillsFilename
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
