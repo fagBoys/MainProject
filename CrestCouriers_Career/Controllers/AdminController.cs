@@ -496,7 +496,7 @@ namespace CrestCouriers_Career.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
+        public async Task<IActionResult> Login(ViewModels.AccountViewModels.LoginViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
 
@@ -556,7 +556,7 @@ namespace CrestCouriers_Career.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        public async Task<IActionResult> ForgotPassword(ViewModels.ForgotPasswordViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -622,7 +622,7 @@ namespace CrestCouriers_Career.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        public async Task<IActionResult> ResetPassword(ViewModels.ResetPasswordViewModel model)
         {
             if (ModelState.IsValid)
             {

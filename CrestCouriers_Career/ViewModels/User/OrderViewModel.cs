@@ -8,56 +8,56 @@ namespace CrestCouriers_Career.ViewModels.User
 {
     public class OrderViewModel
     {
-        [MaxLength(20)]
+
+        [Required]
         public string OriginRecipient { get; set; }
 
-        [MaxLength(20)]
+        [Required]
         public string? OriginCompany { get; set; }
 
-        [MaxLength(200)]
+        [Required]
         public string OriginAddress { get; set; }
 
-        [MaxLength(200)]
+        [Required]
         public string OriginAddress2 { get; set; }
 
-        [MaxLength(200)]
+        [Required]
         public string OriginAddress3 { get; set; }
 
-        [MaxLength(20)]
+        [Required]
         public string OriginTown { get; set; }
 
-        [MaxLength(20)]
+        [Required]
         public string OriginPostcode { get; set; }
 
         [Required]
         public DateTime CollectionDate { get; set; }
 
-        [MaxLength(20)]
+        [Required]
         public string DestinationRecipient { get; set; }
 
-        [MaxLength(20)]
+        [Required]
         public string? DestinationCompany { get; set; }
 
-        [MaxLength(200)]
+        [Required]
         public string DestinationAddress { get; set; }
 
-        [MaxLength(200)]
+        [Required]
         public string DestinationAddress2 { get; set; }
 
-        [MaxLength(200)]
+        [Required]
         public string DestinationAddress3 { get; set; }
 
-        [MaxLength(20)]
+        [Required]
         public string DestinationTown { get; set; }
 
-        [MaxLength(20)]
+        [Required]
         public string DestinationPostcode { get; set; }
 
         [Required]
         public DateTime DeliveryDate { get; set; }
 
         [Required]
-        [MaxLength(20)]
         public string CarType { get; set; }
 
     }
