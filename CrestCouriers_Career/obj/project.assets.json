@@ -13503,23 +13503,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\a\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Mohammad Javad\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\a\\Documents\\GitHub\\CrestCouriers\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
+      "projectUniqueName": "C:\\Users\\Mohammad Javad\\Documents\\GitHub\\CrestCouriers\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
       "projectName": "CrestCouriers_Career",
-      "projectPath": "C:\\Users\\a\\Documents\\GitHub\\CrestCouriers\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
-      "packagesPath": "C:\\Users\\a\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\a\\Documents\\GitHub\\CrestCouriers\\CrestCouriers_Career\\obj\\",
+      "projectPath": "C:\\Users\\Mohammad Javad\\Documents\\GitHub\\CrestCouriers\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
+      "packagesPath": "C:\\Users\\Mohammad Javad\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mohammad Javad\\Documents\\GitHub\\CrestCouriers\\CrestCouriers_Career\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\a\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mohammad Javad\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
