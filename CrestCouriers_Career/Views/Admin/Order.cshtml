@@ -1,9 +1,10 @@
-﻿@model CrestCouriers_Career.ViewModels.User.OrderViewModel
+﻿@model CrestCouriers_Career.ViewModels.Admin.OrderViewModel
 
 @{
     ViewData["Title"] = "Order";
     Layout = "~/Views/Shared/_SystemAdmin.cshtml";
 }
+
 
 @section AdminMenu{
     <ul class="menu-ul">
@@ -13,12 +14,12 @@
             </div>
         </a>
         <a asp-controller="Admin" asp-action="Order" class="menu-option-link">
-            <div class="panel-option-active">
+            <div class="panel-option">
                 <li><h5>Order</h5></li>
             </div>
         </a>
         <a asp-controller="Admin" asp-action="AdminSetting" class="menu-option-link">
-            <div class="panel-option">
+            <div class="panel-option-active">
                 <li><h5>Admin setting</h5></li>
             </div>
         </a>
@@ -40,19 +41,143 @@
     </ul>
 }
 
+
+
 <div class="NewOrder-form" style="margin:100px;">
     <form asp-controller="Admin" asp-action="Order">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
         <div class="row">
 
             <div class="col-sm-6">
-                <input asp-for="OriginAddress" placeholder="Origin">
-                <span asp-validation-for="OriginAddress" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                <div class="input-group mb-1">
+                    <input type="text" asp-for="OriginRecipient" class="form-control" style="border-radius:0px;" placeholder="Recipient" aria-label="Recipient" aria-describedby="basic-addon1">
+                    <span asp-validation-for="OriginRecipient" class="text-danger"></span>
+                    <div class="input-group-prepend" style="margin:0;">
+                        <span class="input-group-text" id="basic-addon1">or</span>
+                    </div>
+                    <input type="text" asp-for="OriginCompany" class="form-control" style="border-radius:0px;" placeholder="Company" aria-label="Company" aria-describedby="basic-addon1">
+                </div>
             </div>
 
             <div class="col-sm-6">
-                <input asp-for="DestinationAddress" placeholder="Destination">
-                <span asp-validation-for="DestinationAddress" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                <div class="input-group mb-1">
+                    <input type="text" asp-for="DestinationRecipient" class="form-control" style="border-radius:0px;" placeholder="Recipient" aria-label="Recipient" aria-describedby="basic-addon1">
+                    <span asp-validation-for="DestinationRecipient"></span>
+                    <div class="input-group-prepend" style="margin:0;">
+                        <span class="input-group-text" id="basic-addon1">or</span>
+                    </div>
+                    <input type="text" asp-for="DestinationCompany" class="form-control" style="border-radius:0px;" placeholder="Company" aria-label="Company" aria-describedby="basic-addon1">
+                    <span asp-validation-for="DestinationCompany"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="order-input input-group">
+                    <input type="text" asp-for="OriginAddress" class="form-control" style="border-radius:0px;" placeholder="Origin address" aria-label="Origin address" aria-describedby="button-addon2">
+                    <span asp-validation-for="OriginAddress" class="text-danger"></span>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" onclick="AddOrigin()" style="border-radius:0px;" type="button" id="button-addon2">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="order-input input-group">
+                    <input type="text" asp-for="DestinationAddress" asp-controller="" class="form-control" style="border-radius:0px;" placeholder="Destination address" aria-label="Destination address" aria-describedby="button-addon2">
+                    <span asp-validation-for="DestinationAddress" class="text-danger"></span>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" onclick="AddDestination()" style="border-radius:0px;" type="button" id="button-addon2">+</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6" id="Origin2" style="display:none;">
+                <div class="order-input input-group">
+                    <input type="text" asp-for="OriginAddress2" class="form-control" style="border-radius:0px;" placeholder="Origin address 2" aria-label="Origin address" aria-describedby="button-addon2">
+                    <span asp-validation-for="OriginAddress2" class="text-danger"></span>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" onclick="CloseOrigin()" style="border-radius:0px;" type="button" id="button-addon2">-</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6" id="Destination2" style="display:none;">
+                <div class="order-input input-group">
+                    <input type="text" asp-for="DestinationAddress2" class="form-control" style="border-radius:0px;" placeholder="Destination address 2" aria-label="Destination address" aria-describedby="button-addon2">
+                    <span asp-validation-for="DestinationAddress2" class="text-danger"></span>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" onclick="CloseDestination()" style="border-radius:0px;" type="button" id="button-addon2">-</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6" id="Origin3" style="display:none;">
+                <div class="order-input input-group">
+                    <input type="text" asp-for="DestinationAddress3" class="form-control" style="border-radius:0px;" placeholder="Origin address 3" aria-label="Origin address" aria-describedby="button-addon2">
+                    <span asp-validation-for="DestinationAddress3" class="text-danger"></span>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" onclick="CloseOrigin()" style="border-radius:0px;" type="button" id="button-addon2">-</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6" id="Destination3" style="display:none;">
+                <div class="order-input input-group">
+                    <input type="text" asp-for="DestinationAddress3" class="form-control" style="border-radius:0px;" placeholder="Destination address 3" aria-label="Destination address" aria-describedby="button-addon2">
+                    <span asp-validation-for="DestinationAddress3" class="text-danger"></span>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" onclick="CloseDestination()" style="border-radius:0px;" type="button" id="button-addon2">-</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input asp-for="OriginTown" placeholder="Origin town">
+                    <span asp-validation-for="OriginTown" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input asp-for="DestinationTown" placeholder="Destination town">
+                    <span asp-validation-for="DestinationTown" class="text-danger"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input asp-for="OriginPostcode" placeholder="Origin postcode">
+                    <span asp-validation-for="OriginPostcode" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input asp-for="DestinationPostcode" placeholder="Destination postcode">
+                    <span asp-validation-for="DestinationPostcode" class="text-danger"></span>
+                </div>
             </div>
 
         </div>
@@ -62,14 +187,14 @@
             <div class="col-sm-6">
                 <div class="order-input">
                     <input asp-for="CollectionDate" placeholder="Recieve date">
-                    <span asp-validation-for="CollectionDate" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                    <span asp-validation-for="CollectionDate" class="text-danger"></span>
                 </div>
             </div>
 
             <div class="col-sm-6">
                 <div class="order-input">
                     <input asp-for="DeliveryDate" placeholder="Delivery date">
-                    <span asp-validation-for="DeliveryDate" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                    <span asp-validation-for="DeliveryDate" class="text-danger"></span>
                 </div>
             </div>
 
@@ -78,9 +203,18 @@
         <div class="row">
 
             <div class="col-sm-12">
-                <div class="order-input">
-                    <input asp-for="CarType" placeholder="Car type">
-                    <span asp-validation-for="CarType" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                <div class="order-input input-group">
+                    <input asp-for="CarType" type="text" id="VehicleInput" style="border-radius:0px;" class="form-control" aria-label="Text input with dropdown button" placeholder="Car type">
+                    <span asp-validation-for="CarType" class="text-danger"></span>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Vehicle type
+                        </button>
+                        <div class="dropdown-menu">
+                            <a onclick="VehicleSelection('Van');" class="dropdown-item">Van</a>
+                            <a onclick="VehicleSelection('Taxi');" class="dropdown-item">Taxi</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -90,7 +224,7 @@
 
             <div class="col-sm-12">
                 <div class="input-submit">
-                    <button type="submit" class="book-now-btn" style="color:white; padding-top:14px;" name="button" data-toggle="modal" data-target=".confirmbox-new-order"><h5>submit new order</h5></button>
+                    <button type="submit" class="book-now-btn" style="color:white; padding-top:14px;" name="button"><h5>submit new order</h5></button>
                 </div>
             </div>
 
@@ -99,65 +233,77 @@
 </div>
 
 
-@*<div class="row">
-        <div class="col-md-4">
-            <form asp-action="Order">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Orderid" class="control-label"></label>
-                    <input asp-for="Orderid" class="form-control" />
-                    <span asp-validation-for="Orderid" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="OrderDate" class="control-label"></label>
-                    <input asp-for="OrderDate" class="form-control" />
-                    <span asp-validation-for="OrderDate" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Origin" class="control-label"></label>
-                    <input asp-for="Origin" class="form-control" />
-                    <span asp-validation-for="Origin" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Destination" class="control-label"></label>
-                    <input asp-for="Destination" class="form-control" />
-                    <span asp-validation-for="Destination" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="ReceiveDate" class="control-label"></label>
-                    <input asp-for="ReceiveDate" class="form-control" />
-                    <span asp-validation-for="ReceiveDate" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="DeliveryDate" class="control-label"></label>
-                    <input asp-for="DeliveryDate" class="form-control" />
-                    <span asp-validation-for="DeliveryDate" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="CarType" class="control-label"></label>
-                    <input asp-for="CarType" class="form-control" />
-                    <span asp-validation-for="CarType" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="UserId" class="control-label"></label>
-                    <input asp-for="UserId" class="form-control" />
-                    <span asp-validation-for="UserId" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Price" class="control-label"></label>
-                    <input asp-for="Price" class="form-control" />
-                    <span asp-validation-for="Price" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="State" class="control-label"></label>
-                    <input asp-for="State" class="form-control" />
-                    <span asp-validation-for="State" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </form>
-        </div>
-    </div>*@
+<script>
+    function AddOrigin() {
+        var x = document.getElementById('Origin2');
+        var y = document.getElementById('Origin3');
 
+        if (x.style.display === 'none') {
 
+            x.style.display = 'block';
+
+        }
+        else if (x.style.display === 'block') {
+
+            y.style.display = 'block';
+
+        }
+    }
+
+    function AddDestination() {
+        var x = document.getElementById('Destination2');
+        var y = document.getElementById('Destination3');
+
+        if (x.style.display === 'none') {
+
+            x.style.display = 'block';
+
+        }
+        else if (x.style.display === 'block') {
+
+            y.style.display = 'block';
+
+        }
+    }
+
+    function CloseOrigin() {
+        var x = document.getElementById('Origin2');
+        var y = document.getElementById('Origin3');
+
+        if (y.style.display === 'block') {
+
+            y.style.display = 'none';
+
+        }
+        else if (y.style.display === 'none') {
+
+            x.style.display = 'none';
+
+        }
+
+    }
+
+    function CloseDestination() {
+        var x = document.getElementById('Destination2');
+        var y = document.getElementById('Destination3');
+
+        if (y.style.display === 'block') {
+
+            y.style.display = 'none';
+
+        }
+        else if (y.style.display === 'none') {
+
+            x.style.display = 'none';
+
+        }
+
+    }
+
+    function VehicleSelection(x) {
+
+        document.getElementById('VehicleInput').value = x;
+
+    }
+
+</script>
