@@ -13503,23 +13503,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\m-h-adib\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Mohammad Javad\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\m-h-adib\\Documents\\GitHub\\CrestCouriers\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
+      "projectUniqueName": "C:\\Users\\Mohammad Javad\\Documents\\GitHub\\CrestCouriers\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
       "projectName": "CrestCouriers_Career",
-      "projectPath": "C:\\Users\\m-h-adib\\Documents\\GitHub\\CrestCouriers\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
-      "packagesPath": "C:\\Users\\m-h-adib\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\m-h-adib\\Documents\\GitHub\\CrestCouriers\\CrestCouriers_Career\\obj\\",
+      "projectPath": "C:\\Users\\Mohammad Javad\\Documents\\GitHub\\CrestCouriers\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
+      "packagesPath": "C:\\Users\\Mohammad Javad\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mohammad Javad\\Documents\\GitHub\\CrestCouriers\\CrestCouriers_Career\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\m-h-adib\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mohammad Javad\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13531,6 +13527,7 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
+          "targetAlias": "netcoreapp2.1",
           "projectReferences": {}
         }
       },
@@ -13542,6 +13539,7 @@
     },
     "frameworks": {
       "netcoreapp2.1": {
+        "targetAlias": "netcoreapp2.1",
         "dependencies": {
           "MailKit": {
             "target": "Package",
@@ -13645,6 +13643,7 @@
             "version": "[2.1.1, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
@@ -13667,10 +13666,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   },

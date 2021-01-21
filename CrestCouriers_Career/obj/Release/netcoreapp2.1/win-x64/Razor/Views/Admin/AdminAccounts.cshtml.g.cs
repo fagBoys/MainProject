@@ -135,7 +135,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n    <ul class=\"menu-ul\">\r\n        ");
                 EndContext();
                 BeginContext(252, 193, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4ac940943f124f3ea489afe2a843d86d", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40ea9118eda54079907ac4a83734f641", async() => {
                     BeginContext(326, 115, true);
                     WriteLiteral("\r\n            <div class=\"panel-option\">\r\n                <li><h5>Dashboard</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -160,7 +160,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(455, 185, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5b69f43480ca4f14b645815594ff4db7", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "153295fa060c4f61a57d1528b59e2e46", async() => {
                     BeginContext(525, 111, true);
                     WriteLiteral("\r\n            <div class=\"panel-option\">\r\n                <li><h5>Order</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -185,7 +185,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(650, 200, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d9e68bdac7e8476ea2e6931605fb13e0", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3bc8b9de9bc544feba34908c5a874f47", async() => {
                     BeginContext(727, 119, true);
                     WriteLiteral("\r\n            <div class=\"panel-option\">\r\n                <li><h5>Admin setting</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -210,7 +210,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(860, 209, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "15321c1d44974839ac4e1e97f1811e98", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "050c8ee53f834ce8a4b01b42246ef36f", async() => {
                     BeginContext(938, 127, true);
                     WriteLiteral("\r\n            <div class=\"panel-option-active\">\r\n                <li><h5>Admin accounts</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -235,7 +235,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(1079, 200, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3c1ee3f5546b4fbbb192bcf65a068917", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1940c9466109408699f1550e82c7f952", async() => {
                     BeginContext(1156, 119, true);
                     WriteLiteral("\r\n            <div class=\"panel-option\">\r\n                <li><h5>User accounts</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -260,7 +260,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(1289, 187, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3395bce9357b4185843353220e87844b", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "876905420fd7455db40574129628656a", async() => {
                     BeginContext(1360, 112, true);
                     WriteLiteral("\r\n            <div class=\"panel-option\">\r\n                <li><h5>Logout</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -290,7 +290,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
             WriteLiteral("\r\n<div class=\"NewAdmin-form\" style=\"margin:100px;\">\r\n\r\n    ");
             EndContext();
             BeginContext(1551, 3175, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6ab72a08d57243879df2d960fbb4a160", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "09a5bffd151444b99eebccea2ad3a787", async() => {
                 BeginContext(1621, 2614, true);
                 WriteLiteral(@"
 
@@ -371,7 +371,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                     ");
                 EndContext();
                 BeginContext(4235, 414, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2201a49feda54f8ba13fb6bb800e9f8f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b6d96f7b5e8348ccba30f1090bb5d03d", async() => {
                     BeginContext(4615, 25, true);
                     WriteLiteral("<h5>submit new admin</h5>");
                     EndContext();
@@ -602,7 +602,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
             WriteLiteral("    <div class=\"list-record-button\" data-toggle=\"modal\" data-target=\".confirmbox-delete\">\r\n        <button type=\"submit\" style=\"background-color: transparent; border: none;\">\r\n            ");
             EndContext();
             BeginContext(6900, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a3d39852c9c0488db43c35590452ff2f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "cceba392d35947c8bd4d860d44bd8424", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -626,7 +626,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
             WriteLiteral("    <div class=\"list-record-button\" data-toggle=\"modal\" data-target=\".confirmbox\">\r\n        <button style=\"background-color: transparent; border: none;\" @*asp-controller=\"Admin\" asp-action=\"AdminAccountEdit\" asp-route-Id=\"@item.Id\"*@>\r\n            ");
             EndContext();
             BeginContext(7252, 67, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "59ae0b0557c94d7f8d703e976ed28cac", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "005435e45f7341bcbd02780852d8fc0b", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -662,7 +662,7 @@ WriteAttributeValue("", 7538, item.Id, 7538, 8, false);
             WriteLiteral(" @*asp-controller=\"Admin\" asp-action=\"AdminAccountActive\" asp-route-Adminid=\"@item.Id\"*@>\r\n            ");
             EndContext();
             BeginContext(7652, 71, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "26372a18dd1246fcbce4d51c29abd915", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "38b1e74b73e942758e6a7a3b7646db85", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -693,7 +693,7 @@ WriteAttributeValue("", 7538, item.Id, 7538, 8, false);
             WriteLiteral("    <div class=\"list-record-button\" data-toggle=\"modal\" data-target=\".confirmbox-delete\">\r\n        <button type=\"submit\" style=\"background-color: transparent; border: none;\">\r\n            ");
             EndContext();
             BeginContext(8005, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "140ae9da16df4792aa69b7a88bf7beba", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "9d65bf1c18a54106afd163137baa4d44", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -717,12 +717,12 @@ WriteAttributeValue("", 7538, item.Id, 7538, 8, false);
             WriteLiteral("    <div class=\"list-record-button\" data-toggle=\"modal\" data-target=\".confirmbox\">\r\n        ");
             EndContext();
             BeginContext(8201, 238, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5e1832cc5bbb48d0bcad51256871edcc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9250e1d766314656be15a843cf391a49", async() => {
                 BeginContext(8339, 14, true);
                 WriteLiteral("\r\n            ");
                 EndContext();
                 BeginContext(8353, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "14fc3244b88f477db695c6ff5974be3d", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "85cbd0f8c3414af4a9c3a8915dcaaa52", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -779,12 +779,12 @@ WriteAttributeValue("", 7538, item.Id, 7538, 8, false);
             WriteLiteral("    <div class=\"list-record-button\" data-toggle=\"modal\" data-target=\".confirmbox-deactive\">\r\n        ");
             EndContext();
             BeginContext(8556, 249, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9d224ccf7f3449781e554643c0043c0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40957b09be4f4c548371315fd01602e3", async() => {
                 BeginContext(8701, 14, true);
                 WriteLiteral("\r\n            ");
                 EndContext();
                 BeginContext(8715, 71, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "db5265ce567c41ec85f544bd56f830f9", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "b0116d7f241b4f0da713a5de994b63f6", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -860,7 +860,7 @@ WriteAttributeValue("", 8989, item.Id, 8989, 8, false);
             WriteLiteral(">\r\n        <button type=\"submit\" style=\"background-color: transparent; border: none;\">\r\n            ");
             EndContext();
             BeginContext(9101, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "959fc26e35bb4d9f93512cb2bdfd4a22", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "cb450de3cd28483699f460aa3e1e0105", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -924,7 +924,7 @@ WriteAttributeValue("", 9376, item.AdminType, 9376, 15, false);
             WriteLiteral(">\r\n        <button style=\"background-color: transparent; border: none;\" @*asp-controller=\"Admin\" asp-action=\"AdminAccountEdit\" asp-route-Id=\"@item.Id\"*@>\r\n            ");
             EndContext();
             BeginContext(9562, 67, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f5e47b75a5364bafa8fbff5cd3545b96", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a23ec431dcc84096b7ac8f31092160b6", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -960,7 +960,7 @@ WriteAttributeValue("", 9771, item.Id, 9771, 8, false);
             WriteLiteral(">\r\n        <button style=\"background-color: transparent; border: none;\" @*asp-controller=\"Admin\" asp-action=\"AdminAccountActive\" asp-route-Adminid=\"@item.Id\"*@>\r\n            ");
             EndContext();
             BeginContext(9957, 71, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "b9f3da532ae54022a304c3d59e07a720", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "1ad7929116d84a96a850d47e924539ed", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -991,7 +991,7 @@ WriteAttributeValue("", 9771, item.Id, 9771, 8, false);
             WriteLiteral("    <div class=\"list-record-button\">\r\n\r\n        ");
             EndContext();
             BeginContext(10164, 77, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "045458a418784088bf7b390bc5962bfc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "3db09e1c146d4578a674a4a8d1d95a00", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -1015,7 +1015,7 @@ WriteAttributeValue("", 9771, item.Id, 9771, 8, false);
             WriteLiteral("    <div class=\"list-record-button\">\r\n\r\n        ");
             EndContext();
             BeginContext(10307, 75, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e9f5ff05eeec42449f4f1373fc21b9b9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "675f9b9f4cd34672932ff928962216f7", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -1039,7 +1039,7 @@ WriteAttributeValue("", 9771, item.Id, 9771, 8, false);
             WriteLiteral("    <div class=\"list-record-button\">\r\n\r\n        ");
             EndContext();
             BeginContext(10448, 79, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "981ca113c9c243319c849a5c8d8804a8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f16ea382657f4e198b61a0711c1ff11a", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -1098,7 +1098,7 @@ WriteAttributeValue("", 9771, item.Id, 9771, 8, false);
                         ");
             EndContext();
             BeginContext(11435, 1097, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e137c03f299f4e5faca29acec1a1d798", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "38f230b130d346209d9bc375c0c135f0", async() => {
                 BeginContext(11455, 288, true);
                 WriteLiteral(@"
                             <input name=""DeleteId"" id=""DeleteId"" hidden/>
@@ -1110,7 +1110,7 @@ WriteAttributeValue("", 9771, item.Id, 9771, 8, false);
                                         ");
                 EndContext();
                 BeginContext(11743, 252, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8144327465c04d0fa4bc2cda8903e563", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cfb59c6f7819494e88f37fbea1350f01", async() => {
                     BeginContext(11971, 15, true);
                     WriteLiteral("<h5>Delete</h5>");
                     EndContext();
@@ -1191,7 +1191,7 @@ WriteAttributeValue("", 9771, item.Id, 9771, 8, false);
                 ");
             EndContext();
             BeginContext(13042, 3320, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eddd17ce87b24252802b7bf07ae66d30", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f20e45aa650a4125b784397b7d103495", async() => {
                 BeginContext(13062, 2704, true);
                 WriteLiteral(@"
 
@@ -1246,7 +1246,7 @@ WriteAttributeValue("", 9771, item.Id, 9771, 8, false);
                                         ");
                 EndContext();
                 BeginContext(15766, 383, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "da31a38e5c8c4d2599c43c7a1f79e46a", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a6a53b77a50f4d58a0dddc3d93f6f533", async() => {
                     BeginContext(16125, 15, true);
                     WriteLiteral("<h5>Update</h5>");
                     EndContext();
@@ -1337,7 +1337,7 @@ WriteAttributeValue("", 9771, item.Id, 9771, 8, false);
                         ");
             EndContext();
             BeginContext(17307, 1074, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0f8f42894b504877855b0774b8c98773", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b4f8c7ae05a7491ca31ef2d2800722f2", async() => {
                 BeginContext(17327, 299, true);
                 WriteLiteral(@"
                             <div class=""row"">
@@ -1349,7 +1349,7 @@ WriteAttributeValue("", 9771, item.Id, 9771, 8, false);
                                         ");
                 EndContext();
                 BeginContext(17626, 216, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d189be2c53fa45b6ad2d828d0059c8cf", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "86e0d1337a124e739fa17e4aedf9d641", async() => {
                     BeginContext(17818, 15, true);
                     WriteLiteral("<h5>Change</h5>");
                     EndContext();

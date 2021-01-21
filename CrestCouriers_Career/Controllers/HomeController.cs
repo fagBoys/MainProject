@@ -516,9 +516,10 @@ namespace CrestCouriers_Career.Controllers
         }
 
         [HttpGet]
-        public IActionResult Details()
+        public IActionResult Details(string ArticleId)
         {
-            return View();
+            ViewData["ArticleId"] = ArticleId.ToString();
+            return View((object)ArticleId);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

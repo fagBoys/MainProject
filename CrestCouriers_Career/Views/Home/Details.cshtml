@@ -6,6 +6,8 @@
     ViewData["Title"] = "Details page";
 }
 
+
+
 @section Menu{
     <div class="col-lg-8 d-none d-xl-block" style="-ms-flex: 0 0 66.666667%; flex: 0 0 66.666667%; max-width: 66.666667%">
         <nav class="mainmenu alignright">
@@ -27,64 +29,148 @@
 }
 
 
+
+
 <!--== Car List Area Start ==-->
 <section id="car-list-area" class="section-padding">
     <div class="container">
         <div class="row">
             <!-- Car List Content Start -->
-            <div class="col-lg-8">
-                <div class="car-details-content">
-                    <h2>The impact of the Corona virus pandemic within the Transport sector</h2>
-                    <div class="car-preview-crousel">
-                        <div class="single-car-preview">
-                            <img src="~/img/car/article-image1.jpg" alt="JSOFT">
-                        </div>
-                        <div class="single-car-preview">
-                            <img src="~/img/car/article-image2.jpg" alt="JSOFT">
-                        </div>
-                        <div class="single-car-preview">
-                            <img src="~/img/car/article-image3.jpg" alt="JSOFT">
-                        </div>
-                    </div>
-                    <div class="car-details-info blog-content">
-                        <p>As the year commenced the spread of the COVID-19 virus is one that is yet to be contained, continuing to affect millions of jobs and sectors every day. The transportation and logistics industry are ones that continue to provide one of the most vital services in our current modernised global and interconnected world, meaning with the current restrictions put into place many companies are facing national and international trade and transportation issues within this climate. In this instance, there has therefore been a variety of interpretations surrounding future impact and risk implications which we will further explore within this article.</p>
+            @{
+                string ArticleId = ViewData["ArticleId"].ToString();
+                if (ArticleId == "zero")
+                {
+                    <div class="col-lg-8">
+                        <div class="car-details-content">
+                            <h2>The impact of the Corona virus pandemic within the Transport sector</h2>
+                            <div class="car-preview-crousel">
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article-image1.jpg" alt="JSOFT">
+                                </div>
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article-image2.jpg" alt="JSOFT">
+                                </div>
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article-image3.jpg" alt="JSOFT">
+                                </div>
+                            </div>
+                            <div class="car-details-info blog-content">
+                                <p>As the year commenced the spread of the COVID-19 virus is one that is yet to be contained, continuing to affect millions of jobs and sectors every day. The transportation and logistics industry are ones that continue to provide one of the most vital services in our current modernised global and interconnected world, meaning with the current restrictions put into place many companies are facing national and international trade and transportation issues within this climate. In this instance, there has therefore been a variety of interpretations surrounding future impact and risk implications which we will further explore within this article.</p>
 
 
-                        <p>While we are moving into a digital era, our current society is leading towards a constant and further demand for purchases online. Therefore, the need for reliable delivery couriers are more important than ever. This is why the importance around following the new introduced health and safety precautions surrounding the outbreak, whilst continuing keeping drivers and staff members safe will remain a vital priority. Due to this increased demand there is also the opportunity for a new market. As hospitals and private medical sectors are more strained that ever, it has been key to be able to deliver medical supplies where necessary and expand into logistical partners for medicine and similar industries for the future.</p>
-                        <p class="thme-blockquote">As hospitals and private medical sectors are more strained that ever, it has been key to be able to deliver medical supplies where necessary and expand into logistical partners for medicine and similar industries for the future.</p>
-                        <p>As any company this has been a very unprecedented time, and one in which will only be overcome by continuing to stick together and follow issued government guidelines. We will continue to work under these safe conditions and make delivering your needs in the safest and quickest manner possible our first concern.</p>
+                                <p>While we are moving into a digital era, our current society is leading towards a constant and further demand for purchases online. Therefore, the need for reliable delivery couriers are more important than ever. This is why the importance around following the new introduced health and safety precautions surrounding the outbreak, whilst continuing keeping drivers and staff members safe will remain a vital priority. Due to this increased demand there is also the opportunity for a new market. As hospitals and private medical sectors are more strained that ever, it has been key to be able to deliver medical supplies where necessary and expand into logistical partners for medicine and similar industries for the future.</p>
+                                <p class="thme-blockquote">As hospitals and private medical sectors are more strained that ever, it has been key to be able to deliver medical supplies where necessary and expand into logistical partners for medicine and similar industries for the future.</p>
+                                <p>As any company this has been a very unprecedented time, and one in which will only be overcome by continuing to stick together and follow issued government guidelines. We will continue to work under these safe conditions and make delivering your needs in the safest and quickest manner possible our first concern.</p>
 
-                        <div class="review-area">
-                            <h3>Write Your Comment</h3>
-                            <div class="review-form">
-                                <form action="index.html">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="name-input">
-                                                <input type="text" placeholder="Full Name">
+                                <div class="review-area">
+                                    <h3>Write Your Comment</h3>
+                                    <div class="review-form">
+                                        <form action="index.html">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="name-input">
+                                                        <input type="text" placeholder="Full Name">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="email-input">
+                                                        <input type="email" placeholder="Email Address">
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="email-input">
-                                                <input type="email" placeholder="Email Address">
+                                            <div class="message-input">
+                                                <textarea name="review" cols="30" rows="5" placeholder="Message"></textarea>
                                             </div>
-                                        </div>
-                                    </div>
 
-                                    <div class="message-input">
-                                        <textarea name="review" cols="30" rows="5" placeholder="Message"></textarea>
+                                            <div class="input-submit">
+                                                <button type="submit">Comment</button>
+                                            </div>
+                                        </form>
                                     </div>
-
-                                    <div class="input-submit">
-                                        <button type="submit">Comment</button>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                }
+                else if (ArticleId == "one")
+                {
+                    <div class="col-lg-8">
+                        <div class="car-details-content">
+                            <h2>
+                                Brexit: Is the UK Logistics Industry Ready for the Transition Period to End?
+                            </h2>
+                            <div class="car-preview-crousel">
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article2-image1.jpg" alt="JSOFT">
+                                </div>
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article2-image2.jpg" alt="JSOFT">
+                                </div>
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article2-image3.jpg" alt="JSOFT">
+                                </div>
+                            </div>
+                            <div class="car-details-info blog-content">
+                                <p>The UK formally exited the EU on 31st January 2020. The 11-month transition period meant for negotiating a new trade deal will come to an end on 31st December. But there is still no sign of a new deal. In the absence of a free trade deal, which would allow goods to be transported without any tariffs, UK will default to WTO tariffs.</p>
+
+
+                                <p>
+                                    Along with a good chance that taxes will be applicable to imports and exports between the UK and EU, it is also a given that customs regulations will be enacted at the border. Customs regulations will most likely result in delays at the border, causing disruption in supply chains and directly affecting fast-moving consumer goods (like vegetables, fruits, cadies, toiletries, etc.) Moreover, new IT systems need to be installed and customs staff recruited to run operations at the border.
+                                </p>
+
+                                <p>
+                                    More than half of the UK’s import and export takes place with the EU. This means that the government and the businesses inside UK who deal with parties in the EU are presented with the great challenge of ensuring efficiency in the transport of goods between the UK and the EU. Both are largely underprepared in this regard.
+                                </p>
+
+                                <p>
+                                    While businesses have their own challenges to deal with in terms of complying with customs requirements and smooth sailing of relevant paperwork, they have also expressed serious concern to the government over the lack of clarity in how things will be run in the logistics industry. The government, on the other hand, has invested millions to try to ensure smooth sailing of the new systems. Detailed instruction manuals are being published on the government’s official website to assist businesses to comply with new regulations.
+                                </p>
+
+                                <p class="thme-blockquote">
+                                    The government, on the other hand, has invested millions to try to ensure smooth sailing of the new systems. Detailed instruction manuals are being published on the government’s official website to assist businesses to comply with new regulations.
+                                </p>
+
+                                <p>
+                                    But the fact remains that it is not possible to efficiently transition from a 40-year-old system of trade to a new one in just one year. There are gaps and holes in how preparations are being made for post-transition period trade. Industry specialists are expecting many disruptions and delays in border checks and supply lines, all of which will affect the timely delivery of goods to consumers. Moreover, customers will most likely have to put up with increased product prices, thanks to tariffs. From what it looks like, a brief period of chaos will ensue following the end of the transition period on 31st December.
+                                </p>
+
+                                <div class="review-area">
+                                    <h3>Write Your Comment</h3>
+                                    <div class="review-form">
+                                        <form action="index.html">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="name-input">
+                                                        <input type="text" placeholder="Full Name">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="email-input">
+                                                        <input type="email" placeholder="Email Address">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="message-input">
+                                                <textarea name="review" cols="30" rows="5" placeholder="Message"></textarea>
+                                            </div>
+
+                                            <div class="input-submit">
+                                                <button type="submit">Comment</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+
             <!-- Car List Content End -->
             <!-- Sidebar Area Start -->
             <div class="col-lg-4">
