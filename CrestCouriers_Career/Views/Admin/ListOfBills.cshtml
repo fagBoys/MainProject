@@ -1,4 +1,5 @@
-﻿@model PaginatefList<CrestCouriers_Career.Models.Bill>
+﻿
+@model PaginatefList<CrestCouriers_Career.Models.Bill>
 
 @{
     ViewData["Title"] = "Bill";
@@ -67,6 +68,10 @@
                 Bill type
             </th>
 
+            <th id="noT">
+                Download
+            </th>
+
         </tr>
     </thead>
     <tbody class="TableST">
@@ -75,7 +80,7 @@
         @foreach (var item in Model)
         {
 
-        <tr>
+        <tr style=" height:auto;">
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
@@ -90,17 +95,17 @@
                 @*<a href="#" onclick="OpenPDF();">Display</a>*@
                 @if (item.Confirmation == "NotConfirmed")
                 {
-                    <a asp-action="ConfirmBill" asp-route-id="@item.BillID">Confirm</a>
+                    <a asp-action="ConfirmBill" asp-route-id="@item.BillID" style="color:whitesmoke;background-color:red;padding:10PX 12px;border-radius: 6px;" class="DownBt"n>Confirm</a>
                 }
                 else if (item.Confirmation == "Confirmed")
                 {
-                    <a asp-action="ConfirmBill" asp-route-id="@item.BillID">Unconfirm</a>
+            <a asp-action="ConfirmBill" asp-route-id="@item.BillID" style="color:whitesmoke;background-color:red;padding:10PX 12PX;border-radius: 6px;" class="DownBtn">Unconfirm</a>
                 }
             </td>
 
             <td>
                 @*@Html.DisplayFor(modelItem => item.File)*@
-                <a asp-action="DownloadBill" asp-route-id="@item.BillID" asp-route-date="@item.Date">Download</a>
+                <a asp-action="DownloadBill" asp-route-id="@item.BillID" asp-route-date="@item.Date" class="DownBtn" >Download</a>
             </td>
             <!--<td>-->
             @*<a asp-action="Edit" asp-route-id="@item.BillID">Edit</a> |

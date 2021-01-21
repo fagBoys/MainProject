@@ -484,3 +484,5 @@ C:\Users\a\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Debug\netcore
 C:\Users\a\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\CrestCouriers_Career.pdb
 C:\Users\a\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\CrestCouriers_Career.genruntimeconfig.cache
 C:\Users\a\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\CrestCouriers_Career.csproj.CopyComplete
+D:\Program Files (x86)\GitHubFile\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Home\Blog.cshtml.g.cs
+D:\Program Files (x86)\GitHubFile\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Home\Details.cshtml.g.cs

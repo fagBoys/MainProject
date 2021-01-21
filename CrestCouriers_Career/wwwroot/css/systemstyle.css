@@ -549,7 +549,7 @@ margin-top:50px;
     float:none !important;
     position: relative !important;
     width:85% !important;
-    height: 60vh;
+    /*height: 60vh;*/
     margin-left:8%;
    
     
@@ -565,3 +565,20 @@ margin-top:50px;
     
     border-top:none !important;
 }
+
+.DownBtn {
+    color:whitesmoke;
+    background-color:red;
+    padding:10PX 10PX;
+    border-radius: 6px;
+}
+
+
+
+
+
+    .DownBtn:hover {
+        color: whitesmoke;
+        padding:11PX 10PX;
+        box-shadow: 0 4px darkred !important;
+    }
