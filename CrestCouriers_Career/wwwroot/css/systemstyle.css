@@ -427,6 +427,10 @@ padding:0;
 margin:0;
 overflow: no-display;
 display:none;
+position: absolute;
+left: 6%;
+top: 9%;
+width: 88%;
 
 }
 
