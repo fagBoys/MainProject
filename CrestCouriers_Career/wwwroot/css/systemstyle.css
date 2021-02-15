@@ -225,7 +225,7 @@ input
 
 .list-title-item-text
 {
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 .list-record-button
@@ -570,19 +570,25 @@ margin-top:50px;
     border-top:none !important;
 }
 
+/*.Button-suare {
+
+    color: whitesmoke;
+    background-color: red;
+    padding: 10px 12px;
+
+}*/
+
 .DownBtn {
-    color:whitesmoke;
-    background-color:red;
-    padding:10PX 10PX;
-    border-radius: 6px;
+
+    color: whitesmoke;
+    background-color: red;
+    padding: 10px 10px;
+
 }
 
+.DownBtn:hover {
 
+    color: whitesmoke;
+    padding:10px 10px;
 
-
-
-    .DownBtn:hover {
-        color: whitesmoke;
-        padding:11PX 10PX;
-        box-shadow: 0 4px darkred !important;
-    }
+}
