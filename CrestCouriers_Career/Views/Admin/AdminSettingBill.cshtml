@@ -1,0 +1,196 @@
+﻿@model CrestCouriers_Career.Models.Account
+
+@{
+    ViewData["Title"] = "AdminSetting";
+    Layout = "~/Views/Shared/_SystemAdmin.cshtml";
+}
+
+@section AdminMenu{
+    <ul class="menu-ul">
+        <a asp-controller="Admin" asp-action="ListOfBills" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>List of bills</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="Bill" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Bill</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="AdminSettingBill" class="menu-option-link">
+            <div class="panel-option-active">
+                <li><h5>Admin setting</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="Logout" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Logout</h5></li>
+            </div>
+        </a>
+    </ul>
+}
+
+<div class="NewOrder-form" style="margin:100px;">
+    <form asp-controller="Admin" asp-action="AdminSettingBill" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            @*<div class="form-group">
+                    <label asp-for="AdminId" hidden class="control-label"></label>
+                    <input asp-for="AdminId" hidden class="form-control" value="@ViewData["myAdmin-AdminId"]" />
+                    <span asp-validation-for="AdminId" class="text-danger"></span>
+                </div>*@
+            <div class="col-sm-12">
+                <input asp-for="UserName" class="" placeholder="Username">
+                <span asp-validation-for="UserName" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="order-input">
+                    <input asp-for="PhoneNumber" placeholder="Phone Number">
+                    <span asp-validation-for="PhoneNumber" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-12">
+                <div class="order-input">
+                    <input asp-for="FirstName" placeholder="Frist Name">
+                    <span asp-validation-for="FirstName" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-12">
+                <div class="order-input">
+                    <input asp-for="LastName" placeholder="Surname">
+                    <span asp-validation-for="LastName" class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-sm-12">
+                <div class="input-submit">
+                    <button type="submit" class="book-now-btn" style="color:white; padding-top:14px;" name="button" data-toggle="modal" data-target=".confirmbox-admin-info"><h5>Update your information</h5></button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+</div>
+
+
+
+<div id="confirmbox-admin-info" class="modal fade confirmbox-admin-info">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:600px; padding:0px;">
+
+            <div class="modal-header" style="border-bottom-color:red;">
+                <h2 class="update-box-header">Update information</h2>
+            </div>
+
+            <div class="modal-body">
+
+
+
+
+                <div class="popup-admin-deactive">
+
+                    <div class="NewOrder-form">
+
+                        <div class="row">
+
+                            <div class="col-sm-12">
+                                <div class="order-input">
+                                    <p>Your information has been updated.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-sm-12">
+                                <div class="input-submit">
+                                    <button type="button" class="book-now-btn" style="color:white; padding-top:14px; margin:0 auto; margin-top:20px;" name="button"><h5>Close</h5></button>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+@*<div class="row">
+        <div class="col-md-4">
+            <form asp-action="AdminSetting">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Adminid" class="control-label"></label>
+                    <input asp-for="Adminid" class="form-control" />
+                    <span asp-validation-for="Adminid" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserName" class="control-label"></label>
+                    <input asp-for="UserName" class="form-control" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Lastname" class="control-label"></label>
+                    <input asp-for="Lastname" class="form-control" />
+                    <span asp-validation-for="Lastname" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Level" class="control-label"></label>
+                    <input asp-for="Level" class="form-control" />
+                    <span asp-validation-for="Level" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label"></label>
+                    <input asp-for="PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EmailAddress" class="control-label"></label>
+                    <input asp-for="EmailAddress" class="form-control" />
+                    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>*@

@@ -331,6 +331,44 @@ namespace CrestCouriers_Career.Controllers
 
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> AdminSettingBill()
+        {
+            //EF
+            CrestContext context = new CrestContext();
+            Account Account = context.Account.FirstOrDefault(A => A.Id == _userManager.GetUserId(User as ClaimsPrincipal));
+            ViewData["CurrentUser"] = Account;
+            //EF
+
+            return View(Account);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AdminSettingBill(Account UpdatedAccount)
+        {
+
+            ////EF core start
+            CrestContext context = new CrestContext();
+            Account CurrentAccount = await _userManager.FindByIdAsync(_userManager.GetUserId(User as ClaimsPrincipal));
+
+            CurrentAccount.UserName = UpdatedAccount.UserName;
+            CurrentAccount.PhoneNumber = UpdatedAccount.PhoneNumber;
+            CurrentAccount.FirstName = UpdatedAccount.FirstName;
+            CurrentAccount.LastName = UpdatedAccount.LastName;
+
+
+            await _userManager.UpdateAsync(CurrentAccount);
+            ////EF core end
+
+
+            return RedirectToAction("AdminSettingBill");
+
+        }
+
+
         //public async Task<IActionResult> ChangePassword(string OldPassword, string NewPassword)
         //{
         //    CrestContext context = new CrestContext();
@@ -808,16 +846,17 @@ namespace CrestCouriers_Career.Controllers
             CrestContext Context = new CrestContext();
             Bill CreateBill = new Bill();
             CreateBill.Date = DateTime.Now;
-            string filename = Path.GetFileNameWithoutExtension(NewBill.File.FileName);
-            CreateBill.filename = filename;
             CreateBill.Confirmation = "NotConfirmed";
-            if (NewBill.File == null) 
+            if (NewBill.File == null)
             {
-                return View();
+                return new RedirectResult("~/Admin/Bill");
                 ModelState.AddModelError("", "Please select a file.");
             }
             else if (NewBill.File.Length != null)
             {
+            string filename = Path.GetFileNameWithoutExtension(NewBill.File.FileName);
+            CreateBill.filename = filename;
+               
                 using (var ms = new MemoryStream())
                 {
                     NewBill.File.CopyTo(ms);
@@ -827,7 +866,8 @@ namespace CrestCouriers_Career.Controllers
             }
             Context.Bill.Add(CreateBill);
             Context.SaveChanges();
-            return View();
+            ModelState.AddModelError("", "file sent.");
+            return new RedirectResult("~/Admin/Bill");
         }
 
         [HttpGet]
