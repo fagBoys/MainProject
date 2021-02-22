@@ -798,22 +798,29 @@ namespace CrestCouriers_Career.Controllers
             return RedirectToAction("Login");
         }
 
-        public async Task<IActionResult> ListOfBills(string currentFilter, int? pageNumber , string listtype)
+        public async Task<IActionResult> ConfirmedBill(string currentFilter, int? pageNumber)
         {
             CrestContext context = new CrestContext();
 
             IEnumerable<Bill> billss;
             //var billss = context.Bill.Where(a => a.Confirmation == "Confirmed");
-            if (listtype == "Confirmed")
-            {
-                billss = context.Bill.Where(a => a.Confirmation == "Confirmed");
-                ViewData["Title"] = "Confirmed";
-            }
-            else 
-            {
-                billss = context.Bill.Where(a => a.Confirmation == "NotConfirmed");
-                ViewData["Title"] = "NotConfirmed";
-            }
+
+            billss = context.Bill.Where(a => a.Confirmation == "Confirmed");
+            ViewData["Title"] = "Confirmed";
+
+            return View(await PaginatedList<Bill>.CreateAsunc((IQueryable<Bill>)billss, pageNumber ?? 1, 2));
+        }
+
+        public async Task<IActionResult> NotConfirmedBill(string currentFilter, int? pageNumber)
+        {
+            CrestContext context = new CrestContext();
+
+            IEnumerable<Bill> billss;
+            //var billss = context.Bill.Where(a => a.Confirmation == "Confirmed");
+
+            billss = context.Bill.Where(a => a.Confirmation == "NotConfirmed");
+            ViewData["Title"] = "NotConfirmed";
+
             return View(await PaginatedList<Bill>.CreateAsunc((IQueryable<Bill>)billss, pageNumber ?? 1, 2));
         }
 
@@ -883,19 +890,18 @@ namespace CrestCouriers_Career.Controllers
                 context.Attach(mybill).State = EntityState.Modified;
                 context.SaveChangesAsync();
 
-                return new RedirectResult("/Admin/ListOfBills/NotConfirmed");
+                return new RedirectResult("/Admin/NotConfirmedBill");
             }
-            else if(mybill.Confirmation == "Confirmed")
+            else
             {
                 mybill.Confirmation = "NotConfirmed";
                 context.Attach(mybill).State = EntityState.Modified;
                 context.SaveChangesAsync();
 
-                return new RedirectResult("/Admin/ListOfBills/Confirmed");
+                return new RedirectResult("/Admin/ConfirmedBill");
             }
 
 
-            return new RedirectResult("ListOfBills");
         }
     }
 }

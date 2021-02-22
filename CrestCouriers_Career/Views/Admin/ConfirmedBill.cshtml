@@ -7,7 +7,7 @@
 
 @section AdminMenu{
     <ul class="menu-ul">
-        <a asp-controller="Admin" asp-action="ListOfBills" class="menu-option-link">
+        <a asp-controller="Admin" asp-action="NotConfirmedBill" class="menu-option-link">
             <div class="panel-option-active">
                 <li><h5>List of bills</h5></li>
             </div>
@@ -32,8 +32,8 @@
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a asp-controller="Admin" asp-action="ListOfBills" asp-route-listtype="Confirmed">Confirmed</a></li>
-        <li class="breadcrumb-item"><a asp-controller="Admin" asp-action="ListOfBills" asp-route-listtype="NotConfirmed">Not confirmed</a></li>
+        <li class="breadcrumb-item"><a asp-controller="Admin" asp-action="ConfirmedBill">Confirmed</a></li>
+        <li class="breadcrumb-item"><a asp-controller="Admin" asp-action="NotConfirmedBill">Not confirmed</a></li>
     </ol>
 </nav>
 
@@ -85,14 +85,10 @@
             <p>@item.filename</p>
         </div>
         <div class="list-title-item" style="width:25%;">
-            @if (item.Confirmation == "NotConfirmed")
-            {
-                <a asp-action="ConfirmBill" asp-route-id="@item.BillID" class="book-now-btn" n>Confirm</a>
-            }
-            else if (item.Confirmation == "Confirmed")
-            {
+
+
                 <a asp-action="ConfirmBill" asp-route-id="@item.BillID" class="book-now-btn">Unconfirm</a>
-            }
+
         </div>
         <div class="list-title-item" style="width:25%;">
             <a asp-action="DownloadBill" asp-route-id="@item.BillID" asp-route-date="@item.Date" class="book-now-btn">Download</a>
