@@ -126,20 +126,7 @@ namespace CrestCouriers_Career.Controllers
         public IActionResult EditOrder(Order editedorder)
         {
 
-            //string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            //Dal connection = new Dal(myurl);
-            //SqlDataAdapter da = new SqlDataAdapter();
-            //DataTable dt = new DataTable();
-            //SqlCommand cmd = new SqlCommand("sp_Crest_UpdateOrder", connection.connect());
-            //cmd.CommandType = CommandType.StoredProcedure;
-            //cmd.Parameters.AddWithValue("@Orderid", order.OrderId);
-            //cmd.Parameters.AddWithValue("@Origin", order.Origin);
-            //cmd.Parameters.AddWithValue("@Destination", order.Destination);
-            //cmd.Parameters.AddWithValue("@ReceiveDate", order.CollectionDate);
-            //cmd.Parameters.AddWithValue("@DeliveryDate", order.DeliveryDate);
-            //cmd.Parameters.AddWithValue("@CarType", order.CarType);
 
-            //cmd.ExecuteNonQuery();
             //EF core start
             CrestContext context = new CrestContext();
             Order order = new Order();
@@ -798,30 +785,28 @@ namespace CrestCouriers_Career.Controllers
             return RedirectToAction("Login");
         }
 
-        public async Task<IActionResult> ConfirmedBill(string currentFilter, int? pageNumber)
+        public async Task<IActionResult> ConfirmedBill(int? pageNumber)
         {
             CrestContext context = new CrestContext();
 
-            IEnumerable<Bill> billss;
-            //var billss = context.Bill.Where(a => a.Confirmation == "Confirmed");
-
-            billss = context.Bill.Where(a => a.Confirmation == "Confirmed");
+            IEnumerable<Bill> billss = context.Bill.Where(a => a.Confirmation == "Confirmed");
             ViewData["Title"] = "Confirmed";
 
-            return View(await PaginatedList<Bill>.CreateAsunc((IQueryable<Bill>)billss, pageNumber ?? 1, 2));
+            PaginatedList<Bill> BillList = await PaginatedList<Bill>.CreateAsunc((IQueryable<Bill>)billss, pageNumber ?? 1, 2);
+
+            return View(BillList);
         }
 
-        public async Task<IActionResult> NotConfirmedBill(string currentFilter, int? pageNumber)
+        public async Task<IActionResult> NotConfirmedBill(int? pageNumber)
         {
             CrestContext context = new CrestContext();
 
-            IEnumerable<Bill> billss;
-            //var billss = context.Bill.Where(a => a.Confirmation == "Confirmed");
-
-            billss = context.Bill.Where(a => a.Confirmation == "NotConfirmed");
+            IEnumerable<Bill> billss = context.Bill.Where(a => a.Confirmation == "NotConfirmed");
             ViewData["Title"] = "NotConfirmed";
 
-            return View(await PaginatedList<Bill>.CreateAsunc((IQueryable<Bill>)billss, pageNumber ?? 1, 2));
+            PaginatedList<Bill> BillList = await PaginatedList<Bill>.CreateAsunc((IQueryable<Bill>)billss, pageNumber ?? 1, 2);
+
+            return View(BillList);
         }
 
         [HttpGet]
@@ -890,7 +875,7 @@ namespace CrestCouriers_Career.Controllers
                 context.Attach(mybill).State = EntityState.Modified;
                 context.SaveChangesAsync();
 
-                return new RedirectResult("/Admin/NotConfirmedBill");
+                return RedirectToAction("NotConfirmedBill");
             }
             else
             {
@@ -898,7 +883,7 @@ namespace CrestCouriers_Career.Controllers
                 context.Attach(mybill).State = EntityState.Modified;
                 context.SaveChangesAsync();
 
-                return new RedirectResult("/Admin/ConfirmedBill");
+                return RedirectToAction("ConfirmedBill");
             }
 
 
