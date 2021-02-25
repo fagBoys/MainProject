@@ -169,353 +169,348 @@
 @foreach (var item in Model)
 {
 
-<div class="list-order">
+    <div class="list-order">
 
-    <div class="admin-list-title-item">
-        <p>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </p>
-    </div>
+        <div class="admin-list-title-item">
+            <p>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </p>
+        </div>
 
-    <div class="admin-list-title-item">
-        <p>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </p>
-    </div>
+        <div class="admin-list-title-item">
+            <p>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </p>
+        </div>
 
-    <div class="admin-list-title-item">
-        <p>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </p>
-    </div>
+        <div class="admin-list-title-item">
+            <p>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </p>
+        </div>
 
-    <div class="admin-list-title-item">
+        <div class="admin-list-title-item">
 
-        @if (item.IsActive == true)
+            @if (item.IsActive == true)
+            {
+                <p>Active</p>
+            }
+            else if (item.IsActive == false)
+            {
+                <p>Deactive</p>
+            }
+
+        </div>
+
+        <div class="admin-list-title-item">
+
+            @if (item.AdminType == "Admin")
+            {
+                <p>Admin</p>
+            }
+            else if (item.AdminType == "Limited Admin")
+            {
+                <p>Limited Admin</p>
+            }
+            else if (item.AdminType == "Accountancy")
+            {
+                <p>Accountancy</p>
+            }
+            else if (item.AdminType == "Secretary")
+            {
+                <p>Secretary</p>
+            }
+
+        </div>
+
+        @if (item.AdminType == "Limited Admin")
         {
-        <p>Active</p>
-        }
-        else if (item.IsActive == false)
-        {
-        <p>Deactive</p>
-        }
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
+                <button type="submit" style="background-color: transparent; border: none;">
+                    <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
+                </button>
+            </div>
 
-    </div>
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
+                <button style="background-color: transparent; border: none;" @*asp-controller="Admin" asp-action="AdminAccountEdit" asp-route-Id="@item.Id"*@>
+                    <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
+                </button>
+            </div>
 
-    <div class="admin-list-title-item">
-
-        @if (item.AdminType == "Admin")
-        {
-        <p>Admin</p>
-        }
-        else if (item.AdminType == "Limited Admin")
-        {
-        <p>Limited Admin</p>
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
+                <button style="background-color: transparent; border: none;" onclick="OpenDeactive('@item.Id')" @*asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Adminid="@item.Id"*@>
+                    <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
+                </button>
+            </div>
         }
         else if (item.AdminType == "Accountancy")
         {
-        <p>Accountancy</p>
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
+                <button type="submit" style="background-color: transparent; border: none;">
+                    <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
+                </button>
+            </div>
+
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
+                <button style="background-color: transparent; border: none;">
+                    <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
+                </button>
+            </div>
+
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive" onclick="getId('@item.Id')">
+                <button style="background-color: transparent; border: none;">
+                    <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
+                </button>
+            </div>
         }
         else if (item.AdminType == "Secretary")
         {
-        <p>Secretary</p>
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete" onclick="getDeleteId('@item.Id');">
+                <button type="submit" style="background-color: transparent; border: none;">
+                    <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
+                </button>
+            </div>
+
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getUpdateId('@item.Id', '@item.UserName', '@item.FirstName', '@item.LastName', '@item.AdminType');">
+                <button style="background-color: transparent; border: none;" @*asp-controller="Admin" asp-action="AdminAccountEdit" asp-route-Id="@item.Id"*@>
+                    <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
+                </button>
+            </div>
+
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive" onclick="getId('@item.Id');">
+                <button style="background-color: transparent; border: none;" @*asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Adminid="@item.Id"*@>
+                    <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
+                </button>
+            </div>
+        }
+        else if (item.AdminType == "Admin")
+        {
+            <div class="list-record-button">
+
+                <img src="~/img/System/remove-disable.png" width="35px" height="35px" alt="">
+
+            </div>
+
+            <div class="list-record-button">
+
+                <img src="~/img/System/edit-disable.png" width="35px" height="35px" alt="">
+
+            </div>
+
+            <div class="list-record-button">
+
+                <img src="~/img/System/deactive-disable.png" width="35px" height="35px" alt="">
+
+            </div>
         }
 
     </div>
 
-    @if (item.AdminType == "Limited Admin")
-    {
-    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
-        <button type="submit" style="background-color: transparent; border: none;">
-            <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
-        </button>
-    </div>
+    <div id="confirmbox-delete" class="modal fade confirmbox-delete">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width:600px; padding:0px;">
 
-    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
-        <button style="background-color: transparent; border: none;" @*asp-controller="Admin" asp-action="AdminAccountEdit" asp-route-Id="@item.Id"*@>
-            <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
-        </button>
-    </div>
-
-    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
-        <button style="background-color: transparent; border: none;" onclick="OpenDeactive(@item.Id);" @*asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Adminid="@item.Id"*@>
-            <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
-        </button>
-    </div>
-    }
-    else if (item.AdminType == "Accountancy")
-    {
-    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
-        <button type="submit" style="background-color: transparent; border: none;">
-            <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
-        </button>
-    </div>
-
-    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
-        <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="AdminAccountEdit" asp-route-Id="@item.Id">
-            <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
-        </button>
-    </div>
-
-    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
-        <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Adminid="@item.Id">
-            <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
-        </button>
-    </div>
-    }
-    else if (item.AdminType == "Secretary")
-    {
-    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete" onclick="getDeleteId('@item.Id');">
-        <button type="submit" style="background-color: transparent; border: none;">
-            <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
-        </button>
-    </div>
-
-    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getUpdateId('@item.Id', '@item.UserName', '@item.FirstName', '@item.LastName', '@item.AdminType');">
-        <button style="background-color: transparent; border: none;" @*asp-controller="Admin" asp-action="AdminAccountEdit" asp-route-Id="@item.Id"*@>
-            <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
-        </button>
-    </div>
-
-    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive" onclick="getId('@item.Id');">
-        <button style="background-color: transparent; border: none;" @*asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Adminid="@item.Id"*@>
-            <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
-        </button>
-    </div>
-    }
-    else if (item.AdminType == "Admin")
-    {
-    <div class="list-record-button">
-
-        <img src="~/img/System/remove-disable.png" width="35px" height="35px" alt="">
-
-    </div>
-
-    <div class="list-record-button">
-
-        <img src="~/img/System/edit-disable.png" width="35px" height="35px" alt="">
-
-    </div>
-
-    <div class="list-record-button">
-
-        <img src="~/img/System/deactive-disable.png" width="35px" height="35px" alt="">
-
-    </div>
-    }
-
-</div>
-
-<div id="confirmbox-delete" class="modal fade confirmbox-delete">
-    <div class="modal-dialog">
-        <div class="modal-content" style="width:600px; padding:0px;">
-
-            <div class="modal-header" style="border-bottom-color:red;">
-                <h2 class="update-box-header">Delete admin</h2>
-            </div>
-
-            <div class="modal-body">
-
-
-
-
-                <div class="popup-admin-deactive">
-
-                    <div class="NewOrder-form">
-
-                        <div class="row">
-
-                            <div class="col-sm-12">
-                                <div class="order-input">
-                                    <p>Are you sure? You realy want to delete this account?</p>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <form method="post">
-                            <input name="DeleteId" id="DeleteId" hidden/>
-
-                            <div class="row">
-
-                                <div class="col-sm-6">
-                                    <div class="input-submit">
-                                        <button type="submit" class="book-now-btn" style="color:white; padding-top:14px; float:right;" name="button" asp-controller="Admin" asp-action="SystemUserDelete" asp-route-DeleteId="DeleteId" asp-route-returnUrl="AdminAccounts"><h5>Delete</h5></button>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <div class="input-submit">
-                                        <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:left;" name="button"><h5>Cancel</h5></button>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </form>
-
-                    </div>
-
+                <div class="modal-header" style="border-bottom-color:red;">
+                    <h2 class="update-box-header">Delete admin</h2>
                 </div>
 
-            </div>
+                <div class="modal-body">
 
 
-        </div>
-    </div>
-</div>
-
-<div id="confirmbox" class="modal fade confirmbox">
-    <div class="modal-dialog">
-        <div class="modal-content" style="width:600px; padding:0px;">
-
-            <div class="modal-header" style="border-bottom-color:red;">
-                <h2 class="update-box-header">Change admin information</h2>
-            </div>
-
-            <div class="modal-body">
 
 
-                <form method="post">
-
-                    <input name="UpdateId" id="UpdateId" hidden/>
-
-                    <div class="popup-admin-update">
+                    <div class="popup-admin-deactive">
 
                         <div class="NewOrder-form">
 
                             <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="order-input">
-                                        <input type="text" class="" id="UpdatedUserName" name="UpdatedUserName" placeholder="Username">
-                                        <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="order-input">
-                                        <input type="text" class="" id="UpdatedFirstName" name="UpdatedFirstName" placeholder="Firstname">
-                                        <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="order-input">
-                                        <input type="text" class="" id="UpdatedLastName" name="UpdatedLastName" placeholder="Lastname">
-                                        <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="order-input">
-                                        <input type="text" class="" id="UpdatedAdminType" name="UpdatedAdminType" placeholder="Level">
-                                        <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
 
                                 <div class="col-sm-12">
-                                    <div class="input-submit">
-                                        <button type="submit" class="book-now-btn" style="color:white; padding-top:14px;" name="button" asp-controller="Admin" asp-action="AdminAccountEdit" asp-route-UpdateId="UpdateId" asp-route-UpdatedUserName="UpdatedUserName" asp-route-UpdatedFirstname="UpdatedFirstName" asp-route-UpdatedLastName="UpdatedLastName" asp-route-UpdatedAdminType="UpdatedAdminType"><h5>Update</h5></button>
+                                    <div class="order-input">
+                                        <p>Are you sure? You realy want to delete this account?</p>
                                     </div>
                                 </div>
 
                             </div>
+
+                            <form method="post">
+                                <input name="DeleteId" id="DeleteId" hidden />
+
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+                                        <div class="input-submit">
+                                            <button type="submit" class="book-now-btn" style="color:white; padding-top:14px; float:right;" name="button" asp-controller="Admin" asp-action="SystemUserDelete" asp-route-DeleteId="DeleteId" asp-route-returnUrl="AdminAccounts"><h5>Delete</h5></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="input-submit">
+                                            <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:left;" name="button"><h5>Cancel</h5></button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </form>
 
                         </div>
 
                     </div>
 
-                </form>
+                </div>
+
 
             </div>
-
-
         </div>
     </div>
-</div>
 
-<div id="confirmbox-deactive" class="modal fade confirmbox-deactive">
-    <div class="modal-dialog">
-        <div class="modal-content" style="width:600px; padding:0px;">
+    <div id="confirmbox" class="modal fade confirmbox">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width:600px; padding:0px;">
 
-            <div class="modal-header" style="border-bottom-color:red;">
-                <h2 class="update-box-header">Admin status</h2>
-            </div>
+                <div class="modal-header" style="border-bottom-color:red;">
+                    <h2 class="update-box-header">Change admin information</h2>
+                </div>
 
-            <div class="modal-body">
-
+                <div class="modal-body">
 
 
+                    <form method="post">
 
-                <div class="popup-admin-deactive">
+                        <input name="UpdateId" id="UpdateId" hidden />
 
-                    <div class="NewOrder-form">
+                        <div class="popup-admin-update">
 
-                        <div class="row">
+                            <div class="NewOrder-form">
 
-                            <div class="col-sm-12">
-                                <div class="order-input">
-                                    <p>Are you sure? You realy want to deactive this account?</p>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="order-input">
+                                            <input type="text" class="" id="UpdatedUserName" name="UpdatedUserName" placeholder="Username">
+                                            <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
                                 </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="order-input">
+                                            <input type="text" class="" id="UpdatedFirstName" name="UpdatedFirstName" placeholder="Firstname">
+                                            <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="order-input">
+                                            <input type="text" class="" id="UpdatedLastName" name="UpdatedLastName" placeholder="Lastname">
+                                            <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="order-input">
+                                            <input type="text" class="" id="UpdatedAdminType" name="UpdatedAdminType" placeholder="Level">
+                                            <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-sm-12">
+                                        <div class="input-submit">
+                                            <button type="submit" class="book-now-btn" style="color:white; padding-top:14px;" name="button" asp-controller="Admin" asp-action="AdminAccountEdit" asp-route-UpdateId="UpdateId" asp-route-UpdatedUserName="UpdatedUserName" asp-route-UpdatedFirstname="UpdatedFirstName" asp-route-UpdatedLastName="UpdatedLastName" asp-route-UpdatedAdminType="UpdatedAdminType"><h5>Update</h5></button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
                             </div>
 
                         </div>
 
-                        <form method="post">
+                    </form>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmbox-deactive" class="modal fade confirmbox-deactive">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width:600px; padding:0px;">
+
+                <div class="modal-header" style="border-bottom-color:red;">
+                    <h2 class="update-box-header">Admin status</h2>
+                </div>
+
+                <div class="modal-body">
+
+
+
+
+                    <div class="popup-admin-deactive">
+
+                        <div class="NewOrder-form">
+
                             <div class="row">
 
-                                <div class="col-sm-6">
-                                    <div class="input-submit">
-
-                                        <input name="AdminId" id="AdminId" hidden />
-                                        <button type="submit" class="book-now-btn" style="color:white; padding-top:14px; float:right;" name="button" asp-controller="Admin" asp-action="AdminAccountActive" asp-route-AdminId="AdminId"><h5>Change</h5></button>
-
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <div class="input-submit">
-                                        <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:left;" name="button"><h5>Cancel</h5></button>
-
+                                <div class="col-sm-12">
+                                    <div class="order-input">
+                                        <p>Are you sure? You realy want to deactive this account?</p>
                                     </div>
                                 </div>
 
                             </div>
-                        </form>
+
+                            <form method="post">
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+                                        <div class="input-submit">
+
+                                            <input name="AdminId" id="AdminId" hidden />
+                                            <button type="submit" class="book-now-btn" style="color:white; padding-top:14px; float:right;" name="button" asp-controller="Admin" asp-action="AdminAccountActive" asp-route-AdminId="AdminId"><h5>Change</h5></button>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="input-submit">
+                                            <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:left;" name="button" onclick="CloseDeactive()"><h5>Cancel</h5></button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+
+                        </div>
 
                     </div>
 
                 </div>
 
             </div>
-
         </div>
     </div>
-</div>
 
 }
 
-
-
-
-
-<script type="text/javascript">
+@*<script type="text/javascript">
 
     function SetType(AdminType) {
         var T = AdminType;
         document.getElementById("dropdownMenuButton").innerHTML = T;
         document.getElementById("MyType").value = T;
     }
-    @*function GetType() {
+    function GetType() {
         var T = document.getElementById("dropdownMenuButton").value;
         return T;
     }
@@ -528,6 +523,9 @@
     }
 
     $('button').attr('asp-route-AdminType', document.getElementById("dropdownMenuButton").value);
+</script>*@
+
+<script>
 
     function SetLimited() {
         AdminType = "Limited";
@@ -546,14 +544,21 @@
     $(document).ready(function () {
 
     });*@
+
 </script>
+
 
 <script type="text/javascript">
 
-    function getId(Id)
-    {
+    function getId(AdminId) {
 
-        document.getElementById("AdminId").value = Id;
+        document.getElementById('AdminId').value = AdminId;
+
+    }
+
+    function CloseDeactive() {
+
+        $('#confirmbox-deactive').modal('hide');
 
     }
 
@@ -582,3 +587,4 @@
     }
 
 </script>
+

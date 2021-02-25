@@ -1,3 +1,16 @@
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('../fonts/fontawesome-webfont.eot');
+    src: url('../fonts/fontawesome-webfont.eot') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2') format('woff2'), url('../fonts/fontawesome-webfont.woff') format('woff'), url('../fonts/fontawesome-webfont.ttf') format('truetype'), url('../fonts/fontawesome-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body
+{
+    font-family: sans-serif,FontAwesome !important;
+}
+
 input
 {
     outline:none;
@@ -212,7 +225,7 @@ input
 
 .list-title-item-text
 {
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 .list-record-button
@@ -239,8 +252,8 @@ input
 
   margin:0 auto;
   text-align: center;
-  margin-top: 5px;
-  padding-top: 4px;
+  margin-top: 0%;
+  padding-top: 4%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -414,6 +427,10 @@ padding:0;
 margin:0;
 overflow: no-display;
 display:none;
+position: absolute;
+left: 6%;
+top: 9%;
+width: 88%;
 
 }
 
@@ -487,7 +504,7 @@ margin-top:140px;
 .BottomPaging {
 
 margin:0px;
-padding:0px;
+padding:4%;
 clear : both;
 position:center;
 margin-top:50px;
@@ -536,7 +553,7 @@ margin-top:50px;
     float:none !important;
     position: relative !important;
     width:85% !important;
-    height: 60vh;
+    /*height: 60vh;*/
     margin-left:8%;
    
     
@@ -551,4 +568,27 @@ margin-top:50px;
 #noT {
     
     border-top:none !important;
+}
+
+/*.Button-suare {
+
+    color: whitesmoke;
+    background-color: red;
+    padding: 10px 12px;
+
+}*/
+
+.DownBtn {
+
+    color: whitesmoke;
+    background-color: red;
+    padding: 10px 10px;
+
+}
+
+.DownBtn:hover {
+
+    color: whitesmoke;
+    padding:10px 10px;
+
 }

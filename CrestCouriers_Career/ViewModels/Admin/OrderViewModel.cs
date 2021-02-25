@@ -18,11 +18,11 @@ namespace CrestCouriers_Career.ViewModels.Admin
         [Required]
         public string OriginAddress { get; set; }
 
-        [Required]
-        public string OriginAddress2 { get; set; }
 
-        [Required]
-        public string OriginAddress3 { get; set; }
+        public string? OriginAddress2 { get; set; }
+
+
+        public string? OriginAddress3 { get; set; }
 
         [Required]
         public string OriginTown { get; set; }
@@ -42,11 +42,11 @@ namespace CrestCouriers_Career.ViewModels.Admin
         [Required]
         public string DestinationAddress { get; set; }
 
-        [Required]
-        public string DestinationAddress2 { get; set; }
 
-        [Required]
-        public string DestinationAddress3 { get; set; }
+        public string? DestinationAddress2 { get; set; }
+
+
+        public string? DestinationAddress3 { get; set; }
 
         [Required]
         public string DestinationTown { get; set; }
