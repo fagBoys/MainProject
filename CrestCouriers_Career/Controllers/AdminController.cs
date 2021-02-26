@@ -539,15 +539,23 @@ namespace CrestCouriers_Career.Controllers
             return RedirectToAction(returnUrl);
         }
 
-        public async Task<IActionResult> SystemUserEdit(string Id)
+        public async Task<IActionResult> SystemUserEdit(string UpdateId, string UserName, string FirstName, string Surname, string PhoneNumber, string EmailAddress)
         {
 
 
             //EF core start
-            Account account = await _userManager.FindByIdAsync(Id);
+            Account account = await _userManager.FindByIdAsync(UpdateId);
+
+            account.UserName = UserName;
+            account.FirstName = FirstName;
+            account.LastName = Surname;
+            account.PhoneNumber = PhoneNumber;
+            account.Email = EmailAddress;
+
+            await _userManager.UpdateAsync(account);
             //EF core end
 
-            return View(account);
+            return new RedirectResult("/Admin/UserAccounts");
         }
 
 
@@ -574,14 +582,15 @@ namespace CrestCouriers_Career.Controllers
             return new RedirectResult("/Admin/UserAccounts");
         }
 
-        public async Task<IActionResult> UserAccountActive(string Userid)
+        [HttpPost]
+        public async Task<IActionResult> UserAccountActive(string UserId)
         {
 
             //EF core start
             //CrestContext context = new CrestContext();
             //User user= new User();
 
-            Account Account = await _userManager.FindByIdAsync(Userid);
+            Account Account = await _userManager.FindByIdAsync(UserId);
             //user = context.User.FirstOrDefault(O => O.Id == Userid);
 
             if (Account.IsActive == true)

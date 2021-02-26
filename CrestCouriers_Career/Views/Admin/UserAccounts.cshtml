@@ -128,8 +128,8 @@
             <button style="background-color:transparent; border:none;"><img src="~/img/System/remove.png" width="35px" height="35px" alt=""></button>
         </div>
 
-        <div class="list-record-button">
-            <button asp-controller="Admin" asp-action="SystemUserEdit" asp-route-id="@item.Id" style="background-color:transparent; border:none;">
+        <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getUpdateId('@item.Id', '@item.UserName', '@item.FirstName', '@item.LastName', '@item.PhoneNumber', '@item.Email')">
+            <button style="background-color:transparent; border:none;">
                 <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
             </button>
         </div>
@@ -164,69 +164,64 @@
 
                     <div class="NewOrder-form">
 
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="order-input">
-                                    <input type="text" class="" name="" placeholder="UserName">
-                                    <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                                </div>
-                            </div>
-                        </div>
+                        <form method="post">
+                            <input name="UpdateId" id="UpdateId" hidden />
 
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="order-input">
-                                    <input type="text" class="" name="" placeholder="First Name">
-                                    <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="order-input">
-                                    <input type="text" class="" name="" placeholder="Surname">
-                                    <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="order-input">
-                                    <input type="text" class="" name="" placeholder="Phone number">
-                                    <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="order-input">
-                                    <input type="text" class="" name="" placeholder="Emailaddress">
-                                    <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="order-input">
-                                    <input type="text" class="" name="" placeholder="Active">
-                                    <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-sm-12">
-                                <div class="input-submit">
-                                    <button type="button" class="book-now-btn" style="color:white; padding-top:14px;" name="button"><h5>Update</h5></button>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="order-input">
+                                        <input type="text" class="" id="UpdatedUserName" name="UserName" placeholder="UserName">
+                                        <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                    </div>
                                 </div>
                             </div>
 
-                        </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="order-input">
+                                        <input type="text" class="" id="UpdatedFirstName" name="FirstName" placeholder="First Name">
+                                        <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="order-input">
+                                        <input type="text" class="" id="UpdatedSurname" name="Surname" placeholder="Surname">
+                                        <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="order-input">
+                                        <input type="text" class="" id="UpdatedPhoneNumber" name="PhoneNumber" placeholder="Phone number">
+                                        <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="order-input">
+                                        <input type="text" class="" id="UpdatedEmailAddress" name="EmailAddress" placeholder="Email address">
+                                        <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-sm-12">
+                                    <div class="input-submit">
+                                        <button type="submit" class="book-now-btn" style="color:white; padding-top:14px;" name="button" asp-controller="Admin" asp-action="SystemUserEdit" asp-route-UpdateId="UpdateId" asp-route-UserName="UserName" asp-route-FirstName="FirstName" asp-route-Surname="Surname" asp-route-PhoneNumber="PhoneNumber" asp-route-EmailAddress="EmailAddress"><h5>Update</h5></button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
 
                     </div>
 
@@ -333,8 +328,8 @@
                                 <div class="col-sm-6">
                                     <div class="input-submit">
 
-                                        <input name="AdminId" id="AdminId" />
-                                        <button type="submit" class="book-now-btn" style="color:white; padding-top:14px; float:right;" name="button" asp-controller="Admin" asp-action="UserAccountActive" asp-route-Userid="AdminId"><h5>Change</h5></button>
+                                        <input name="UserId" id="UserId" />
+                                        <button type="submit" class="book-now-btn" style="color:white; padding-top:14px; float:right;" name="button" asp-controller="Admin" asp-action="UserAccountActive" asp-route-UserId="UserId"><h5>Change</h5></button>
 
                                     </div>
                                 </div>
@@ -376,15 +371,30 @@
 
 <script type="text/javascript">
 
-    function getId(AdminId) {
+    function getId(UserId) {
 
-        document.getElementById('AdminId').value = AdminId;
+        document.getElementById('UserId').value = UserId;
 
     }
 
     function CloseDeactive() {
 
         $('#confirmbox-deactive').modal('hide');
+
+    }
+
+</script>
+
+<script type="text/javascript">
+
+    function getUpdateId(Id, Username, Firstname, Surname, PhoneNumber, EmailAddress) {
+
+        document.getElementById('UpdateId').value = Id;
+        document.getElementById('UpdatedUserName').value = Username;
+        document.getElementById('UpdatedFirstName').value = Firstname;
+        document.getElementById('UpdatedSurname').value = Surname;
+        document.getElementById('UpdatedPhoneNumber').value = PhoneNumber;
+        document.getElementById('UpdatedEmailAddress').value = EmailAddress;
 
     }
 
