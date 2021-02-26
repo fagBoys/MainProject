@@ -120,7 +120,7 @@
 
             <div class="col-sm-12">
                 <div class="input-submit">
-                    <button id="" type="submit" class="book-now-btn" style="color:white; padding-top:14px;" name="button" data-toggle="modal" data-target=".confirmbox-new-order" asp-route-UserName="UserName" asp-route-Password="Password" asp-route-FirstName="FirstName" asp-route-LastName="LastName" asp-route-PhoneNumber="PhoneNumber" asp-route-MyType="MyType" asp-route-EmailAddress="EmailAddress"><h5>submit new admin</h5></button>
+                    <button id="" type="submit" class="book-now-btn" style="color:white; padding-top:14px;" name="button" data-toggle="modal" data-target=".confirmbox-new-order" asp-route-MyType="MyType" asp-route-UserName="UserName" asp-route-Password="Password" asp-route-FirstName="FirstName" asp-route-LastName="LastName" asp-route-PhoneNumber="PhoneNumber" asp-route-EmailAddress="EmailAddress"><h5>submit new admin</h5></button>
                 </div>
             </div>
 
@@ -225,33 +225,33 @@
 
         @if (item.AdminType == "Limited Admin")
         {
-            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete" onclick="getDeleteId('@item.Id');">
                 <button type="submit" style="background-color: transparent; border: none;">
                     <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
                 </button>
             </div>
 
-            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
-                <button style="background-color: transparent; border: none;" @*asp-controller="Admin" asp-action="AdminAccountEdit" asp-route-Id="@item.Id"*@>
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getUpdateId('@item.Id', '@item.UserName', '@item.FirstName', '@item.LastName', '@item.AdminType')">
+                <button style="background-color: transparent; border: none;">
                     <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
                 </button>
             </div>
 
-            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
-                <button style="background-color: transparent; border: none;" onclick="OpenDeactive('@item.Id')" @*asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Adminid="@item.Id"*@>
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive" onclick="getId('@item.Id')">
+                <button style="background-color: transparent; border: none;">
                     <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
                 </button>
             </div>
         }
         else if (item.AdminType == "Accountancy")
         {
-            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete">
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete" onclick="getDeleteId('@item.Id');">
                 <button type="submit" style="background-color: transparent; border: none;">
                     <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
                 </button>
             </div>
 
-            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox">
+            <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getUpdateId('@item.Id', '@item.UserName', '@item.FirstName', '@item.LastName', '@item.AdminType')">
                 <button style="background-color: transparent; border: none;">
                     <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
                 </button>
@@ -272,13 +272,13 @@
             </div>
 
             <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getUpdateId('@item.Id', '@item.UserName', '@item.FirstName', '@item.LastName', '@item.AdminType');">
-                <button style="background-color: transparent; border: none;" @*asp-controller="Admin" asp-action="AdminAccountEdit" asp-route-Id="@item.Id"*@>
+                <button style="background-color: transparent; border: none;">
                     <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
                 </button>
             </div>
 
             <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive" onclick="getId('@item.Id');">
-                <button style="background-color: transparent; border: none;" @*asp-controller="Admin" asp-action="AdminAccountActive" asp-route-Adminid="@item.Id"*@>
+                <button style="background-color: transparent; border: none;">
                     <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
                 </button>
             </div>
@@ -346,7 +346,7 @@
 
                                     <div class="col-sm-6">
                                         <div class="input-submit">
-                                            <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:left;" name="button"><h5>Cancel</h5></button>
+                                            <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:left;" name="button" onclick="CloseDelete()"><h5>Cancel</h5></button>
                                         </div>
                                     </div>
 
@@ -539,13 +539,13 @@
     function GetType() {
         document.getElementById("MyType").innerHTML = AdminType;
     }
-    document.getElementById("MyType").innerHTML = GetType();
-
-    $(document).ready(function () {
-
-    });*@
+    function SetType(Type) {
+        document.getElementById("MyType").value = Type;
+        document.getElementById("dropdownMenuButton").innerHTML = Type;
+    }
 
 </script>
+
 
 
 <script type="text/javascript">
@@ -569,6 +569,12 @@
     function getDeleteId(Id) {
 
         document.getElementById("DeleteId").value = Id;
+
+    }
+
+    function CloseDelete() {
+
+        $('#confirmbox-delete').modal('hide');
 
     }
 

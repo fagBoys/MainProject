@@ -82,8 +82,7 @@
 
 @foreach (var item in Model)
 {
-    using (Html.BeginForm("Delete", "Admin", new { id = item.Id }))
-    {
+
 
 <div class="list-order">
 
@@ -124,81 +123,29 @@
     </div>
 
 
-    @*data-toggle="modal" data-target=".confirmbox-delete"*@
-    <div class="list-record-button">
-        <button type="submit" style="background-color:transparent; border:none;" asp-controller="Admin" asp-action="SystemUserDelete" asp-route-id="@item.Id"><img src="~/img/System/remove.png" width="35px" height="35px" alt=""></button>
-    </div>
+        @*data-toggle="modal" data-target=".confirmbox-delete"*@
+        <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete" onclick="getDeleteId('@item.Id')">
+            <button style="background-color:transparent; border:none;"><img src="~/img/System/remove.png" width="35px" height="35px" alt=""></button>
+        </div>
 
-    <div class="list-record-button" @*data-toggle="modal" data-target=".confirmbox"*@ @*onclick="getValues('@item.Id','@item.UserName','@item.FirstName','@item.LastName','@item.PhoneNumber','@item.Email')"*@>
-        <button asp-controller="Admin" asp-action="SystemUserEdit" asp-route-id="@item.Id" style="background-color:transparent; border:none;">
-            <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
-        </button>
-    </div>
-    
-    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive">
-        <button style="background-color: transparent; border: none;" asp-controller="Admin" asp-action="UserAccountActive" asp-route-Userid="@item.Id">
-            <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
-        </button>
-    </div>
+        <div class="list-record-button">
+            <button asp-controller="Admin" asp-action="SystemUserEdit" asp-route-id="@item.Id" style="background-color:transparent; border:none;">
+                <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
+            </button>
+        </div>
+
+        <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-deactive" onclick="getId('@item.Id')">
+            <button style="background-color: transparent; border: none;">
+                <img src="~/img/System/deactive.png" width="35px" height="35px" alt="">
+            </button>
+        </div>
+
 </div>
 
-    }
+
 }
 
 
-<div id="confirmbox-delete" class="modal fade confirmbox-delete">
-    <div class="modal-dialog">
-        <div class="modal-content" style="width:600px; padding:0px;">
-
-            <div class="modal-header" style="border-bottom-color:red;">
-                <h2 class="update-box-header">Delete user</h2>
-            </div>
-
-            <div class="modal-body">
-
-
-
-
-                <div class="popup-admin-deactive">
-
-                    <div class="NewOrder-form">
-
-                        <div class="row">
-
-                            <div class="col-sm-12">
-                                <div class="order-input">
-                                    <p>Are you sure? You realy want to delete this user account?</p>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-sm-6">
-                                <div class="input-submit">
-                                    <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:right;" name="button"><h5>Delete</h5></button>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="input-submit">
-                                    <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:left;" name="button"><h5>Cancel</h5></button>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-        </div>
-    </div>
-</div>
 
 <div id="confirmbox" class="modal fade confirmbox">
     <div class="modal-dialog">
@@ -293,71 +240,152 @@
 </div>
 
 
+<div id="confirmbox-delete" class="modal fade confirmbox-delete">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:600px; padding:0px;">
 
-@*<table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Userid)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.UserName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Password)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FirstName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.LastName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Active)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PhoneNumber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.EmailAddress)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Userid)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UserName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Password)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LastName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Active)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PhoneNumber)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.EmailAddress)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>*@
+            <div class="modal-header" style="border-bottom-color:red;">
+                <h2 class="update-box-header">Delete admin</h2>
+            </div>
+
+            <div class="modal-body">
+
+
+
+
+                <div class="popup-admin-deactive">
+
+                    <div class="NewOrder-form">
+
+                        <div class="row">
+
+                            <div class="col-sm-12">
+                                <div class="order-input">
+                                    <p>Are you sure? You realy want to delete this account?</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <form method="post">
+                            <input name="DeleteId" id="DeleteId" hidden />
+
+                            <div class="row">
+
+                                <div class="col-sm-6">
+                                    <div class="input-submit">
+                                        <button type="submit" class="book-now-btn" style="color:white; padding-top:14px; float:right;" name="button" asp-controller="Admin" asp-action="SystemUserDelete" asp-route-DeleteId="DeleteId" asp-route-returnUrl="UserAccounts"><h5>Delete</h5></button>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="input-submit">
+                                        <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:left;" name="button" onclick="CloseDelete()"><h5>Cancel</h5></button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<div id="confirmbox-deactive" class="modal fade confirmbox-deactive">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:600px; padding:0px;">
+
+            <div class="modal-header" style="border-bottom-color:red;">
+                <h2 class="update-box-header">Admin status</h2>
+            </div>
+
+            <div class="modal-body">
+
+
+
+
+                <div class="popup-admin-deactive">
+
+                    <div class="NewOrder-form">
+
+                        <div class="row">
+
+                            <div class="col-sm-12">
+                                <div class="order-input">
+                                    <p>Are you sure? You realy want to deactive this account?</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <form method="post">
+                            <div class="row">
+
+                                <div class="col-sm-6">
+                                    <div class="input-submit">
+
+                                        <input name="AdminId" id="AdminId" />
+                                        <button type="submit" class="book-now-btn" style="color:white; padding-top:14px; float:right;" name="button" asp-controller="Admin" asp-action="UserAccountActive" asp-route-Userid="AdminId"><h5>Change</h5></button>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="input-submit">
+                                        <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:left;" name="button" onclick="CloseDeactive()"><h5>Cancel</h5></button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function getDeleteId(Id) {
+
+        document.getElementById("DeleteId").value = Id;
+
+    }
+
+    function CloseDelete() {
+
+        $('#confirmbox-delete').modal('hide');
+
+    }
+
+</script>
+
+<script type="text/javascript">
+
+    function getId(AdminId) {
+
+        document.getElementById('AdminId').value = AdminId;
+
+    }
+
+    function CloseDeactive() {
+
+        $('#confirmbox-deactive').modal('hide');
+
+    }
+
+</script>

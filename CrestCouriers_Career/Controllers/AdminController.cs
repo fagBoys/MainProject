@@ -96,7 +96,8 @@ namespace CrestCouriers_Career.Controllers
             return View(orders);
         }
 
-        public ActionResult Delete(int id)
+        [HttpPost]
+        public IActionResult Delete(int id)
         {
 
             //EF core start
@@ -106,7 +107,7 @@ namespace CrestCouriers_Career.Controllers
             context.SaveChangesAsync();
             //EF core end
 
-            return new RedirectResult("/Admin/Dashboard");
+            return new RedirectResult("/Admin/UserAccounts");
         }
 
         public IActionResult Edit(int id)
@@ -401,7 +402,7 @@ namespace CrestCouriers_Career.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AdminAccounts(string UserName, string EmailAddress, string Password, string ConfirmPassword, string FirstName, string MyType, string LastName, string returnUrl = null)
+        public async Task<IActionResult> AdminAccounts(string MyType, string UserName, string EmailAddress, string Password, string ConfirmPassword, string FirstName, string LastName, string returnUrl = null)
         {
 
             ViewData["Title"] = "AdminAccounts";
@@ -438,13 +439,6 @@ namespace CrestCouriers_Career.Controllers
         [HttpPost]
         public async Task<IActionResult> AdminAccountEdit(string UpdateId, string UpdatedUserName, string UpdatedFirstName, string UpdatedLastName, string UpdatedAdminType)
         {
-            //if (HttpContext.Session.GetString("AdminSession") == null)
-            //{
-            //    return new RedirectResult("/Admin/Login");
-            //}
-            //{
-            //    ViewData["Username"] = HttpContext.Session.GetString("AdminSession");
-            //}
 
             //EF core start
             Account Account = await _userManager.FindByIdAsync(UpdateId);
@@ -452,20 +446,12 @@ namespace CrestCouriers_Career.Controllers
             Account.UserName = UpdatedUserName;
             Account.FirstName = UpdatedFirstName;
             Account.LastName = UpdatedLastName;
+            Account.AdminType = UpdatedAdminType;
             Account.Level = UpdatedAdminType;
 
             await _userManager.UpdateAsync(Account);
 
-            //ViewData["Adminid"] = admin.AdminId;
-            //ViewData["UserName"] = admin.UserName;
-            //ViewData["Password"] = admin.Password;
-            //ViewData["FirstName"] = admin.FirstName;
-            //ViewData["Lastname"] = admin.Lastname;
-            //ViewData["PhoneNumber"] = admin.PhoneNumber;
-            //ViewData["Email"] = admin.EmailAddress;
-
             //EF core end
-
 
 
             return new RedirectResult("/Admin/AdminAccounts");
