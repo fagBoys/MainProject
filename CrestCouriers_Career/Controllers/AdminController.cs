@@ -639,7 +639,7 @@ namespace CrestCouriers_Career.Controllers
                     return RedirectToAction(nameof(Dashboard));
 
                 }
-                if (result.Succeeded && Account.IsAdmin && Account.IsActive && Account.AdminType == "Limited")
+                if (result.Succeeded && Account.IsAdmin && Account.IsActive && Account.AdminType == "Limited Admin")
                 {
                     _logger.LogInformation("User logged in.");
                     return RedirectToAction(nameof(Dashboard));
