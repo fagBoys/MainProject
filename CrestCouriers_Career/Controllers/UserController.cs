@@ -284,12 +284,15 @@ namespace CrestCouriers_Career.Controllers
             Account Account = context.Account.FirstOrDefault(A => A.Id == _userManager.GetUserId(User as ClaimsPrincipal));
 
             CrestContext GetOrders = new CrestContext();
-            IEnumerable<Order> orders = context.Order.Include(O => O.Locations).Where(O => O.Account == Account);
+            DashboardViewModel DVM = new DashboardViewModel();
+
+            DVM.orders = context.Order.Where(O => O.Account == Account).ToList();
+
+            DVM.locations = context.Location.ToList();
 
             //EF core end
 
-            return View(orders);
-
+            return View(DVM);
 
         }
 

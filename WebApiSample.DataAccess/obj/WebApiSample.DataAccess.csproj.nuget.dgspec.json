@@ -1,25 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\deweloper\\github\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj": {}
+    "C:\\Users\\MJ\\Documents\\GitHub\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj": {}
   },
   "projects": {
-    "D:\\deweloper\\github\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj": {
+    "C:\\Users\\MJ\\Documents\\GitHub\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\deweloper\\github\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\MJ\\Documents\\GitHub\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
         "projectName": "WebApiSample.DataAccess",
-        "projectPath": "D:\\deweloper\\github\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
-        "packagesPath": "C:\\Users\\amir\\.nuget\\packages\\",
-        "outputPath": "D:\\deweloper\\github\\CrestCouriers\\WebApiSample.DataAccess\\obj\\",
+        "projectPath": "C:\\Users\\MJ\\Documents\\GitHub\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\MJ\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MJ\\Documents\\GitHub\\CrestCouriers\\WebApiSample.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\amir\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\MJ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -61,7 +60,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }
