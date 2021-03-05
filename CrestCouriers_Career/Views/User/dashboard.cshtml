@@ -3,218 +3,312 @@
 @using CrestCouriers_Career.Models
 @inject SignInManager<Account> SignInManager
 @inject UserManager<Account> UserManager
-        @{
-            ViewData["Title"] = "Dashboard";
-            Layout = "~/Views/Shared/_System.cshtml";
-        }
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_System.cshtml";
+}
 
-        @section UserMenu{
-            <ul class="menu-ul">
-                <a asp-controller="User" asp-action="Dashboard" class="menu-option-link">
-                    <div class="panel-option-active">
-                        <li><h5>Dashboard</h5></li>
+@section UserMenu{
+    <ul class="menu-ul">
+        <a asp-controller="User" asp-action="Dashboard" class="menu-option-link">
+            <div class="panel-option-active">
+                <li><h5>Dashboard</h5></li>
+            </div>
+        </a>
+        <a asp-controller="User" asp-action="Order" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Order</h5></li>
+            </div>
+        </a>
+        <a asp-controller="User" asp-action="UserInformation" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>User</h5></li>
+            </div>
+        </a>
+        <a asp-controller="User" asp-action="Logout" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Logout</h5></li>
+            </div>
+        </a>
+    </ul>
+}
+
+<div class="list-title">
+    <div class="list-title-item">
+        <h6 class="list-title-item-text">
+            Order date
+        </h6>
+    </div>
+
+    <div class="list-title-item">
+        <h6 class="list-title-item-text">
+            Origin
+        </h6>
+    </div>
+
+    <div class="list-title-item">
+        <h6 class="list-title-item-text">
+            Destination
+        </h6>
+    </div>
+
+    <div class="list-title-item">
+        <h6 class="list-title-item-text">
+            ReceiveDate
+        </h6>
+    </div>
+
+    <div class="list-title-item">
+        <h6 class="list-title-item-text">
+            DeliveryDate
+        </h6>
+    </div>
+
+    <div class="list-title-item">
+        <h6 class="list-title-item-text">
+            CarType
+        </h6>
+    </div>
+
+    <div class="list-title-item">
+        <h6 class="list-title-item-text">
+            Userid
+        </h6>
+    </div>
+
+    <div class="list-title-item">
+        <h6 class="list-title-item-text">
+            Price
+        </h6>
+    </div>
+
+    <div class="list-title-item">
+        <h6 class="list-title-item-text">
+            State
+        </h6>
+    </div>
+</div>
+
+<hr style="width:90%; border-color:red;">
+
+@foreach (var order in Model.orders)
+{
+
+    ViewData["OrderOrigin"] = Model.locations.Where(L => L.OrderId == order.OrderId).Where(L => L.LocationType == "Origin").Select(L => L.Town).FirstOrDefault();
+
+    ViewData["OrderDestination"] = Model.locations.Where(L => L.OrderId == order.OrderId).Where(L => L.LocationType == "Destination").Select(L => L.Town).FirstOrDefault();
+
+
+    {
+<div class="list-order">
+
+    <div class="list-title-item" hidden>
+        <p>
+            @Html.DisplayFor(modelItem => order.OrderId)
+        </p>
+    </div>
+    <div class="list-title-item">
+        <p>
+            @Html.DisplayFor(modelItem => order.OrderDate)
+        </p>
+    </div>
+
+    <div class="list-title-item">
+        <p>
+            @ViewData["OrderOrigin"]
+        </p>
+    </div>
+
+    <div class="list-title-item">
+        <p>
+            @ViewData["OrderDestination"]
+        </p>
+    </div>
+
+    <div class="list-title-item">
+        <p>
+            @Html.DisplayFor(modelItem => order.CollectionDate)
+        </p>
+    </div>
+
+    <div class="list-title-item">
+        <p>
+            @Html.DisplayFor(modelItem => order.DeliveryDate)
+        </p>
+    </div>
+
+    <div class="list-title-item">
+        <p>
+            @Html.DisplayFor(modelItem => order.CarType)
+        </p>
+    </div>
+
+    <div class="list-title-item">
+        <p>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                @UserManager.GetUserName(User)
+            }
+        </p>
+    </div>
+
+    <div class="list-title-item">
+        <p>
+            @Html.DisplayFor(modelItem => order.Price)
+        </p>
+    </div>
+
+    <div class="list-title-item">
+        <p>
+            @Html.DisplayFor(modelItem => order.State)
+        </p>
+    </div>
+
+
+    @*data-toggle="modal" data-target=".confirmbox-delete"*@
+    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox-delete" onclick="getDeleteId('@order.OrderId');">
+        <button type="submit" style="background-color: transparent; border: none;">
+            <img src="~/img/System/remove.png" width="35px" height="35px" alt="">
+        </button>
+    </div>
+
+    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getUpdateId('@order.OrderId', '@ViewData["OrderOrigin"]', '@ViewData["OrderDestination"]', '@order.CollectionDate', '@order.DeliveryDate', '@order.CarType')">
+        <button style="background-color:transparent; border:none;">
+            <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
+        </button>
+    </div>
+
+</div>
+
+        <div id="confirmbox-delete" class="modal fade confirmbox-delete">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width:600px; padding:0px;">
+
+                    <div class="modal-header" style="border-bottom-color:red;">
+                        <h2 class="update-box-header">Delete Order</h2>
                     </div>
-                </a>
-                <a asp-controller="User" asp-action="Order" class="menu-option-link">
-                    <div class="panel-option">
-                        <li><h5>Order</h5></li>
+
+                    <div class="modal-body">
+
+
+
+
+                        <div class="popup-admin-deactive">
+
+                            <div class="NewOrder-form">
+
+                                <div class="row">
+
+                                    <div class="col-sm-12">
+                                        <div class="order-input">
+                                            <p>Are you sure? You realy want to delete this order?</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <form method="post">
+                                    <input name="DeleteId" id="DeleteId" hidden />
+
+                                    <div class="row">
+
+                                        <div class="col-sm-6">
+                                            <div class="input-submit">
+                                                <button type="submit" class="book-now-btn" style="color:white; padding-top:14px; float:right;" name="button" asp-controller="User" asp-action="Delete" asp-route-id="@order.OrderId" ><h5>Delete</h5></button>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="input-submit">
+                                                <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:left;" name="button" onclick="CloseDelete()"><h5>Cancel</h5></button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
                     </div>
-                </a>
-                <a asp-controller="User" asp-action="UserInformation" class="menu-option-link">
-                    <div class="panel-option">
-                        <li><h5>User</h5></li>
-                    </div>
-                </a>
-                <a asp-controller="User" asp-action="Logout" class="menu-option-link">
-                    <div class="panel-option">
-                        <li><h5>Logout</h5></li>
-                    </div>
-                </a>
-            </ul>
-        }
 
-        <div class="list-title">
-            <div class="list-title-item">
-                <h6 class="list-title-item-text">
-                    Order date
-                </h6>
-            </div>
 
-            <div class="list-title-item">
-                <h6 class="list-title-item-text">
-                    Origin
-                </h6>
-            </div>
-
-            <div class="list-title-item">
-                <h6 class="list-title-item-text">
-                    Destination
-                </h6>
-            </div>
-
-            <div class="list-title-item">
-                <h6 class="list-title-item-text">
-                    ReceiveDate
-                </h6>
-            </div>
-
-            <div class="list-title-item">
-                <h6 class="list-title-item-text">
-                    DeliveryDate
-                </h6>
-            </div>
-
-            <div class="list-title-item">
-                <h6 class="list-title-item-text">
-                    CarType
-                </h6>
-            </div>
-
-            <div class="list-title-item">
-                <h6 class="list-title-item-text">
-                    Userid
-                </h6>
-            </div>
-
-            <div class="list-title-item">
-                <h6 class="list-title-item-text">
-                    Price
-                </h6>
-            </div>
-
-            <div class="list-title-item">
-                <h6 class="list-title-item-text">
-                    State
-                </h6>
+                </div>
             </div>
         </div>
 
-        <hr style="width:90%; border-color:red;">
+        <div id="confirmbox" class="modal fade confirmbox">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width:600px; padding:0px;">
 
-        @foreach (var order in Model.orders)
-        {
-
-            ViewData["OrderOrigin"] = Model.locations.Where(L => L.OrderId == order.OrderId).Where(L => L.LocationType == "Origin").Select(L => L.Town).FirstOrDefault();
-
-            ViewData["OrderDestination"] = Model.locations.Where(L => L.OrderId == order.OrderId).Where(L => L.LocationType == "Destination").Select(L => L.Town).FirstOrDefault();
-
-            using (Html.BeginForm("Delete", "User", new { id = order.OrderId }))
-            {
-                <div class="list-order">
-
-                    <div class="list-title-item">
-                        <p>
-                            @Html.DisplayFor(modelItem => order.OrderDate)
-                        </p>
+                    <div class="modal-header" style="border-bottom-color:red;">
+                        <h2 class="update-box-header">Change order information</h2>
                     </div>
 
-                    <div class="list-title-item">
-                        <p>
-                            @ViewData["OrderOrigin"]
-                        </p>
-                    </div>
-
-                    <div class="list-title-item">
-                        <p>
-                            @ViewData["OrderDestination"]
-                        </p>
-                    </div>
-
-                    <div class="list-title-item">
-                        <p>
-                            @Html.DisplayFor(modelItem => order.CollectionDate)
-                        </p>
-                    </div>
-
-                    <div class="list-title-item">
-                        <p>
-                            @Html.DisplayFor(modelItem => order.DeliveryDate)
-                        </p>
-                    </div>
-
-                    <div class="list-title-item">
-                        <p>
-                            @Html.DisplayFor(modelItem => order.CarType)
-                        </p>
-                    </div>
-
-                    <div class="list-title-item">
-                        <p>
-                            @if (SignInManager.IsSignedIn(User))
-                            {
-                                @UserManager.GetUserName(User)
-                            }
-                        </p>
-                    </div>
-
-                    <div class="list-title-item">
-                        <p>
-                            @Html.DisplayFor(modelItem => order.Price)
-                        </p>
-                    </div>
-
-                    <div class="list-title-item">
-                        <p>
-                            @Html.DisplayFor(modelItem => order.State)
-                        </p>
-                    </div>
+                    <div class="modal-body">
 
 
-                    @*data-toggle="modal" data-target=".confirmbox-delete"*@
-                    <div class="list-record-button">
-                        <button type="submit" style="background-color: transparent; border: none;" asp-controller="User" asp-action="Delete" asp-route-id="@order.OrderId"><img src="~/img/System/remove.png" width="35px" height="35px" alt=""></button>
-                    </div>
+                        <form method="post">
 
-                    <div class="list-record-button" data-toggle="modal" data-target=".confirmbox" onclick="getValues('@order.OrderId', '@ViewData["OrderOrigin"]', '@ViewData["OrderDestination"]', '@order.CollectionDate', '@order.DeliveryDate', '@order.CarType')">
-                        <button asp-controller="User" asp-action="Edit" asp-route-id="@order.OrderId" style="background-color:transparent; border:none;">
-                            <img src="~/img/System/edit.png" width="35px" height="35px" alt="">
-                        </button>
-                    </div>
+                            <input name="UpdateId" id="UpdateId" hidden />
 
-                </div>
+                            <div class="popup-admin-update">
 
+                                <div class="NewOrder-form">
 
-                <div id="confirmbox-delete" class="modal fade confirmbox-delete">
-                    <div class="modal-dialog">
-                        <div class="modal-content" style="width: 600px; padding: 0px;">
-
-                            <div class="modal-header" style="border-bottom-color:red;">
-                                <h2 class="update-box-header">Delete order</h2>
-                            </div>
-
-                            <div class="modal-body">
-
-
-
-
-                                <div class="popup-admin-deactive">
-
-                                    <div class="NewOrder-form">
-
-                                        <div class="row">
-
-                                            <div class="col-sm-12">
-                                                <div class="order-input">
-                                                    <p>Are you sure? You realy want to delete this order?</p>
-                                                </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="order-input">
+                                                <input type="text" class="" id="UpdatedOrigin" name="UpdatedOrigin" placeholder="Origin">
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
                                             </div>
-
                                         </div>
+                                    </div>
 
-                                        <div class="row">
-
-                                            <div class="col-sm-6">
-                                                <div class="input-submit">
-                                                    <button type="submit" class="book-now-btn" style="color:white; padding-top:14px; float:right;" name="button"><h5>Delete</h5></button>
-                                                </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="order-input">
+                                                <input type="text" class="" id="UpdatedDestination" name="UpdatedDestination" placeholder="Destination">
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
                                             </div>
+                                        </div>
+                                    </div>
 
-                                            <div class="col-sm-6">
-                                                <div class="input-submit">
-                                                    <button type="button" class="book-now-btn" style="color:white; padding-top:14px; float:left;" name="button"><h5>Cancel</h5></button>
-                                                </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="order-input">
+                                                <input type="text" class="" id="UpdatedReceiveDate" name="UpdatedReceiveDate" placeholder="ReceiveDate">
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
                                             </div>
+                                        </div>
+                                    </div>
 
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="order-input">
+                                                <input type="text" class="" id="UpdatedDeliveryDate" name="UpdatedDeliveryDate" placeholder="DeliveryDate">
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="order-input">
+                                                <input type="text" class="" id="UpdatedCarType" name="UpdatedCarType" placeholder="CarType">
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col-sm-12">
+                                            <div class="input-submit">
+                                                <button type="submit" class="book-now-btn" style="color:white; padding-top:14px;" name="button" asp-controller="User" asp-action="EditOrder" asp-route-id="UpdateId" asp-route-UpdatedCarType="UpdatedCarType" asp-route-UpdatedAccount="@order.Account" asp-route-UpdatedLocations="@order.Locations" asp-route-UpdatedOrigin="UpdatedOrigin" asp-route-UpdatedDestination="UpdatedDestination" asp-route-UpdatedReceiveDate="UpdatedReceiveDate" asp-route-UpdatedDeliveryDate="UpdatedDeliveryDate" ><h5>Update</h5></button>
+                                            </div>
                                         </div>
 
                                     </div>
@@ -223,114 +317,55 @@
 
                             </div>
 
+                        </form>
 
-                        </div>
                     </div>
+
+
                 </div>
-
-                @*<div id="confirmbox" class="modal fade confirmbox">
-                        <div class="modal-dialog">
-                            <div class="modal-content" style="width:600px; padding:0px;">
-
-                                <div class="modal-header" style="border-bottom-color:red;">
-                                    <h2 class="update-box-header">Change order</h2>
-                                </div>
-
-                                <div class="modal-body">
-
-                                    <div class="popup-order-update">
-
-                                        <div class="NewOrder-form">
-
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="order-input">
-                                                        <input type="text" id="Origin" class="" name="" placeholder="Origin">
-                                                        <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="order-input">
-                                                        <input type="text" id="Destination" class="" name="" placeholder="Destination">
-                                                        <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="order-input">
-                                                        <input type="text" id="ReceiveDate" class="" name="" placeholder="Receive date">
-                                                        <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="order-input">
-                                                        <input type="text" id="DeliveryDate" class="" name="" placeholder="Delivery date">
-                                                        <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="order-input">
-                                                        <input type="text" id="CarType" class="" name="" placeholder="Car type">
-                                                        <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-
-                                                <div class="col-sm-12">
-                                                    <div class="input-submit">
-                                                        <button type="button" class="book-now-btn" style="color:white; padding-top:14px;" name="button"><h5>Update</h5></button>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>*@
+            </div>
+        </div>
 
 
 
-
-            }
-
-        }
-
-<script>
-    function getValues(Orderid,Origin, Destination, ReceiveDate, DeliveryDate, CarType) {
-
-        document.getElementById("Origin").value = Origin;
-        document.getElementById("Destination").value = Destination;
-        document.getElementById("ReceiveDate").value = ReceiveDate;
-        document.getElementById("DeliveryDate").value = DeliveryDate;
-        document.getElementById("CarType").value = CarType;
-
-        @ViewData["Orderid"] = Orderid;
     }
+
+}
+
+<script type="text/javascript">
+
+    function getDeleteId(Id) {
+
+        document.getElementById("DeleteId").value = Id;
+
+    }
+
+    function CloseDelete() {
+
+        $('#confirmbox-delete').modal('hide');
+
+    }
+
 </script>
 
-        @*
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        *@
+<script type="text/javascript">
+
+    function getUpdateId(Orderid, Origin, Destination, ReceiveDate, DeliveryDate, CarType) {
+
+        document.getElementById("UpdateId").value = Orderid;
+        document.getElementById("UpdatedOrigin").value = Origin;
+        document.getElementById("UpdatedDestination").value = Destination;
+        document.getElementById("UpdatedReceiveDate").value = ReceiveDate;
+        document.getElementById("UpdatedDeliveryDate").value = DeliveryDate;
+        document.getElementById("UpdatedCarType").value = CarType;
+
+    }
+
+</script>
+
+@*
+    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+*@
 
