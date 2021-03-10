@@ -108,9 +108,15 @@
         </p>
     </div>
     <div class="list-title-item">
+        @{
+            var ODate = order.OrderDate;
+
+            ////@Html.DisplayFor(modelItem => order.CollectionDate.Date.ToString("dd/MM/yyyy"))
+        }
         <p>
-            @Html.DisplayFor(modelItem => order.OrderDate)
+            @ODate.ToShortDateString()
         </p>
+
     </div>
 
     <div class="list-title-item">
@@ -126,15 +132,27 @@
     </div>
 
     <div class="list-title-item">
+
+        @{
+            var CDate = order.CollectionDate;
+
+            ////@Html.DisplayFor(modelItem => order.CollectionDate.Date.ToString("dd/MM/yyyy"))
+        }
         <p>
-            @Html.DisplayFor(modelItem => order.CollectionDate)
+            @CDate.ToShortDateString()
         </p>
     </div>
 
     <div class="list-title-item">
+        @{
+            var DDate = order.DeliveryDate;
+
+            ////@Html.DisplayFor(modelItem => order.CollectionDate.Date.ToString("dd/MM/yyyy"))
+        }
         <p>
-            @Html.DisplayFor(modelItem => order.DeliveryDate)
+            @DDate.ToShortDateString()
         </p>
+
     </div>
 
     <div class="list-title-item">

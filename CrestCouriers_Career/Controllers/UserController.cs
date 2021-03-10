@@ -350,10 +350,6 @@ namespace CrestCouriers_Career.Controllers
             context.SaveChanges();
             ////EF core end
 
-
-
-
-
             return RedirectToAction("Dashboard");
         }
 

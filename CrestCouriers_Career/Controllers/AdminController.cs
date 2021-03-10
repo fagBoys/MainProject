@@ -89,11 +89,14 @@ namespace CrestCouriers_Career.Controllers
             //EF core start
 
             CrestContext context = new CrestContext();
-            IEnumerable<Order> orders = context.Order.Include(O => O.Locations);
+            DashboardViewModel DVM = new DashboardViewModel();
+            DVM.orders = context.Order.Include(O => O.Locations).Include(O => O.Account);
+
+            DVM.locations = context.Location.ToList();
 
             //EF core end
 
-            return View(orders);
+            return View(DVM);
         }
 
         [HttpPost]
@@ -124,23 +127,34 @@ namespace CrestCouriers_Career.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult EditOrder(Order editedorder)
+        public IActionResult EditOrder(Order editedorder, int UpdateId, string UpdatedCarType, string UpdatedLocations, string UpdatedAccount, string UpdatedOrigin, string UpdatedDestination, string UpdatedReceiveDate, string UpdatedDeliveryDate)
         {
 
-
-            //EF core start
+            ////EF core start
+            editedorder.OrderId = UpdateId;
             CrestContext context = new CrestContext();
             Order order = new Order();
-            order = context.Order.FirstOrDefault(O => O.OrderId == editedorder.OrderId);
-            editedorder.OrderDate = order.OrderDate;
-            editedorder.Price = order.Price;
-            editedorder.State = order.State;
-            CrestContext editcontext = new CrestContext();
-            editcontext.Attach(editedorder).State = EntityState.Modified;
-            editcontext.SaveChangesAsync();
-            //EF core end
+            Location location = new Location();
+            var Origin = context.Location.Where(a => a.OrderId == editedorder.OrderId).Where(a => a.LocationType == "Origin").FirstOrDefault();
+            var Destination = context.Location.Where(a => a.OrderId == editedorder.OrderId).Where(a => a.LocationType == "Destination").FirstOrDefault();
+            Origin.Town = UpdatedOrigin;
+            Destination.Town = UpdatedDestination;
 
-            return new RedirectResult("~/Admin/dashboard");
+            order = context.Order.FirstOrDefault(O => O.OrderId == editedorder.OrderId);
+            order.CarType = UpdatedCarType;
+            order.CollectionDate = System.DateTime.Parse(UpdatedReceiveDate);
+            order.DeliveryDate = System.DateTime.Parse(UpdatedDeliveryDate);
+            context.Order.Update(order);
+            context.Location.Update(Origin);
+            context.Location.Update(Destination);
+            context.SaveChanges();
+            ////EF core end
+
+
+
+
+
+            return RedirectToAction("Dashboard");
         }
 
         [HttpGet]
@@ -877,16 +891,16 @@ namespace CrestCouriers_Career.Controllers
             if(mybill.Confirmation == "NotConfirmed")
             { 
                 mybill.Confirmation = "Confirmed";
-                context.Attach(mybill).State = EntityState.Modified;
-                context.SaveChangesAsync();
+                context.Update(mybill);
+                context.SaveChanges();
 
                 return RedirectToAction("NotConfirmedBill");
             }
             else
             {
                 mybill.Confirmation = "NotConfirmed";
-                context.Attach(mybill).State = EntityState.Modified;
-                context.SaveChangesAsync();
+                context.Update(mybill);
+                context.SaveChanges();
 
                 return RedirectToAction("ConfirmedBill");
             }

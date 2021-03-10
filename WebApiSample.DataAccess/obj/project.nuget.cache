@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "IT6A4cCP2vSkKOul5mdJOTxrZHvMqIAwTRrc0lkhVEt809lkgqe9DTpDzpRU2NOq6n1xsAsBlPOxYLBmo73cew==",
+  "dgSpecHash": "nmIKBwqcfdmcc+Sr/NJu87HS0tvkhOGR8F80Nq07qSYdfB8mHdsKACjUoYwTPpdrMHkXd7aeTP2dJhoasFvTzQ==",
   "success": true,
-  "projectFilePath": "D:\\deweloper\\github\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
+  "projectFilePath": "C:\\Users\\MJ\\Documents\\GitHub\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\amir\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\amir\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\MJ\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\MJ\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }
