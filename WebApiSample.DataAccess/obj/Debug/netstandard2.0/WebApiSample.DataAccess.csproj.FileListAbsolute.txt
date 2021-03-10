@@ -59,3 +59,12 @@ D:\deweloper\github\CrestCouriers\WebApiSample.DataAccess\obj\Debug\netstandard2
 D:\deweloper\github\CrestCouriers\WebApiSample.DataAccess\obj\Debug\netstandard2.0\WebApiSample.DataAccess.csproj.CoreCompileInputs.cache
 D:\deweloper\github\CrestCouriers\WebApiSample.DataAccess\obj\Debug\netstandard2.0\WebApiSample.DataAccess.dll
 D:\deweloper\github\CrestCouriers\WebApiSample.DataAccess\obj\Debug\netstandard2.0\WebApiSample.DataAccess.pdb
+F:\Amir\developer\github\CrestCouriers\WebApiSample.DataAccess\bin\Debug\netstandard2.0\WebApiSample.DataAccess.deps.json
+F:\Amir\developer\github\CrestCouriers\WebApiSample.DataAccess\bin\Debug\netstandard2.0\WebApiSample.DataAccess.dll
+F:\Amir\developer\github\CrestCouriers\WebApiSample.DataAccess\bin\Debug\netstandard2.0\WebApiSample.DataAccess.pdb
+F:\Amir\developer\github\CrestCouriers\WebApiSample.DataAccess\obj\Debug\netstandard2.0\WebApiSample.DataAccess.AssemblyInfoInputs.cache
+F:\Amir\developer\github\CrestCouriers\WebApiSample.DataAccess\obj\Debug\netstandard2.0\WebApiSample.DataAccess.AssemblyInfo.cs
+F:\Amir\developer\github\CrestCouriers\WebApiSample.DataAccess\obj\Debug\netstandard2.0\WebApiSample.DataAccess.csproj.CoreCompileInputs.cache
+F:\Amir\developer\github\CrestCouriers\WebApiSample.DataAccess\obj\Debug\netstandard2.0\WebApiSample.DataAccess.dll
+F:\Amir\developer\github\CrestCouriers\WebApiSample.DataAccess\obj\Debug\netstandard2.0\WebApiSample.DataAccess.pdb
+F:\Amir\developer\github\CrestCouriers\WebApiSample.DataAccess\obj\Debug\netstandard2.0\WebApiSample.DataAccess.csprojAssemblyReference.cache
