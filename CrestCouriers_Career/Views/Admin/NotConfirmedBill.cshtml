@@ -120,7 +120,7 @@
 
 
             <li class="page-item PagingColor @prevDisabled">
-                <a asp-action="ListOfBills" asp-route-pageNumber="@(Model.PageIndex-1)" asp-route-listtype="@ViewData["Title"]" class="page-link PagingColor @prevDisabled" id="">Previous</a>
+                <a asp-action="NotConfirmedBill" asp-route-pageNumber="@(Model.PageIndex-1)" asp-route-listtype="@ViewData["Title"]" class="page-link PagingColor @prevDisabled" id="">Previous</a>
             </li>
             @{
                 string activepage = "";
@@ -135,7 +135,7 @@
                         }
 
                         <li class="page-item " aria-current="page">
-                            <a class="page-link PagingColor @activepage" asp-action="ListOfBills" asp-route-pageNumber="@pagecount">
+                            <a class="page-link PagingColor @activepage" asp-action="NotConfirmedBill" asp-route-pageNumber="@pagecount">
                                 @pagecount
                             </a>
                         </li>
@@ -152,7 +152,7 @@
                             </a>
                         </li>
                         <li class="page-item " aria-current="page">
-                            <a class="page-link PagingColor" asp-action="ListOfBills" asp-route-pageNumber="@(Model.PageIndex+1)">
+                            <a class="page-link PagingColor" asp-action="NotConfirmedBill" asp-route-pageNumber="@(Model.PageIndex+1)">
                                 @(Model.PageIndex + 1)
                             </a>
                         </li>
@@ -162,7 +162,7 @@
                             </a>
                         </li>
                         <li class="page-item " aria-current="page">
-                            <a class="page-link PagingColor" asp-action="ListOfBills" asp-route-pageNumber="@Model.TotalPage">
+                            <a class="page-link PagingColor" asp-action="NotConfirmedBill" asp-route-pageNumber="@Model.TotalPage">
                                 @Model.TotalPage
                             </a>
                         </li>
@@ -170,7 +170,7 @@
                     else if (Model.PageIndex == Model.TotalPage)
                     {
                         <li class="page-item " aria-current="page">
-                            <a class="page-link PagingColor" asp-action="ListOfBills" asp-route-pageNumber="1">
+                            <a class="page-link PagingColor" asp-action="NotConfirmedBill" asp-route-pageNumber="1">
                                 1
                             </a>
                         </li>
@@ -180,7 +180,7 @@
                             </a>
                         </li>
                         <li class="page-item " aria-current="page">
-                            <a class="page-link PagingColor" asp-action="ListOfBills" asp-route-pageNumber="@(Model.TotalPage-1)">
+                            <a class="page-link PagingColor" asp-action="NotConfirmedBill" asp-route-pageNumber="@(Model.TotalPage-1)">
                                 @(Model.TotalPage - 1)
                             </a>
                         </li>
@@ -193,7 +193,7 @@
                     else
                     {
                         <li class="page-item " aria-current="page">
-                            <a class="page-link PagingColor" asp-action="ListOfBills" asp-route-pageNumber="1">
+                            <a class="page-link PagingColor" asp-action="NotConfirmedBill" asp-route-pageNumber="1">
                                 1
                             </a>
                         </li>
@@ -203,7 +203,7 @@
                             </a>
                         </li>
                         <li class="page-item " aria-current="page">
-                            <a class="page-link PagingColor" asp-action="ListOfBills" asp-route-pageNumber="@(Model.TotalPage)">
+                            <a class="page-link PagingColor" asp-action="NotConfirmedBill" asp-route-pageNumber="@(Model.TotalPage)">
                                 @Model.TotalPage
                             </a>
                         </li>
@@ -225,7 +225,7 @@
                 </li>*@
 
             <li class="page-item PagingColor @nextDisabled">
-                <a asp-action="ListOfBills" asp-route-pageNumber="@(Model.PageIndex+1)" asp-route-listtype="@ViewData["Title"]" class="page-link PagingColor @prevDisabled">Next</a>
+                <a asp-action="NotConfirmedBill" asp-route-pageNumber="@(Model.PageIndex+1)" asp-route-listtype="@ViewData["Title"]" class="page-link PagingColor @prevDisabled">Next</a>
             </li>
 
 

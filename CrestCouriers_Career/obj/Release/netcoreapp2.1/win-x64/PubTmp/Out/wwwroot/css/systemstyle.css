@@ -319,9 +319,10 @@ margin-top: 50px;
 {
   background-color: #ffffff;
   margin: auto;
-  height: 430px;
+  height: auto;
   padding:50px;
   padding-top: 10px;
+  padding-bottom: 50px;
 }
 
 
