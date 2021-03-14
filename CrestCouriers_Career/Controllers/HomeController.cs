@@ -34,20 +34,21 @@ namespace CrestCouriers_Career.Controllers
             _recaptcha = recaptcha;
         }
 
+        [Route("")]
+        [Route("Index")]
         public IActionResult Index()
         {
             return View();
         }
 
+        [Route("About")]
         public IActionResult About()
         {
-
             ViewData["Message"] = "Your application description page.";
-
             return View();
-
         }
 
+        [Route("Career delivery")]
         public IActionResult Career_delivery()
         {
             ViewData["Message"] = "Your application description page.";
@@ -55,6 +56,7 @@ namespace CrestCouriers_Career.Controllers
             return View();
         }
 
+        [Route("Contact")]
         public IActionResult Contact()
         {
 
@@ -67,6 +69,7 @@ namespace CrestCouriers_Career.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Contact")]
         public async Task<IActionResult> Contact(Contact Contact, EmailRequest emailRequest)
         {
 
@@ -227,14 +230,13 @@ namespace CrestCouriers_Career.Controllers
 
         }
 
-
+        [Route("Privacy")]
         public IActionResult Privacy()
         {
-
-
             return View();
         }
 
+        [Route("Services")]
         public IActionResult Services()
         {
 
@@ -242,11 +244,13 @@ namespace CrestCouriers_Career.Controllers
 
         }
 
+        [Route("Branches")]
         public IActionResult Branches()
         {
             return View();
         }
 
+        [Route("Info")]
         public IActionResult Careerinfo(string id)
         {
             if (id == null)
@@ -283,7 +287,7 @@ namespace CrestCouriers_Career.Controllers
             }
         }
 
-
+        [Route("Type")]
         public IActionResult Careertype()
         {
 
@@ -292,6 +296,7 @@ namespace CrestCouriers_Career.Controllers
         }
 
         [HttpGet]
+        [Route("Career")]
         public IActionResult Career(string id)
         {
             ViewData["message"] = "No";
@@ -309,6 +314,7 @@ namespace CrestCouriers_Career.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Career")]
         public async Task<IActionResult> Career(RegCareer career, IFormFile UploadCV , EmailRequest emailRequest, string id)
         {
 
@@ -510,12 +516,14 @@ namespace CrestCouriers_Career.Controllers
         }
 
         [HttpGet]
+        [Route("Blog")]
         public IActionResult Blog()
         {
             return View();
         }
 
         [HttpGet]
+        [Route("Details")]
         public IActionResult Details(string ArticleId)
         {
             ViewData["ArticleId"] = ArticleId.ToString();

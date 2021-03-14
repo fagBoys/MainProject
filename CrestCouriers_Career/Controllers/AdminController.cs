@@ -33,6 +33,7 @@ using System.Net.Mime;
 
 namespace CrestCouriers_Career.Controllers
 {
+
     public class AdminController : Controller
     {
         private IHostingEnvironment _environment;
