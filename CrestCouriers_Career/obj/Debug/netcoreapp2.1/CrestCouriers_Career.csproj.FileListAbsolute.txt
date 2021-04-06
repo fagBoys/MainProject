@@ -215,7 +215,6 @@ C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Bill.cshtml.g.cs
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_SystemAccountancyAdmin.cshtml.g.cs
-C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\ListOfBills.cshtml.g.cs
 D:\Program Files (x86)\GitHubFile\MainProject\CrestCouriers_Career\bin\Debug\netcoreapp2.1\appsettings.Development.json
 D:\Program Files (x86)\GitHubFile\MainProject\CrestCouriers_Career\bin\Debug\netcoreapp2.1\appsettings.json
 D:\Program Files (x86)\GitHubFile\MainProject\CrestCouriers_Career\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
@@ -709,3 +708,6 @@ F:\Amir\developer\github\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp
 F:\Amir\developer\github\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\CrestCouriers_Career.pdb
 F:\Amir\developer\github\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\CrestCouriers_Career.genruntimeconfig.cache
 F:\Amir\developer\github\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\CrestCouriers_Career.csproj.CopyComplete
+C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\AdminSettingBill.cshtml.g.cs
+C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\ConfirmedBill.cshtml.g.cs
+C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Debug\netcoreapp2.1\Razor\Views\Admin\NotConfirmedBill.cshtml.g.cs

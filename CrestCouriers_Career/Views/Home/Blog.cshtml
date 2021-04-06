@@ -34,22 +34,23 @@
         <div class="row">
             <!-- Single Articles Start -->
 
-            <!--<div class="col-lg-12">
+            <div class="col-lg-12">
                 <article class="single-article">
-                    <div class="row">-->
-                        <!-- Articles Thumbnail Start -->
-                        <!--<div class="col-lg-5">
+                    <div class="row">
+                         @*Articles Thumbnail Start*@ 
+                        <div class="col-lg-5">
                             <div class="article-thumb">
                                 <img src="~/img/article/post-image11.jpg" alt="JSOFT">
                             </div>
-                        </div>-->
-                        <!-- Articles Thumbnail End -->
-                        <!-- Articles Content Start -->
-                        <!--<div class="col-lg-7">
+                        </div>
+                         @*Articles Thumbnail End*@ 
+                         @*Articles Content Start*@ 
+                        <div class="col-lg-7">
                             <div class="display-table">
                                 <div class="display-table-cell">
                                     <div class="article-body">
-                                        <h3><a href="article-details.html">NHS Is Saving Lives, But Who Will Save the Environment?</a></h3>
+                                        @{ string id10 = "ten"; }
+                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id10">NHS Is Saving Lives, But Who Will Save the Environment?</a></h3>
                                         <div class="article-meta">
                                             <a href="#" class="author">By :: <span>Ali N Khan</span></a>
                                             <a href="#" class="commnet">Comments :: <span>0</span></a>
@@ -59,25 +60,25 @@
 
                                         <p>The National Health Service relies heavily on courier services to carry out its daily tasks.</p>
 
-                                        <a href="article-details.html" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                        <a  asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id10" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
-                        </div>-->
-                        <!-- Articles Content End -->
-                    <!--</div>
+                        </div>
+                         @*Articles Content End*@ 
+                    </div>
                 </article>
-            </div>-->
+            </div>
 
             <!-- Single Articles End -->
             <!-- Single Articles Start -->
 
-            @*
+            
             <div class="col-lg-12">
                 <article class="single-article middle">
                     <div class="row">
 
-                         articles thumbnail start -->
+                        <!-- articles thumbnail start -->
                         <div class="col-lg-5 d-xl-none">
                             <div class="article-thumb">
                                 <img src="assets/img/article/arti-thumb-4.jpg" alt="jsoft">
@@ -89,7 +90,8 @@
                             <div class="display-table">
                                 <div class="display-table-cell">
                                     <div class="article-body">
-                                        <h3><a href="article-details.html">5 Ways Courier Drivers Can Increase Fuel Efficiency & Reduce Their Carbon Footprint</a></h3>
+                                        @{ string id9 = "nine"; }
+                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id9">5 Ways Courier Drivers Can Increase Fuel Efficiency & Reduce Their Carbon Footprint</a></h3>
                                         <div class="article-meta">
                                             <a href="#" class="author">by :: <span>Ali N Khan</span></a>
                                             <a href="#" class="commnet">comments :: <span>0</span></a>
@@ -99,7 +101,6 @@
 
                                         <p>One of the biggest challenges faced by courier services is to keep their fuel costs in check. </p>
 
-                                        @{ string id9 = "nine"; }
                                         <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id9" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
                                     </div>
                                 </div>
@@ -116,7 +117,7 @@
                     </div>
                 </article>
             </div>
-            *@
+            
 
             <!-- Single Articles End -->
             <!-- Single Articles Start -->

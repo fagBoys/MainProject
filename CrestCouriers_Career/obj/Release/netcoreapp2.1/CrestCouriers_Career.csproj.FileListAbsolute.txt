@@ -157,7 +157,6 @@ C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\Dashboard.cshtml.g.cs
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\Edit.cshtml.g.cs
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\ForgotPassword.cshtml.g.cs
-C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\ListOfBills.cshtml.g.cs
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\Login.cshtml.g.cs
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\Order.cshtml.g.cs
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\ResetPassword.cshtml.g.cs
@@ -398,3 +397,6 @@ C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netc
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\CrestCouriers_Career.pdb
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\CrestCouriers_Career.genruntimeconfig.cache
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\CrestCouriers_Career.csproj.CopyComplete
+C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\AdminSettingBill.cshtml.g.cs
+C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\ConfirmedBill.cshtml.g.cs
+C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\NotConfirmedBill.cshtml.g.cs
