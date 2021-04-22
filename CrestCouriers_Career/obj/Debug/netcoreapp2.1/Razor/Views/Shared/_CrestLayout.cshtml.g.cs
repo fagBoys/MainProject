@@ -64,7 +64,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
             WriteLiteral("<!DOCTYPE html>\r\n<html class=\"no-js\" lang=\"zxx\">\r\n");
             EndContext();
             BeginContext(50, 205, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "928de61531144390b8e9ec3b96ddc86f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e8b2c3515615455982c0d6d1c6d78c58", async() => {
                 BeginContext(56, 121, true);
                 WriteLiteral("\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n    <title>");
                 EndContext();
@@ -94,7 +94,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(257, 100, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fb40b732de354e8d94d4b4dc269238a1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae61073632834315a8dd16cf9842161e", async() => {
                 BeginContext(264, 14, true);
                 WriteLiteral("\r\n\r\n\r\n        ");
                 EndContext();

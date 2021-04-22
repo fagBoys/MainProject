@@ -114,7 +114,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n    <ul class=\"menu-ul\">\r\n        ");
                 EndContext();
                 BeginContext(216, 193, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d842840c89a549c5ba3bcb2ce83fb8bf", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "be7f449ad77b4d818ded3f8454dd8f5a", async() => {
                     BeginContext(290, 115, true);
                     WriteLiteral("\r\n            <div class=\"panel-option\">\r\n                <li><h5>Dashboard</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -139,7 +139,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(419, 185, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3721db57819b4abfb660e69f41a3fa58", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a77a2098040d419495c7c9b891a375d3", async() => {
                     BeginContext(489, 111, true);
                     WriteLiteral("\r\n            <div class=\"panel-option\">\r\n                <li><h5>Order</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -164,7 +164,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(614, 200, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "887f798c4eb0498696b8c28b4923aaf6", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d41a7b60f7ae4d478dddb2c5a11ee629", async() => {
                     BeginContext(691, 119, true);
                     WriteLiteral("\r\n            <div class=\"panel-option\">\r\n                <li><h5>Admin setting</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -189,7 +189,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(824, 202, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a6078b83bab04ad3950498f020b86f3d", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "84b3d3ab17804cebae1fc81ed6a832b5", async() => {
                     BeginContext(902, 120, true);
                     WriteLiteral("\r\n            <div class=\"panel-option\">\r\n                <li><h5>Admin accounts</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -214,7 +214,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(1036, 206, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6845c2a3b2ee4c3eb880074e9432e607", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5da244fe0d9d4b36b305cf23cfbded60", async() => {
                     BeginContext(1112, 126, true);
                     WriteLiteral("\r\n            <div class=\"panel-option-active\">\r\n                <li><h5>User accounts</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -239,7 +239,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(1252, 187, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "053f22256ac640d5ab2d045adf18b95e", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c7b04ad96e6d4eb6aa58889b1bef1dc4", async() => {
                     BeginContext(1323, 112, true);
                     WriteLiteral("\r\n            <div class=\"panel-option\">\r\n                <li><h5>Logout</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -396,7 +396,7 @@ WriteAttributeValue("", 3433, item.Id, 3433, 8, false);
             WriteLiteral(">\r\n            <button style=\"background-color:transparent; border:none;\">");
             EndContext();
             BeginContext(3518, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "96cb97a98ece461d8edf027c72ef8f29", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "2f301307c211460abc82116eddc73fd7", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -464,7 +464,7 @@ WriteAttributeValue("", 3812, item.Email, 3812, 11, false);
             WriteLiteral(">\r\n            <button style=\"background-color:transparent; border:none;\">\r\n                ");
             EndContext();
             BeginContext(3918, 67, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "9ef49ba609894147a7f584603588ff9b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "936dacd0c02b4500b17cbd2330c41206", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -497,7 +497,7 @@ WriteAttributeValue("", 4139, item.Id, 4139, 8, false);
             WriteLiteral(">\r\n            <button style=\"background-color: transparent; border: none;\">\r\n                ");
             EndContext();
             BeginContext(4244, 71, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "6d10ce4b763643eb8331c46bc81dbbc3", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "4c9e38a8e4ca474ba9399bf09a894c53", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -548,7 +548,7 @@ WriteAttributeValue("", 4139, item.Id, 4139, 8, false);
                         ");
             EndContext();
             BeginContext(4876, 3704, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f20aa88426343b4be06eb4d4b2e677a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "80c8dcf5613d43518d71b839266a53bb", async() => {
                 BeginContext(4896, 3164, true);
                 WriteLiteral(@"
                             <input name=""UpdateId"" id=""UpdateId"" hidden />
@@ -607,7 +607,7 @@ WriteAttributeValue("", 4139, item.Id, 4139, 8, false);
                 WriteLiteral("                        <div class=\"input-submit\">\r\n                                        ");
                 EndContext();
                 BeginContext(8060, 365, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "033e9eb193024984bdb32f99d3375392", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2dce5f61970049f7bcb9831752f4e8f6", async() => {
                     BeginContext(8401, 15, true);
                     WriteLiteral("<h5>Update</h5>");
                     EndContext();
@@ -711,7 +711,7 @@ WriteAttributeValue("", 4139, item.Id, 4139, 8, false);
                         ");
             EndContext();
             BeginContext(9577, 1121, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71c63e4a414341eeb8d48f4902c67232", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a939ca00188a43d89a59f0fd5a7ead6c", async() => {
                 BeginContext(9597, 289, true);
                 WriteLiteral(@"
                             <input name=""DeleteId"" id=""DeleteId"" hidden />
@@ -723,7 +723,7 @@ WriteAttributeValue("", 4139, item.Id, 4139, 8, false);
                                         ");
                 EndContext();
                 BeginContext(9886, 251, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f39aa008661c4132b4426fc280620acb", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "676fbadebfb5454c9f2493885e36b4b5", async() => {
                     BeginContext(10113, 15, true);
                     WriteLiteral("<h5>Delete</h5>");
                     EndContext();
@@ -831,7 +831,7 @@ WriteAttributeValue("", 4139, item.Id, 4139, 8, false);
                         ");
             EndContext();
             BeginContext(11701, 1092, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7b02a3d9ecbe498c905430af09d4cbf9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "539102cdc8434d6ea69dce0b14053414", async() => {
                 BeginContext(11721, 296, true);
                 WriteLiteral(@"
                             <div class=""row"">
@@ -843,7 +843,7 @@ WriteAttributeValue("", 4139, item.Id, 4139, 8, false);
                                         ");
                 EndContext();
                 BeginContext(12017, 213, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "82216ca6275c49d7bbd42f4989ad1a43", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9b185dac523b4522a3091ae38c93a1dd", async() => {
                     BeginContext(12206, 15, true);
                     WriteLiteral("<h5>Change</h5>");
                     EndContext();

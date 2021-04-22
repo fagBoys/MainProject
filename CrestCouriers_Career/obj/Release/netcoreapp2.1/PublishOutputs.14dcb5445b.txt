@@ -42,6 +42,8 @@ C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\
 C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\article\arti-thumb-4.jpg
 C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\article\post-image.jpg
 C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\article\post-image11.jpg
+C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\article\post-image12.jpg
+C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\article\post-image13.jpg
 C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\article\post-image2.jpg
 C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\article\post-image3.jpg
 C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\article\post-image4.jpg
@@ -73,6 +75,12 @@ C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\
 C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\detail\article11-image1.jpg
 C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\detail\article11-image2.jpg
 C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\detail\article11-image3.jpg
+C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\detail\article12-image1.jpg
+C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\detail\article12-image2.jpg
+C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\detail\article12-image3.jpg
+C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\detail\article13-image1.jpg
+C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\detail\article13-image2.jpg
+C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\detail\article13-image3.jpg
 C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\detail\article2-image1.jpg
 C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\detail\article2-image2.jpg
 C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\PubTmp\Out\wwwroot\img\detail\article2-image3.jpg
