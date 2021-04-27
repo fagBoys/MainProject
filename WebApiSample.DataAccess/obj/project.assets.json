@@ -180,29 +180,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mohammad javad\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\MJ\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mohammad javad\\Documents\\GitHub\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\MJ\\Documents\\GitHub\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
       "projectName": "WebApiSample.DataAccess",
-      "projectPath": "C:\\Users\\mohammad javad\\Documents\\GitHub\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
-      "packagesPath": "C:\\Users\\mohammad javad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mohammad javad\\Documents\\GitHub\\CrestCouriers\\WebApiSample.DataAccess\\obj\\",
+      "projectPath": "C:\\Users\\MJ\\Documents\\GitHub\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
+      "packagesPath": "C:\\Users\\MJ\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MJ\\Documents\\GitHub\\CrestCouriers\\WebApiSample.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\mohammad javad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MJ\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -238,7 +235,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
