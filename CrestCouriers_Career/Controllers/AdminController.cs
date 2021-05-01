@@ -908,5 +908,41 @@ namespace CrestCouriers_Career.Controllers
 
 
         }
+
+        [HttpGet]
+        public IActionResult Articles()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult AddArticle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddArticle(Article article)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult DeleteArticle()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Article(int id)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult EditArticle(int id, Article article)
+        {
+            return new RedirectResult("Admin/Articles");
+        }
     }
 }
