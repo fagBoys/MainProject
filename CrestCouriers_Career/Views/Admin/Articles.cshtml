@@ -1,5 +1,62 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+
+    Layout = "_SystemAdmin";
+
 }
+
+@section AdminMenu{
+    <ul class="menu-ul">
+        <a asp-controller="Admin" asp-action="Dashboard" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Dashboard</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="Order" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Order</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="AdminSetting" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Admin setting</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="AdminAccounts" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Admin accounts</h5></li>
+            </div>
+        </a>
+        <a asp-controller="User" asp-action="UserAccounts" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>User accounts</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="Articles" class="menu-option-link">
+            <div class="panel-option-active">
+                <li><h5>Articles</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="Logout" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Logout</h5></li>
+            </div>
+        </a>
+    </ul>
+}
+<div style="margin: 100px;">
+    <div class="Article-Item-Box">
+
+    </div>
+
+    <div class="Article-Item-Box">
+
+    </div>
+
+    <div class="Article-Item-Box">
+
+    </div>
+
+    <div class="Article-Item-Box">
+
+    </div>
+</div>
