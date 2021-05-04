@@ -36,6 +36,45 @@
             <!-- Single Articles Start -->
 
             <div class="col-lg-12">
+                <article class="single-article">
+                    <div class="row">
+                        @*Articles Thumbnail Start*@
+                        <div class="col-lg-5">
+                            <div class="article-thumb">
+                                <img src="~/img/article/post-image19.jpg" alt="JSOFT">
+                            </div>
+                        </div>
+                        @*Articles Thumbnail End*@
+                        @*Articles Content Start*@
+                        <div class="col-lg-7">
+                            <div class="display-table">
+                                <div class="display-table-cell">
+                                    <div class="article-body">
+                                        @{ string id18 = "eighteen"; }
+                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id18">Lab-Supply Shortages Among a Global Pandemic</a></h3>
+                                        <div class="article-meta">
+                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
+                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
+                                        </div>
+
+                                        <div class="article-date">03 <span class="month">may</span></div>
+
+                                        <p>The COVID-19 pandemic caused all kinds of shortages in the market, mainly due to the disruption of manufacturing and distribution channels.</p>
+
+                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id18" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*Articles Content End*@
+                    </div>
+                </article>
+            </div>
+
+            <!-- Single Articles End -->
+            <!-- Single Articles Start -->
+
+            <div class="col-lg-12">
                 <article class="single-article middle">
                     <div class="row">
 
