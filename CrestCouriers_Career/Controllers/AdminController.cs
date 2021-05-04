@@ -912,7 +912,13 @@ namespace CrestCouriers_Career.Controllers
         [HttpGet]
         public IActionResult Articles()
         {
-            return View();
+            //EF core start
+
+            CrestContext context = new CrestContext();
+            IEnumerable<Article> articles = context.Article.ToList();
+
+            //EF core end
+            return View(articles);
         }
 
         [HttpGet]
@@ -922,14 +928,29 @@ namespace CrestCouriers_Career.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public IActionResult AddArticle(Article article)
         {
+            CrestContext Context = new CrestContext();
+            
+            article.Date = DateTime.Now;
+            Context.Article.Add(article);
+            Context.SaveChanges();
             return View();
         }
 
         [HttpPost]
-        public IActionResult DeleteArticle()
+        public IActionResult DeleteArticle(int id)
         {
+
+            //EF core start
+            CrestContext context = new CrestContext();
+            Article article = context.Article.FirstOrDefault(o => o.Articleid == id);
+            context.Article.Remove(article);
+            context.SaveChangesAsync();
+            //EF core end
+
             return View();
         }
 
@@ -942,6 +963,17 @@ namespace CrestCouriers_Career.Controllers
         [HttpPost]
         public IActionResult EditArticle(int id, Article article)
         {
+            ////EF core start
+            article.Articleid= id;
+            CrestContext context = new CrestContext();
+            Article article1= new Article();
+
+            article1 = context.Article.FirstOrDefault(O => O.Articleid == article.Articleid);
+            article1.Body = article.Body;
+            article1.Title = article.Title;
+            context.Article.Update(article1);
+            context.SaveChanges();
+            ////EF core end
             return new RedirectResult("Admin/Articles");
         }
     }

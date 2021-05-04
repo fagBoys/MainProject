@@ -26,6 +26,7 @@ namespace CrestCouriers_Career.Data
         public DbSet<Contact> Contact { get; set; }
         public DbSet<RegCareer> RegCareer { get; set; }
         public DbSet<Bill> Bill { get; set; }
+        public DbSet<Article> Article { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
