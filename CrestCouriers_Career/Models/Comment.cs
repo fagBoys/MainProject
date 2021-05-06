@@ -7,23 +7,23 @@ using Microsoft.AspNetCore.Identity;
 
 namespace CrestCouriers_Career.Models
 {
-    public class Comment:IdentityUser
+    public class Comment
     {
         [Key]
-        public int Commentid { get; set; }
+        public int CommentId { get; set; }
 
-        public int Replyid { get; set; }
+        public int ReplyId { get; set; }
 
-        public int Articleid { get; set; }
+        public int ArticleId { get; set; }
 
-        public int Accountid { get; set; }
+        public int AccountId { get; set; }
 
         [Required]
-        [MaxLength(200)]
+        [MaxLength(2000)]
         public string Message { get; set; }
 
         public DateTime Date { get; set; }
 
-        public string IsReply { get; set; }
+        public bool IsReply { get; set; }
     }
 }

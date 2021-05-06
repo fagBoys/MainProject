@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Identity;
 
 namespace CrestCouriers_Career.Models
 {
-    public class ArticleTag:IdentityUser
+    public class ArticleTag
     {
-       public int ArticleTagid { get; set; }
+       public int ArticleTagId { get; set; }
 
-       public int Articleid { get; set; }
+       public int ArticleId { get; set; }
 
-        public int Tagid { get; set; }
+        public int TagId { get; set; }
 
     }
 }

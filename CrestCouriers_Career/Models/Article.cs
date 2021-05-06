@@ -7,15 +7,21 @@ using Microsoft.AspNetCore.Identity;
 
 namespace CrestCouriers_Career.Models
 {
-    public class Article:IdentityUser
+    public class Article
     {
         [Key]
-        public int Articleid { get; set; }
+        public int ArticleId { get; set; }
 
-        public string  AoutherAccount { get; set; }
+        [Required]
+        [MaxLength(200)]
+        public string  AuthorAccount { get; set; }
 
+        [Required]
+        [MaxLength(50000)]
         public string   Body { get; set; }
 
+        [Required]
+        [MaxLength(5000)]
         public string ShortBody { get; set; }
 
         [Required]
@@ -26,9 +32,7 @@ namespace CrestCouriers_Career.Models
 
         public bool Active { get; set; }
 
-        [Required]
-        [MaxLength(200)]
-        public string CloseComment { get; set; }
+        public bool CloseComment { get; set; }
 
     }
 }

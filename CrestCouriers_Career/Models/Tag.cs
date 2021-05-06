@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Identity;
 
 namespace CrestCouriers_Career.Models
 {
-    public class Tag:IdentityUser
+    public class Tag
     {
         [Key]
-        public int Tagid { get; set; }
+        public int TagId { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        [MaxLength(100)]
         public string Name { get; set; }
     }
 }

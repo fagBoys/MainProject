@@ -918,7 +918,7 @@ namespace CrestCouriers_Career.Controllers
             IEnumerable<Article> articles = context.Article.ToList();
 
             //EF core end
-            return View(articles);
+            return View(/*articles*/);
         }
 
         [HttpGet]
@@ -946,7 +946,7 @@ namespace CrestCouriers_Career.Controllers
 
             //EF core start
             CrestContext context = new CrestContext();
-            Article article = context.Article.FirstOrDefault(o => o.Articleid == id);
+            Article article = context.Article.FirstOrDefault(o => o.ArticleId == id);
             context.Article.Remove(article);
             context.SaveChangesAsync();
             //EF core end
@@ -964,11 +964,11 @@ namespace CrestCouriers_Career.Controllers
         public IActionResult EditArticle(int id, Article article)
         {
             ////EF core start
-            article.Articleid= id;
+            article.ArticleId= id;
             CrestContext context = new CrestContext();
             Article article1= new Article();
 
-            article1 = context.Article.FirstOrDefault(O => O.Articleid == article.Articleid);
+            article1 = context.Article.FirstOrDefault(O => O.ArticleId == article.ArticleId);
             article1.Body = article.Body;
             article1.Title = article.Title;
             context.Article.Update(article1);

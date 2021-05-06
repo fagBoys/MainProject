@@ -7,16 +7,16 @@ using Microsoft.AspNetCore.Identity;
 
 namespace CrestCouriers_Career.Models
 {
-    public class Image:IdentityUser
+    public class Image
     {
         [Key]
-        public int Imageid { get; set; }
+        public int ImageId { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        [MaxLength(100)]
         public string ImageName { get; set; }
 
-        public string Article { get; set; }
+        public int ArticleId { get; set; }
 
     }
 }
