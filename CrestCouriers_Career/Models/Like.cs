@@ -11,11 +11,11 @@ namespace CrestCouriers_Career.Models
 
     {
         [Key]
-        public int Likeid { get; set; }
+        public int LikeId { get; set; }
 
-        public int Articleid { get; set; }
+        public int ArticleId { get; set; }
 
-        public int Accountid { get; set; }
+        public int AccountId { get; set; }
 
 
     }

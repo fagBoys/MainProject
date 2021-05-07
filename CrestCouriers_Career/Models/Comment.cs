@@ -25,5 +25,9 @@ namespace CrestCouriers_Career.Models
         public DateTime Date { get; set; }
 
         public bool IsReply { get; set; }
+
+        public int ArticleID { get; set; }
+
+        public Article article { get; set; }
     }
 }

@@ -15,5 +15,11 @@ namespace CrestCouriers_Career.Models
 
         public int TagId { get; set; }
 
+        public int ArticleID { get; set; }
+        
+        public Article article { get; set; }
+
+        public ICollection<Tag> tags { get; set; }
+
     }
 }

@@ -15,5 +15,8 @@ namespace CrestCouriers_Career.Models
         [Required]
         [MaxLength(100)]
         public string Name { get; set; }
+        public int  ArticleTagID { get; set; }
+
+        public ArticleTag articleTag { get; set; }
     }
 }

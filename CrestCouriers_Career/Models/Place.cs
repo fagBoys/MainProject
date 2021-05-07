@@ -24,7 +24,7 @@ namespace CrestCouriers_Career.Models
 
         [Required]
         [MaxLength(20)]
-        public string Postcode { get; set; }
+        public string PostCode { get; set; }
 
         [Required]
         [MaxLength(20)]
