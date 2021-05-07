@@ -18,6 +18,7 @@ using System.Configuration;
 using MimeKit.Utils;
 using Newtonsoft.Json;
 using CrestCouriers_Career.Data;
+using AspNetCore.SEOHelper.Sitemap;
 
 namespace CrestCouriers_Career.Controllers
 {
@@ -38,6 +39,20 @@ namespace CrestCouriers_Career.Controllers
         [Route("Index")]
         public IActionResult Index()
         {
+            var list = new List<SitemapNode>();
+
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 1.0, Url = "https://www.crestcouriers.co.uk", Frequency = SitemapFrequency.Monthly });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 1.0, Url = "https://www.crestcouriers.co.uk/Index", Frequency = SitemapFrequency.Monthly });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.7, Url = "https://www.crestcouriers.co.uk/About", Frequency = SitemapFrequency.Yearly });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.7, Url = "https://www.crestcouriers.co.uk/Services", Frequency = SitemapFrequency.Yearly });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.7, Url = "https://www.crestcouriers.co.uk/Branches", Frequency = SitemapFrequency.Yearly });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.8, Url = "https://www.crestcouriers.co.uk/Blog", Frequency = SitemapFrequency.Weekly });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.8, Url = "https://www.crestcouriers.co.uk/Type", Frequency = SitemapFrequency.Yearly });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.7, Url = "https://www.crestcouriers.co.uk/Contact", Frequency = SitemapFrequency.Never });
+
+            new SitemapDocument().CreateSitemapXML(list, _environment.ContentRootPath);
+
+
             return View();
         }
 

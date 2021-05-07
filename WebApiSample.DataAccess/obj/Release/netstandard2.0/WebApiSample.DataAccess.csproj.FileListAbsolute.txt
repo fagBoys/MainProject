@@ -16,3 +16,12 @@ C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\WebApiSample.DataAccess\o
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\WebApiSample.DataAccess\obj\Release\netstandard2.0\WebApiSample.DataAccess.csproj.CoreCompileInputs.cache
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\WebApiSample.DataAccess\obj\Release\netstandard2.0\WebApiSample.DataAccess.dll
 C:\Users\Mohammad Javad\Documents\GitHub\CrestCouriers\WebApiSample.DataAccess\obj\Release\netstandard2.0\WebApiSample.DataAccess.pdb
+C:\Users\MJ\Documents\GitHub\CrestCouriers\WebApiSample.DataAccess\bin\Release\netstandard2.0\WebApiSample.DataAccess.deps.json
+C:\Users\MJ\Documents\GitHub\CrestCouriers\WebApiSample.DataAccess\bin\Release\netstandard2.0\WebApiSample.DataAccess.dll
+C:\Users\MJ\Documents\GitHub\CrestCouriers\WebApiSample.DataAccess\bin\Release\netstandard2.0\WebApiSample.DataAccess.pdb
+C:\Users\MJ\Documents\GitHub\CrestCouriers\WebApiSample.DataAccess\obj\Release\netstandard2.0\WebApiSample.DataAccess.csprojAssemblyReference.cache
+C:\Users\MJ\Documents\GitHub\CrestCouriers\WebApiSample.DataAccess\obj\Release\netstandard2.0\WebApiSample.DataAccess.AssemblyInfoInputs.cache
+C:\Users\MJ\Documents\GitHub\CrestCouriers\WebApiSample.DataAccess\obj\Release\netstandard2.0\WebApiSample.DataAccess.AssemblyInfo.cs
+C:\Users\MJ\Documents\GitHub\CrestCouriers\WebApiSample.DataAccess\obj\Release\netstandard2.0\WebApiSample.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\MJ\Documents\GitHub\CrestCouriers\WebApiSample.DataAccess\obj\Release\netstandard2.0\WebApiSample.DataAccess.dll
+C:\Users\MJ\Documents\GitHub\CrestCouriers\WebApiSample.DataAccess\obj\Release\netstandard2.0\WebApiSample.DataAccess.pdb

@@ -372,7 +372,6 @@ C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netc
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Shared\_Crest.cshtml.g.cs
-C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Shared\_CrestLayout.cshtml.g.cs
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Shared\_System.cshtml.g.cs
@@ -400,3 +399,5 @@ C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netc
 C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\AdminSettingBill.cshtml.g.cs
 C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\ConfirmedBill.cshtml.g.cs
 C:\Users\mohammad javad\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\NotConfirmedBill.cshtml.g.cs
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\AddArticle.cshtml.g.cs
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\netcoreapp2.1\Razor\Views\Admin\Articles.cshtml.g.cs

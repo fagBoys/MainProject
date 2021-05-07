@@ -15,7 +15,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using reCAPTCHA.AspNetCore;
 using CrestCouriers_Career.Models;
 using Microsoft.AspNetCore.Identity;
-
+using AspNetCore.SEOHelper;
 
 namespace CrestCouriers_Career
 {
@@ -76,16 +76,13 @@ namespace CrestCouriers_Career
             app.UseAuthentication();
             //app.UseCookiePolicy();    //Cookie has been disabled
             app.UseSession();
+            app.UseRouting();
 
-            
+            app.UseXMLSitemap(env.ContentRootPath);
 
-            app.UseMvc(routes =>
+            app.UseEndpoints(endpoints =>
             {
-
-                routes.MapRoute(
-                name: "default",
-                template: "{controller=Home}/{action=Index}/{id?}");
-
+                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
             });
         }
     }
