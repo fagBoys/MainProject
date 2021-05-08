@@ -14,8 +14,6 @@ namespace CrestCouriers_Career.Models
 
         public int ReplyId { get; set; }
 
-        public int ArticleId { get; set; }
-
         public int AccountId { get; set; }
 
         [Required]
@@ -26,8 +24,8 @@ namespace CrestCouriers_Career.Models
 
         public bool IsReply { get; set; }
 
-        public int ArticleID { get; set; }
+        public int ArticleId { get; set; }
 
-        public Article article { get; set; }
+        public Article Article { get; set; }
     }
 }

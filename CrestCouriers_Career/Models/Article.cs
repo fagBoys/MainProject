@@ -10,7 +10,7 @@ namespace CrestCouriers_Career.Models
     public class Article
     {
         [Key]
-        public int ArticleID { get; set; }
+        public int ArticleId { get; set; }
 
         [Required]
         [MaxLength(200)]
@@ -34,11 +34,11 @@ namespace CrestCouriers_Career.Models
 
         public bool CloseComment { get; set; }
 
-        public ICollection<Image> images { get; set; }
+        public ICollection<Image> Images { get; set; }
 
-        public ICollection<Comment> comments { get; set; }
+        public ICollection<Comment> Comments { get; set; }
 
-        public ICollection<ArticleTag> articleTags { get; set; }
+        public ICollection<ArticleTag> ArticleTags { get; set; }
 
     }
 }

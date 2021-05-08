@@ -21,7 +21,7 @@ namespace CrestCouriers_Career.Models
 
         [Required]
         [MaxLength(50)]
-        public string fileName { get; set; }
+        public string FileName { get; set; }
 
         [MaxLength(20)]
         public string Confirmation { get; set; }

@@ -420,14 +420,14 @@ namespace CrestCouriers_Career.Controllers
             origin.Recipient = orderviewmodel.OriginRecipient;
             origin.Company = orderviewmodel.OriginCompany;
             origin.Town = orderviewmodel.OriginTown;
-            origin.Postcode = orderviewmodel.OriginPostcode;
+            origin.PostCode = orderviewmodel.OriginPostcode;
             origin.LocationType = "Origin";
 
 
             destination.Recipient = orderviewmodel.DestinationRecipient;
             destination.Company = orderviewmodel.DestinationCompany;
             destination.Town = orderviewmodel.DestinationTown;
-            destination.Postcode = orderviewmodel.DestinationPostcode;
+            destination.PostCode = orderviewmodel.DestinationPostcode;
             destination.LocationType = "Destination";
 
             order.OrderDate = System.DateTime.Now;

@@ -85,6 +85,7 @@ namespace CrestCouriers_Career.Controllers
             return View();
         }
 
+        [Route("Dashboard")]
         public IActionResult Dashboard()
         {
             //EF core start
@@ -232,14 +233,14 @@ namespace CrestCouriers_Career.Controllers
                 origin.Recipient = orderviewmodel.OriginRecipient;
                 origin.Company = orderviewmodel.OriginCompany;
                 origin.Town = orderviewmodel.OriginTown;
-                origin.Postcode = orderviewmodel.OriginPostcode;
+                origin.PostCode = orderviewmodel.OriginPostcode;
                 origin.LocationType = "Origin";
 
 
                 destination.Recipient = orderviewmodel.DestinationRecipient;
                 destination.Company = orderviewmodel.DestinationCompany;
                 destination.Town = orderviewmodel.DestinationTown;
-                destination.Postcode = orderviewmodel.DestinationPostcode;
+                destination.PostCode = orderviewmodel.DestinationPostcode;
                 destination.LocationType = "Destination";
 
                 order.OrderDate = System.DateTime.Now;
@@ -867,7 +868,7 @@ namespace CrestCouriers_Career.Controllers
             else if (NewBill.File.Length != null)
             {
             string filename = Path.GetFileNameWithoutExtension(NewBill.File.FileName);
-            CreateBill.filename = filename;
+            CreateBill.FileName = filename;
                
                 using (var ms = new MemoryStream())
                 {
@@ -914,11 +915,11 @@ namespace CrestCouriers_Career.Controllers
         {
             //EF core start
 
-            CrestContext context = new CrestContext();
-            IEnumerable<Article> articles = context.Article.ToList();
+            //CrestContext context = new CrestContext();
+            //IEnumerable<Article> articles = context.Article.ToList();
 
             //EF core end
-            return View(/*articles*/);
+            return View();
         }
 
         [HttpGet]

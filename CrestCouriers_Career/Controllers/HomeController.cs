@@ -346,7 +346,6 @@ namespace CrestCouriers_Career.Controllers
             //Recaptcha code ends here
 
             string myurl = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}";
-            Dal connection = new Dal(myurl);
 
 
 

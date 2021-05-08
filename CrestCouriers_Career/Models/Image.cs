@@ -16,7 +16,7 @@ namespace CrestCouriers_Career.Models
         [MaxLength(100)]
         public string ImageName { get; set; }
 
-        public int ArticleID { get; set; }
+        public int ArticleId { get; set; }
 
         public Article Article { get; set; }
 
