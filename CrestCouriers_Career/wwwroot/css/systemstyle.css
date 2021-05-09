@@ -598,5 +598,28 @@ margin-top:50px;
     width: auto;
     height: 200px;
     margin-bottom: 30px;
+    /*background-color:orange;*/
+    border:1px solid;
+}
+.Article-Image {
+    clear:both;
+    width: auto;
+    height: 190px;
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+
+}
+.Article-Image02 {
+    width: auto;
+    height: 190px;
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
     background-color:orange;
+    text-align:left;
+    
+    
 }
