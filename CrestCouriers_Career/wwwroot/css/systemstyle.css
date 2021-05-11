@@ -595,21 +595,18 @@ margin-top:50px;
 }
 
 .Article-Item-Box {
-    width: auto;
+    width: 1000px;
     height: 200px;
     margin-bottom: 30px;
-    /*background-color:orange;*/
+    background-color:orange;
     border:1px solid;
+    text-align:left;
 }
 .Article-Image {
-    clear:both;
+    
     width: auto;
     height: 190px;
-    float: left;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 5px;
-
+    margin: 5px;
 }
 .Article-Image02 {
     width: auto;
