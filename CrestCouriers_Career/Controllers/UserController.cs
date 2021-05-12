@@ -137,10 +137,8 @@ namespace CrestCouriers_Career.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel model,string returnUrl = null)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
-
-            ViewData["ReturnUrl"] = returnUrl;
 
             if(ModelState.IsValid)
             {
@@ -165,9 +163,11 @@ namespace CrestCouriers_Career.Controllers
                     return View(model);
                 }
             }
+            else
+            { 
 
-            return View();
-
+                return View();
+            }
         }
 
         [HttpGet]

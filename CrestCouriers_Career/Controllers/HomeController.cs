@@ -42,7 +42,6 @@ namespace CrestCouriers_Career.Controllers
             var list = new List<SitemapNode>();
 
             list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 1.0, Url = "https://www.crestcouriers.co.uk", Frequency = SitemapFrequency.Monthly });
-            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 1.0, Url = "https://www.crestcouriers.co.uk/Index", Frequency = SitemapFrequency.Monthly });
             list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.7, Url = "https://www.crestcouriers.co.uk/About", Frequency = SitemapFrequency.Yearly });
             list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.7, Url = "https://www.crestcouriers.co.uk/Services", Frequency = SitemapFrequency.Yearly });
             list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.7, Url = "https://www.crestcouriers.co.uk/Branches", Frequency = SitemapFrequency.Yearly });
