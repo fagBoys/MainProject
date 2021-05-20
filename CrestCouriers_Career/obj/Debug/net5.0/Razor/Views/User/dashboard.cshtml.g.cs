@@ -103,7 +103,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n    <ul class=\"menu-ul\">\r\n        ");
                 EndContext();
                 BeginContext(369, 199, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2e2bccb951c04fe4bfefd4a51b19f412", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a945821423747f0a42483a5f52e2ca5", async() => {
                     BeginContext(442, 122, true);
                     WriteLiteral("\r\n            <div class=\"panel-option-active\">\r\n                <li><h5>Dashboard</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -128,7 +128,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(578, 184, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ee327531c9964e26b3f559f059c018e5", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e9102a171a5240688f5eca47560131ca", async() => {
                     BeginContext(647, 111, true);
                     WriteLiteral("\r\n            <div class=\"panel-option\">\r\n                <li><h5>Order</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -153,7 +153,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(772, 193, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b083239c50b8430083627598d1408d16", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c49006bac3544ed8baa0ea9e869b910a", async() => {
                     BeginContext(851, 110, true);
                     WriteLiteral("\r\n            <div class=\"panel-option\">\r\n                <li><h5>User</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -178,7 +178,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(975, 186, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8a51cd3515024cdebdb447d6846e2151", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d0abef0d26b84e83ad01ae2c549d7c5d", async() => {
                     BeginContext(1045, 112, true);
                     WriteLiteral("\r\n            <div class=\"panel-option\">\r\n                <li><h5>Logout</h5></li>\r\n            </div>\r\n        ");
                     EndContext();
@@ -435,7 +435,7 @@ WriteAttributeValue("", 4843, order.OrderId, 4843, 14, false);
             WriteLiteral(">\r\n        <button type=\"submit\" style=\"background-color: transparent; border: none;\">\r\n            ");
             EndContext();
             BeginContext(4961, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "21d79c59ebaf460a9453ded7478ca753", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "093065322a2c4bcbac9ea05414f72b7c", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -503,7 +503,7 @@ WriteAttributeValue("", 5296, order.CarType, 5296, 14, false);
             WriteLiteral(">\r\n        <button style=\"background-color:transparent; border:none;\">\r\n            ");
             EndContext();
             BeginContext(5397, 67, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "49659a63a2984dda8c84cb353d783d2a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "1fb19e257cd3471ba897b4786545c5a1", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -554,7 +554,7 @@ WriteAttributeValue("", 5296, order.CarType, 5296, 14, false);
                                 ");
             EndContext();
             BeginContext(6516, 1188, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ed072528e2f84770828c6416d785940c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c64a0688a3ff4ea79712f92d59f8f6d8", async() => {
                 BeginContext(6536, 329, true);
                 WriteLiteral(@"
                                     <input name=""DeleteId"" id=""DeleteId"" hidden />
@@ -566,7 +566,7 @@ WriteAttributeValue("", 5296, order.CarType, 5296, 14, false);
                                                 ");
                 EndContext();
                 BeginContext(6865, 206, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a931412c5b247a6a279729795799cdf", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5ef0e8597e4d404c99663ab0bceebcd0", async() => {
                     BeginContext(7047, 15, true);
                     WriteLiteral("<h5>Delete</h5>");
                     EndContext();
@@ -652,7 +652,7 @@ WriteAttributeValue("", 5296, order.CarType, 5296, 14, false);
                         ");
             EndContext();
             BeginContext(8326, 4506, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7f55baab3c254b6ca0b062c8491d2f82", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5274a9be2154dbabf7414eb329afdc5", async() => {
                 BeginContext(8346, 3713, true);
                 WriteLiteral(@"
 
@@ -717,7 +717,7 @@ WriteAttributeValue("", 5296, order.CarType, 5296, 14, false);
                                                 ");
                 EndContext();
                 BeginContext(12059, 512, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f803c4619da04f88937915162c6514b3", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9ec14ae0682d42f2915f4ad071719e16", async() => {
                     BeginContext(12547, 15, true);
                     WriteLiteral("<h5>Update</h5>");
                     EndContext();

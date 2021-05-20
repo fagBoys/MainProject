@@ -106,7 +106,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                     ");
             EndContext();
             BeginContext(888, 214, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ad2138ca6126423c9eea1a84cf209e68", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "778187b8dcb643b09fe84a932ddcbe9b", async() => {
                 BeginContext(964, 131, true);
                 WriteLiteral("\r\n                        <input class=\"book-now-btn\" style=\"float:right;\" value=\"More info\" type=\"submit\" />\r\n                    ");
                 EndContext();
@@ -151,7 +151,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                     ");
             EndContext();
             BeginContext(1652, 216, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c5fdb59fc8bb4f5dbf2f3391248fbd56", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e8597ef43701457eab54886a1379ea33", async() => {
                 BeginContext(1730, 131, true);
                 WriteLiteral("\r\n                        <input class=\"book-now-btn\" style=\"float:right;\" value=\"More info\" type=\"submit\" />\r\n                    ");
                 EndContext();
@@ -201,7 +201,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                     ");
             EndContext();
             BeginContext(2466, 219, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bf6eb08796fa4a8faf49112a91509a03", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "63b4ae92f17b43b5944b7ee864cb0c21", async() => {
                 BeginContext(2547, 131, true);
                 WriteLiteral("\r\n                        <input class=\"book-now-btn\" style=\"float:right;\" value=\"More info\" type=\"submit\" />\r\n                    ");
                 EndContext();
@@ -245,7 +245,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                     ");
             EndContext();
             BeginContext(3231, 214, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5937ad7bd255414b8d29584f321ec9d8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b9bd7e14b67e4721955733d8d4c31810", async() => {
                 BeginContext(3307, 131, true);
                 WriteLiteral("\r\n                        <input class=\"book-now-btn\" style=\"float:right;\" value=\"More info\" type=\"submit\" />\r\n                    ");
                 EndContext();

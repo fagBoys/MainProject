@@ -89,7 +89,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n    <div class=\"col-lg-8 d-none d-xl-block\" style=\"-ms-flex: 0 0 66.666667%; flex: 0 0 66.666667%; max-width: 66.666667%\">\r\n        <nav class=\"mainmenu alignright\">\r\n            <ul>\r\n                <li>\r\n                    ");
                 EndContext();
                 BeginContext(334, 52, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c899b0cf4d714dcda953a599c1d26a83", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "72e4223396f040c5952a2228d7bc323c", async() => {
                     BeginContext(378, 4, true);
                     WriteLiteral("Home");
                     EndContext();
@@ -113,7 +113,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("\r\n                </li>\r\n                <li>");
                 EndContext();
                 BeginContext(431, 53, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9b9e96898a4e48778dbd0881202706d7", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d8827e2eceaa4cffbca25fe7ee3516e8", async() => {
                     BeginContext(475, 5, true);
                     WriteLiteral("About");
                     EndContext();
@@ -137,7 +137,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("</li>\r\n                <li class=\"active\">");
                 EndContext();
                 BeginContext(526, 59, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "819b59259d9c4ea59edb43870be7ef22", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a92c43021c054e43a10453da97518941", async() => {
                     BeginContext(573, 8, true);
                     WriteLiteral("services");
                     EndContext();
@@ -161,7 +161,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("</li>\r\n                <li>");
                 EndContext();
                 BeginContext(612, 59, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "58b05ce5d1a044fa8c715c35cc65adfe", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3d92a9180bda48679fbf30d00221f33c", async() => {
                     BeginContext(659, 8, true);
                     WriteLiteral("Branches");
                     EndContext();
@@ -185,7 +185,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("</li>\r\n                <li>");
                 EndContext();
                 BeginContext(698, 51, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cec5e6f1340542268eca25f7cba9476e", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "922a3efdde004fc4944ea75c8696e51d", async() => {
                     BeginContext(741, 4, true);
                     WriteLiteral("Blog");
                     EndContext();
@@ -209,7 +209,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("</li>\r\n                <li>");
                 EndContext();
                 BeginContext(776, 60, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc83bd1b7b3d40b8a7c94a7aa3c91c43", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6adbfbad2ec847709bf8d85a1bb4b1fe", async() => {
                     BeginContext(825, 7, true);
                     WriteLiteral("Careers");
                     EndContext();
@@ -233,7 +233,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                 WriteLiteral("</li>\r\n                <li>");
                 EndContext();
                 BeginContext(863, 57, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "db7fd6d1fca04558963a7e5c35478fe4", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2b18f74ae06746ed9f16ba767ec8fff8", async() => {
                     BeginContext(909, 7, true);
                     WriteLiteral("Contact");
                     EndContext();
@@ -323,7 +323,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                                 ");
             EndContext();
             BeginContext(4801, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "b8b821926ed044efb54c33bb11eaf3a9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a398e89dcc2943df98017cbe1ace866a", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -351,7 +351,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                                 ");
             EndContext();
             BeginContext(5252, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "7be08b94e2924deebe56bc2d8b20b6b1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "b2f7b07bb6834275ab3e2bf33b6a98a8", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -379,7 +379,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                                 ");
             EndContext();
             BeginContext(5703, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "cca0aca20da44892b7af4dd981380001", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "6c7b9a5e4e814de9b9c1cf35eb57af5b", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -407,7 +407,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                                 ");
             EndContext();
             BeginContext(6154, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "4c41886590e54657bfd57ecf4906403c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a1d83b932ffd45ea8be47a1bd07badd2", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -435,7 +435,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                                 ");
             EndContext();
             BeginContext(6605, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "5469978501444142bf3bdc552c67b9ff", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "09f8b78589274e3ab65784e6f817be64", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -463,7 +463,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                                 ");
             EndContext();
             BeginContext(7056, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "cf607d57243d4b8da05a3ffa8cf548c3", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "2f1b1968f8084b0490a96a7abb80d973", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -491,7 +491,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                                 ");
             EndContext();
             BeginContext(7507, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "b47a03e30d414ad09bbc914bcd2e839c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e3cb3dd71d0745b7b7429424e167d57f", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -545,7 +545,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                             ");
             EndContext();
             BeginContext(8981, 53, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "4a83baa10ea4416596c097ebc74a8fb8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a9e23767cfa44eb9aee93bc17bc00118", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -573,7 +573,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                             ");
             EndContext();
             BeginContext(9583, 53, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "398bde0a14874433b9131248847dd7c7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "5a3224de9f6f4f8faaf48b1576c06fff", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -601,7 +601,7 @@ using CrestCouriers_Career.ViewModels.AccountViewModels;
                             ");
             EndContext();
             BeginContext(10180, 53, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e42135b4e3a14e13b34f8bb49ee02b28", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "9fd9fc6c9bba4d21b3cce2fbe0c2be5c", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
