@@ -620,3 +620,14 @@ margin-top:50px;
     
     
 }
+
+
+/* AddArticle page styles start */
+
+img.Article-Image-Dark:hover {
+
+    opacity: 0.5;
+
+}
+
+/* AddArticle page styles end */

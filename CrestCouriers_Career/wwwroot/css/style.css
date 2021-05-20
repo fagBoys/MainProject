@@ -2602,6 +2602,7 @@ body,
 	position: inherit;
 }
 
+.NewArticle-form input,
 .NewAdmin-form input,
 .NewOrder-form input,
 .contact-form input,
@@ -2621,6 +2622,7 @@ body,
 	border-color: red;
 }
 
+.NewArticle-form input:focus,
 .NewAdmin-form input:focus,
 .NewOrder-form input:focus,
 .contact-form input:focus,

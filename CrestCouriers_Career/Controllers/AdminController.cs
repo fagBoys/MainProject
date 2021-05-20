@@ -640,9 +640,9 @@ namespace CrestCouriers_Career.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(ViewModels.AccountViewModels.LoginViewModel model, string returnUrl = null)
+        public async Task<IActionResult> Login(ViewModels.AccountViewModels.LoginViewModel model)
         {
-            ViewData["ReturnUrl"] = returnUrl;
+
 
             if (ModelState.IsValid)
             {

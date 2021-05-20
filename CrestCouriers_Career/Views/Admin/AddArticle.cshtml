@@ -44,12 +44,12 @@
     </ul>
 }
 
-<div style="margin:100px;">
+<div class="NewArticle-form" style="margin:100px;">
     <form>
         <div class="row mb-4">
             <div class="col-sm-12">
-                <input name="Title" class="form-control" placeholder="Title">
-                <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                <input name="Title" placeholder="Title">
+                <span class="text-danger"></span>
             </div>
         </div>
 
@@ -66,10 +66,10 @@
                                 <p class="card-text" style="text-align:left; font-size:20px;">Post image should be smaller than 500 KB and dimension</p>
                                 <p class="card-text" style="text-align:left; margin-bottom:100px;"><small class="text-muted">Last updated 3 mins ago</small></p>
 
-                                <button class="book-now-btn" style="width:150px; height:50px; position: absolute; bottom: 20px; right: 20px;">
+                                <label class="book-now-btn" for="post-file" style="width:150px; height:50px; position: absolute; bottom: 20px; right: 20px; margin:0 auto;">
                                     Browse
-                                    <input type="file" style="opacity:0%; width:100%;" class="btn-dark" />
-                                </button>
+                                    <input id="post-file" type="file" style="opacity:0%;"/>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -79,19 +79,22 @@
 
         <div class="row">
             <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="~/img/detail/article22-image1.jpg" />
-                </div>
+                <label for="article-file1" class="card">
+                    <img class="Article-Image-Dark" src="~/img/detail/article22-image1.jpg" />
+                    <input id="article-file1" type="file" style="display:none;"/>
+                </label>
             </div>
             <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="~/img/detail/article22-image2.jpg" />
-                </div>
+                <label for="article-file2" class="card">
+                    <img class="Article-Image-Dark" src="~/img/detail/article22-image2.jpg" />
+                    <input id="article-file2" type="file" style="display:none;" />
+                </label>
             </div>
             <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="~/img/detail/article22-image3.jpg" />
-                </div>
+                <label for="article-file3" class="card">
+                    <img class="Article-Image-Dark" src="~/img/detail/article22-image3.jpg" />
+                    <input id="article-file3" type="file" style="display:none;" />
+                </label>
             </div>
         </div>
 
