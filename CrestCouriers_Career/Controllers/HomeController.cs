@@ -48,6 +48,15 @@ namespace CrestCouriers_Career.Controllers
             list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.8, Url = "https://www.crestcouriers.co.uk/Blog", Frequency = SitemapFrequency.Weekly });
             list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.8, Url = "https://www.crestcouriers.co.uk/Type", Frequency = SitemapFrequency.Yearly });
             list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.7, Url = "https://www.crestcouriers.co.uk/Contact", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=nine", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=one", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=twelve", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=two", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.6, Url = "https://www.crestcouriers.co.uk/Home/Career/Leeds", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.6, Url = "https://www.crestcouriers.co.uk/Home/Career/Oldham", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.6, Url = "https://www.crestcouriers.co.uk/Home/Career/Slough", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Home/Careerinfo/Slough", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.7, Url = "https://www.crestcouriers.co.uk/sitemap.xml", Frequency = SitemapFrequency.Never });
 
             new SitemapDocument().CreateSitemapXML(list, _environment.ContentRootPath);
 
