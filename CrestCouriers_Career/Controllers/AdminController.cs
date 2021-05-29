@@ -931,7 +931,7 @@ namespace CrestCouriers_Career.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public IActionResult AddArticle(Article article , string tagname)
+        public async Task<IActionResult> AddArticle(Article article, string tagname, IFormFile upimage)
         {
             CrestContext Context = new CrestContext();
 
@@ -948,10 +948,41 @@ namespace CrestCouriers_Career.Controllers
             articleTag.ArticleId = article.ArticleId;
 
             Context.ArticleTag.Add(articleTag);
+
+
+            //  Upload file started
+
+            CrestContext context = new CrestContext();
+            Image image = new Image();
+            image.ImageName = upimage.FileName;
+            image.ArticleId = article.ArticleId;
+            context.Image.Add(image);
+
+            var uploadsRootFolder = Path.Combine(_environment.WebRootPath, "uploads");
+            if (!Directory.Exists(uploadsRootFolder))
+            {
+                Directory.CreateDirectory(uploadsRootFolder);
+            }
+
+
+            if (upimage == null || upimage.Length == 0)
+            {
+                await Response.WriteAsync("Error");
+
+            }
+
+            var filePath = Path.Combine(uploadsRootFolder, upimage.FileName);
+
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                await upimage.CopyToAsync(fileStream).ConfigureAwait(false);
+            }
+
+            //Upload file ended
+
             Context.SaveChanges();
             return View();
         }
-
         [HttpPost]
         public IActionResult DeleteArticle(int id)
         {
