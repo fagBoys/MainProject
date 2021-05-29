@@ -21,6 +21,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System;
 
 namespace CrestCouriers_Career.Controllers
 {
@@ -549,15 +550,15 @@ namespace CrestCouriers_Career.Controllers
 
 
         [HttpPost]
-        public IActionResult AddComment(string Message, string AccountId, int ArticleId)
+        public IActionResult AddComment(string Message, int AccountId, int ArticleId)
         {
             CrestContext Context = new CrestContext();
             Comment comment = new Comment();
             comment.ArticleId = ArticleId;
             comment.Date = DateTime.Now;
-            comment.Text = Message;
+            comment.Message = Message;
             comment.AccountId = AccountId;
-            comment.Confirmation = "true";
+
 
             Context.Comment.Add(comment);
             Context.SaveChanges();
