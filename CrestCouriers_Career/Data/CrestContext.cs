@@ -27,11 +27,16 @@ namespace CrestCouriers_Career.Data
         public DbSet<RegCareer> RegCareer { get; set; }
         public DbSet<Bill> Bill { get; set; }
         public DbSet<Article> Article { get; set; }
+        public DbSet<Comment> Comment { get; set; }
+        public DbSet<Tag> Tag { get; set; }
+        public DbSet<ArticleTag> ArticleTag { get; set; }
+        public DbSet<Image> Image { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer("Server =.; Database = CrestDB; Trusted_Connection = True; MultipleActiveResultSets = true");
-            optionsBuilder.UseSqlServer("Server=sql11.hostinguk.net; Database=crestcou_database; User Id=crestdbuser; Password=CRESTcouriers.db;MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer("Server =.; Database = CrestDB; Trusted_Connection = True; MultipleActiveResultSets = true");
+            //optionsBuilder.UseSqlServer("Server=sql11.hostinguk.net; Database=crestcou_database; User Id=crestdbuser; Password=CRESTcouriers.db;MultipleActiveResultSets=true");
             //Server =.; Database = CrestDB; Trusted_Connection = True; MultipleActiveResultSets = true
             //Server=sql11.hostinguk.net; Database=crestcou_database; User Id=crestdbuser; Password=CRESTcouriers.db;MultipleActiveResultSets=true
         }

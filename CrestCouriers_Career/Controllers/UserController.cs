@@ -21,6 +21,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System;
 
 namespace CrestCouriers_Career.Controllers
 {
@@ -545,5 +546,24 @@ namespace CrestCouriers_Career.Controllers
             }
             return View();
         }
+
+
+
+        [HttpPost]
+        public IActionResult AddComment(string Message, int AccountId, int ArticleId)
+        {
+            CrestContext Context = new CrestContext();
+            Comment comment = new Comment();
+            comment.ArticleId = ArticleId;
+            comment.Date = DateTime.Now;
+            comment.Message = Message;
+            comment.AccountId = AccountId;
+
+
+            Context.Comment.Add(comment);
+            Context.SaveChanges();
+            return RedirectToAction("Post");
+        }
+
     }
 }
