@@ -931,12 +931,23 @@ namespace CrestCouriers_Career.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public IActionResult AddArticle(Article article)
+        public IActionResult AddArticle(Article article , string tagname)
         {
             CrestContext Context = new CrestContext();
-            
+
+            ArticleTag articleTag = new ArticleTag();
+            Tag tag = new Tag();
+
             article.Date = DateTime.Now;
             Context.Article.Add(article);
+
+            tag.Name = tagname;
+            Context.Tag.Add(tag);
+
+            articleTag.TagId = tag.TagId;
+            articleTag.ArticleId = article.ArticleId;
+
+            Context.ArticleTag.Add(articleTag);
             Context.SaveChanges();
             return View();
         }

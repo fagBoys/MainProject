@@ -545,5 +545,24 @@ namespace CrestCouriers_Career.Controllers
             }
             return View();
         }
+
+
+
+        [HttpPost]
+        public IActionResult AddComment(string Message, string AccountId, int ArticleId)
+        {
+            CrestContext Context = new CrestContext();
+            Comment comment = new Comment();
+            comment.ArticleId = ArticleId;
+            comment.Date = DateTime.Now;
+            comment.Text = Message;
+            comment.AccountId = AccountId;
+            comment.Confirmation = "true";
+
+            Context.Comment.Add(comment);
+            Context.SaveChanges();
+            return RedirectToAction("Post");
+        }
+
     }
 }
