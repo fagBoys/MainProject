@@ -41,22 +41,58 @@ namespace CrestCouriers_Career.Controllers
         {
             var list = new List<SitemapNode>();
 
-            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 1.0, Url = "https://www.crestcouriers.co.uk", Frequency = SitemapFrequency.Monthly });
-            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.7, Url = "https://www.crestcouriers.co.uk/About", Frequency = SitemapFrequency.Yearly });
-            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.7, Url = "https://www.crestcouriers.co.uk/Services", Frequency = SitemapFrequency.Yearly });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 1.0, Url = "https://www.crestcouriers.co.uk", Frequency = SitemapFrequency.Yearly });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.7, Url = "https://www.crestcouriers.co.uk/About", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.7, Url = "https://www.crestcouriers.co.uk/Services", Frequency = SitemapFrequency.Never });
             list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.7, Url = "https://www.crestcouriers.co.uk/Branches", Frequency = SitemapFrequency.Yearly });
-            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.8, Url = "https://www.crestcouriers.co.uk/Blog", Frequency = SitemapFrequency.Weekly });
-            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.8, Url = "https://www.crestcouriers.co.uk/Type", Frequency = SitemapFrequency.Yearly });
             list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.7, Url = "https://www.crestcouriers.co.uk/Contact", Frequency = SitemapFrequency.Never });
-            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=nine", Frequency = SitemapFrequency.Never });
+
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.8, Url = "https://www.crestcouriers.co.uk/Blog", Frequency = SitemapFrequency.Weekly });
+
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=zero", Frequency = SitemapFrequency.Never });
             list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=one", Frequency = SitemapFrequency.Never });
-            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=twelve", Frequency = SitemapFrequency.Never });
             list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=two", Frequency = SitemapFrequency.Never });
-            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.6, Url = "https://www.crestcouriers.co.uk/Home/Career/Leeds", Frequency = SitemapFrequency.Never });
-            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.6, Url = "https://www.crestcouriers.co.uk/Home/Career/Oldham", Frequency = SitemapFrequency.Never });
-            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.6, Url = "https://www.crestcouriers.co.uk/Home/Career/Slough", Frequency = SitemapFrequency.Never });
-            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Home/Careerinfo/Slough", Frequency = SitemapFrequency.Never });
-            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.7, Url = "https://www.crestcouriers.co.uk/sitemap.xml", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=three", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=four", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=five", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=six", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=seven", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=eight", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=nine", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=ten", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=eleven", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=twelve", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=thirteen", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=fourteen", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=fifteen", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=sixteen", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=seventeen", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=eighteen", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=nineteen", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=twenty", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=twentyone", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=twentytwo", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=twentythree", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=twentyfour", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=twentyfive", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=twentysix", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Details?ArticleId=twentyseven", Frequency = SitemapFrequency.Never });
+
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.8, Url = "https://www.crestcouriers.co.uk/Type", Frequency = SitemapFrequency.Yearly });
+
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Info?id=Coventry", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.6, Url = "https://www.crestcouriers.co.uk/Career?id=Coventry", Frequency = SitemapFrequency.Never });
+
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Info?id=Birmingham", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.6, Url = "https://www.crestcouriers.co.uk/Career?id=Birmingham", Frequency = SitemapFrequency.Never });
+
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Info?id=Wolverhampton", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.6, Url = "https://www.crestcouriers.co.uk/Career?id=Wolverhampton", Frequency = SitemapFrequency.Never });
+
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.5, Url = "https://www.crestcouriers.co.uk/Info?id=Tamworth", Frequency = SitemapFrequency.Never });
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.6, Url = "https://www.crestcouriers.co.uk/Career?id=Tamworth", Frequency = SitemapFrequency.Never });
+
+            list.Add(new SitemapNode { LastModified = DateTime.UtcNow, Priority = 0.7, Url = "https://www.crestcouriers.co.uk/sitemap.xml", Frequency = SitemapFrequency.Monthly });
 
             new SitemapDocument().CreateSitemapXML(list, _environment.ContentRootPath);
 
@@ -269,6 +305,11 @@ namespace CrestCouriers_Career.Controllers
 
         [Route("Branches")]
         public IActionResult Branches()
+        {
+            return View();
+        }
+
+        public IActionResult Branchinfo()
         {
             return View();
         }

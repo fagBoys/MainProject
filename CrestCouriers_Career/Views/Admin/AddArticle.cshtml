@@ -44,6 +44,9 @@
     </ul>
 }
 
+<script src="https://cdn.tiny.cloud/1/way20vlhgqz69tcnufmr5ox5lvdbrmfrrdv53l38zko5ecvj/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+
 <div class="NewArticle-form" style="margin:50px;">
     <form>
         <div class="row mb-4">
@@ -58,7 +61,7 @@
                 <div class="card">
                     <div class="row g-0">
                         <div class="col-lg-4">
-                            <div style="background-image: url(../img/article/post-image22.jpg); background-position:center; background-size:cover; height: 100%;">
+                            <div style="background-image: url(../img/blog/post-image-background.jpg); background-position:center; background-size:cover; height: 100%;">
                                 <img src="~/img/article/post-image22.jpg" style="width:100%; opacity:0%;" alt="" />
                             </div>
                         </div>
@@ -66,7 +69,7 @@
                             <div class="card-body" style="position: relative;">
                                 <h3 class="card-title" style="text-align:left;">Browse the post image</h3>
                                 <p class="card-text" style="text-align:left; font-size:20px;">Post image should be smaller than 500 KB and 1000 × 667 PX dimension</p>
-                                
+
                                 <p class="card-text" style="text-align:left; margin-bottom:100px; margin-top:50px;"><small class="text-muted">Last updated 3 mins ago</small></p>
                                 <br>
                                 <label class="book-now-btn" for="post-file" style="max-width:150px; height:50px; position: absolute; bottom: 20px; right: 20px; margin:0 auto;">
@@ -85,19 +88,19 @@
         <div class="row">
             <div class="col-md-4 mb-4">
                 <label for="article-file1" class="card">
-                    <img class="Article-Image-Dark" src="~/img/detail/article22-image1.jpg" />
-                    <input id="article-file1" type="file" style="display:none;"/>
+                    <img class="Article-Image-Dark" src="~/img/blog/slide-images-background.jpg" />
+                    <input id="article-file1" type="file" style="display:none;" />
                 </label>
             </div>
             <div class="col-md-4 mb-4">
                 <label for="article-file2" class="card">
-                    <img class="Article-Image-Dark" src="~/img/detail/article22-image2.jpg" />
+                    <img class="Article-Image-Dark" src="~/img/blog/slide-images-background.jpg" />
                     <input id="article-file2" type="file" style="display:none;" />
                 </label>
             </div>
             <div class="col-md-4 mb-4">
                 <label for="article-file3" class="card">
-                    <img class="Article-Image-Dark" src="~/img/detail/article22-image3.jpg" />
+                    <img class="Article-Image-Dark" src="~/img/blog/slide-images-background.jpg" />
                     <input id="article-file3" type="file" style="display:none;" />
                 </label>
             </div>
@@ -105,9 +108,47 @@
 
         <div class="row">
             <div class="col-md-12 mb-4">
-                <div class="card">
-                    <div style="background-color:lightgrey; height:500px;"></div>
+
+                <textarea id="basic-example">
+
+        
+                </textarea>
+
+
+                <script>
+
+                    tinymce.init({
+                        selector: 'textarea#basic-example',
+                        height: 500,
+                        menubar: false,
+                        plugins: [
+                            'advlist autolink lists link image charmap print preview anchor',
+                            'searchreplace visualblocks code fullscreen',
+                            'insertdatetime media table paste code help wordcount'
+                        ],
+                        toolbar: 'undo redo | ' +
+                            'bold italic backcolor forecolor | alignleft aligncenter ' +
+                            'alignright alignjustify | bullist numlist outdent indent | ' +
+                            'removeformat | help',
+                        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                    });
+
+                </script>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" style="border-radius:0px;" placeholder="Tag name" aria-label="Tag" />
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" style="border-radius: 0px;" type="button" id="button-addon2">Add</button>
+                    </div>
                 </div>
+            </div>
+            <div class="col-md-1">
+
             </div>
         </div>
 
@@ -121,3 +162,18 @@
 
     </form>
 </div>
+
+<div class="toast" auto-hide="false">
+    <div class="toast-header">
+        Hi
+    </div>
+    <div class="toast-body">
+        Bye
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".toast").toast("show");
+    })
+</script>
