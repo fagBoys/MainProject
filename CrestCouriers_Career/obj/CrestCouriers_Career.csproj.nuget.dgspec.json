@@ -1,24 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\suzan\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\CrestCouriers_Career.csproj": {}
+    "D:\\SoftwareEngineering\\Site\\CrestCouriers\\CrestCouriers_Career\\CrestCouriers_Career.csproj": {}
   },
   "projects": {
-    "C:\\Users\\suzan\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\CrestCouriers_Career.csproj": {
+    "D:\\SoftwareEngineering\\Site\\CrestCouriers\\CrestCouriers_Career\\CrestCouriers_Career.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\suzan\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
+        "projectUniqueName": "D:\\SoftwareEngineering\\Site\\CrestCouriers\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
         "projectName": "CrestCouriers_Career",
-        "projectPath": "C:\\Users\\suzan\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
-        "packagesPath": "C:\\Users\\suzan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\suzan\\Documents\\GitHub\\MainProject\\CrestCouriers_Career\\obj\\",
+        "projectPath": "D:\\SoftwareEngineering\\Site\\CrestCouriers\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
+        "packagesPath": "C:\\Users\\Zack424\\.nuget\\packages\\",
+        "outputPath": "D:\\SoftwareEngineering\\Site\\CrestCouriers\\CrestCouriers_Career\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\suzan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Zack424\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -28,7 +31,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net50": {
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {}
           }
         },
@@ -39,7 +43,8 @@
         }
       },
       "frameworks": {
-        "net50": {
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "AspNetCore.SEOHelper": {
               "target": "Package",
@@ -52,11 +57,6 @@
             "Microsoft.AspNetCore": {
               "target": "Package",
               "version": "[2.2.0, )"
-            },
-            "Microsoft.AspNetCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "(, )"
             },
             "Microsoft.AspNetCore.Authentication": {
               "target": "Package",
@@ -166,12 +166,25 @@
               "version": "[3.0.10, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win7-x86": {
-          "#import": []
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
