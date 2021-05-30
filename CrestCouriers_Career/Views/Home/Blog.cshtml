@@ -36,6 +36,45 @@
             <!-- Single Articles Start -->
 
             <div class="col-lg-12">
+                <article class="single-article">
+                    <div class="row">
+                        @*Articles Thumbnail Start*@
+                        <div class="col-lg-5">
+                            <div class="article-thumb">
+                                <img src="~/img/article/post-image31.jpg" alt="JSOFT">
+                            </div>
+                        </div>
+                        @*Articles Thumbnail End*@
+                        @*Articles Content Start*@
+                        <div class="col-lg-7">
+                            <div class="display-table">
+                                <div class="display-table-cell">
+                                    <div class="article-body">
+                                        @{ string id30 = "thirty"; }
+                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id30">The Effect of Brexit on Food Supply Chain Costs</a></h3>
+                                        <div class="article-meta">
+                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
+                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
+                                        </div>
+
+                                        <div class="article-date">30 <span class="month">may</span></div>
+
+                                        <p>Ever since the UK’s departure from the European bloc, supply chains and distribution networks have been affected across almost every industry. The food industry is no different. </p>
+
+                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id30" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*Articles Content End*@
+                    </div>
+                </article>
+            </div>
+
+            <!-- Single Articles End -->
+            <!-- Single Articles Start -->
+
+            <div class="col-lg-12">
                 <article class="single-article middle">
                     <div class="row">
 
