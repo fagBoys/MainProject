@@ -14,11 +14,11 @@ namespace CrestCouriers_Career.Models
 
         [Required]
         [MaxLength(200)]
-        public string  AuthorAccount { get; set; }
+        public string AuthorAccount { get; set; }
 
         [Required]
         [MaxLength(50000)]
-        public string   Body { get; set; }
+        public string Body { get; set; }
 
         [Required]
         [MaxLength(5000)]

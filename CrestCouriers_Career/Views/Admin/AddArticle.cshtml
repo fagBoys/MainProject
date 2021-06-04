@@ -143,12 +143,12 @@
                 <div class="input-group">
                     <input type="text" class="form-control" style="border-radius:0px;" placeholder="Tag name" aria-label="Tag" />
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" style="border-radius: 0px;" type="button" id="button-addon2">Add</button>
+                        <button class="btn btn-outline-secondary" onclick="AddTag();" style="border-radius: 0px;" type="button" id="button-addon2">Add</button>
                     </div>
                 </div>
             </div>
             <div class="col-md-2 mb-4">
-                <div class="toast align-items-center" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
+                <div class="toast align-items-center TagToast1" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
                     <div class="d-flex">
                         <div class="toast-body p-2" style="height:38px; float:left;">
                             tag
@@ -160,7 +160,7 @@
                 </div>
             </div>
             <div class="col-md-2 mb-4">
-                <div class="toast align-items-center" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
+                <div class="toast align-items-center TagToast2" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
                     <div class="d-flex">
                         <div class="toast-body p-2" style="height:38px; float:left;">
                             tagname
@@ -172,7 +172,7 @@
                 </div>
             </div>
             <div class="col-md-2 mb-4">
-                <div class="toast align-items-center" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
+                <div class="toast align-items-center TagToast3" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
                     <div class="d-flex">
                         <div class="toast-body p-2" style="height:38px; float:left;">
                             anothertag
@@ -184,7 +184,7 @@
                 </div>
             </div>
             <div class="col-md-2 mb-4">
-                <div class="toast align-items-center" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
+                <div class="toast align-items-center TagToast4" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
                     <div class="d-flex">
                         <div class="toast-body p-2" style="height:38px; float:left;">
                             newtag
@@ -196,7 +196,7 @@
                 </div>
             </div>
             <div class="col-md-2 mb-4">
-                <div class="toast align-items-center" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
+                <div class="toast align-items-center TagToast5" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
                     <div class="d-flex">
                         <div class="toast-body p-2" style="height:38px; float:left;">
                             mytag
@@ -220,17 +220,46 @@
     </form>
 </div>
 
-<div class="toast" auto-hide="false">
-    <div class="toast-header">
-        Hi
-    </div>
-    <div class="toast-body">
-        Bye
-    </div>
-</div>
-
 <script>
-    $(document).ready(function () {
-        $(".toast").toast("show");
-    })
+    //$(document).ready(function () {
+    //    $(".toast").toast("show");
+    //})
+
+    function AddTag()
+    {
+        $(".TagToast1").toast("show");
+        $(".TagToast2").toast("show");
+        $(".TagToast3").toast("show");
+        $(".TagToast4").toast("show");
+        $(".TagToast5").toast("show");
+
+
+
+        //else if (!($(".TagToast2").toast("show")) && select == 1) {
+
+        //    $(".TagToast2").toast("show");
+        //    select = 0;
+
+        //}
+        //else if (!($(".TagToast3").toast("show")) && !select) {
+
+        //    $(".TagToast3").toast("show");
+        //    select = true;
+
+        //}
+        //else if (!($(".TagToast4").toast("show")) && !select) {
+
+        //    $(".TagToast4").toast("show");
+        //    select = true;
+
+        //}
+        //else if (!($(".TagToast5").toast("show")) && !select) {
+
+        //    $(".TagToast5").toast("show");
+        //    select = true;
+
+        //}
+
+    }
+
 </script>

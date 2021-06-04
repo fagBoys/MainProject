@@ -931,30 +931,41 @@ namespace CrestCouriers_Career.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddArticle(Article article, string tagname, IFormFile upimage)
+        public async Task<IActionResult> AddArticle(AddArticleViewModel NewArticle)
         {
             CrestContext Context = new CrestContext();
 
-            ArticleTag articleTag = new ArticleTag();
-            Tag tag = new Tag();
+            Article article = new Article();
+
+            Tag tag;
+
+            ArticleTag articleTag;
+
 
             article.Date = DateTime.Now;
+
+            article.Title = NewArticle.Title;
+            article.ShortBody = NewArticle.ShortBody;
+            article.Body = NewArticle.Body;
             Context.Article.Add(article);
+            Context.SaveChanges();
 
-            tag.Name = tagname;
-            Context.Tag.Add(tag);
+            foreach(var item in NewArticle.Tags)
+            {
+                tag = new Tag { Name = item };
+                Context.Tag.Add(tag);
+                Context.SaveChanges();
 
-            articleTag.TagId = tag.TagId;
-            articleTag.ArticleId = article.ArticleId;
-
-            Context.ArticleTag.Add(articleTag);
-
+                articleTag = new ArticleTag { ArticleId = article.ArticleId, TagId = tag.TagId};
+                Context.ArticleTag.Add(articleTag);
+                Context.SaveChanges();
+            }
 
             //  Upload file started
 
             CrestContext context = new CrestContext();
             Image image = new Image();
-            image.ImageName = upimage.FileName;
+            image.ImageName = NewArticle.ArticleImage.FileName;
             image.ArticleId = article.ArticleId;
             context.Image.Add(image);
 
@@ -965,17 +976,17 @@ namespace CrestCouriers_Career.Controllers
             }
 
 
-            if (upimage == null || upimage.Length == 0)
+            if (NewArticle.ArticleImage == null || NewArticle.ArticleImage.Length == 0)
             {
                 await Response.WriteAsync("Error");
 
             }
 
-            var filePath = Path.Combine(uploadsRootFolder, upimage.FileName);
+            var filePath = Path.Combine(uploadsRootFolder, NewArticle.ArticleImage.FileName);
 
             using (var fileStream = new FileStream(filePath, FileMode.Create))
             {
-                await upimage.CopyToAsync(fileStream).ConfigureAwait(false);
+                await NewArticle.ArticleImage.CopyToAsync(fileStream).ConfigureAwait(false);
             }
 
             //Upload file ended
@@ -1007,7 +1018,7 @@ namespace CrestCouriers_Career.Controllers
         public IActionResult EditArticle(int id, Article article)
         {
             ////EF core start
-            article.ArticleId= id;
+            article.ArticleId = id;
             CrestContext context = new CrestContext();
             Article article1= new Article();
 
