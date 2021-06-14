@@ -582,8 +582,8 @@ namespace CrestCouriers_Career.Controllers
         [Route("Blog")]
         public IActionResult Blog()
         {
-            CrestContext context = new CrestContext();
-            IEnumerable<Article> articles = context.Article.ToList();
+            //CrestContext context = new CrestContext();
+            //IEnumerable<Article> articles = context.Article.ToList();
 
             return View();
         }

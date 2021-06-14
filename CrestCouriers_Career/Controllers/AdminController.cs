@@ -933,7 +933,7 @@ namespace CrestCouriers_Career.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddArticle(AddArticleViewModel NewArticle)
         {
-            CrestContext Context = new CrestContext();
+            CrestContext ArticleContext = new CrestContext();
 
             Article article = new Article();
 
@@ -943,13 +943,14 @@ namespace CrestCouriers_Career.Controllers
 
 
             article.Date = DateTime.Now;
-
+            article.AuthorAccount = NewArticle.AuthorName;
             article.Title = NewArticle.Title;
             article.ShortBody = NewArticle.ShortBody;
             article.Body = NewArticle.Body;
-            Context.Article.Add(article);
-            Context.SaveChanges();
+            ArticleContext.Article.Add(article);
+            ArticleContext.SaveChanges();
 
+/*
             foreach(var item in NewArticle.Tags)
             {
                 tag = new Tag { Name = item };
@@ -960,16 +961,18 @@ namespace CrestCouriers_Career.Controllers
                 Context.ArticleTag.Add(articleTag);
                 Context.SaveChanges();
             }
+*/
+            
+            //  Upload Article image started
+            #region AticleImage
+            
+            CrestContext ArticleImageContext = new CrestContext();
+            Image articleImage = new Image();
+            articleImage.ImageName = NewArticle.ArticleImage.FileName;
+            articleImage.ArticleId = article.ArticleId;
+            ArticleImageContext.Image.Add(articleImage);
 
-            //  Upload file started
-
-            CrestContext context = new CrestContext();
-            Image image = new Image();
-            image.ImageName = NewArticle.ArticleImage.FileName;
-            image.ArticleId = article.ArticleId;
-            context.Image.Add(image);
-
-            var uploadsRootFolder = Path.Combine(_environment.WebRootPath, "uploads");
+            var uploadsRootFolder = Path.Combine(_environment.WebRootPath, "img/article");
             if (!Directory.Exists(uploadsRootFolder))
             {
                 Directory.CreateDirectory(uploadsRootFolder);
@@ -979,7 +982,6 @@ namespace CrestCouriers_Career.Controllers
             if (NewArticle.ArticleImage == null || NewArticle.ArticleImage.Length == 0)
             {
                 await Response.WriteAsync("Error");
-
             }
 
             var filePath = Path.Combine(uploadsRootFolder, NewArticle.ArticleImage.FileName);
@@ -989,9 +991,48 @@ namespace CrestCouriers_Career.Controllers
                 await NewArticle.ArticleImage.CopyToAsync(fileStream).ConfigureAwait(false);
             }
 
-            //Upload file ended
+            ArticleImageContext.SaveChanges();
 
-            Context.SaveChanges();
+            #endregion
+            //  Upload Article image ended
+
+            //  Upload Slides started
+            #region Slides
+            
+            foreach(var slide in NewArticle.Slides)
+            {
+                CrestContext SlideContext = new CrestContext();
+                Image newSlide = new Image();
+                newSlide.ImageName = NewArticle.ArticleImage.FileName;
+                newSlide.ArticleId = article.ArticleId;
+                SlideContext.Image.Add(newSlide);
+
+                var SlidesRootFolder = Path.Combine(_environment.WebRootPath, "img/details");
+                if (!Directory.Exists(SlidesRootFolder))
+                {
+                    Directory.CreateDirectory(SlidesRootFolder);
+                }
+
+                if (slide == null || slide.Length == 0)
+                {
+                    await Response.WriteAsync("Error");
+
+                }
+
+                var slidepath = Path.Combine(SlidesRootFolder, slide.FileName);
+
+                using (var fileStream = new FileStream(slidepath, FileMode.Create))
+                {
+                    await slide.CopyToAsync(fileStream).ConfigureAwait(false);
+                }
+
+                SlideContext.SaveChanges();
+            }
+
+            #endregion
+            //  Upload Slides ended
+
+
             return View();
         }
         [HttpPost]

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Amir\\developer\\github\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj": {}
+    "C:\\Users\\MJ\\Documents\\GitHub\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj": {}
   },
   "projects": {
-    "F:\\Amir\\developer\\github\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj": {
+    "C:\\Users\\MJ\\Documents\\GitHub\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Amir\\developer\\github\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\MJ\\Documents\\GitHub\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
         "projectName": "WebApiSample.DataAccess",
-        "projectPath": "F:\\Amir\\developer\\github\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
-        "packagesPath": "C:\\Users\\AM\\.nuget\\packages\\",
-        "outputPath": "F:\\Amir\\developer\\github\\CrestCouriers\\WebApiSample.DataAccess\\obj\\",
+        "projectPath": "C:\\Users\\MJ\\Documents\\GitHub\\CrestCouriers\\WebApiSample.DataAccess\\WebApiSample.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\MJ\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MJ\\Documents\\GitHub\\CrestCouriers\\WebApiSample.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\AM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MJ\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -65,7 +65,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

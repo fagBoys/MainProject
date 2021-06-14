@@ -19,7 +19,7 @@ namespace CrestCouriers_Career.ViewModels.Admin
 
         public IFormFile ArticleImage { get; set; }
 
-        public IFormFile[] Slide { get; set; }
+        public IEnumerable<IFormFile> Slides { get; set; }
 
         public string AuthorName { get; set; }
 

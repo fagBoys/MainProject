@@ -1,4 +1,5 @@
-﻿@{
+﻿@model CrestCouriers_Career.ViewModels.Admin.AddArticleViewModel
+@{
 
     Layout = "_SystemAdmin";
 
@@ -48,11 +49,18 @@
 
 
 <div class="NewArticle-form" style="margin:50px;">
-    <form>
+    <form asp-controller="Admin" asp-action="AddArticle" method="post" enctype="multipart/form-data">
         <div class="row mb-4">
             <div class="col-sm-12">
-                <input name="Title" placeholder="Title">
-                <span class="text-danger"></span>
+                <input asp-for="Title" placeholder="Title">
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-sm-12">
+                <input asp-for="AuthorName" placeholder="AuthorName">
+                <span asp-validation-for="AuthorName" class="text-danger"></span>
             </div>
         </div>
 
@@ -61,7 +69,7 @@
                 <div class="card">
                     <div class="row g-0">
                         <div class="col-lg-4">
-                            <div style="background-image: url(../img/blog/post-image-background.jpg); background-position:center; background-size:cover; height: 100%;">
+                            <div style="background-image: url(../img/blog/post-image-background.jpg); background-position:center; background-size:cover; height: 100%;" id="Article-Image-Preview">
                                 <img src="~/img/article/post-image22.jpg" style="width:100%; opacity:0%;" alt="" />
                             </div>
                         </div>
@@ -74,7 +82,8 @@
                                 <br>
                                 <label class="book-now-btn" for="post-file" style="max-width:150px; height:50px; position: absolute; bottom: 20px; right: 20px; margin:0 auto;">
                                     Browse
-                                    <input id="post-file" type="file" style="opacity:0%;" />
+                                    <input asp-for="ArticleImage" class="Article-Image-Input" id="post-file" type="file" style="opacity:0%;" />
+                                    <span asp-validation-for="ArticleImage" class="text-danger"></span>
                                 </label>
 
 
@@ -88,32 +97,38 @@
         <div class="row">
             <div class="col-md-4 mb-4">
                 <label for="article-file1" class="card">
-                    <img class="Article-Image-Dark" src="~/img/blog/slide-images-background.jpg" />
-                    <input id="article-file1" type="file" style="display:none;" />
+                    <img class="Article-Image-Dark" id="Article-Slide1" src="~/img/blog/slide-images-background.jpg" />
+                    <input asp-for="Slides" id="article-file1" type="file" style="display:none;" />
                 </label>
             </div>
             <div class="col-md-4 mb-4">
                 <label for="article-file2" class="card">
-                    <img class="Article-Image-Dark" src="~/img/blog/slide-images-background.jpg" />
-                    <input id="article-file2" type="file" style="display:none;" />
+                    <img class="Article-Image-Dark" id="Article-Slide2" src="~/img/blog/slide-images-background.jpg" />
+                    <input asp-for="Slides" id="article-file2" type="file" style="display:none;" />
                 </label>
             </div>
             <div class="col-md-4 mb-4">
                 <label for="article-file3" class="card">
-                    <img class="Article-Image-Dark" src="~/img/blog/slide-images-background.jpg" />
-                    <input id="article-file3" type="file" style="display:none;" />
+                    <img class="Article-Image-Dark" id="Article-Slide3" src="~/img/blog/slide-images-background.jpg" />
+                    <input asp-for="Slides" id="article-file3" type="file" style="display:none;" />
                 </label>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-sm-12">
+                <input asp-for="ShortBody" placeholder="Short body">
+                <span asp-validation-for="ShortBody" class="text-danger"></span>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-12 mb-4">
 
-                <textarea id="basic-example">
+                <textarea asp-for="Body" id="basic-example">
 
-        
                 </textarea>
-
+                <span asp-validation-for="Body"></span>
 
                 <script>
 
@@ -147,7 +162,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2 mb-4">
+            <div class="col-md-2 mb-4" id="tag1" style="visibility: hidden;">
                 <div class="toast align-items-center TagToast1" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
                     <div class="d-flex">
                         <div class="toast-body p-2" style="height:38px; float:left;">
@@ -211,7 +226,7 @@
 
         <div class="row">
             <div class="col-md-2">
-                <button class="book-now-btn" style="width:100%;">
+                <button type="submit" class="book-now-btn" style="width:100%;">
                     Post
                 </button>
             </div>
@@ -225,41 +240,78 @@
     //    $(".toast").toast("show");
     //})
 
-    function AddTag()
-    {
-        $(".TagToast1").toast("show");
-        $(".TagToast2").toast("show");
-        $(".TagToast3").toast("show");
-        $(".TagToast4").toast("show");
-        $(".TagToast5").toast("show");
 
 
 
-        //else if (!($(".TagToast2").toast("show")) && select == 1) {
+    //$("#tag1").css("visibility", "visible");
+    //$(".TagToast1").toast("show");
 
-        //    $(".TagToast2").toast("show");
-        //    select = 0;
 
-        //}
-        //else if (!($(".TagToast3").toast("show")) && !select) {
 
-        //    $(".TagToast3").toast("show");
-        //    select = true;
 
-        //}
-        //else if (!($(".TagToast4").toast("show")) && !select) {
 
-        //    $(".TagToast4").toast("show");
-        //    select = true;
 
-        //}
-        //else if (!($(".TagToast5").toast("show")) && !select) {
 
-        //    $(".TagToast5").toast("show");
-        //    select = true;
+    $('.Article-Image-Input').change(function () {
 
-        //}
+        var file = this.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            $('#Article-Image-Preview').css('background-image', 'url("' + reader.result + '")');
+        }
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+        }
 
-    }
+    });
+
+    $('#article-file1').change(function () {
+
+        var slide1 = this.files[0];
+        var reader1 = new FileReader();
+        reader1.onloadend = function () {
+            $('#Article-Slide1').attr('src', reader1.result);
+        }
+        if (slide1) {
+            reader1.readAsDataURL(slide1);
+        }
+        else {
+
+        }
+
+    });
+
+    $('#article-file2').change(function () {
+
+        var slide2 = this.files[0];
+        var reader2 = new FileReader();
+        reader2.onloadend = function () {
+            $('#Article-Slide2').attr('src', reader2.result);
+        }
+        if (slide2) {
+            reader2.readAsDataURL(slide2);
+        }
+        else {
+
+        }
+
+    });
+
+    $('#article-file3').change(function () {
+
+        var slide3 = this.files[0];
+        var reader3 = new FileReader();
+        reader3.onloadend = function () {
+            $('#Article-Slide3').attr('src', reader3.result);
+        }
+        if (slide3) {
+            reader3.readAsDataURL(slide3);
+        }
+        else {
+
+        }
+
+    });
 
 </script>
