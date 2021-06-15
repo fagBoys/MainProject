@@ -590,8 +590,12 @@ namespace CrestCouriers_Career.Controllers
 
         [HttpGet]
         [Route("Details")]
-        public IActionResult Details(string ArticleId)
+        public IActionResult Details(int ArticleId)
         {
+            CrestContext context = new CrestContext();
+            Article article = new Article();
+            article = context.Article.Where(B => B.ArticleId == ArticleId).SingleOrDefault();
+
             ViewData["ArticleId"] = ArticleId.ToString();
             return View((object)ArticleId);
         }
