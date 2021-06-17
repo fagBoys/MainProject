@@ -19,6 +19,8 @@ using MimeKit.Utils;
 using Newtonsoft.Json;
 using CrestCouriers_Career.Data;
 using AspNetCore.SEOHelper.Sitemap;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace CrestCouriers_Career.Controllers
 {
@@ -590,14 +592,15 @@ namespace CrestCouriers_Career.Controllers
 
         [HttpGet]
         [Route("Details")]
-        public IActionResult Details(int ArticleId)
+        public IActionResult Details(/*int ArticleId*/ string ArticleId)
         {
-            CrestContext context = new CrestContext();
-            Article article = new Article();
-            article = context.Article.Where(B => B.ArticleId == ArticleId).SingleOrDefault();
+
+            //CrestContext context = new CrestContext();
+            //var article = context.Article.Include(A => A.Comments).Include(A => A.Images).Where(B => B.ArticleId == ArticleId).SingleOrDefault();
 
             ViewData["ArticleId"] = ArticleId.ToString();
             return View((object)ArticleId);
+
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -51,6 +51,14 @@ namespace CrestCouriers_Career.Data
             builder.Entity<Location>()
             .HasMany<Address>(O => O.Addresses)
             .WithOne(P => P.Location);
+
+            builder.Entity<Article>()
+            .HasMany<Image>(A => A.Images)
+            .WithOne(I => I.Article);
+
+            builder.Entity<Article>()
+            .HasMany<Comment>(A => A.Comments)
+            .WithOne(C => C.Article);
         }
     }
 }

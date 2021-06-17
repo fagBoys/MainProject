@@ -156,80 +156,82 @@
         <div class="row">
             <div class="col-md-2 mb-4">
                 <div class="input-group">
-                    <input type="text" class="form-control" style="border-radius:0px;" placeholder="Tag name" aria-label="Tag" />
+                    <input type="text" id="taginput" class="form-control" style="border-radius:0px;" placeholder="Tag name" aria-label="Tag" />
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" style="border-radius: 0px;" type="button" id="button-addon2">Add</button>
+                        <button class="btn btn-outline-secondary" onclick="AddTag();" style="border-radius: 0px;" type="button" id="button-addon2">Add</button>
                     </div>
                 </div>
             </div>
+            @{ViewData["tag1"] = "false";}
             <div class="col-md-2 mb-4" id="tag1">
                 <div class="toast align-items-center TagToast1" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
                     <div class="d-flex">
-                        <div class="toast-body p-2" style="height:38px; float:left;">
+                        <div id="tag1text" class="toast-body p-2" style="height:38px; float:left;">
                             tag
                         </div>
-                        <button type="button" class="p-2 close" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
+                        <button type="button" class="p-2 close" onclick="CloseTag1();" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
                 </div>
             </div>
-            <script>
-                $.toast({
-                    heading: 'Information',
-                    text: 'Now you can add icons to generate different kinds of toasts',
-                    showHideTransition: 'slide',
-                    icon: 'info'
-                });
-            </script>
+            <label id="tagcontrol1" name="taglabel1" class="disabled" style="display:none"></label>
+            @{ViewData["tag2"] = "false";}
             <div class="col-md-2 mb-4">
                 <div class="toast align-items-center TagToast2" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
                     <div class="d-flex">
-                        <div class="toast-body p-2" style="height:38px; float:left;">
+                        <div id="tag2text" class="toast-body p-2" style="height:38px; float:left;">
                             tagname
                         </div>
-                        <button type="button" class="p-2 close" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
+                        <button type="button" class="p-2 close" onclick="CloseTag2();" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
                 </div>
             </div>
+            <label id="tagcontrol2" name="taglabel2" class="disabled" style="display:none"></label>
+            @{ViewData["tag3"] = "false";}
             <div class="col-md-2 mb-4">
                 <div class="toast align-items-center TagToast3" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
                     <div class="d-flex">
-                        <div class="toast-body p-2" style="height:38px; float:left;">
+                        <div id="tag3text" class="toast-body p-2" style="height:38px; float:left;">
                             anothertag
                         </div>
-                        <button type="button" class="p-2 close" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
+                        <button type="button" class="p-2 close" onclick="CloseTag3();" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
                 </div>
             </div>
+            <label id="tagcontrol3" name="taglabel3" class="disabled" style="display:none"></label>
+            @{ViewData["tag4"] = "false";}
             <div class="col-md-2 mb-4">
                 <div class="toast align-items-center TagToast4" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
                     <div class="d-flex">
-                        <div class="toast-body p-2" style="height:38px; float:left;">
+                        <div id="tag4text" class="toast-body p-2" style="height:38px; float:left;">
                             newtag
                         </div>
-                        <button type="button" class="p-2 close" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
+                        <button type="button" class="p-2 close" onclick="CloseTag4();" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
                 </div>
             </div>
+            <label id="tagcontrol4" name="taglabel4" class="disabled" style="display:none"></label>
+            @{ViewData["tag5"] = "false";}
             <div class="col-md-2 mb-4">
                 <div class="toast align-items-center TagToast5" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
                     <div class="d-flex">
-                        <div class="toast-body p-2" style="height:38px; float:left;">
+                        <div id="tag5text" class="toast-body p-2" style="height:38px; float:left;">
                             mytag
                         </div>
-                        <button type="button" class="p-2 close" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
+                        <button type="button" class="p-2 close" onclick="CloseTag5();" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
                 </div>
             </div>
+            <label id="tagcontrol5" name="taglabel5" class="disabled" style="display:none"></label>
         </div>
 
         <div class="row">
@@ -250,15 +252,101 @@
     var Pnumber = 1;
     var count = ".TagToast1";
 
-    $("#button-addon2").click(function () {
+    //$("#button-addon2").click(function () {
 
-        count = ChangePriority();
+    //    count = ChangePriority();
+
+    //    //$("#tag1").css("visibility", "visible");
+    //    $(count).toast("show");
+
+    //});
+
+    
+
+    function AddTag() {
+        //count = ChangePriority();
+        @*var t1 = JSON.parse('@Html.Raw(Json.Serialize(ViewData["tag1"]))');*@
+
+            if ($("#tagcontrol1").text() !== "true")
+            {
+                var x = $("#taginput").val();
+                $("#tag1text").text(x)
+                $(".TagToast1").toast("show");
+                $("#tagcontrol1").text("true");
+            }
+            else if ($("#tagcontrol2").text() !== "true")
+            {
+                var x = $("#taginput").val();
+                $("#tag2text").text(x)
+                $(".TagToast2").toast("show");
+                $("#tagcontrol2").text("true");
+            }
+            else if ($("#tagcontrol3").text() !== "true") {
+                var x = $("#taginput").val();
+                $("#tag3text").text(x)
+                $(".TagToast3").toast("show");
+                $("#tagcontrol3").text("true");
+            }
+            else if ($("#tagcontrol4").text() !== "true") {
+                var x = $("#taginput").val();
+                $("#tag4text").text(x)
+                $(".TagToast4").toast("show");
+                $("#tagcontrol4").text("true");
+            }
+            else if ($("#tagcontrol5").text() !== "true") {
+                var x = $("#taginput").val();
+                $("#tag5text").text(x)
+                $(".TagToast5").toast("show");
+                $("#tagcontrol5").text("true");
+            }
 
         //$("#tag1").css("visibility", "visible");
-        $(count).toast("show");
+    }
 
+    function CloseTag1() {
 
-    }) ;
+        if ($("#tagcontrol1").text() === "true") {
+            $(".TagToast1").toast("hide");
+            $("#tagcontrol1").text("false");
+        }
+
+    }
+
+    function CloseTag2() {
+
+        if ($("#tagcontrol2").text() === "true") {
+            $(".TagToast2").toast("hide");
+            $("#tagcontrol2").text("false");
+        }
+
+    }
+
+    function CloseTag3() {
+
+        if ($("#tagcontrol3").text() === "true") {
+            $(".TagToast3").toast("hide");
+            $("#tagcontrol3").text("false");
+        }
+
+    }
+
+    function CloseTag4() {
+
+        if ($("#tagcontrol4").text() === "true") {
+            $(".TagToast4").toast("hide");
+            $("#tagcontrol4").text("false");
+        }
+
+    }
+
+    function CloseTag5() {
+
+        if ($("#tagcontrol5").text() === "true") {
+            $(".TagToast5").toast("hide");
+            $("#tagcontrol5").text("false");
+        }
+
+    }
 
 
     function ChangePriority() {
