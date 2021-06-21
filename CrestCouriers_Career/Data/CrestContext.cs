@@ -59,6 +59,14 @@ namespace CrestCouriers_Career.Data
             builder.Entity<Article>()
             .HasMany<Comment>(A => A.Comments)
             .WithOne(C => C.Article);
+
+            builder.Entity<Article>()
+            .HasMany<ArticleTag>(A => A.ArticleTags)
+            .WithOne(AT => AT.Article);
+
+            builder.Entity<Tag>()
+            .HasMany<ArticleTag>(A => A.ArticleTags)
+            .WithOne(AT => AT.Tags);
         }
     }
 }

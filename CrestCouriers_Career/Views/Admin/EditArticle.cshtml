@@ -1,0 +1,492 @@
+﻿@model CrestCouriers_Career.ViewModels.Admin.AddArticleViewModel
+
+@{
+    ViewData["Title"] = "EditArticle";
+    Layout = "_SystemAdmin";
+}
+@section AdminMenu{
+    <ul class="menu-ul">
+        <a asp-controller="Admin" asp-action="Dashboard" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Dashboard</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="Order" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Order</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="AdminSetting" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Admin setting</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="AdminAccounts" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Admin accounts</h5></li>
+            </div>
+        </a>
+        <a asp-controller="User" asp-action="UserAccounts" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>User accounts</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="Articles" class="menu-option-link">
+            <div class="panel-option-active">
+                <li><h5>Articles</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="Logout" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Logout</h5></li>
+            </div>
+        </a>
+    </ul>
+}
+
+
+
+<script src="https://cdn.tiny.cloud/1/way20vlhgqz69tcnufmr5ox5lvdbrmfrrdv53l38zko5ecvj/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+
+<div class="NewArticle-form" style="margin:50px;">
+    <form asp-controller="Admin" asp-action="EditArticle" method="post" enctype="multipart/form-data">
+        <div class="row mb-4">
+            <div class="col-sm-12">
+                <input asp-for="Title" placeholder="Title" value="@Model.Article.Title">
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-sm-12">
+                <input asp-for="AuthorName" placeholder="AuthorName" value="@Model.Article.AuthorAccount">
+                <span asp-validation-for="AuthorName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                <div class="card">
+                    <div class="row g-0">
+                        <div class="col-lg-4">
+                            <div style="background-image: url(../img/blog/@*@Model.Article.Images.Where(I => I.Primary == true).Select(I => I.ImageName).FirstOrDefault()*@); background-position:center; background-size:cover; height: 100%;" id="Article-Image-Preview">
+                                <img src="~/img/article/post-image22.jpg" style="width:100%; opacity:0%;" alt="" />
+                            </div>
+                        </div>
+                        <div class="col-lg-8" style="">
+                            <div class="card-body" style="position: relative;">
+                                <h3 class="card-title" style="text-align:left;">Browse the post image</h3>
+                                <p class="card-text" style="text-align:left; font-size:20px;">Post image should be smaller than 500 KB and 1000 × 667 PX dimension</p>
+
+                                <p class="card-text" style="text-align:left; margin-bottom:100px; margin-top:50px;"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <br>
+                                <label class="book-now-btn" for="post-file" style="max-width:150px; height:50px; position: absolute; bottom: 20px; right: 20px; margin:0 auto;">
+                                    Browse
+                                    <input asp-for="ArticleImage" class="Article-Image-Input" id="post-file" type="file" style="opacity:0%;" />
+                                    <span asp-validation-for="ArticleImage" class="text-danger"></span>
+                                </label>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <label for="article-file1" class="card">
+                    <img class="Article-Image-Dark" id="Article-Slide1" src="~/img/blog/@*@Model.Article.Images.Where(I => I.Primary == true).Select(I => I.ImageName).FirstOrDefault()*@" />
+                    <input asp-for="Slides" id="article-file1" type="file" style="display:none;" />
+                </label>
+            </div>
+            <div class="col-md-4 mb-4">
+                <label for="article-file2" class="card">
+                    <img class="Article-Image-Dark" id="Article-Slide2" src="~/img/blog/slide-images-background.jpg" />
+                    <input asp-for="Slides" id="article-file2" type="file" style="display:none;" />
+                </label>
+            </div>
+            <div class="col-md-4 mb-4">
+                <label for="article-file3" class="card">
+                    <img class="Article-Image-Dark" id="Article-Slide3" src="~/img/blog/slide-images-background.jpg" />
+                    <input asp-for="Slides" id="article-file3" type="file" style="display:none;" />
+                </label>
+            </div>
+        </div>
+
+
+
+        <div class="row mb-4">
+            <div class="col-sm-12">
+                <input asp-for="ShortBody" placeholder="Short body" value="@Model.Article.ShortBody">
+                <span asp-validation-for="ShortBody" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mb-4">
+
+                <textarea id="basic-example">
+
+                    @Model.Article.Body
+
+                </textarea>
+                <span asp-validation-for="Body"></span>
+
+                <script>
+
+                    tinymce.init({
+                        selector: 'textarea#basic-example',
+                        height: 500,
+                        menubar: false,
+                        plugins: [
+                            'advlist autolink lists link image charmap print preview anchor',
+                            'searchreplace visualblocks code fullscreen',
+                            'insertdatetime media table paste code help wordcount'
+                        ],
+                        toolbar: 'undo redo | ' +
+                            'bold italic backcolor forecolor | alignleft aligncenter ' +
+                            'alignright alignjustify | bullist numlist outdent indent | ' +
+                            'removeformat | help',
+                        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                    });
+
+                </script>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2 mb-4">
+                <div class="input-group">
+                    <input type="text" id="taginput" class="form-control" style="border-radius:0px;" placeholder="Tag name" aria-label="Tag" />
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" onclick="AddTag();" style="border-radius: 0px;" type="button" id="button-addon2">Add</button>
+                    </div>
+                </div>
+            </div>
+            @{ViewData["tag1"] = "false";}
+            <div class="col-md-2 mb-4" id="tag1">
+                <div class="toast align-items-center TagToast1" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div id="tag1text" class="toast-body p-2" style="height:38px; float:left;">
+                            tag
+                        </div>
+                        <button type="button" class="p-2 close" onclick="CloseTag1();" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <input asp-for="Tags" type="text" id="tagcontrol1" hidden />
+            @{ViewData["tag2"] = "false";}
+            <div class="col-md-2 mb-4">
+                <div class="toast align-items-center TagToast2" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div id="tag2text" class="toast-body p-2" style="height:38px; float:left;">
+                            tagname
+                        </div>
+                        <button type="button" class="p-2 close" onclick="CloseTag2();" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <input asp-for="Tags" type="text" id="tagcontrol2" hidden />
+            @{ViewData["tag3"] = "false";}
+            <div class="col-md-2 mb-4">
+                <div class="toast align-items-center TagToast3" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div id="tag3text" class="toast-body p-2" style="height:38px; float:left;">
+                            anothertag
+                        </div>
+                        <button type="button" class="p-2 close" onclick="CloseTag3();" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <input asp-for="Tags" type="text" id="tagcontrol3" hidden />
+            @{ViewData["tag4"] = "false";}
+            <div class="col-md-2 mb-4">
+                <div class="toast align-items-center TagToast4" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div id="tag4text" class="toast-body p-2" style="height:38px; float:left;">
+                            newtag
+                        </div>
+                        <button type="button" class="p-2 close" onclick="CloseTag4();" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <input asp-for="Tags" type="text" id="tagcontrol4" hidden />
+            @{ViewData["tag5"] = "false";}
+            <div class="col-md-2 mb-4">
+                <div class="toast align-items-center TagToast5" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div id="tag5text" class="toast-body p-2" style="height:38px; float:left;">
+                            mytag
+                        </div>
+                        <button type="button" class="p-2 close" onclick="CloseTag5();" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <input asp-for="Tags" type="text" id="tagcontrol5" hidden />
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <button type="submit" class="book-now-btn" style="width:100%;">
+                    Post
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<script>
+    const tagsarray;
+    @foreach (var item in Model.Article.ArticleTags)
+    {
+        
+        <text>
+        var x = @item.Tags.Name;
+        if ($("#tagcontrol1").val() === "") {
+            $("#tag1text").text(x)
+            $(".TagToast1").toast("show");
+            $("#tagcontrol1").val(x);
+        }
+        else if ($("#tagcontrol2").val() === "") {
+            $("#tag2text").text(x)
+            $(".TagToast2").toast("show");
+            $("#tagcontrol2").val(x);
+        }
+        else if ($("#tagcontrol3").val() === "") {
+            $("#tag3text").text(x)
+            $(".TagToast3").toast("show");
+            $("#tagcontrol3").val(x);
+        }
+        else if ($("#tagcontrol4").val() === "") {
+            $("#tag4text").text(x)
+            $(".TagToast4").toast("show");
+            $("#tagcontrol4").val(x);
+        }
+        else if ($("#tagcontrol5").val() === "") {
+            $("#tag5text").text(x)
+            $(".TagToast5").toast("show");
+            $("#tagcontrol5").val(x);
+        }
+        </text>
+    }
+
+
+    function AddTag() {
+        //count = ChangePriority();
+        @*var t1 = JSON.parse('@Html.Raw(Json.Serialize(ViewData["tag1"]))');*@
+
+            if ($("#tagcontrol1").val() === "")
+            {
+                var x = $("#taginput").val();
+                $("#tag1text").text(x)
+                $(".TagToast1").toast("show");
+                $("#tagcontrol1").val(x);
+            }
+            else if ($("#tagcontrol2").val() === "")
+            {
+                var x = $("#taginput").val();
+                $("#tag2text").text(x)
+                $(".TagToast2").toast("show");
+                $("#tagcontrol2").val(x);
+            }
+            else if ($("#tagcontrol3").val() === "") {
+                var x = $("#taginput").val();
+                $("#tag3text").text(x)
+                $(".TagToast3").toast("show");
+                $("#tagcontrol3").val(x);
+            }
+            else if ($("#tagcontrol4").val() === "") {
+                var x = $("#taginput").val();
+                $("#tag4text").text(x)
+                $(".TagToast4").toast("show");
+                $("#tagcontrol4").val(x);
+            }
+            else if ($("#tagcontrol5").val() === "") {
+                var x = $("#taginput").val();
+                $("#tag5text").text(x)
+                $(".TagToast5").toast("show");
+                $("#tagcontrol5").val(x);
+            }
+
+    }
+
+    function CloseTag1() {
+
+        if ($("#tagcontrol1").val() !== "") {
+            $(".TagToast1").toast("hide");
+            $("#tagcontrol1").val("");
+        }
+
+    }
+
+    function CloseTag2() {
+
+        if ($("#tagcontrol2").val() !== "") {
+            $(".TagToast2").toast("hide");
+            $("#tagcontrol2").val("");
+        }
+
+    }
+
+    function CloseTag3() {
+
+        if ($("#tagcontrol3").val() !== "") {
+            $(".TagToast3").toast("hide");
+            $("#tagcontrol3").val("");
+        }
+
+    }
+
+    function CloseTag4() {
+
+        if ($("#tagcontrol4").val() !== "") {
+            $(".TagToast4").toast("hide");
+            $("#tagcontrol4").val("");
+        }
+
+    }
+
+    function CloseTag5() {
+
+        if ($("#tagcontrol5").val() !== "") {
+            $(".TagToast5").toast("hide");
+            $("#tagcontrol5").val("");
+        }
+
+    }
+
+
+
+    $('.Article-Image-Input').change(function () {
+
+        var file = this.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            $('#Article-Image-Preview').css('background-image', 'url("' + reader.result + '")');
+        }
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+        }
+
+    });
+
+    $('#article-file1').change(function () {
+
+        var slide1 = this.files[0];
+        var reader1 = new FileReader();
+        reader1.onloadend = function () {
+            $('#Article-Slide1').attr('src', reader1.result);
+        }
+        if (slide1) {
+            reader1.readAsDataURL(slide1);
+        }
+        else {
+
+        }
+
+    });
+
+    $('#article-file2').change(function () {
+
+        var slide2 = this.files[0];
+        var reader2 = new FileReader();
+        reader2.onloadend = function () {
+            $('#Article-Slide2').attr('src', reader2.result);
+        }
+        if (slide2) {
+            reader2.readAsDataURL(slide2);
+        }
+        else {
+
+        }
+
+    });
+
+    $('#article-file3').change(function () {
+
+        var slide3 = this.files[0];
+        var reader3 = new FileReader();
+        reader3.onloadend = function () {
+            $('#Article-Slide3').attr('src', reader3.result);
+        }
+        if (slide3) {
+            reader3.readAsDataURL(slide3);
+        }
+        else {
+
+        }
+
+    });
+
+</script>
+
+
+
+@*<div>
+        <h4>Article</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.AuthorAccount)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AuthorAccount)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Body)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Body)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ShortBody)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ShortBody)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Active)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Active)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CloseComment)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CloseComment)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.ArticleId">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>*@

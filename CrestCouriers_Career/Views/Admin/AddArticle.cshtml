@@ -115,6 +115,8 @@
             </div>
         </div>
 
+
+
         <div class="row mb-4">
             <div class="col-sm-12">
                 <input asp-for="ShortBody" placeholder="Short body">
@@ -175,7 +177,7 @@
                     </div>
                 </div>
             </div>
-            <label id="tagcontrol1" name="taglabel1" class="disabled" style="display:none"></label>
+            <input asp-for="Tags" type="text" id="tagcontrol1" hidden />
             @{ViewData["tag2"] = "false";}
             <div class="col-md-2 mb-4">
                 <div class="toast align-items-center TagToast2" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
@@ -189,7 +191,7 @@
                     </div>
                 </div>
             </div>
-            <label id="tagcontrol2" name="taglabel2" class="disabled" style="display:none"></label>
+            <input asp-for="Tags" type="text" id="tagcontrol2" hidden />
             @{ViewData["tag3"] = "false";}
             <div class="col-md-2 mb-4">
                 <div class="toast align-items-center TagToast3" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
@@ -203,7 +205,7 @@
                     </div>
                 </div>
             </div>
-            <label id="tagcontrol3" name="taglabel3" class="disabled" style="display:none"></label>
+            <input asp-for="Tags" type="text" id="tagcontrol3" hidden />
             @{ViewData["tag4"] = "false";}
             <div class="col-md-2 mb-4">
                 <div class="toast align-items-center TagToast4" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
@@ -217,7 +219,7 @@
                     </div>
                 </div>
             </div>
-            <label id="tagcontrol4" name="taglabel4" class="disabled" style="display:none"></label>
+            <input asp-for="Tags" type="text" id="tagcontrol4" hidden />
             @{ViewData["tag5"] = "false";}
             <div class="col-md-2 mb-4">
                 <div class="toast align-items-center TagToast5" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
@@ -231,7 +233,7 @@
                     </div>
                 </div>
             </div>
-            <label id="tagcontrol5" name="taglabel5" class="disabled" style="display:none"></label>
+            <input asp-for="Tags" type="text" id="tagcontrol5" hidden />
         </div>
 
         <div class="row">
@@ -246,20 +248,7 @@
 </div>
 
 <script>
-    //$(document).ready(function () {
-    //    $(".toast").toast("show");
-    //})
-    var Pnumber = 1;
-    var count = ".TagToast1";
 
-    //$("#button-addon2").click(function () {
-
-    //    count = ChangePriority();
-
-    //    //$("#tag1").css("visibility", "visible");
-    //    $(count).toast("show");
-
-    //});
 
     
 
@@ -267,123 +256,85 @@
         //count = ChangePriority();
         @*var t1 = JSON.parse('@Html.Raw(Json.Serialize(ViewData["tag1"]))');*@
 
-            if ($("#tagcontrol1").text() !== "true")
+            if ($("#tagcontrol1").val() === "")
             {
                 var x = $("#taginput").val();
                 $("#tag1text").text(x)
                 $(".TagToast1").toast("show");
-                $("#tagcontrol1").text("true");
+                $("#tagcontrol1").val(x);
             }
-            else if ($("#tagcontrol2").text() !== "true")
+            else if ($("#tagcontrol2").val() === "")
             {
                 var x = $("#taginput").val();
                 $("#tag2text").text(x)
                 $(".TagToast2").toast("show");
-                $("#tagcontrol2").text("true");
+                $("#tagcontrol2").val(x);
             }
-            else if ($("#tagcontrol3").text() !== "true") {
+            else if ($("#tagcontrol3").val() === "") {
                 var x = $("#taginput").val();
                 $("#tag3text").text(x)
                 $(".TagToast3").toast("show");
-                $("#tagcontrol3").text("true");
+                $("#tagcontrol3").val(x);
             }
-            else if ($("#tagcontrol4").text() !== "true") {
+            else if ($("#tagcontrol4").val() === "") {
                 var x = $("#taginput").val();
                 $("#tag4text").text(x)
                 $(".TagToast4").toast("show");
-                $("#tagcontrol4").text("true");
+                $("#tagcontrol4").val(x);
             }
-            else if ($("#tagcontrol5").text() !== "true") {
+            else if ($("#tagcontrol5").val() === "") {
                 var x = $("#taginput").val();
                 $("#tag5text").text(x)
                 $(".TagToast5").toast("show");
-                $("#tagcontrol5").text("true");
+                $("#tagcontrol5").val(x);
             }
 
-        //$("#tag1").css("visibility", "visible");
     }
 
     function CloseTag1() {
 
-        if ($("#tagcontrol1").text() === "true") {
+        if ($("#tagcontrol1").val() !== "") {
             $(".TagToast1").toast("hide");
-            $("#tagcontrol1").text("false");
+            $("#tagcontrol1").val("");
         }
 
     }
 
     function CloseTag2() {
 
-        if ($("#tagcontrol2").text() === "true") {
+        if ($("#tagcontrol2").val() !== "") {
             $(".TagToast2").toast("hide");
-            $("#tagcontrol2").text("false");
+            $("#tagcontrol2").val("");
         }
 
     }
 
     function CloseTag3() {
 
-        if ($("#tagcontrol3").text() === "true") {
+        if ($("#tagcontrol3").val() !== "") {
             $(".TagToast3").toast("hide");
-            $("#tagcontrol3").text("false");
+            $("#tagcontrol3").val("");
         }
 
     }
 
     function CloseTag4() {
 
-        if ($("#tagcontrol4").text() === "true") {
+        if ($("#tagcontrol4").val() !== "") {
             $(".TagToast4").toast("hide");
-            $("#tagcontrol4").text("false");
+            $("#tagcontrol4").val("");
         }
 
     }
 
     function CloseTag5() {
 
-        if ($("#tagcontrol5").text() === "true") {
+        if ($("#tagcontrol5").val() !== "") {
             $(".TagToast5").toast("hide");
-            $("#tagcontrol5").text("false");
+            $("#tagcontrol5").val("");
         }
 
     }
-
-
-    function ChangePriority() {
-
-        if (Pnumber === 1) {
-            Pnumber++;
-            return ".TagToast1";
-        }
-
-        if (Pnumber === 2) {
-            Pnumber++;
-            return ".TagToast2";
-        }
-
-        if (Pnumber === 3) {
-            Pnumber++;
-            return ".TagToast3";
-        }
-
-        if (Pnumber === 4) {
-            Pnumber++;
-            return ".TagToast4";
-        }
-
-        if (Pnumber === 5) {
-            Pnumber++;
-            return ".TagToast5";
-        }
-
-        //if ($(".TagToast2").is(":visible")) {
-        //    return ".TagToast3";
-        //}
-
-    }
-
-
-
 
 
 

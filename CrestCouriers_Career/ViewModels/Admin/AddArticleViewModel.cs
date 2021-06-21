@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CrestCouriers_Career.Models;
 
 namespace CrestCouriers_Career.ViewModels.Admin
 {
@@ -15,13 +16,15 @@ namespace CrestCouriers_Career.ViewModels.Admin
 
         public string Body { get; set; }
 
-        public string[] Tags { get; set; }
+        public IEnumerable<string> Tags { get; set; }
 
         public IFormFile ArticleImage { get; set; }
 
         public IEnumerable<IFormFile> Slides { get; set; }
 
         public string AuthorName { get; set; }
+
+        public Article Article { get; set; }
 
     }
 }

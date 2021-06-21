@@ -915,11 +915,11 @@ namespace CrestCouriers_Career.Controllers
         {
             //EF core start
 
-            //CrestContext context = new CrestContext();
-            //IEnumerable<Article> articles = context.Article.ToList();
+            CrestContext context = new CrestContext();
+            IEnumerable<Article> articles = context.Article.Include(A => A.Images).ToList();
 
             //EF core end
-            return View();
+            return View(articles);
         }
 
         [HttpGet]
@@ -965,11 +965,12 @@ namespace CrestCouriers_Career.Controllers
             
             //  Upload Article image started
             #region AticleImage
-            
+
             CrestContext ArticleImageContext = new CrestContext();
             Image articleImage = new Image();
             articleImage.ImageName = NewArticle.ArticleImage.FileName;
             articleImage.ArticleId = article.ArticleId;
+            articleImage.Primary = true;
             ArticleImageContext.Image.Add(articleImage);
 
             var uploadsRootFolder = Path.Combine(_environment.WebRootPath, "img/article");
@@ -1005,6 +1006,7 @@ namespace CrestCouriers_Career.Controllers
                 Image newSlide = new Image();
                 newSlide.ImageName = NewArticle.ArticleImage.FileName;
                 newSlide.ArticleId = article.ArticleId;
+                newSlide.Primary = false;
                 SlideContext.Image.Add(newSlide);
 
                 var SlidesRootFolder = Path.Combine(_environment.WebRootPath, "img/details");
@@ -1032,8 +1034,36 @@ namespace CrestCouriers_Career.Controllers
             #endregion
             //  Upload Slides ended
 
+            // Tags strated
+            #region Tags
+            CrestContext GetTag = new CrestContext();
+            CrestContext TagInsertion = new CrestContext();
+            foreach(var newtag in NewArticle.Tags)
+            {
+                if(newtag != null)
+                {
+                    var CheckTag = GetTag.Tag.FirstOrDefault(T => T.Name == newtag);
+                    Tag InsertionObj = new Tag();
+                    if(CheckTag == null)
+                    {
+                        InsertionObj.Name = newtag;
+                        TagInsertion.Tag.Add(InsertionObj);
+                        TagInsertion.SaveChanges();
+                        TagInsertion.ArticleTag.Add(new ArticleTag { ArticleId = article.ArticleId, TagId = InsertionObj.TagId});
+                        TagInsertion.SaveChanges();
+                    }
+                    else
+                    {
+                        TagInsertion.ArticleTag.Add(new ArticleTag { ArticleId = article.ArticleId, TagId = CheckTag.TagId });
+                        TagInsertion.SaveChanges();
+                    }
+                }
+            }
 
-            return View();
+            #endregion
+            // Tags ended
+
+            return RedirectToAction("AddArticle");
         }
         [HttpPost]
         public IActionResult DeleteArticle(int id)
@@ -1050,16 +1080,19 @@ namespace CrestCouriers_Career.Controllers
         }
 
         [HttpGet]
-        public IActionResult Article(int id)
+        public IActionResult EditArticle(int id)
         {
-            return View();
+            CrestContext GetArticle = new CrestContext();
+            AddArticleViewModel AVM = new AddArticleViewModel();
+            var TargetArticle = GetArticle.Article.Include(A => A.ArticleTags).Where(A => A.ArticleId == id).FirstOrDefault();
+            AVM.Article = TargetArticle;
+            return View(AVM);
         }
 
         [HttpPost]
-        public IActionResult EditArticle(int id, Article article)
+        public IActionResult EditArticlePost(Article article)
         {
             ////EF core start
-            article.ArticleId = id;
             CrestContext context = new CrestContext();
             Article article1= new Article();
 

@@ -218,6 +218,9 @@ namespace CrestCouriers_Career.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<bool>("Primary")
+                        .HasColumnType("bit");
+
                     b.HasKey("ImageId");
 
                     b.HasIndex("ArticleId");
