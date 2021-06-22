@@ -1084,8 +1084,10 @@ namespace CrestCouriers_Career.Controllers
         {
             CrestContext GetArticle = new CrestContext();
             AddArticleViewModel AVM = new AddArticleViewModel();
-            var TargetArticle = GetArticle.Article.Include(A => A.ArticleTags).Where(A => A.ArticleId == id).FirstOrDefault();
+            var TargetArticle = GetArticle.Article.Include(A => A.ArticleTags).ThenInclude(A => A.Tags).Include(A => A.Images).Where(A => A.ArticleId == id).FirstOrDefault();
+            var SlideImages = GetArticle.Image.Where(A => A.ArticleId == id).Where(A => A.Primary == false).ToList();
             AVM.Article = TargetArticle;
+            AVM.SlideImages = SlideImages;
             return View(AVM);
         }
 

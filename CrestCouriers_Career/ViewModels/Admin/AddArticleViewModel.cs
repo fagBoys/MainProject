@@ -26,5 +26,7 @@ namespace CrestCouriers_Career.ViewModels.Admin
 
         public Article Article { get; set; }
 
+        public IEnumerable<Image> SlideImages { get; set; }
+
     }
 }
