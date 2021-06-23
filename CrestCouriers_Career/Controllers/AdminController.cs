@@ -1092,17 +1092,71 @@ namespace CrestCouriers_Career.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditArticlePost(Article article)
+        public IActionResult EditArticlePost(AddArticleViewModel article , int id)
         {
             ////EF core start
-            CrestContext context = new CrestContext();
-            Article article1= new Article();
+ 
+            CrestContext GetArticle = new CrestContext();
+            AddArticleViewModel AVM = new AddArticleViewModel();
+            
 
-            article1 = context.Article.FirstOrDefault(O => O.ArticleId == article.ArticleId);
+            var article1 = GetArticle.Article.FirstOrDefault(O => O.ArticleId == id);
+            var articletag = GetArticle.ArticleTag.Include(a=> a.Tags).FirstOrDefault(O => O.ArticleId == id);
+            var ati = GetArticle.ArticleTag.Where(A => A.ArticleId == id).Include(A => A.Tags).ToList();
             article1.Body = article.Body;
             article1.Title = article.Title;
-            context.Article.Update(article1);
-            context.SaveChanges();
+            article1.AuthorAccount = article.AuthorName;
+            article1.ShortBody = article.ShortBody;
+
+            foreach(var arta in ati)
+            {
+                bool exist = false;
+                foreach (var inputtag in article.Tags)
+                {
+
+                    if (inputtag == arta.Tags.Name)
+                    {
+                        exist = true;
+
+                    }
+                    if (inputtag != articletag.Tags.Name)
+                    {
+                        ArticleTag at = new ArticleTag();
+
+                        Tag tag = new Tag();
+                        var tags = GetArticle.Tag.Where(A => A.Name == inputtag).FirstOrDefaultAsync();
+                        if (tags == null)
+                        {
+                            tag.Name = inputtag;
+                            GetArticle.Tag.Add(tag);
+                            GetArticle.SaveChanges();
+                            at.TagId = tag.TagId;
+                            at.ArticleId = article1.ArticleId;
+                            GetArticle.ArticleTag.Add(at);
+                            GetArticle.SaveChanges();
+
+                        }
+                        else
+                        {
+                            at.TagId = tag.TagId;
+                            at.ArticleId = article1.ArticleId;
+                            GetArticle.ArticleTag.Add(at);
+                            GetArticle.SaveChanges();
+                        }
+
+                    }
+
+
+                }
+                if (exist == false)
+                { 
+                GetArticle.ArticleTag.Remove(arta);
+                GetArticle.SaveChanges();
+                }
+            }
+
+            GetArticle.Image.Update(Image);
+            GetArticle.SaveChanges();
             ////EF core end
             return new RedirectResult("Admin/Articles");
         }
