@@ -1004,7 +1004,7 @@ namespace CrestCouriers_Career.Controllers
             {
                 CrestContext SlideContext = new CrestContext();
                 Image newSlide = new Image();
-                newSlide.ImageName = NewArticle.ArticleImage.FileName;
+                newSlide.ImageName = slide.FileName;
                 newSlide.ArticleId = article.ArticleId;
                 newSlide.Primary = false;
                 SlideContext.Image.Add(newSlide);
