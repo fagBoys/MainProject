@@ -185,7 +185,7 @@ namespace CrestCouriers_Career.Controllers
 
             //EF CORE START
 
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(!ModelState.IsValid ? orderviewmodel : new OrderViewModel());
             }
@@ -501,7 +501,7 @@ namespace CrestCouriers_Career.Controllers
         [HttpPost]
         public async Task<IActionResult> AdminAccountActive(string AdminId)
         {
-            
+
             //EF core start
 
             Account Account = await _userManager.FindByIdAsync(AdminId);
@@ -689,7 +689,7 @@ namespace CrestCouriers_Career.Controllers
             return View();
 
         }
-        
+
 
         [HttpGet]
         [AllowAnonymous]
@@ -867,9 +867,9 @@ namespace CrestCouriers_Career.Controllers
             }
             else if (NewBill.File.Length != null)
             {
-            string filename = Path.GetFileNameWithoutExtension(NewBill.File.FileName);
-            CreateBill.FileName = filename;
-               
+                string filename = Path.GetFileNameWithoutExtension(NewBill.File.FileName);
+                CreateBill.FileName = filename;
+
                 using (var ms = new MemoryStream())
                 {
                     NewBill.File.CopyTo(ms);
@@ -890,8 +890,8 @@ namespace CrestCouriers_Career.Controllers
             Bill mybill = new Bill();
             mybill = context.Bill.Where(B => B.BillID == id).SingleOrDefault();
 
-            if(mybill.Confirmation == "NotConfirmed")
-            { 
+            if (mybill.Confirmation == "NotConfirmed")
+            {
                 mybill.Confirmation = "Confirmed";
                 context.Update(mybill);
                 context.SaveChanges();
@@ -911,15 +911,18 @@ namespace CrestCouriers_Career.Controllers
         }
 
         [HttpGet]
-        public IActionResult Articles()
+        public async Task<IActionResult> Articles(int? pageNumber)
         {
             //EF core start
 
             CrestContext context = new CrestContext();
-            IEnumerable<Article> articles = context.Article.Include(A => A.Images).ToList();
+            IEnumerable<Article> articles = context.Article.Include(A => A.Images).OrderByDescending(A => A.ArticleId);
+
+            PaginatedList<Article> ArticleList = await PaginatedList<Article>.CreateAsunc((IQueryable<Article>)articles, pageNumber ?? 1, 4);
+
 
             //EF core end
-            return View(articles);
+            return View(ArticleList);
         }
 
         [HttpGet]
@@ -933,138 +936,137 @@ namespace CrestCouriers_Career.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddArticle(AddArticleViewModel NewArticle)
         {
-            CrestContext ArticleContext = new CrestContext();
-
-            Article article = new Article();
-
-            Tag tag;
-
-            ArticleTag articleTag;
-
-
-            article.Date = DateTime.Now;
-            article.AuthorAccount = NewArticle.AuthorName;
-            article.Title = NewArticle.Title;
-            article.ShortBody = NewArticle.ShortBody;
-            article.Body = NewArticle.Body;
-            ArticleContext.Article.Add(article);
-            ArticleContext.SaveChanges();
-
-/*
-            foreach(var item in NewArticle.Tags)
+            if (ModelState.IsValid)
             {
-                tag = new Tag { Name = item };
-                Context.Tag.Add(tag);
-                Context.SaveChanges();
+                CrestContext ArticleContext = new CrestContext();
 
-                articleTag = new ArticleTag { ArticleId = article.ArticleId, TagId = tag.TagId};
-                Context.ArticleTag.Add(articleTag);
-                Context.SaveChanges();
-            }
-*/
-            
-            //  Upload Article image started
-            #region AticleImage
+                Article article = new Article();
 
-            CrestContext ArticleImageContext = new CrestContext();
-            Image articleImage = new Image();
-            articleImage.ImageName = NewArticle.ArticleImage.FileName;
-            articleImage.ArticleId = article.ArticleId;
-            articleImage.Primary = true;
-            ArticleImageContext.Image.Add(articleImage);
+                Tag tag;
 
-            var uploadsRootFolder = Path.Combine(_environment.WebRootPath, "img/article");
-            if (!Directory.Exists(uploadsRootFolder))
-            {
-                Directory.CreateDirectory(uploadsRootFolder);
-            }
+                ArticleTag articleTag;
 
 
-            if (NewArticle.ArticleImage == null || NewArticle.ArticleImage.Length == 0)
-            {
-                await Response.WriteAsync("Error");
-            }
+                article.Date = DateTime.Now;
+                article.AuthorAccount = NewArticle.AuthorName;
+                article.Title = NewArticle.Title;
+                article.ShortBody = NewArticle.ShortBody;
+                article.Body = NewArticle.Body;
+                ArticleContext.Article.Add(article);
+                ArticleContext.SaveChanges();
 
-            var filePath = Path.Combine(uploadsRootFolder, NewArticle.ArticleImage.FileName);
+                //  Upload Article image started
+                #region AticleImage
 
-            using (var fileStream = new FileStream(filePath, FileMode.Create))
-            {
-                await NewArticle.ArticleImage.CopyToAsync(fileStream).ConfigureAwait(false);
-            }
+                CrestContext ArticleImageContext = new CrestContext();
+                Image articleImage = new Image();
+                articleImage.ImageName = NewArticle.ArticleImage.FileName;
+                articleImage.ArticleId = article.ArticleId;
+                articleImage.Primary = true;
+                ArticleImageContext.Image.Add(articleImage);
 
-            ArticleImageContext.SaveChanges();
-
-            #endregion
-            //  Upload Article image ended
-
-            //  Upload Slides started
-            #region Slides
-            
-            foreach(var slide in NewArticle.Slides)
-            {
-                CrestContext SlideContext = new CrestContext();
-                Image newSlide = new Image();
-                newSlide.ImageName = slide.FileName;
-                newSlide.ArticleId = article.ArticleId;
-                newSlide.Primary = false;
-                SlideContext.Image.Add(newSlide);
-
-                var SlidesRootFolder = Path.Combine(_environment.WebRootPath, "img/details");
-                if (!Directory.Exists(SlidesRootFolder))
+                var uploadsRootFolder = Path.Combine(_environment.WebRootPath, "img/article");
+                if (!Directory.Exists(uploadsRootFolder))
                 {
-                    Directory.CreateDirectory(SlidesRootFolder);
+                    Directory.CreateDirectory(uploadsRootFolder);
                 }
 
-                if (slide == null || slide.Length == 0)
+
+                if (NewArticle.ArticleImage == null || NewArticle.ArticleImage.Length == 0)
                 {
                     await Response.WriteAsync("Error");
-
                 }
 
-                var slidepath = Path.Combine(SlidesRootFolder, slide.FileName);
+                var filePath = Path.Combine(uploadsRootFolder, NewArticle.ArticleImage.FileName);
 
-                using (var fileStream = new FileStream(slidepath, FileMode.Create))
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
-                    await slide.CopyToAsync(fileStream).ConfigureAwait(false);
+                    await NewArticle.ArticleImage.CopyToAsync(fileStream).ConfigureAwait(false);
                 }
 
-                SlideContext.SaveChanges();
+                ArticleImageContext.SaveChanges();
+
+                #endregion
+                //  Upload Article image ended
+
+                //  Upload Slides started
+                #region Slides
+
+                foreach (var slide in NewArticle.Slides)
+                {
+                    CrestContext SlideContext = new CrestContext();
+                    Image newSlide = new Image();
+                    newSlide.ImageName = slide.FileName;
+                    newSlide.ArticleId = article.ArticleId;
+                    newSlide.Primary = false;
+                    SlideContext.Image.Add(newSlide);
+
+                    var SlidesRootFolder = Path.Combine(_environment.WebRootPath, "img/detail");
+                    if (!Directory.Exists(SlidesRootFolder))
+                    {
+                        Directory.CreateDirectory(SlidesRootFolder);
+                    }
+
+                    if (slide == null || slide.Length == 0)
+                    {
+                        await Response.WriteAsync("Error");
+
+                    }
+
+                    var slidepath = Path.Combine(SlidesRootFolder, slide.FileName);
+
+                    using (var fileStream = new FileStream(slidepath, FileMode.Create))
+                    {
+                        await slide.CopyToAsync(fileStream).ConfigureAwait(false);
+                    }
+
+                    SlideContext.SaveChanges();
+                }
+
+                #endregion
+                //  Upload Slides ended
+
+                // Tags strated
+                #region Tags
+                CrestContext GetTag = new CrestContext();
+                CrestContext TagInsertion = new CrestContext();
+                foreach (var newtag in NewArticle.Tags)
+                {
+                    if (newtag != null)
+                    {
+                        var CheckTag = GetTag.Tag.FirstOrDefault(T => T.Name == newtag);
+                        Tag InsertionObj = new Tag();
+                        if (CheckTag == null)
+                        {
+                            InsertionObj.Name = newtag;
+                            TagInsertion.Tag.Add(InsertionObj);
+                            TagInsertion.SaveChanges();
+                            TagInsertion.ArticleTag.Add(new ArticleTag { ArticleId = article.ArticleId, TagId = InsertionObj.TagId });
+                            TagInsertion.SaveChanges();
+                        }
+                        else
+                        {
+                            TagInsertion.ArticleTag.Add(new ArticleTag { ArticleId = article.ArticleId, TagId = CheckTag.TagId });
+                            TagInsertion.SaveChanges();
+                        }
+                    }
+                }
+
+                #endregion
+                // Tags ended
+
+                return RedirectToAction("AddArticle");
             }
-
-            #endregion
-            //  Upload Slides ended
-
-            // Tags strated
-            #region Tags
-            CrestContext GetTag = new CrestContext();
-            CrestContext TagInsertion = new CrestContext();
-            foreach(var newtag in NewArticle.Tags)
+            else if (!ModelState.IsValid)
             {
-                if(newtag != null)
-                {
-                    var CheckTag = GetTag.Tag.FirstOrDefault(T => T.Name == newtag);
-                    Tag InsertionObj = new Tag();
-                    if(CheckTag == null)
-                    {
-                        InsertionObj.Name = newtag;
-                        TagInsertion.Tag.Add(InsertionObj);
-                        TagInsertion.SaveChanges();
-                        TagInsertion.ArticleTag.Add(new ArticleTag { ArticleId = article.ArticleId, TagId = InsertionObj.TagId});
-                        TagInsertion.SaveChanges();
-                    }
-                    else
-                    {
-                        TagInsertion.ArticleTag.Add(new ArticleTag { ArticleId = article.ArticleId, TagId = CheckTag.TagId });
-                        TagInsertion.SaveChanges();
-                    }
-                }
+                return View(NewArticle);
             }
-
-            #endregion
-            // Tags ended
-
-            return RedirectToAction("AddArticle");
+            else
+            {
+                return View();
+            }
         }
+
         [HttpPost]
         public IActionResult DeleteArticle(int id)
         {
@@ -1076,89 +1078,168 @@ namespace CrestCouriers_Career.Controllers
             context.SaveChangesAsync();
             //EF core end
 
-            return View();
-        }
-
-        [HttpGet]
-        public IActionResult EditArticle(int id)
-        {
-            CrestContext GetArticle = new CrestContext();
-            AddArticleViewModel AVM = new AddArticleViewModel();
-            var TargetArticle = GetArticle.Article.Include(A => A.ArticleTags).ThenInclude(A => A.Tags).Include(A => A.Images).Where(A => A.ArticleId == id).FirstOrDefault();
-            var SlideImages = GetArticle.Image.Where(A => A.ArticleId == id).Where(A => A.Primary == false).ToList();
-            AVM.Article = TargetArticle;
-            AVM.SlideImages = SlideImages;
-            return View(AVM);
+            return RedirectToAction("Articles");
         }
 
         [HttpPost]
-        public IActionResult EditArticlePost(AddArticleViewModel article , int id)
+        public IActionResult EditArticle(int id)
+        {
+            CrestContext GetArticle = new CrestContext();
+            EditArticleViewModel EVM = new EditArticleViewModel();
+            var TargetArticle = GetArticle.Article.Include(A => A.ArticleTags).ThenInclude(A => A.Tags).Include(A => A.Images).Where(A => A.ArticleId == id).FirstOrDefault();
+            var SlideImages = GetArticle.Image.Where(A => A.ArticleId == id).Where(A => A.Primary == false).ToList();
+            EVM.ForEditArticle = TargetArticle;
+            EVM.ForEditSlideImages = SlideImages;
+            return View(EVM);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditArticlePost(EditArticleViewModel EditedArticle)
         {
             ////EF core start
- 
+
             CrestContext GetArticle = new CrestContext();
             AddArticleViewModel AVM = new AddArticleViewModel();
-            
 
-            var article1 = GetArticle.Article.FirstOrDefault(O => O.ArticleId == id);
-            var articletag = GetArticle.ArticleTag.Include(a=> a.Tags).FirstOrDefault(O => O.ArticleId == id);
-            var ati = GetArticle.ArticleTag.Where(A => A.ArticleId == id).Include(A => A.Tags).ToList();
-            article1.Body = article.Body;
-            article1.Title = article.Title;
-            article1.AuthorAccount = article.AuthorName;
-            article1.ShortBody = article.ShortBody;
 
-            foreach(var arta in ati)
+            var TargetArticle = GetArticle.Article.FirstOrDefault(O => O.ArticleId == EditedArticle.ForEditArticle.ArticleId);       //Find the article
+            var articletag = GetArticle.ArticleTag.Include(a => a.Tags).FirstOrDefault(O => O.ArticleId == EditedArticle.ForEditArticle.ArticleId);      //Find the first ArticleTag for the target Article
+            var articleTags = GetArticle.ArticleTag.Where(A => A.ArticleId == EditedArticle.ForEditArticle.ArticleId).Include(A => A.Tags).ToList();    //Get list of ArticleTags for the target Article
+            var ArticleSlides = GetArticle.Image.Where(I => I.ArticleId == EditedArticle.ForEditArticle.ArticleId).Where(I => I.Primary == false).ToList();     //Get list of Images for the target Article
+            var ArticleImage = GetArticle.Image.Where(I => I.ArticleId == EditedArticle.ForEditArticle.ArticleId).Where(I => I.Primary == true).FirstOrDefault();
+            //article1.Body = article.Body;
+            TargetArticle.Title = EditedArticle.ForEditArticle.Title;      //Replace edited title to target
+            TargetArticle.AuthorAccount = EditedArticle.ForEditArticle.AuthorAccount;     //Replace edited author to target
+            TargetArticle.ShortBody = EditedArticle.ForEditArticle.ShortBody;      //Replace edited shortbody to target
+
+            #region EditArticleImage
+
+            if (EditedArticle.ArticleImage != null)
             {
-                bool exist = false;
-                foreach (var inputtag in article.Tags)
+                var uploadsRootFolder = Path.Combine(_environment.WebRootPath, "img/article");
+
+                string path = Path.Combine(uploadsRootFolder, ArticleImage.ImageName);
+                if (System.IO.File.Exists(path))
+                {
+                    System.IO.File.Delete(path);
+                }
+
+                GetArticle.Image.Remove(ArticleImage);
+                GetArticle.SaveChanges();
+
+
+                CrestContext ArticleImageContext = new CrestContext();
+                Image articleImage = new Image();
+                articleImage.ImageName = EditedArticle.ArticleImage.FileName;
+                articleImage.ArticleId = EditedArticle.ForEditArticle.ArticleId;
+                articleImage.Primary = true;
+                ArticleImageContext.Image.Add(articleImage);
+
+                if (!Directory.Exists(uploadsRootFolder))
+                {
+                    Directory.CreateDirectory(uploadsRootFolder);
+                }
+
+
+                if (EditedArticle.ArticleImage == null || EditedArticle.ArticleImage.Length == 0)
+                {
+                    await Response.WriteAsync("Error");
+                }
+
+                var filePath = Path.Combine(uploadsRootFolder, EditedArticle.ArticleImage.FileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await EditedArticle.ArticleImage.CopyToAsync(fileStream).ConfigureAwait(false);
+                }
+
+                ArticleImageContext.SaveChanges();
+            }
+
+            #endregion
+
+            #region EditImages
+
+            if (EditedArticle.EditedSlides != null)
+            {
+
+
+                foreach (var slides in ArticleSlides)    //Break the connection of old slides
+                {
+                    var uploadsRootFolder = Path.Combine(_environment.WebRootPath, "img/detail");
+
+                    string path = Path.Combine(uploadsRootFolder, slides.ImageName);
+                    if (System.IO.File.Exists(path))
+                    {
+                        System.IO.File.Delete(path);
+                    }
+
+                    GetArticle.Remove(slides);
+                    GetArticle.SaveChangesAsync();
+
+                }
+
+                foreach (var editedSlides in EditedArticle.EditedSlides)   //Save new slide images
                 {
 
-                    if (inputtag == arta.Tags.Name)
+                    Image newImage = new Image();
+                    newImage.ImageName = editedSlides.FileName;
+                    newImage.Primary = false;
+                    newImage.ArticleId = EditedArticle.ForEditArticle.ArticleId;
+                    GetArticle.Image.Add(newImage);
+
+                    var SlidesRootFolder = Path.Combine(_environment.WebRootPath, "img/detail");
+                    if (!Directory.Exists(SlidesRootFolder))
+                    {
+                        Directory.CreateDirectory(SlidesRootFolder);
+                    }
+
+                    if (editedSlides == null || editedSlides.Length == 0)
+                    {
+                        await Response.WriteAsync("Wrong image!");
+
+                    }
+
+                    var slidepath = Path.Combine(SlidesRootFolder, editedSlides.FileName);
+
+                    using (var fileStream = new FileStream(slidepath, FileMode.Create))
+                    {
+                        await editedSlides.CopyToAsync(fileStream).ConfigureAwait(false);
+                    }
+
+                    GetArticle.SaveChangesAsync();
+
+                }
+
+            }
+
+            #endregion
+
+            #region EditTags
+            foreach (var AT in articleTags)
+            {
+                bool exist = false;
+                foreach (var inputtag in EditedArticle.Tags)
+                {
+
+                    if (inputtag == AT.Tags.Name)
                     {
                         exist = true;
-
                     }
-                    if (inputtag != articletag.Tags.Name)
-                    {
-                        ArticleTag at = new ArticleTag();
-
-                        Tag tag = new Tag();
-                        var tags = GetArticle.Tag.Where(A => A.Name == inputtag).FirstOrDefaultAsync();
-                        if (tags == null)
-                        {
-                            tag.Name = inputtag;
-                            GetArticle.Tag.Add(tag);
-                            GetArticle.SaveChanges();
-                            at.TagId = tag.TagId;
-                            at.ArticleId = article1.ArticleId;
-                            GetArticle.ArticleTag.Add(at);
-                            GetArticle.SaveChanges();
-
-                        }
-                        else
-                        {
-                            at.TagId = tag.TagId;
-                            at.ArticleId = article1.ArticleId;
-                            GetArticle.ArticleTag.Add(at);
-                            GetArticle.SaveChanges();
-                        }
-
-                    }
-
 
                 }
                 if (exist == false)
-                { 
-                GetArticle.ArticleTag.Remove(arta);
-                GetArticle.SaveChanges();
+                {
+                    GetArticle.ArticleTag.Remove(AT);
+                    GetArticle.SaveChangesAsync();
                 }
             }
+            #endregion
 
-            GetArticle.Image.Update(Image);
-            GetArticle.SaveChanges();
+            //GetArticle.Image.Update(Image);
+            //GetArticle.SaveChanges();
             ////EF core end
-            return new RedirectResult("Admin/Articles");
+            return new RedirectResult("Articles");
         }
     }
 }

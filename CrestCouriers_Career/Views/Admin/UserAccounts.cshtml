@@ -27,9 +27,14 @@
                 <li><h5>Admin accounts</h5></li>
             </div>
         </a>
-        <a asp-controller="User" asp-action="UserAccounts" class="menu-option-link">
-            <div class="panel-option-active">
+        <a asp-controller="Admin" asp-action="UserAccounts" class="menu-option-link">
+            <div class="panel-option">
                 <li><h5>User accounts</h5></li>
+            </div>
+        </a>
+        <a asp-controller="Admin" asp-action="Articles" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Articles</h5></li>
             </div>
         </a>
         <a asp-controller="Admin" asp-action="Logout" class="menu-option-link">
@@ -84,43 +89,43 @@
 {
 
 
-<div class="list-order">
+    <div class="list-order">
 
-    <div class="user-list-title-item">
-        <p>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </p>
-    </div>
+        <div class="user-list-title-item">
+            <p>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </p>
+        </div>
 
-    <div class="user-list-title-item">
-        <p>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </p>
-    </div>
+        <div class="user-list-title-item">
+            <p>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </p>
+        </div>
 
-    <div class="user-list-title-item">
-        <p>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </p>
-    </div>
+        <div class="user-list-title-item">
+            <p>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </p>
+        </div>
 
-    <div class="user-list-title-item">
-        <p>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
-        </p>
-    </div>
+        <div class="user-list-title-item">
+            <p>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </p>
+        </div>
 
-    <div class="user-list-title-item">
-        <p>
-            @Html.DisplayFor(modelItem => item.Email)
-        </p>
-    </div>
+        <div class="user-list-title-item">
+            <p>
+                @Html.DisplayFor(modelItem => item.Email)
+            </p>
+        </div>
 
-    <div class="user-list-title-item">
-        <p>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </p>
-    </div>
+        <div class="user-list-title-item">
+            <p>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </p>
+        </div>
 
 
         @*data-toggle="modal" data-target=".confirmbox-delete"*@
@@ -140,7 +145,7 @@
             </button>
         </div>
 
-</div>
+    </div>
 
 
 }
@@ -328,7 +333,7 @@
                                 <div class="col-sm-6">
                                     <div class="input-submit">
 
-                                        <input name="UserId" id="UserId" hidden/>
+                                        <input name="UserId" id="UserId" hidden />
                                         <button type="submit" class="book-now-btn" style="color:white; padding-top:14px; float:right;" name="button" asp-controller="Admin" asp-action="UserAccountActive" asp-route-UserId="UserId"><h5>Change</h5></button>
 
                                     </div>

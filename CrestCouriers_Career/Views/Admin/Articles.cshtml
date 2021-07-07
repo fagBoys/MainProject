@@ -1,7 +1,7 @@
-﻿@model IEnumerable<Article>
+﻿@model PaginatedList<Article>
 @{
 
-    Layout = "_SystemAdmin";
+    Layout = "~/Views/Shared/_SystemAdmin.cshtml";
 
 }
 
@@ -27,7 +27,7 @@
                 <li><h5>Admin accounts</h5></li>
             </div>
         </a>
-        <a asp-controller="User" asp-action="UserAccounts" class="menu-option-link">
+        <a asp-controller="Admin" asp-action="UserAccounts" class="menu-option-link">
             <div class="panel-option">
                 <li><h5>User accounts</h5></li>
             </div>
@@ -47,80 +47,202 @@
 
 <div style="margin: 50px;">
 
-    @foreach (var article in Model) 
+    @foreach (var article in Model)
     {
-    <div class="card mb-3">
-        <div class="row g-0">
+        <div class="card mb-3">
+            <div class="row g-0">
 
-            <div class="col-lg-4">
-                <div style="background-image: url(../img/article/@article.Images.Where(I => I.Primary == true).Select(I => I.ImageName).FirstOrDefault()); background-position:center; background-size:cover; height: 100%;">
-                    <img src="~/img/article/post-image22.jpg" style="width:100%; opacity:0%;" alt="" />
+                <div class="col-lg-4">
+                    <div style="background-image: url(../img/article/@article.Images.Where(I => I.Primary == true).Select(I => I.ImageName).FirstOrDefault()); background-position:center; background-size:cover; height: 100%;">
+                        <img src="~/img/article/post-image22.jpg" style="width:100%; opacity:0;" alt="" />
+                    </div>
+                    @*Ghably*@
+                    @*<img src="~/img/car/car-1.jpg" class="card-img-top float-left" alt="..." style="height:auto;width:250px;">*@
                 </div>
-                @*Ghably*@
-                @*<img src="~/img/car/car-1.jpg" class="card-img-top float-left" alt="..." style="height:auto;width:250px;">*@
-            </div>
 
-            <div class="col-lg-8">
-                <div class="card-body d-flex flex-column" style="text-align:left; position:relative; overflow:auto; height:100%">
-                    <h5 class="card-title">@article.Title</h5>
-                    <p class="card-text" style="text-align:justify; line-height: 30px;">@article.ShortBody</p>
+                <div class="col-lg-8">
+                    <div class="card-body d-flex flex-column" style="text-align:left; position:relative; overflow:auto; height:100%">
+                        <h5 class="card-title">@article.Title</h5>
+                        <p class="card-text" style="text-align:justify; line-height: 30px;">@article.ShortBody</p>
 
 
-                    <div class="row mt-auto">
+                        <div class="row mt-auto">
 
-                        <div class="col-lg-3 mt-auto mb-auto">
-                            <small class="text-muted" href="#">By: @article.AuthorAccount</small>
-                        </div>
-                        <div class="col-lg-3 mt-auto mb-auto">
-                            <small class="text-muted">@article.Date.ToShortDateString()</small>
-                        </div>
-                        @*<p style="margin-bottom:30px;bottom: 0px; left: 0px;margin-top:30px;">
-                        </p>*@
-                    <form method="post">
-                        <div class="col-lg-6">
-                            <div style="float:right;">
-                                <button class="book-now-btn" asp-controller="Admin" asp-action="EditArticle" asp-route-id="@article.ArticleId">Edit</button>
-                                <button class="book-now-btn" asp-controller="Admin" asp-action="DeleteArticle" asp-route-id="@article.ArticleId">Delete</button>
+                            <div class="col-lg-3 mt-auto mb-auto">
+                                <small class="text-muted" href="#">By: @article.AuthorAccount</small>
                             </div>
+                            <div class="col-lg-3 mt-auto mb-auto">
+                                <small class="text-muted">@article.Date.ToShortDateString()</small>
+                            </div>
+                            <div class="col-lg-6">
+
+                                <form method="post">
+                                    <div style="float:right;">
+                                        <button class="book-now-btn" asp-controller="Admin" asp-action="EditArticle" asp-route-id="@article.ArticleId">Edit</button>
+                                        <button class="book-now-btn" asp-controller="Admin" asp-action="DeleteArticle" asp-route-id="@article.ArticleId">Delete</button>
+                                    </div>
+                                </form>
+
+                            </div>
+
+
                         </div>
-                    </form>
+
 
                     </div>
 
-
                 </div>
-
             </div>
         </div>
-    </div>
     }
- 
 
-        <div class="row">
-            <div class="col-lg-3">
 
-                <button style="float:left;" class="book-now-btn">Create new</button>
 
-            </div>
-            <div class="col-lg-6">
+    @{
+        var prevDisabled = !Model.HasPreviousPage ? "disabled" : "PagingColor";
+        var nextDisabled = !Model.HasNextPage ? "disabled" : "PagingColor";
+    }
+    <div class="row">
+        <div class="col-lg-3">
+            <form>
+                <button asp-controller="Admin" asp-action="AddArticle" style="float:left;" class="book-now-btn">Create new</button>
+            </form>
+        </div>
+        <div class="col-lg-6">
 
-                <nav aria-label="..." style="position:center;text-align:center;color:red;border-radius:0px !important;">
-                    <ul class="pagination justify-content-center " style="position:center;text-align:center;border-radius:0px !important;">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            <nav aria-label="..." style="position:center;text-align:center;color:red;border-radius:0px !important;">
+                <ul class="pagination justify-content-center " style="position:center;text-align:center;border-radius:0px !important;">
+                    @{
+                        <li class="page-item @prevDisabled">
+                            <a class="page-link @prevDisabled" asp-action="Articles" asp-route-pageNumber="@(Model.PageIndex-1)" tabindex="-1" aria-disabled="true">Previous</a>
                         </li>
-                        <li class="page-item"><a class="page-link" href="#" style="color: red;">1</a></li>
-                        <li class="page-item active" aria-current="page">
-                            <a class="page-link" href="#" style="background-color: red;border-color:red;">2</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#" style="color: red;">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" style="color: red;">Next</a>
-                        </li>
-                    </ul>
-                </nav>
 
-            </div>
+                        string activepage = "";
+                        if (Model.TotalPage < 5)
+                        {
+                            for (var pagecount = 1; pagecount <= Model.TotalPage; pagecount++)
+                            {
+                                activepage = "";
+                                if (pagecount == Model.PageIndex)
+                                {
+                                    activepage = "active";
+                                }
+
+                                <li class="page-item " aria-current="page">
+                                    <a class="page-link PagingColor @activepage" asp-action="ConfirmedBill" asp-route-pageNumber="@pagecount">
+                                        @pagecount
+                                    </a>
+                                </li>
+
+                            }
+                        }
+                        else
+                        {
+                            if (Model.PageIndex == 1)
+                            {
+                                <li class="page-item " aria-current="page">
+                                    <a class="page-link PagingColor active">
+                                        @Model.PageIndex
+                                    </a>
+                                </li>
+                                <li class="page-item " aria-current="page">
+                                    <a class="page-link PagingColor" asp-action="Articles" asp-route-pageNumber="@(Model.PageIndex+1)">
+                                        @(Model.PageIndex + 1)
+                                    </a>
+                                </li>
+                                <li class="page-item " aria-current="page">
+                                    <a class="page-link PagingColor">
+                                        ...
+                                    </a>
+                                </li>
+                                <li class="page-item " aria-current="page">
+                                    <a class="page-link PagingColor" asp-action="Articles" asp-route-pageNumber="@Model.TotalPage">
+                                        @Model.TotalPage
+                                    </a>
+                                </li>
+                            }
+                            else if (Model.PageIndex == Model.TotalPage)
+                            {
+                                <li class="page-item " aria-current="page">
+                                    <a class="page-link PagingColor" asp-action="Articles" asp-route-pageNumber="1">
+                                        1
+                                    </a>
+                                </li>
+                                <li class="page-item " aria-current="page">
+                                    <a class="page-link PagingColor">
+                                        ...
+                                    </a>
+                                </li>
+                                <li class="page-item " aria-current="page">
+                                    <a class="page-link PagingColor" asp-action="Articles" asp-route-pageNumber="@(Model.TotalPage-1)">
+                                        @(Model.TotalPage - 1)
+                                    </a>
+                                </li>
+                                <li class="page-item " aria-current="page">
+                                    <a class="page-link PagingColor active">
+                                        @Model.TotalPage
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="page-item " aria-current="page">
+                                    <a class="page-link PagingColor" asp-action="Articles" asp-route-pageNumber="1">
+                                        1
+                                    </a>
+                                </li>
+
+                                @if (Model.PageIndex - 1 != 1)
+                                {
+                                    <li class="page-item " aria-current="page">
+                                        <a class="page-link PagingColor">
+                                            ...
+                                        </a>
+                                    </li>
+                                    <li class="page-item " aria-current="page">
+                                        <a class="page-link PagingColor" asp-action="Articles" asp-route-pageNumber="@(Model.PageIndex - 1)">
+                                            @(Model.PageIndex - 1)
+                                        </a>
+                                    </li>
+                                }
+                                <li class="page-item " aria-current="page">
+                                    <a class="page-link PagingColor active">
+                                        @(Model.PageIndex)
+                                    </a>
+                                </li>
+                                @if (Model.PageIndex + 1 != Model.TotalPage)
+                                {
+                                    <li class="page-item " aria-current="page">
+                                        <a class="page-link PagingColor" asp-action="Articles" asp-route-pageNumber="@(Model.PageIndex + 1)">
+                                            @(Model.PageIndex + 1)
+                                        </a>
+                                    </li>
+                                    <li class="page-item " aria-current="page">
+                                        <a class="page-link PagingColor">
+                                            ...
+                                        </a>
+                                    </li>
+                                }
+
+                                <li class="page-item " aria-current="page">
+                                    <a class="page-link PagingColor" asp-action="Articles" asp-route-pageNumber="@(Model.TotalPage)">
+                                        @Model.TotalPage
+                                    </a>
+                                </li>
+                            }
+                        }
+
+                        <li class="page-item @nextDisabled">
+                            <a asp-action="Articles" asp-route-pageNumber="@(Model.PageIndex+1)" class="page-link @nextDisabled">Next</a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+
         </div>
 
+
     </div>
+
+</div>
+

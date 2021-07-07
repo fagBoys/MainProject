@@ -1,4 +1,5 @@
-﻿@*
+﻿@model Article
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -38,6 +39,56 @@
             <!-- Car List Content Start -->
             @{
                 string ArticleId = ViewData["ArticleId"].ToString();
+
+                <div class="col-lg-8">
+                    <div class="car-details-content">
+                        <h2>@Model.Title</h2>
+                        <div class="car-preview-crousel">
+                            <div class="single-car-preview">
+                                <img src="~/img/detail/@Model.Images.Where(I => I.Primary == false).Select(I => I.ImageName).FirstOrDefault()" alt="JSOFT">
+                            </div>
+                            <div class="single-car-preview">
+                                <img src="~/img/detail/@Model.Images.Where(I => I.Primary == false).Skip(1).Select(I => I.ImageName).First()" alt="JSOFT">
+                            </div>
+                            <div class="single-car-preview">
+                                <img src="~/img/detail/@Model.Images.Where(I => I.Primary == false).Skip(2).Select(I => I.ImageName).First()" alt="JSOFT">
+                            </div>
+                        </div>
+                        <div class="car-details-info blog-content">
+                            @Html.Raw(Model.Body);
+
+                            <div class="review-area">
+                                <h3>Write Your Comment</h3>
+                                <div class="review-form">
+                                    <form action="index.html">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="name-input">
+                                                    <input type="text" placeholder="Full Name">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="email-input">
+                                                    <input type="email" placeholder="Email Address">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="message-input">
+                                            <textarea name="review" cols="30" rows="5" placeholder="Message"></textarea>
+                                        </div>
+
+                                        <div class="input-submit">
+                                            <button type="submit">Comment</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 if (ArticleId == "zero")
                 {
                     <div class="col-lg-8">
@@ -3157,6 +3208,490 @@
                         </div>
                     </div>
                 }
+                else if (ArticleId == "thirtynine")
+                {
+                    <div class="col-lg-8">
+                        <div class="car-details-content">
+                            <h2>
+                                Brexit: UK Customers Facing Additional Costs When Ordering Goods from the EU
+                            </h2>
+                            <div class="car-preview-crousel">
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article40-image1.jpg" alt="JSOFT">
+                                </div>
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article40-image2.jpg" alt="JSOFT">
+                                </div>
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article40-image3.jpg" alt="JSOFT">
+                                </div>
+                            </div>
+                            <div class="car-details-info blog-content">
+
+                                <p>
+                                    The UK and the EU concluded a last-minute trade deal before Christmas last year. In the trades deal, the two bodies agreed that trade across their borders would continue to be free. The trades deal has helped businesses to mostly go on as before. However, as customers are finding now, some taxes are being exacted now which did not exist earlier.
+                                </p>
+
+                                <p>
+                                    As per the new rules and regulations, when customers in the UK order products online from European-based firms, they have to pay additional money to courier firms. This extra amount can be VAT charges, custom duties, or handling fees. Many customers in the UK are unaware of these additional charges.
+                                </p>
+
+                                <p class="thme-blockquote">
+                                    When customers in the UK buy goods costing more than £39, they have to pay VAT charges, which can be around 20%. For items costing more than £135, further custom charges may also apply if the sender has not paid them. These can range from 0 to 25%.
+                                </p>
+
+                                <p>
+                                    These customs charges and VAT charges are the responsibility of the customers, not the retailers. Further, the customs charges cannot be paid in advance, nor does the customer know how much they will be charged in taxes when they place an order. The costs are levied after the product reaches the UK. Courier firms collect these charges on behalf of the government before the delivery is made. In many cases, the only way a customer can receive a parcel is after paying these costs.
+                                </p>
+
+                                <p>
+                                    But these aren’t the only issues that have resulted from Brexit. Customers are finding that deliveries are typically a week late as they are held up in customs checks. Further, courier services across the UK have started charging customers small fees per delivery. They are meant to cover the costs these couriers are incurring due to increased paperwork and extra customs checks. These “handling fees” are a personal business decision of the independent courier services.
+                                </p>
+
+                                <p>
+                                    The customs and VAT charges and the handling fees aren’t payable only when a customer orders a product, but they also have to be paid when someone in the UK receives a gift from the EU.
+                                </p>
+
+                                <p>
+                                    But the complications don’t end here. If a customer doesn’t like the product they ordered online, they are well within their rights to return it. However, now customers might have to spend money to send it back. Some disputes may likely arise when customers are asked to pay costs that they think are “hidden costs” and that they do not want to pay.
+                                </p>
+
+                                <div class="review-area">
+                                    <h3>Write Your Comment</h3>
+                                    <div class="review-form">
+                                        <form action="index.html">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="name-input">
+                                                        <input type="text" placeholder="Full Name">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="email-input">
+                                                        <input type="email" placeholder="Email Address">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="message-input">
+                                                <textarea name="review" cols="30" rows="5" placeholder="Message"></textarea>
+                                            </div>
+
+                                            <div class="input-submit">
+                                                <button type="submit">Comment</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else if (ArticleId == "fourty")
+                {
+                    <div class="col-lg-8">
+                        <div class="car-details-content">
+                            <h2>
+                                BREXIT: Lorry Traffic Slumps at UK’s Holyhead Port as New Opens Between Ireland and France
+                            </h2>
+                            <div class="car-preview-crousel">
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article41-image1.jpg" alt="JSOFT">
+                                </div>
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article41-image2.jpg" alt="JSOFT">
+                                </div>
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article41-image3.jpg" alt="JSOFT">
+                                </div>
+                            </div>
+                            <div class="car-details-info blog-content">
+
+                                <p>
+                                    The year 2020 saw back and forth talks between the UK and the EU as both tried to arrive at a mutually beneficial trade deal. Finally, they came to an agreement on 24 December 2020. The new deal places no restrictions on the number of things that can be traded between the UK and the EU; neither does it impose any cross-border taxes on goods transported between the two trading entities. However, there are additional paperwork requirements at the border which can create a potential for delays.
+                                </p>
+
+                                <p>
+                                    In 2020, anticipating delays at the border between Europe and the UK and the possibility of a no-deal outcome, a new ferry freight route opened between Ireland and France, connecting Dunkirk and Rosslare. This route was set to operate from 2 January 2021 to provide direct and paperless passage between EU countries.
+                                </p>
+
+                                <p>
+                                    Before the Brexit, the UK provided a land bridge between Ireland and European countries like France, Germany, Belgium, and the Netherlands. Goods from such European countries would move by road to Holyhead port, the second-largest port in the UK. They would then be transported to Ireland by water.
+                                </p>
+
+                                <p>
+                                    However, Holyhead port’s operators report that their lorry traffic has fallen to one-third of the usual capacity. This is because much of the goods transport between Ireland and European countries is now taking place directly through the Dunkirk and Rosslare route. Ships are also running between Rosslare and Cherbourg.
+                                </p>
+
+                                <p class="thme-blockquote">
+                                    The new trade routes are meant to reduce the EU countries’ dependence on the UK land bridge and facilitate trade between the single market of the EU. It is also a means of sidestepping the paperwork regulations required at the UK’s Holyhead port.
+                                </p>
+
+                                <p>
+                                    But these are not the only reasons why the Holyhead port is operating at 30-40% of its capacity. The fact is that hauliers only want convenience and ease in shipping processes. Currently, border checks require drivers to provide a negative coronavirus test when crossing from France to the UK. This, combined with the other paperwork requirements, has significantly brought down the port traffic, especially when compared with the boom around Christmas time.
+                                </p>
+
+                                <p>
+                                    The UK land bridge is a cheaper and quicker option for transporting goods between EU countries and Ireland. It is expected that when people get used to the paperwork formalities at the border and when the coronavirus situation settles down, lorry traffic at the Holyhead port will pick up again.
+                                </p>
+
+                                <div class="review-area">
+                                    <h3>Write Your Comment</h3>
+                                    <div class="review-form">
+                                        <form action="index.html">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="name-input">
+                                                        <input type="text" placeholder="Full Name">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="email-input">
+                                                        <input type="email" placeholder="Email Address">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="message-input">
+                                                <textarea name="review" cols="30" rows="5" placeholder="Message"></textarea>
+                                            </div>
+
+                                            <div class="input-submit">
+                                                <button type="submit">Comment</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else if (ArticleId == "fourtyone")
+                {
+                    <div class="col-lg-8">
+                        <div class="car-details-content">
+                            <h2>
+                                Improving Safety Measures Through Dry Bulk Management Standard (BDMS)
+                            </h2>
+                            <div class="car-preview-crousel">
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article42-image1.jpg" alt="JSOFT">
+                                </div>
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article42-image2.jpg" alt="JSOFT">
+                                </div>
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article42-image3.jpg" alt="JSOFT">
+                                </div>
+                            </div>
+                            <div class="car-details-info blog-content">
+
+                                <p>
+                                    Ship operators and owners across the UK follow the ISM code. ISM stands for International Safety Management, and this code provides safety regulations and pollution prevention guidelines for ships. ISM Code requires ship owners to put in place a Safety Management System (SMS) based on its guidelines.
+                                </p>
+
+                                <p>
+                                    RightShip, a maritime risk management organization, has introduced new standards for managing dry bulk that rely heavily on self-assessment and self-regulation. They aim to encourage people in the industry to strive for excellence, rather than just doing the bare minimum. Called Dry Bulk Management Standard (DBMS), this is a voluntary program that helps ship managers improve fleet performance and risk management.
+                                </p>
+
+                                <p>
+                                    Experienced ship managers, maritime experts, and leading owners and operators of the dry bulk industry globally collaborated to compose a draft that can help improve sustainability, safety, and the welfare of vessels and crews in the industry. DBMS was introduced in draft form so that other ship operators and owners could give feedback that could then be used to improve the document.
+                                </p>
+
+                                <p class="thme-blockquote">
+                                    With this programme, ship owners and managers can measure their Safety Management System (SMS) against industry standards and benchmark their system on four levels: basic, intermediate, advanced, and excellence. Results achieved through self-assessment would enable operators and owners to take planned steps to improve their ship management system. Further, DBMS would serve as encouragement for companies to self-assess and improve themselves at regular intervals.
+                                </p>
+
+                                <p>
+                                    DBMS would allow companies that go above and beyond to improve safety standards and keep upgrading their management systems with time a chance to stand out and be noticed for their efforts.
+                                </p>
+
+                                <p>
+                                    Improving safety standards is a continuous process and a primary area of focus for the dry bulk industry. DBMS can help accelerate improvement in these standards and create a benchmark for excellence.
+                                </p>
+
+                                <p>
+                                    A set of standards like DBMS provides a guideline of the dry bulk management industry's expectations at four different levels. It also helps companies follow a plan to gain excellence in their overall performance, specific aspects of their operations, and their safety and environmental policies. These standards enable individual organizations and the industry as a whole to move from mandatory certification and paper compliance models to self-regulatory practices that improve shipping standards in the dry bulk sector.
+                                </p>
+
+                                <div class="review-area">
+                                    <h3>Write Your Comment</h3>
+                                    <div class="review-form">
+                                        <form action="index.html">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="name-input">
+                                                        <input type="text" placeholder="Full Name">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="email-input">
+                                                        <input type="email" placeholder="Email Address">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="message-input">
+                                                <textarea name="review" cols="30" rows="5" placeholder="Message"></textarea>
+                                            </div>
+
+                                            <div class="input-submit">
+                                                <button type="submit">Comment</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else if (ArticleId == "fourtytwo")
+                {
+                    <div class="col-lg-8">
+                        <div class="car-details-content">
+                            <h2>
+                                Logistics Providers Under Pressure to Meet Customer Expectations and Manage Costs
+                            </h2>
+                            <div class="car-preview-crousel">
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article43-image1.jpg" alt="JSOFT">
+                                </div>
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article43-image2.jpg" alt="JSOFT">
+                                </div>
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article43-image3.jpg" alt="JSOFT">
+                                </div>
+                            </div>
+                            <div class="car-details-info blog-content">
+
+                                <p>
+                                    E-commerce saw a boom during the year 2020 that stretched supply chains to the maximum capacity. Customers not only prefer to shop online, but they also expect a smooth and quick experience from brands. A single bad experience, such as very late delivery, can mean brands lose a loyal customer.
+                                </p>
+
+                                <p>
+                                    Research suggests that the trend for online shopping will carry on over to the year 2021, and this year will see an even greater boom in online sales. Customer expectations are also ever-increasing, with many people expecting same day deliveries.
+                                </p>
+
+                                <p>
+                                    Logistics service providers are now pressed to meet these expectations (or risk losing business to others who meet them) while also keeping down operations costs. A survey found that manufacturers, retailers, and brands listed their number one business goal as reducing logistics costs. Logistics Service Providers (LSPS) also said that their customers wanted reduced fees for their services.
+                                </p>
+
+                                <p>
+                                    Along with the demand for reduced costs, LSPs said that their customers also have better service requirements. Brands, retailers, and manufacturers see service requirements as the biggest logistics planning challenge in the near future. They also see the need for automated warehouses and addressing infrastructure problems as an important consideration for improving logistics in the future.
+                                </p>
+
+                                <p class="thme-blockquote">
+                                    Brands and manufacturers note that capable planning systems are not in place, contributing to operations costs. Systems lack integration with other systems, and there is also the need for automating system optimization. The lack of integration between fleets that are inbound and outbound is the biggest logistics planning challenge; it can help meet service requirements and avoid costly penalties.
+                                </p>
+
+                                <p>
+                                    LSPs also note that their customers had significant troubles related to forecasting and visibility, showing that much needed to be done to make supply chains responsive and efficient.
+                                </p>
+
+                                <p>
+                                    There is a need for investment to save businesses from future losses. This need clashes with businesses’ need to control costs.
+                                </p>
+
+                                <p>
+                                    Time sensitivity has become a competitive advantage in the e-commerce domain, and with huge brands providing fast-paced, quality services, businesses are forced to keep up or lose customers. It is expected that when the retail industry and the supporting logistics services are put under pressure, many will choose to form alliances to increase supply chain capacity and efficiency. Businesses will have to automate processes and downsize the workforce to keep up with increased costs.
+                                </p>
+
+                                <div class="review-area">
+                                    <h3>Write Your Comment</h3>
+                                    <div class="review-form">
+                                        <form action="index.html">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="name-input">
+                                                        <input type="text" placeholder="Full Name">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="email-input">
+                                                        <input type="email" placeholder="Email Address">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="message-input">
+                                                <textarea name="review" cols="30" rows="5" placeholder="Message"></textarea>
+                                            </div>
+
+                                            <div class="input-submit">
+                                                <button type="submit">Comment</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else if (ArticleId == "fourtythree")
+                {
+                    <div class="col-lg-8">
+                        <div class="car-details-content">
+                            <h2>
+                                A Proposal for Building a Tunnel Between Northern Ireland and Scotland
+                            </h2>
+                            <div class="car-preview-crousel">
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article44-image1.jpg" alt="JSOFT">
+                                </div>
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article44-image2.jpg" alt="JSOFT">
+                                </div>
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article44-image3.jpg" alt="JSOFT">
+                                </div>
+                            </div>
+                            <div class="car-details-info blog-content">
+
+                                <p>
+                                    To improve connectivity between UK’s four constituent parts, rail industry leaders have proposed building a tunnel between Northern Ireland and Scotland. The Irish Sea project would help improve transport links among the UK nations.
+                                </p>
+
+                                <p>
+                                    The tunnel under the sea would connect Stranraer and Larne, as proposed by High Speed Rail Group (HSRG). Sir Peter Hendy led the review on the Irish Sea project and is expected to publish an interim report in a few weeks.
+                                </p>
+
+                                <p>
+                                    Larne and Stranraer are only 31 miles apart, and there is a preferred tunnel route between the two towns based on research by James Barton, a Victorian engineer. However, to avoid a 1000ft deep trench in the sea called Beaufort’s Dyke, the route will be diverted.
+                                </p>
+
+                                <p>
+                                    The HSRG claims that the proposed tunnel would connect Northern Ireland to Great Britain more closely, addressing the new economic status of Northern Ireland after Brexit. The project proposal states that with the tunnel’s construction, there would be the need for a new rail connection between Stranraer and Carlisle, while Ireland’s railway track’s width might need to be altered, too.
+                                </p>
+
+                                <p>
+                                    An HSRG board member, Jim Steer, said that the UK needs to address the need for improved transport links between the Kingdom’s four nations, which, he said, have been systematically neglected.” He linked cross-border train travel to economic prosperity and said that travel markets for rail were growing up to 2019 – this warrants a need to address the constraints in the transport network capacity so UK can gain economic stimulus from this source.
+                                </p>
+
+                                <p>
+                                    HSRG asks for requisite attentiveness to cross-border rail links to protect the whole of the UK economy in the future. The project proposal claimed that it had the backing of the Scottish parliament and the Northern Ireland assembly. It also said that the funding for the project would not interfere with other transport funding.
+                                </p>
+
+                                <p class="thme-blockquote">
+                                    The idea of connecting Larne in Northern Ireland to Stranraer in Scotland by a bridge was suggested by the Prime Minister three years ago, but engineers had strongly disapproved of it. Experts had deemed the construction of a bridge over a deep and stormy stretch of water impractical and said that it would require support towers of height seen nowhere in the world.
+                                </p>
+
+                                <p>
+                                    According to a government spokesperson, Sir Peter Hendy has been asked to make recommendations on improving transport connectivity between Northern Ireland, Scotland, Wales, and England. Those recommendations will then be published.
+                                </p>
+
+                                <div class="review-area">
+                                    <h3>Write Your Comment</h3>
+                                    <div class="review-form">
+                                        <form action="index.html">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="name-input">
+                                                        <input type="text" placeholder="Full Name">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="email-input">
+                                                        <input type="email" placeholder="Email Address">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="message-input">
+                                                <textarea name="review" cols="30" rows="5" placeholder="Message"></textarea>
+                                            </div>
+
+                                            <div class="input-submit">
+                                                <button type="submit">Comment</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else if (ArticleId == "fourtyfour")
+                {
+                    <div class="col-lg-8">
+                        <div class="car-details-content">
+                            <h2>
+                                EU Retailers Refuse UK Orders Due to Tax Changes After Brexit
+                            </h2>
+                            <div class="car-preview-crousel">
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article45-image1.jpg" alt="JSOFT">
+                                </div>
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article45-image2.jpg" alt="JSOFT">
+                                </div>
+                                <div class="single-car-preview">
+                                    <img src="~/img/detail/article45-image3.jpg" alt="JSOFT">
+                                </div>
+                            </div>
+                            <div class="car-details-info blog-content">
+
+                                <p>
+                                    Some EU online retailers have refused to deliver their products to the UK due to tax changes that became effective as the UK formally left the EU. Companies shipping to the UK are now faced with higher costs as they comply with the UK’s tax regulations. Rather than dealing with the increased bureaucracy and costs, retailers in some EU countries have refused to trade with the UK. However, it is still unclear what is the total number of retailers who have done so.
+                                </p>
+
+                                <p>
+                                    From January 1, 2021, tax changes became effective, according to which VAT is now to be collected at the point of sale. Overseas retailers who are shipping their goods to the UK have to register for UK VAT. If the sale value is less than £135, they have to account for it to the HMRC.
+                                </p>
+
+                                <p>
+                                    The move is expected to bring the UK about £300m a year from overseas sellers whose goods are already in the UK at the point of sale, which they previously failed to pay. Government officials also say that the UK’s new VAT model ensures that goods from European and non-European countries are treated in the same way.
+                                </p>
+
+                                <p class="thme-blockquote">
+                                    Many EU businesses that sell goods to customers in the UK have already registered for UK VAT under the new rules, and others are in the process of complying with the changes. However, some firms have refused to bother with these changes and instead opted to take their business out of the UK. Bike Bits is a Dutch-based firm that deals in bike parts; its website says it won’t be dealing with British customers. Beer on Web, a Belgium-based firm, is also discontinuing operations with the UK.
+                                </p>
+
+                                <p>
+                                    Outdoor, which is based in Finland, has also stopped its delivery services to the UK. However, in this case, the suspension is only temporary and gives the company time to register for UK VAT and sort out the post-Brexit process of selling.
+                                </p>
+
+                                <p>
+                                    While the new rules are meant to tackle the massive VAT evasion previously made possible through online shopping, it is still unclear how businesses who failed to sign up for UK VAT would be dealt with. There is also the need to clarify how the VAT rules will be applied to reduce frustration for both consumers and traders.
+                                </p>
+
+                                <div class="review-area">
+                                    <h3>Write Your Comment</h3>
+                                    <div class="review-form">
+                                        <form action="index.html">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="name-input">
+                                                        <input type="text" placeholder="Full Name">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="email-input">
+                                                        <input type="email" placeholder="Email Address">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="message-input">
+                                                <textarea name="review" cols="30" rows="5" placeholder="Message"></textarea>
+                                            </div>
+
+                                            <div class="input-submit">
+                                                <button type="submit">Comment</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
             }
 
 
@@ -3169,7 +3704,7 @@
                         <h3>For More Informations</h3>
 
                         <div class="sidebar-body">
-                            <p><i class="fa fa-mobile"></i><a href="tel:+443300300020"> 330 030 0020</a></p>
+                            <p><i class="fa fa-mobile"></i><a href="tel:+443300300020" style="color: #575757;"> 0330 030 0020</a></p>
                             <p><i class="fa fa-clock-o"></i> Open 24/7</p>
                         </div>
                     </div>

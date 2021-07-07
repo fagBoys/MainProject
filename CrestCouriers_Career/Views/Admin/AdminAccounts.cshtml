@@ -36,6 +36,11 @@
                 <li><h5>User accounts</h5></li>
             </div>
         </a>
+        <a asp-controller="Admin" asp-action="Articles" class="menu-option-link">
+            <div class="panel-option">
+                <li><h5>Articles</h5></li>
+            </div>
+        </a>
         <a asp-controller="Admin" asp-action="Logout" class="menu-option-link">
             <div class="panel-option">
                 <li><h5>Logout</h5></li>
@@ -505,25 +510,25 @@
 
 @*<script type="text/javascript">
 
-    function SetType(AdminType) {
-        var T = AdminType;
-        document.getElementById("dropdownMenuButton").innerHTML = T;
-        document.getElementById("MyType").value = T;
-    }
-    function GetType() {
-        var T = document.getElementById("dropdownMenuButton").value;
-        return T;
-    }
+        function SetType(AdminType) {
+            var T = AdminType;
+            document.getElementById("dropdownMenuButton").innerHTML = T;
+            document.getElementById("MyType").value = T;
+        }
+        function GetType() {
+            var T = document.getElementById("dropdownMenuButton").value;
+            return T;
+        }
 
-    function OpenDeactive(id) {
+        function OpenDeactive(id) {
 
-        @ViewData["AccountId"] = system.convert.toint32(id);
-        $("#confirmbox-deactive").modal();
+            @ViewData["AccountId"] = system.convert.toint32(id);
+            $("#confirmbox-deactive").modal();
 
-    }
+        }
 
-    $('button').attr('asp-route-AdminType', document.getElementById("dropdownMenuButton").value);
-</script>*@
+        $('button').attr('asp-route-AdminType', document.getElementById("dropdownMenuButton").value);
+    </script>*@
 
 <script>
 

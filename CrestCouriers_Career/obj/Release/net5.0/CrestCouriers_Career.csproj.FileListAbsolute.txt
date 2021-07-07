@@ -209,3 +209,4 @@ C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\CrestCouriers_Career.pdb
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\CrestCouriers_Career.genruntimeconfig.cache
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\Razor\Views\Home\Branchinfo.cshtml.g.cs
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\Razor\Views\Admin\EditArticle.cshtml.g.cs

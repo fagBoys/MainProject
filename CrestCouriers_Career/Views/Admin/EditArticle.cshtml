@@ -1,8 +1,8 @@
-﻿@model CrestCouriers_Career.ViewModels.Admin.AddArticleViewModel
+﻿@model CrestCouriers_Career.ViewModels.Admin.EditArticleViewModel
 
 @{
     ViewData["Title"] = "EditArticle";
-    Layout = "_SystemAdmin";
+    Layout = "~/Views/Shared/_SystemAdmin.cshtml";
 }
 @section AdminMenu{
     <ul class="menu-ul">
@@ -26,7 +26,7 @@
                 <li><h5>Admin accounts</h5></li>
             </div>
         </a>
-        <a asp-controller="User" asp-action="UserAccounts" class="menu-option-link">
+        <a asp-controller="Admin" asp-action="UserAccounts" class="menu-option-link">
             <div class="panel-option">
                 <li><h5>User accounts</h5></li>
             </div>
@@ -50,18 +50,19 @@
 
 
 <div class="NewArticle-form" style="margin:50px;">
-    <form asp-controller="Admin" asp-action="EditArticle" method="post" enctype="multipart/form-data">
+    <form asp-controller="Admin" asp-action="EditArticlePost" method="post" enctype="multipart/form-data">
+        <input asp-for="ForEditArticle.ArticleId" value="@Model.ForEditArticle.ArticleId" hidden />
         <div class="row mb-4">
             <div class="col-sm-12">
-                <input asp-for="Title" placeholder="Title" value="@Model.Article.Title">
-                <span asp-validation-for="Title" class="text-danger"></span>
+                <input asp-for="ForEditArticle.Title" placeholder="Title" value="@Model.ForEditArticle.Title">
+                <span asp-validation-for="ForEditArticle.Title" class="text-danger"></span>
             </div>
         </div>
 
         <div class="row mb-4">
             <div class="col-sm-12">
-                <input asp-for="AuthorName" placeholder="AuthorName" value="@Model.Article.AuthorAccount">
-                <span asp-validation-for="AuthorName" class="text-danger"></span>
+                <input asp-for="ForEditArticle.AuthorAccount" placeholder="AuthorName" value="@Model.ForEditArticle.AuthorAccount">
+                <span asp-validation-for="ForEditArticle.AuthorAccount" class="text-danger"></span>
             </div>
         </div>
 
@@ -70,7 +71,7 @@
                 <div class="card">
                     <div class="row g-0">
                         <div class="col-lg-4">
-                            <div style="background-image: url(../img/article/@Model.Article.Images.Where(I => I.Primary == true).Select(I => I.ImageName).FirstOrDefault().ToString()); background-position:center; background-size:cover; height: 100%;" id="Article-Image-Preview">
+                            <div style="background-image: url(../img/article/@Model.ForEditArticle.Images.Where(I => I.Primary == true).Select(I => I.ImageName).FirstOrDefault().ToString()); background-position:center; background-size:cover; height: 100%;" id="Article-Image-Preview">
                                 <img src="~/img/article/post-image22.jpg" style="width:100%; opacity:0%;" alt="" />
                             </div>
                         </div>
@@ -86,8 +87,6 @@
                                     <input asp-for="ArticleImage" class="Article-Image-Input" id="post-file" type="file" style="opacity:0%;" />
                                     <span asp-validation-for="ArticleImage" class="text-danger"></span>
                                 </label>
-
-
                             </div>
                         </div>
                     </div>
@@ -97,67 +96,69 @@
 
 
 
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <label for="article-file1" class="card">
-                        @{
-                            if (Model.SlideImages.Count() > 0)
-                            {
-                                <img class="Article-Image-Dark" id="Article-Slide1" src="~/img/details/@Model.SlideImages.Select(SI => SI.ImageName).FirstOrDefault().ToString()" />
-                            }
-                            else
-                            {
-                                <img class="Article-Image-Dark" id="Article-Slide2" src="~/img/blog/slide-images-background.jpg" />
-                            }
-                        }
-                        <input asp-for="Slides" id="article-file1" type="file" style="display:none;" />
-                    </label>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <label for="article-file2" class="card">
-                        @if (Model.SlideImages.Count() > 1)
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <label for="article-file1" class="card">
+                    @{
+                        if (Model.ForEditSlideImages.Count() > 0)
                         {
-                            <img class="Article-Image-Dark" id="Article-Slide1" src="~/img/details/@Model.SlideImages.Select(SI => SI.ImageName).FirstOrDefault().ToString()" />
+                            <img class="Article-Image-Dark" id="Article-Slide1" src="~/img/detail/@Model.ForEditSlideImages.Select(SI => SI.ImageName).FirstOrDefault().ToString()" />
                         }
                         else
                         {
                             <img class="Article-Image-Dark" id="Article-Slide2" src="~/img/blog/slide-images-background.jpg" />
                         }
-                        <input asp-for="Slides" id="article-file2" type="file" style="display:none;" />
-                    </label>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <label for="article-file3" class="card">
-                        @if (Model.SlideImages.Count() > 2)
-                        {
-                            <img class="Article-Image-Dark" id="Article-Slide1" src="~/img/details/@Model.SlideImages.Select(SI => SI.ImageName).FirstOrDefault().ToString()" />
-                        }
-                        else
-                        {
-                            <img class="Article-Image-Dark" id="Article-Slide2" src="~/img/blog/slide-images-background.jpg" />
-                        }                        
-                        <input asp-for="Slides" id="article-file3" type="file" style="display:none;" />
-                    </label>
-                </div>
+                    }
+                    <input asp-for="EditedSlides" id="article-file1" type="file" style="display:none;" />
+                </label>
             </div>
+            <div class="col-md-4 mb-4">
+                <label for="article-file2" class="card">
+                    @if (Model.ForEditSlideImages.Count() > 1)
+                    {
+                        <img class="Article-Image-Dark" id="Article-Slide1" src="~/img/detail/@Model.ForEditSlideImages.Select(SI => SI.ImageName).Skip(1).FirstOrDefault().ToString()" />
+                    }
+                    else
+                    {
+                        <img class="Article-Image-Dark" id="Article-Slide2" src="~/img/blog/slide-images-background.jpg" />
+                    }
+                    <input asp-for="EditedSlides" id="article-file2" type="file" style="display:none;" />
+                </label>
+            </div>
+            <div class="col-md-4 mb-4">
+                <label for="article-file3" class="card">
+                    @if (Model.ForEditSlideImages.Count() > 2)
+                    {
+                        <img class="Article-Image-Dark" id="Article-Slide1" src="~/img/detail/@Model.ForEditSlideImages.Select(SI => SI.ImageName).Skip(2).FirstOrDefault().ToString()" />
+                    }
+                    else
+                    {
+                        <img class="Article-Image-Dark" id="Article-Slide2" src="~/img/blog/slide-images-background.jpg" />
+                    }
+                    <input asp-for="EditedSlides" id="article-file3" type="file" style="display:none;" />
+                </label>
+            </div>
+        </div>
 
 
         <div class="row mb-4">
             <div class="col-sm-12">
-                <input asp-for="ShortBody" placeholder="Short body" value="@Model.Article.ShortBody">
-                <span asp-validation-for="ShortBody" class="text-danger"></span>
+                <input asp-for="ForEditArticle.ShortBody" placeholder="Short body" value="@Model.ForEditArticle.ShortBody">
+                <span asp-validation-for="ForEditArticle.ShortBody" class="text-danger"></span>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-12 mb-4">
 
-                <textarea id="basic-example">
+                @*@Html.TextArea("Body", Model.ForEditArticle.Body, new { @class = "basic-example"});*@
 
-                    @Model.Article.Body
+                <textarea asp-for="ForEditArticle.Body" id="basic-example">
+
+                    @*@Model.ForEditArticle.Body*@
 
                 </textarea>
-                <span asp-validation-for="Body"></span>
+                <span asp-validation-for="ForEditArticle.Body"></span>
 
                 <script>
 
@@ -192,14 +193,14 @@
                 </div>
             </div>
             @{
-                if (Model.Article.ArticleTags.Count > 0)
+                if (Model.ForEditArticle.ArticleTags.Count > 0)
                 {
                     ViewData["tag1"] = "false";
                     <div class="col-md-2 mb-4" id="tag1">
                         <div class="toast align-items-center TagToast1" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
                             <div class="d-flex">
                                 <div id="tag1text" class="toast-body p-2" style="height:38px; float:left;">
-                                    @Model.Article.ArticleTags.FirstOrDefault().Tags.Name
+                                    @Model.ForEditArticle.ArticleTags.FirstOrDefault().Tags.Name
                                 </div>
                                 <button type="button" class="p-2 close" onclick="CloseTag1();" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
                                     <span aria-hidden="true">×</span>
@@ -207,7 +208,7 @@
                             </div>
                         </div>
                     </div>
-                    <input asp-for="Tags" type="text" id="tagcontrol1" value="@Model.Article.ArticleTags.FirstOrDefault().Tags.Name" hidden />
+                    <input asp-for="Tags" type="text" id="tagcontrol1" value="@Model.ForEditArticle.ArticleTags.FirstOrDefault().Tags.Name" hidden />
                     <script>
                         $(".TagToast1").toast("show");
                     </script>
@@ -230,14 +231,14 @@
                     <input asp-for="Tags" type="text" id="tagcontrol1" hidden />
                 }
 
-                if (Model.Article.ArticleTags.Count > 1)
+                if (Model.ForEditArticle.ArticleTags.Count > 1)
                 {
                     ViewData["tag2"] = "false";
                     <div class="col-md-2 mb-4">
                         <div class="toast align-items-center TagToast2" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
                             <div class="d-flex">
                                 <div id="tag2text" class="toast-body p-2" style="height:38px; float:left;">
-                                    @Model.Article.ArticleTags.Skip(1).First().Tags.Name
+                                    @Model.ForEditArticle.ArticleTags.Skip(1).First().Tags.Name
                                 </div>
                                 <button type="button" class="p-2 close" onclick="CloseTag2();" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
                                     <span aria-hidden="true">×</span>
@@ -245,7 +246,7 @@
                             </div>
                         </div>
                     </div>
-                    <input asp-for="Tags" type="text" id="tagcontrol2" value="@Model.Article.ArticleTags.Skip(1).First().Tags.Name" hidden />
+                    <input asp-for="Tags" type="text" id="tagcontrol2" value="@Model.ForEditArticle.ArticleTags.Skip(1).First().Tags.Name" hidden />
                     <script>
                         $(".TagToast2").toast("show");
                     </script>
@@ -268,14 +269,14 @@
                     <input asp-for="Tags" type="text" id="tagcontrol2" hidden />
                 }
 
-                if (Model.Article.ArticleTags.Count > 2)
+                if (Model.ForEditArticle.ArticleTags.Count > 2)
                 {
                     ViewData["tag3"] = "false";
                     <div class="col-md-2 mb-4">
                         <div class="toast align-items-center TagToast3" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
                             <div class="d-flex">
                                 <div id="tag3text" class="toast-body p-2" style="height:38px; float:left;">
-                                    @Model.Article.ArticleTags.Skip(2).First().Tags.Name
+                                    @Model.ForEditArticle.ArticleTags.Skip(2).First().Tags.Name
                                 </div>
                                 <button type="button" class="p-2 close" onclick="CloseTag3();" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
                                     <span aria-hidden="true">×</span>
@@ -283,7 +284,7 @@
                             </div>
                         </div>
                     </div>
-                    <input asp-for="Tags" type="text" id="tagcontrol3" value="@Model.Article.ArticleTags.Skip(2).First().Tags.Name" hidden />
+                    <input asp-for="Tags" type="text" id="tagcontrol3" value="@Model.ForEditArticle.ArticleTags.Skip(2).First().Tags.Name" hidden />
                     <script>
                         $(".TagToast3").toast("show");
                     </script>
@@ -306,14 +307,14 @@
                     <input asp-for="Tags" type="text" id="tagcontrol3" hidden />
                 }
 
-                if (Model.Article.ArticleTags.Count > 3)
+                if (Model.ForEditArticle.ArticleTags.Count > 3)
                 {
                     ViewData["tag4"] = "false";
                     <div class="col-md-2 mb-4">
                         <div class="toast align-items-center TagToast4" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
                             <div class="d-flex">
                                 <div id="tag4text" class="toast-body p-2" style="height:38px; float:left;">
-                                    @Model.Article.ArticleTags.Skip(3).First().Tags.Name
+                                    @Model.ForEditArticle.ArticleTags.Skip(3).First().Tags.Name
                                 </div>
                                 <button type="button" class="p-2 close" onclick="CloseTag4();" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
                                     <span aria-hidden="true">×</span>
@@ -321,7 +322,7 @@
                             </div>
                         </div>
                     </div>
-                    <input asp-for="Tags" type="text" id="tagcontrol4" value="@Model.Article.ArticleTags.Skip(3).First().Tags.Name" hidden />
+                    <input asp-for="Tags" type="text" id="tagcontrol4" value="@Model.ForEditArticle.ArticleTags.Skip(3).First().Tags.Name" hidden />
                     <script>
                         $(".TagToast4").toast("show");
                     </script>
@@ -344,14 +345,14 @@
                     <input asp-for="Tags" type="text" id="tagcontrol4" hidden />
                 }
 
-                if (Model.Article.ArticleTags.Count > 4)
+                if (Model.ForEditArticle.ArticleTags.Count > 4)
                 {
                     ViewData["tag5"] = "false";
                     <div class="col-md-2 mb-4">
                         <div class="toast align-items-center TagToast5" style="height:38px;" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
                             <div class="d-flex">
                                 <div id="tag5text" class="toast-body p-2" style="height:38px; float:left;">
-                                    @Model.Article.ArticleTags.Skip(4).First().Tags.Name
+                                    @Model.ForEditArticle.ArticleTags.Skip(4).First().Tags.Name
                                 </div>
                                 <button type="button" class="p-2 close" onclick="CloseTag5();" style="float:right; position:absolute; right:20px; height: 38px;" data-dismiss="toast" aria-label="Close">
                                     <span aria-hidden="true">×</span>
@@ -359,7 +360,7 @@
                             </div>
                         </div>
                     </div>
-                    <input asp-for="Tags" type="text" id="tagcontrol5" value="@Model.Article.ArticleTags.Skip(3).First().Tags.Name" hidden />
+                    <input asp-for="Tags" type="text" id="tagcontrol5" value="@Model.ForEditArticle.ArticleTags.Skip(3).First().Tags.Name" hidden />
                     <script>
                         $(".TagToast5").toast("show");
                     </script>
@@ -392,7 +393,7 @@
         <div class="row">
             <div class="col-md-2">
                 <button type="submit" class="book-now-btn" style="width:100%;">
-                    Post
+                    Update
                 </button>
             </div>
         </div>
@@ -401,7 +402,14 @@
 </div>
 
 
+@{
+    ViewData["BodyText"] = Model.ForEditArticle.Body;
+}
+<script>
 
+    $("#basic-example").text(@ViewData["BodyText"].ToString());
+
+</script>
 
 <script>
 

@@ -1,7 +1,6 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+﻿@model PaginatedList<Article>
 
-*@
+
 @{
     Layout = "_Layout";
     ViewData["Title"] = "Blog";
@@ -33,1694 +32,149 @@
     <div class="container">
         <div class="row">
 
-            <!-- Single Articles Start -->
+            @{bool LeftSideImage = true;}
 
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        @*Articles Thumbnail Start*@
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image39.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        @*Articles Thumbnail End*@
-                        @*Articles Content Start*@
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id38 = "thirtyeight"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id38">How Is the Suez Blockage Affecting World Trade?</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
+            @foreach (var Article in Model)
+            {
 
-                                        <div class="article-date">13 <span class="month">june</span></div>
+                if (LeftSideImage)
+                {
 
-                                        <p>
-                                            Suez Canal is a 120-mile water passage that links the Mediterranean and the Red Sea and provides huge cargo ships a relatively direct route from Asia to Europe.
-                                        </p>
+                    LeftSideImage = false;
 
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id38" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
+                    <!-- Single Articles Start -->
+
+                    <div class="col-lg-12">
+                        <article class="single-article">
+                            <div class="row">
+                                @*Articles Thumbnail Start*@
+                                <div class="col-lg-5">
+                                    <div class="article-thumb">
+                                        <img src="~/img/article/@Article.Images.Where(I => I.Primary == true).Select(I => I.ImageName).FirstOrDefault()" alt="JSOFT">
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        @*Articles Content End*@
-                    </div>
-                </article>
-            </div>
+                                @*Articles Thumbnail End*@
+                                @*Articles Content Start*@
+                                <div class="col-lg-7">
+                                    <div class="display-table">
+                                        <div class="display-table-cell">
+                                            <div class="article-body">
+                                                @{ int id = Article.ArticleId; }
+                                                <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@Article.ArticleId">@Article.Title</a></h3>
+                                                <div class="article-meta">
+                                                    <a href="#" class="author">By :: <span>@Article.AuthorAccount</span></a>
+                                                    <a href="#" class="commnet">
+                                                        comments ::
+                                                        <span>
+                                                            @if (Article.Comments == null)
+                                                            {
+                                                                ViewData["CommentCount"] = 0;
+                                                            }
+                                                            else
+                                                            {
+                                                                ViewData["CommentCount"] = Article.Comments.Count();
+                                                            }
+                                                            @ViewData["CommentCount"]
+                                                        </span>
+                                                    </a>
+                                                </div>
 
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
+                                                <div class="article-date">@Article.Date.Day <span class="month">@Article.Date.ToString("MMM")</span></div>
 
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
+                                                <p>
+                                                    @Article.ShortBody
+                                                </p>
 
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image38.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                        <!-- articles content start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id37 = "thirtyseven"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id37">Supply Chain Changes Have Created a Boom in Business for Some Truckers</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">by :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">comments :: <span>0</span></a>
+                                                <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@Article.ArticleId" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                            </div>
                                         </div>
-
-                                        <div class="article-date">13 <span class="month">june</span></div>
-
-                                        <p>The year 2020 was a volatile year for people in trucking companies. At the start of the year, lockdowns were imposed all over to stop the coronavirus spread. </p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id37" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
                                     </div>
                                 </div>
+                                @*Articles Content End*@
                             </div>
-                        </div>
-                        <!-- articles content end -->
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image38.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
+                        </article>
                     </div>
-                </article>
-            </div>
 
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
+                    <!-- Single Articles End -->
 
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        @*Articles Thumbnail Start*@
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image37.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        @*Articles Thumbnail End*@
-                        @*Articles Content Start*@
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id36 = "thirtysix"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id36">Gig Workers Remain Unsatisfied by China’s Labour Unions</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
+                }
+                else
+                {
 
-                                        <div class="article-date">11 <span class="month">june</span></div>
+                    LeftSideImage = true;
 
-                                        <p>
-                                            On 11th January, Liu Jin, a food-delivery worker living in Taizhou, China, parked his motorcycle on the roadside and cried for his hard-earned funds before igniting his clothing with fire. Mr.
-                                        </p>
+                    <!-- Single Articles Start -->
 
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id36" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
+                    <div class="col-lg-12">
+                        <article class="single-article middle">
+                            <div class="row">
+
+                                <!-- articles thumbnail start -->
+                                <div class="col-lg-5 d-xl-none">
+                                    <div class="article-thumb">
+                                        <img src="~/img/article/@Article.Images.Where(I => I.Primary == true).Select(I => I.ImageName).FirstOrDefault()" alt="jsoft">
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        @*Articles Content End*@
-                    </div>
-                </article>
-            </div>
+                                <!-- articles thumbnail end -->
+                                <!-- articles content start -->
+                                <div class="col-lg-7">
+                                    <div class="display-table">
+                                        <div class="display-table-cell">
+                                            <div class="article-body">
+                                                @{ int id = Article.ArticleId; }
+                                                <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@Article.ArticleId">@Article.Title</a></h3>
+                                                <div class="article-meta">
+                                                    <a href="#" class="author">by :: <span>@Article.AuthorAccount</span></a>
+                                                    <a href="#" class="commnet">
+                                                        comments ::
+                                                        <span>
+                                                            @if (Article.Comments == null)
+                                                            {
+                                                                ViewData["CommentCount"] = 0;
+                                                            }
+                                                            else
+                                                            {
+                                                                ViewData["CommentCount"] = Article.Comments.Count();
+                                                            }
+                                                            @ViewData["CommentCount"]
+                                                        </span>
+                                                    </a>
+                                                </div>
 
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
+                                                <div class="article-date">@Article.Date.Day <span class="month">@Article.Date.ToString("MMM")</span></div>
 
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
+                                                <p>
+                                                    @Article.ShortBody
+                                                </p>
 
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image36.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                        <!-- articles content start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id35 = "thirtyfive"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id35">How Is the Suez Blockage Affecting World Trade?</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">by :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">comments :: <span>0</span></a>
+                                                <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@Article.ArticleId" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
+                                            </div>
                                         </div>
-
-                                        <div class="article-date">11 <span class="month">june</span></div>
-
-                                        <p>Suez Canal is a 120-mile water passage that links the Mediterranean and the Red Sea and provides huge cargo ships a relatively direct route from Asia to Europe. </p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id35" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- articles content end -->
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image36.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        @*Articles Thumbnail Start*@
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image35.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        @*Articles Thumbnail End*@
-                        @*Articles Content Start*@
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id34 = "thirtyfour"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id34">UK Frontline Workers: How Do Delivery Drivers and Bus Drivers Feel About Their Jobs?</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">10 <span class="month">june</span></div>
-
-                                        <p>The BBC featured stories of frontline workers in the UK who have been working throughout the second wave of the coronavirus. </p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id34" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                <!-- articles content end -->
+                                <!-- articles thumbnail start -->
+                                <div class="col-lg-5 d-none d-xl-block">
+                                    <div class="article-thumb">
+                                        <img src="~/img/article/@Article.Images.Where(I => I.Primary == true).Select(I => I.ImageName).FirstOrDefault()" alt="jsoft">
                                     </div>
                                 </div>
+                                <!-- articles thumbnail end -->
                             </div>
-                        </div>
-                        @*Articles Content End*@
+                        </article>
                     </div>
-                </article>
-            </div>
 
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
+                    <!-- Single Articles End -->
 
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
-
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image34.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                        <!-- articles content start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id33 = "thirtythree"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id33">Trucks from the UK Stranded at Dublin Port</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">by :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">04 <span class="month">june</span></div>
-
-                                        <p>Before Brexit, Northern Ireland and Ireland had a practically invisible border, with no border checks and no cameras. People and goods moved between the two countries easily when both were part of the UK. </p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id33" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- articles content end -->
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image34.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        @*Articles Thumbnail Start*@
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image33.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        @*Articles Thumbnail End*@
-                        @*Articles Content Start*@
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id32 = "thirtytwo"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id32">How Micro-Fulfilment Centres Help Retailers Maximize Efficiency</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">01 <span class="month">june</span></div>
-
-                                        <p>During the pandemic, there has been a significant surge in online orders that is expected to carry on even after the restoration of normalcy in people’s lives. </p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id32" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @*Articles Content End*@
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
-
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image32.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                        <!-- articles content start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id31 = "thirtyone"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id31">How to Maintain Effective Communication with Online Customers </a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">by :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">01 <span class="month">june</span></div>
-
-                                        <p>The UK is currently in its third national lockdown. With millions of people confined to their homes, transport and logistics firms have a lot to contend with as people are opting for home deliveries once again.</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id31" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- articles content end -->
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image32.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        @*Articles Thumbnail Start*@
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image31.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        @*Articles Thumbnail End*@
-                        @*Articles Content Start*@
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id30 = "thirty"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id30">The Effect of Brexit on Food Supply Chain Costs</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">30 <span class="month">may</span></div>
-
-                                        <p>Ever since the UK’s departure from the European bloc, supply chains and distribution networks have been affected across almost every industry. The food industry is no different. </p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id30" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @*Articles Content End*@
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
-
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image30.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                        <!-- articles content start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id29 = "twentynine"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id29">South Korea’s Delivery Drivers Might Be Dying from Overwork </a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">by :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">28 <span class="month">may</span></div>
-
-                                        <p>Last year saw the death of 14 delivery drivers in South Korea. While their deaths cannot be directly linked with overwork</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id29" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- articles content end -->
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image30.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        @*Articles Thumbnail Start*@
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image29.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        @*Articles Thumbnail End*@
-                        @*Articles Content Start*@
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id28 = "twentyeight"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id28">US Factories Face Difficulty Obtaining Important Supplies </a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">27 <span class="month">may</span></div>
-
-                                        <p>Factories in America are seeing an unexpected surge in business that has owners scrambling to assemble critical supplies required for manufacturing goods.</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id28" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @*Articles Content End*@
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
-
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image28.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                        <!-- articles content start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id27 = "twentyseven"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id27">UK Shoppers Have £2.4 Billion Worth of Unreturned Goods at Home </a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">by :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">25 <span class="month">may</span></div>
-
-                                        <p>The lockdown in the UK has impacted every aspect of people's lives. Among them, a critical hindrance citizens face is when returning goods bought online.</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id27" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- articles content end -->
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image28.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        @*Articles Thumbnail Start*@
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image27.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        @*Articles Thumbnail End*@
-                        @*Articles Content Start*@
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id26 = "twentysix"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id26">UK Firms Are Investing in Dutch Distribution Networks Post-Brexit </a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">24 <span class="month">may</span></div>
-
-                                        <p>A study published in the Centre for Economic Performance in 2019 found that Brexit had affected UK firms’ outward investments.</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id26" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @*Articles Content End*@
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
-
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image26.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                        <!-- articles content start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id25 = "twentyfive"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id25">The US Freight & Trucking Industry Calls for Better Access to Vaccines</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">by :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">22 <span class="month">may</span></div>
-
-                                        <p>Truck drivers and logistics workers have been crucial to keeping the economy running during the coronavirus pandemic. </p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id25" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- articles content end -->
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image26.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        @*Articles Thumbnail Start*@
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image25.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        @*Articles Thumbnail End*@
-                        @*Articles Content Start*@
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id24 = "twentyfour"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id24">Courier Services Posed to Face the Third National Lockdown</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">21 <span class="month">may</span></div>
-
-                                        <p>Covid-19 hit the UK hard in 2020. There are as of yet no chances of it subsiding in 2021 as new strains of the coronavirus have already made their way into the country.</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id24" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @*Articles Content End*@
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
-
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image24.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                        <!-- articles content start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id23 = "twentythree"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id23">COVID-19: Increased Online Sales Go Side by Side with High Returns </a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">by :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">20 <span class="month">may</span></div>
-
-                                        <p>When shopping at physical stores, people return about 10% of the goods they buy. </p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id23" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- articles content end -->
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image24.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        @*Articles Thumbnail Start*@
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image23.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        @*Articles Thumbnail End*@
-                        @*Articles Content Start*@
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id22 = "twentytwo"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id22">Is the UK Threatened by Household Item Shortage due to the Suez Canal Crisis?</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">18 <span class="month">may</span></div>
-
-                                        <p>Ever Given, the mega-vessel wedged in the Suez Canal is holding an estimated $9bn (£7bn) worth of goods a day and has caused more than 300 container ships to queue up.</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id22" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @*Articles Content End*@
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
-
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image22.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                        <!-- articles content start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id21 = "twentyone"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id21">How Delivery Networks Are Operating During the Third Lockdown </a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">by :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">11 <span class="month">may</span></div>
-
-                                        <p>While the first lockdown dealt a solid blow to both consumers and retailers, the third lockdown has seen smooth sailing</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id21" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- articles content end -->
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image22.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        @*Articles Thumbnail Start*@
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image21.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        @*Articles Thumbnail End*@
-                        @*Articles Content Start*@
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id20 = "twenty"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id20">How Freight Trade from Ireland Is Bypassing Britain</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">10 <span class="month">may</span></div>
-
-                                        <p>The UK land bridge has for long been a traditional route for lorries coming from Ireland and headed to continental Europe.</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id20" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @*Articles Content End*@
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
-
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image20.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                        <!-- articles content start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id19 = "nineteen"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id19">Supply Chain Flexibility </a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">by :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">05 <span class="month">may</span></div>
-
-                                        <p>If you’ve been around supply chain executives long enough, you must have noticed some terms pop up now and then.</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id19" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- articles content end -->
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image20.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        @*Articles Thumbnail Start*@
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image19.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        @*Articles Thumbnail End*@
-                        @*Articles Content Start*@
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id18 = "eighteen"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id18">Lab-Supply Shortages Among a Global Pandemic</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">03 <span class="month">may</span></div>
-
-                                        <p>The COVID-19 pandemic caused all kinds of shortages in the market, mainly due to the disruption of manufacturing and distribution channels.</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id18" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @*Articles Content End*@
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
-
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image18.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                        <!-- articles content start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id17 = "seventeen"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id17">British Army Couriers</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">by :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">29 <span class="month">apr</span></div>
-
-                                        <p>Have you ever wondered how the British army delivers its mail and packages?</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id17" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- articles content end -->
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image18.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        @*Articles Thumbnail Start*@
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image17.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        @*Articles Thumbnail End*@
-                        @*Articles Content Start*@
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id16 = "sixteen"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id16">Covid-19 Caused New Jobs to Spring up in the Courier Industry</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">28 <span class="month">apr</span></div>
-
-                                        <p>The coronavirus pandemic saw people losing jobs across industries all over the world.</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id16" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @*Articles Content End*@
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
-
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image16.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                        <!-- articles content start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id15 = "fifteen"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id15">Rise in Food Delivery Services</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">by :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">27 <span class="month">apr</span></div>
-
-                                        <p>The demand for hot, delicious, and one-click-away food was never as high in history as it is now.</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id15" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- articles content end -->
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image16.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        @*Articles Thumbnail Start*@
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image15.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        @*Articles Thumbnail End*@
-                        @*Articles Content Start*@
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id14 = "fourteen"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id14">Covid-19 Caused New Jobs to Spring up in the Courier Industry</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">27 <span class="month">apr</span></div>
-
-                                        <p>The coronavirus pandemic saw people losing jobs across industries all over the world.</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id14" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @*Articles Content End*@
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
-
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image14.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                        <!-- articles content start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id13 = "thirteen"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id13">The Risks Involved in Shipping Artwork</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">by :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">26 <span class="month">apr</span></div>
-
-                                        <p>Artists of art galleries know only too well the risks involved in shipping precious artwork through traditional or national mail and delivery services.</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id13" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- articles content end -->
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image14.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        @*Articles Thumbnail Start*@
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image13.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        @*Articles Thumbnail End*@
-                        @*Articles Content Start*@
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id12 = "twelve"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id12">UK and EU Are Facing Delays in the Delivery of Pfizer Vaccines</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">22 <span class="month">apr</span></div>
-
-                                        <p>The United States-based pharmaceutical company recently announced that there would be a delay in the delivery of its vaccines.</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id12" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @*Articles Content End*@
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
-
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image12.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                        <!-- articles content start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id11 = "eleven"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id11">UK Courier Firms & Retailers Suspend EU Deliveries</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">by :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">18 <span class="month">feb</span></div>
-
-                                        <p>Courier firms and retailers across the UK are temporarily suspending their services to the EU.</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id11" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- articles content end -->
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image12.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        @*Articles Thumbnail Start*@
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image11.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        @*Articles Thumbnail End*@
-                        @*Articles Content Start*@
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id10 = "ten"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id10">NHS Is Saving Lives, But Who Will Save the Environment?</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">25 <span class="month">jan</span></div>
-
-                                        <p>The National Health Service relies heavily on courier services to carry out its daily tasks.</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id10" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @*Articles Content End*@
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
-
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="assets/img/article/arti-thumb-4.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                        <!-- articles content start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id9 = "nine"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id9">5 Ways Courier Drivers Can Increase Fuel Efficiency & Reduce Their Carbon Footprint</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">by :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">25 <span class="month">jan</span></div>
-
-                                        <p>One of the biggest challenges faced by courier services is to keep their fuel costs in check. </p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id9" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- articles content end -->
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/arti-thumb-4.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                    </div>
-                </article>
-            </div>
-
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        <!-- Articles Thumbnail Start -->
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image9.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        <!-- Articles Thumbnail End -->
-                        <!-- Articles Content Start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-
-                                        @{ string id8 = "eight"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id8">What Value Do Electric Vehicles Bring to Courier Brands?</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">10 <span class="month">mar</span></div>
-
-                                        <p>Around the world, there has been a growing concern among customers about the carbon footprint of the services they consume.</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id8" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Articles Content End -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
-
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image8.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                        <!-- articles content start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-
-                                        @{ string id7 = "seven"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id7">How Does Online Shopping Affect the Environment?</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">by :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">29 <span class="month">feb</span></div>
-
-                                        <p>Everyone loves online shopping. After all, what is not to love about having ample time to go through products and their prices.</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id7" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- articles content end -->
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image8.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        <!-- Articles Thumbnail Start -->
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image7.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        <!-- Articles Thumbnail End -->
-                        <!-- Articles Content Start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id6 = "six"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id6">COVID-19: How Have Courier Services Impacted the Construction Business</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">19 <span class="month">feb</span></div>
-
-                                        <p>Courier service providers assist business owners across all industries in the UK. The construction sector is also one such industry that relies heavily on couriers for its business operations. </p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id6" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Articles Content End -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
-
-                        @*articles thumbnail start*@
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image6.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        <!-- articles thumbnail end -->
-                        <!-- articles content start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-
-                                        @{ string id5 = "five"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id5">How Are Courier Services Helpful for Accountants and Solicitors?</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">by :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">08 <span class="month">feb</span></div>
-
-                                        <p>A major responsibility that couriers have is delivering important, confidential documents on time.</p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id5" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- articles content end -->
-                        <!-- articles thumbnail start -->
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image6.jpg" alt="jsoft">
-                            </div>
-                        </div>-
-                        <!-- articles thumbnail end -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        @*Articles Thumbnail Start*@
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image5.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        <!-- Articles Thumbnail End -->
-                        <!-- Articles Content Start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id4 = "four"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id4">Rising Prices Over Major Shipping Problems</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">25 <span class="month">jan</span></div>
-                                        <p>The supply chain in the UK has come under strain due to the pandemic, the increased demands of goods over Christmas, caused by Brexit. </p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id4" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Articles Content End -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
-
-                        @*articles thumbnail start*@
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image4.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        @*articles thumbnail end*@
-                        @*articles content start*@
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id3 = "three"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id3">Christmas in the Times of the Coronavirus and Brexit</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">by :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">28 <span class="month">dec</span></div>
-
-                                        <p>When the UK's planned exit from the European Union becomes official in 2021, many things will change for businesses who import and export goods to and from the UK.</p>
-
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id3" class="readmore-btn">read more <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @*articles content end*@
-                        @*articles thumbnail start*@
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image4.jpg" alt="jsoft">
-                            </div>
-                        </div>
-                        @*articles thumbnail end*@
-                    </div>
-                </article>
-            </div>
-
-
-            <!-- Single Articles End -->
-            <!--Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        @*Articles Thumbnail Start*@
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image3.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        @*Articles Thumbnail End*@
-                        @*Articles Content Start*@
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id2 = "two"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id2">Lorries Across UK Are Being Targeted by Thieves</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">05 <span class="month">dec</span></div>
-
-                                        <p>Lorry drivers are responsible for providing essential supplies to citizens across the country. In fact, they were identified as key workers by the government during the pandemic. </p>
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id2" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @*Articles Content End*@
-                    </div>
-                </article>
-            </div>
-
-
-            <!--Single Articles End  -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article middle">
-                    <div class="row">
-
-                        <!-- Articles Thumbnail Start -->
-                        <div class="col-lg-5 d-xl-none">
-                            <div class="article-thumb">
-                                <img src="~/img/article/arti-thumb-2.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        <!-- Articles Thumbnail End -->
-                        <!-- Articles Content Start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id1 = "one"; }
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id1">Brexit: Is the UK Logistics Industry Ready for the Transition Period to End?</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Ali N Khan</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">23<span class="month">sep</span></div>
-
-                                        <p>The UK formally exited the EU on 31st January 2020. The 11-month transition period meant for negotiating a new trade deal will come to an end on 31st December.</p>
-
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id1" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Articles Content End -->
-                        <!-- Articles Thumbnail Start -->
-                        <div class="col-lg-5 d-none d-xl-block">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image2.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        <!-- Articles Thumbnail End -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
-            <!-- Single Articles Start -->
-
-            <div class="col-lg-12">
-                <article class="single-article">
-                    <div class="row">
-                        <!-- Articles Thumbnail Start -->
-                        <div class="col-lg-5">
-                            <div class="article-thumb">
-                                <img src="~/img/article/post-image.jpg" alt="JSOFT">
-                            </div>
-                        </div>
-                        <!-- Articles Thumbnail End -->
-                        <!-- Articles Content Start -->
-                        <div class="col-lg-7">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <div class="article-body">
-                                        @{ string id0 = "zero";}
-                                        <h3><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id0">The impact of the Corona virus pandemic within the Transport sector</a></h3>
-                                        <div class="article-meta">
-                                            <a href="#" class="author">By :: <span>Sarah</span></a>
-                                            <a href="#" class="commnet">Comments :: <span>0</span></a>
-                                        </div>
-
-                                        <div class="article-date">17 <span class="month">oct</span></div>
-
-                                        <p>As the year commenced the spread of the COVID-19 virus is one that is yet to be contained, continuing to affect millions of jobs and sectors every day.</p>
-
-
-                                        <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@id0" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Articles Content End -->
-                    </div>
-                </article>
-            </div>
-
-            <!-- Single Articles End -->
+                }
+            }
 
         </div>
+
+        @{
+            var prevDisabled = !Model.HasPreviousPage ? "disabled" : "PagingColor";
+            var nextDisabled = !Model.HasNextPage ? "disabled" : "PagingColor";
+        }
 
         <div class="row">
             <!-- Page Pagination Start -->
@@ -1728,15 +182,135 @@
                 <div class="page-pagi">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            @*
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            *@
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+
+                            @{
+                                <li class="page-item @prevDisabled"><a class="page-link @prevDisabled" asp-action="Blog" asp-route-pageNumber="@(Model.PageIndex-1)">Previous</a></li>
+
+                                @*
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                *@
+                                string activepage = "";
+                                if (Model.TotalPage < 5)
+                                {
+                                    for (var pagecount = 1; pagecount <= Model.TotalPage; pagecount++)
+                                    {
+                                        activepage = "";
+                                        if (pagecount == Model.PageIndex)
+                                        {
+                                            activepage = "active";
+                                        }
+
+                                        <li class="page-item " aria-current="page">
+                                            <a class="page-link @activepage" asp-action="Blog" asp-route-pageNumber="@pagecount">
+                                                @pagecount
+                                            </a>
+                                        </li>
+
+                                    }
+                                }
+                                else
+                                {
+                                    if (Model.PageIndex == 1)
+                                    {
+                                        <li class="page-item" aria-current="page">
+                                            <a class="page-link PagingColor active">
+                                                @Model.PageIndex
+                                            </a>
+                                        </li>
+                                        <li class="page-item" aria-current="page">
+                                            <a class="page-link" asp-action="Blog" asp-route-pageNumber="@(Model.PageIndex + 1)">
+                                                @(Model.PageIndex + 1)
+                                            </a>
+                                        </li>
+                                        <li class="page-item" aria-current="page">
+                                            <a class="page-link">
+                                                ...
+                                            </a>
+                                        </li>
+                                        <li class="page-item" aria-current="page">
+                                            <a class="page-link" asp-action="Blog" asp-route-pageNumber="@Model.TotalPage">
+                                                @Model.TotalPage
+                                            </a>
+                                        </li>
+                                    }
+                                    else if (Model.PageIndex == Model.TotalPage)
+                                    {
+                                        <li class="page-item" aria-current="page">
+                                            <a class="page-link" asp-action="Blog" asp-route-pageNumber="1">
+                                                1
+                                            </a>
+                                        </li>
+                                        <li class="page-item" aria-current="page">
+                                            <a class="page-link">
+                                                ...
+                                            </a>
+                                        </li>
+                                        <li class="page-item" aria-current="page">
+                                            <a class="page-link" asp-action="Blog" asp-route-pageNumber="@(Model.TotalPage-1)">
+                                                @(Model.TotalPage - 1)
+                                            </a>
+                                        </li>
+                                        <li class="page-item" aria-current="page">
+                                            <a class="page-link active">
+                                                @Model.TotalPage
+                                            </a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="page-item" aria-current="page">
+                                            <a class="page-link" asp-action="Blog" asp-route-pageNumber="1">
+                                                1
+                                            </a>
+                                        </li>
+
+                                        @if (Model.PageIndex - 1 != 1)
+                                        {
+                                            <li class="page-item" aria-current="page">
+                                                <a class="page-link">
+                                                    ...
+                                                </a>
+                                            </li>
+                                            <li class="page-item" aria-current="page">
+                                                <a class="page-link" asp-action="Blog" asp-route-pageNumber="@(Model.PageIndex - 1)">
+                                                    @(Model.PageIndex - 1)
+                                                </a>
+                                            </li>
+                                        }
+                                        <li class="page-item" aria-current="page">
+                                            <a class="page-link active">
+                                                @(Model.PageIndex)
+                                            </a>
+                                        </li>
+                                        @if (Model.PageIndex + 1 != Model.TotalPage)
+                                        {
+                                            <li class="page-item" aria-current="page">
+                                                <a class="page-link" asp-action="Blog" asp-route-pageNumber="@(Model.PageIndex + 1)">
+                                                    @(Model.PageIndex + 1)
+                                                </a>
+                                            </li>
+                                            <li class="page-item" aria-current="page">
+                                                <a class="page-link">
+                                                    ...
+                                                </a>
+                                            </li>
+                                        }
+
+                                        <li class="page-item" aria-current="page">
+                                            <a class="page-link" asp-action="Blog" asp-route-pageNumber="@(Model.TotalPage)">
+                                                @Model.TotalPage
+                                            </a>
+                                        </li>
+                                    }
+                                }
+
+                                <li class="page-item"><a asp-action="Blog" asp-route-pageNumber="@(Model.PageIndex+1)" class="page-link @nextDisabled">Next</a></li>
+                            }
+
                         </ul>
                     </nav>
                 </div>

@@ -135,14 +135,14 @@ namespace CrestCouriers_Career.Controllers
         {
 
             ViewData["Title"] = "contact";
-            
+
 
             //Recaptcha code begins here
 
 
             var recaptcha = await _recaptcha.Validate(Request);
             if (!recaptcha.success)
-            { 
+            {
                 ModelState.AddModelError("Recaptcha", "There was an error validating recatpcha. Please try again!");
             }
 
@@ -381,14 +381,14 @@ namespace CrestCouriers_Career.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("Career")]
-        public async Task<IActionResult> Career(RegCareer career, IFormFile UploadCV , EmailRequest emailRequest, string id)
+        public async Task<IActionResult> Career(RegCareer career, IFormFile UploadCV, EmailRequest emailRequest, string id)
         {
 
-            
+
 
             //Recaptcha code begins here
 
-            
+
             var recaptcha = await _recaptcha.Validate(Request);
             if (!recaptcha.success)
                 ModelState.AddModelError("Recaptcha", "There was an error validating recatpcha. Please try again!");
@@ -473,7 +473,7 @@ namespace CrestCouriers_Career.Controllers
             var careercity = JsonConvert.DeserializeObject<string>(HttpContext.Session.GetString("careertype"));
 
             var mybody = @System.IO.File.ReadAllText(_environment.WebRootPath + @"\Email\emailbody-career.html");
-            
+
             mybody = mybody.Replace("Value00", career.FirstName + " " + career.LastName);
             mybody = mybody.Replace("Value01", career.FirstName);
             mybody = mybody.Replace("Value02", career.LastName);
@@ -515,12 +515,12 @@ namespace CrestCouriers_Career.Controllers
 
 
             SmtpClient client = new SmtpClient();
-            client.Connect("smtp.gmail.com",465,true);
+            client.Connect("smtp.gmail.com", 465, true);
             client.Authenticate("crestcouriers@gmail.com", "CRESTcouriers123");
 
-            
 
-            
+
+
 
             client.Send(message);
             //First email
@@ -562,7 +562,7 @@ namespace CrestCouriers_Career.Controllers
             message2.Body = bobu.ToMessageBody();
 
             SmtpClient client2 = new SmtpClient();
-            client2.Connect("smtp.gmail.com",465,true);
+            client2.Connect("smtp.gmail.com", 465, true);
             client2.Authenticate("crestcouriers@gmail.com", "CRESTcouriers123");
 
 
@@ -582,24 +582,30 @@ namespace CrestCouriers_Career.Controllers
 
         [HttpGet]
         [Route("Blog")]
-        public IActionResult Blog()
+        public async Task<IActionResult> Blog(int? pageNumber)
         {
-            //CrestContext context = new CrestContext();
-            //IEnumerable<Article> articles = context.Article.ToList();
+            //EF core start
 
-            return View();
+            CrestContext context = new CrestContext();
+            IEnumerable<Article> articles = context.Article.Include(A => A.Images).OrderByDescending(A => A.ArticleId);
+
+            PaginatedList<Article> ArticleList = await PaginatedList<Article>.CreateAsunc((IQueryable<Article>)articles, pageNumber ?? 1, 4);
+
+
+            //EF core end
+            return View(ArticleList);
         }
 
         [HttpGet]
         [Route("Details")]
-        public IActionResult Details(/*int ArticleId*/ string ArticleId)
+        public IActionResult Details(int ArticleId)
         {
 
-            //CrestContext context = new CrestContext();
-            //var article = context.Article.Include(A => A.Comments).Include(A => A.Images).Where(B => B.ArticleId == ArticleId).SingleOrDefault();
+            CrestContext context = new CrestContext();
+            var article = context.Article.Include(A => A.Comments).Include(A => A.Images).Where(B => B.ArticleId == ArticleId).SingleOrDefault();
 
-            ViewData["ArticleId"] = ArticleId.ToString();
-            return View((object)ArticleId);
+            ViewData["ArticleId"] = ArticleId;
+            return View(article);
 
         }
 

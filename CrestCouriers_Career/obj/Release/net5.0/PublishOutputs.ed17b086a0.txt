@@ -37,10 +37,19 @@ C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\images\banner2.svg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\images\banner3.svg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\404.png
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\456.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\Anfulanza - post.png
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\Anfulanza - post2.png
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\Anfulanza - post3-2.png
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\arti-thumb-1.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\arti-thumb-2.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\arti-thumb-3.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\arti-thumb-4.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\Autumn4-Post.png
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\Autumn4-Post2.png
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\Daymoncold.png
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\Khavas-daroyi-gol-khatmi2.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\NatureFit-post.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\post-image.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\post-image11.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\post-image12.jpg
@@ -74,11 +83,19 @@ C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\post-image38.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\post-image39.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\post-image4.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\post-image40.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\post-image41.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\post-image42.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\post-image43.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\post-image44.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\post-image45.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\post-image5.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\post-image6.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\post-image7.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\post-image8.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\post-image9.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\Post-ruze-darosaz2.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\Post-shevid.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\article\Thumbs.db
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\banner.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\blog\post-image-background.jpg
@@ -95,6 +112,25 @@ C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\client\client-pic-2.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\client\client-pic-3.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\client\Thumbs.db
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\details\Anfulanza - post.png
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\details\Anfulanza - post2.png
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\details\Anfulanza - post3-2.png
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\details\Anfulanza - post3.png
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\details\Autumn-post1-page1.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\details\Autumn-post1-page2.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\details\Autumn-post2-page2.png
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\details\Autumn-post3-page2.png
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\details\Autumn4-Post2.png
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\details\DOC060921-06092021145800-0001.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\details\Post-serkeye-sib.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\details\Post-serkeye-sib2.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\details\Post-shevid.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\details\Sabus-berenj2.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\details\Sabzijat va fiber bar afsordegi.png
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\details\St-arbaeen.png
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\details\St-estekhdam.png
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\details\St-yalda2.png
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\details\WhatsApp Image 2021-06-09 at 21.59.16.jpeg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article-image1.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article-image2.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article-image3.jpg
@@ -197,6 +233,24 @@ C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article4-image1.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article4-image2.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article4-image3.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article40-image1.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article40-image2.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article40-image3.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article41-image1.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article41-image2.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article41-image3.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article42-image1.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article42-image2.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article42-image3.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article43-image1.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article43-image2.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article43-image3.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article44-image1.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article44-image2.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article44-image3.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article45-image1.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article45-image2.jpg
+C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article45-image3.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article5-image1.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article5-image2.jpg
 C:\Users\MJ\Documents\GitHub\CrestCouriers\CrestCouriers_Career\obj\Release\net5.0\PubTmp\Out\wwwroot\img\detail\article5-image3.jpg

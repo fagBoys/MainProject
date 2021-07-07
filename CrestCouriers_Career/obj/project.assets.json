@@ -12190,19 +12190,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\AM\\.nuget\\packages\\": {}
+    "C:\\Users\\MJ\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Amir\\developer\\github\\CrestCouriers\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
+      "projectUniqueName": "C:\\Users\\MJ\\Documents\\GitHub\\CrestCouriers\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
       "projectName": "CrestCouriers_Career",
-      "projectPath": "F:\\Amir\\developer\\github\\CrestCouriers\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
-      "packagesPath": "C:\\Users\\AM\\.nuget\\packages\\",
-      "outputPath": "F:\\Amir\\developer\\github\\CrestCouriers\\CrestCouriers_Career\\obj\\",
+      "projectPath": "C:\\Users\\MJ\\Documents\\GitHub\\CrestCouriers\\CrestCouriers_Career\\CrestCouriers_Career.csproj",
+      "packagesPath": "C:\\Users\\MJ\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MJ\\Documents\\GitHub\\CrestCouriers\\CrestCouriers_Career\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\AM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MJ\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12366,7 +12366,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
