@@ -1,4 +1,4 @@
-﻿@model Article
+﻿@model CrestCouriers_Career.ViewModels.Home.DetailsViewModel
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -42,20 +42,20 @@
 
                 <div class="col-lg-8">
                     <div class="car-details-content">
-                        <h2>@Model.Title</h2>
+                        <h2>@Model.article.Title</h2>
                         <div class="car-preview-crousel">
                             <div class="single-car-preview">
-                                <img src="~/img/detail/@Model.Images.Where(I => I.Primary == false).Select(I => I.ImageName).FirstOrDefault()" alt="JSOFT">
+                                <img src="~/img/detail/@Model.article.Images.Where(I => I.Primary == false).Select(I => I.ImageName).FirstOrDefault()" alt="JSOFT">
                             </div>
                             <div class="single-car-preview">
-                                <img src="~/img/detail/@Model.Images.Where(I => I.Primary == false).Skip(1).Select(I => I.ImageName).First()" alt="JSOFT">
+                                <img src="~/img/detail/@Model.article.Images.Where(I => I.Primary == false).Skip(1).Select(I => I.ImageName).First()" alt="JSOFT">
                             </div>
                             <div class="single-car-preview">
-                                <img src="~/img/detail/@Model.Images.Where(I => I.Primary == false).Skip(2).Select(I => I.ImageName).First()" alt="JSOFT">
+                                <img src="~/img/detail/@Model.article.Images.Where(I => I.Primary == false).Skip(2).Select(I => I.ImageName).First()" alt="JSOFT">
                             </div>
                         </div>
                         <div class="car-details-info blog-content">
-                            @Html.Raw(Model.Body);
+                            @Html.Raw(Model.article.Body);
 
                             <div class="review-area">
                                 <h3>Write Your Comment</h3>
@@ -3715,17 +3715,21 @@
 
                         <div class="sidebar-body">
                             <ul class="recent-tips">
-                                <li class="single-recent-tips">
-                                    <div class="recent-tip-thum">
-                                        <a href="#"><img src="~/img/we-do/service1-img.png" alt="JSOFT"></a>
-                                    </div>
-                                    <div class="recent-tip-body">
-                                        <h4><a href="#">How to Enjoy Losses Angeles Car Rentals</a></h4>
-                                        <span class="date">February 5, 2018</span>
-                                    </div>
-                                </li>
+                                @foreach (var LastArticles in Model.articlesList)
+                                {
+                                    <li class="single-recent-tips">
+                                        <div class="recent-tip-thum">
+                                            <a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@LastArticles.ArticleId"><img style="background-image: url(../img/article/@LastArticles.Images.Where(I => I.Primary == true).Select(AL => AL.ImageName).FirstOrDefault()); background-size:cover;" /></a>
+                                        </div>
+                                        <div class="recent-tip-body">
+                                            <h4><a asp-controller="Home" asp-action="Details" asp-route-ArticleId="@LastArticles.ArticleId">@LastArticles.Title</a></h4>
+                                            <span class="date">@LastArticles.Date.ToLongDateString()</span>
+                                        </div>
+                                    </li>
+                                }
 
-                                <li class="single-recent-tips">
+
+                                @*<li class="single-recent-tips">
                                     <div class="recent-tip-thum">
                                         <a href="#"><img src="~/img/we-do/service3-img.png" alt="JSOFT"></a>
                                     </div>
@@ -3753,7 +3757,7 @@
                                         <h4><a href="#">How to Enjoy Losses Angeles Car Rentals</a></h4>
                                         <span class="date">February 5, 2018</span>
                                     </div>
-                                </li>
+                                </li>*@
                             </ul>
                         </div>
                     </div>

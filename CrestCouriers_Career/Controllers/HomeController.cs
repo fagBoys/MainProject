@@ -20,7 +20,7 @@ using Newtonsoft.Json;
 using CrestCouriers_Career.Data;
 using AspNetCore.SEOHelper.Sitemap;
 using Microsoft.EntityFrameworkCore;
-
+using CrestCouriers_Career.ViewModels.Home;
 
 namespace CrestCouriers_Career.Controllers
 {
@@ -601,11 +601,12 @@ namespace CrestCouriers_Career.Controllers
         public IActionResult Details(int ArticleId)
         {
 
+            DetailsViewModel DVM = new DetailsViewModel();
             CrestContext context = new CrestContext();
-            var article = context.Article.Include(A => A.Comments).Include(A => A.Images).Where(B => B.ArticleId == ArticleId).SingleOrDefault();
-
+            DVM.article = context.Article.Include(A => A.Comments).Include(A => A.Images).Where(B => B.ArticleId == ArticleId).SingleOrDefault();
+            DVM.articlesList = context.Article.Include(A => A.Images).OrderByDescending(A => A.ArticleId).ToList().Take(4);
             ViewData["ArticleId"] = ArticleId;
-            return View(article);
+            return View(DVM);
 
         }
 

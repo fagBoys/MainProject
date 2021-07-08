@@ -2461,8 +2461,9 @@ body,
 
 .recent-tip-thum a img {
 	border-radius: 50%;
-	height: 85px;
-	min-width: 85px;
+	height: 85px !important;
+	min-width: 85px !important;
+	background-size: cover;
 }
 
 .recent-tip-body {
