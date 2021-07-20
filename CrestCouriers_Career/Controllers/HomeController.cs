@@ -311,8 +311,9 @@ namespace CrestCouriers_Career.Controllers
             return View();
         }
 
-        public IActionResult Branchinfo()
+        public IActionResult Branchinfo(string id)
         {
+            ViewData["City"] = id;
             return View();
         }
 

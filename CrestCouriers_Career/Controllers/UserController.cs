@@ -88,9 +88,9 @@ namespace CrestCouriers_Career.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
+        public async Task<IActionResult> Register(RegisterViewModel model /*,string returnUrl = null*/)
         {
-            ViewData["ReturnUrl"] = returnUrl;
+            //ViewData["ReturnUrl"] = returnUrl;
             //ViewData["RepeatedUser"] = "no";
 
             if (ModelState.IsValid)
@@ -118,7 +118,7 @@ namespace CrestCouriers_Career.Controllers
 
 
                     _logger.LogInformation("User created new account with password.");
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Login");
                 }
                 AddErrors(result);
             }

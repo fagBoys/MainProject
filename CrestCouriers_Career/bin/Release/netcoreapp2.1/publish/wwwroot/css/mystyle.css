@@ -193,50 +193,108 @@
     padding-right: 18px;
 }
 
-.branches-left-box
-{
-  width: 100%;
-  height: 100%;
-
-
+.branches-left-box {
+    width: 100%;
+    height: 100%;
 }
 
-.branches-right-box
-{
-  width: 100%;
-  height: 740px;
-
+.branches-right-box {
+    width: 100%;
+    height: 740px;
 }
 
-.branches-cities
-{
-  height: 50px;
-  margin-top: 25px;
-  background-color: #cccccc
+
+.branches-info-right-box {
+    width: 100%;
+    height: 450px;
 }
 
-.branches-cityname-style
-{
-  font-family: sans-serif;
-  padding-left: 20px;
-  padding-top: 18px;
+.branch-info-paragraph {
+    font-family: sans-serif;
+    font-size: 14px;
+    line-height: 2;
+    text-align: justify;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
-.branches-right-head
-{
-  background-color: #cccccc;
-  height: 50px;
-  margin-top: 25px;
+.branch-info-details {
+    width: 100%;
+    height: 450px;
 }
 
-.branches-right-mapbody
-{
-
-  border: solid 1px #cccccc;
-  height: 690px;
-  padding: 25px;
-
+.branch-info-details-title {
+    width: 100%;
+    height: 50px;
+    background-color: #dddddd;
 }
+
+.branch-info-details-title-text {
+    font-family: sans-serif;
+    margin: 10px;
+    padding: 16px;
+}
+
+.branch-info-details-content {
+    width: 100% - 2px;
+    height: auto;
+    border-style: solid;
+    border-color: #dddddd;
+    border-width: 2px;
+}
+
+.branch-info-details-button {
+    text-align: center;
+    margin: auto;
+    color: green;
+    padding: 0px;
+    align-content: center;
+}
+
+branch-info-details
+
+.branch-info-carousel {
+    background-image: url("../img/branches/birmingham/Output-images/Slide1.jpg");
+    background-size: cover;
+    height: 100%;
+}
+
+.branch-info-slider {
+    margin-bottom: 25px;
+}
+
+
+.branches-cities {
+    height: 50px;
+    margin-top: 25px;
+    background-color: #cccccc
+}
+
+.branches-cityname-style {
+    font-family: sans-serif;
+    padding-left: 20px;
+    padding-top: 18px;
+}
+
+.branches-right-head {
+    background-color: #cccccc;
+    height: 50px;
+    margin-top: 25px;
+}
+
+.branches-right-mapbody {
+    border: solid 1px #cccccc;
+    height: 690px;
+    padding: 25px;
+}
+
+
+.branches-info-right-mapbody {
+    border: solid 1px #cccccc;
+    height: 400px;
+    padding: 25px;
+}
+
 
 .popup-message-box
 {
